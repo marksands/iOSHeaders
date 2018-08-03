@@ -56,6 +56,7 @@
 - (void)setupActionDonationCellReuseIdentifiers;
 - (void)setNeedsToComputeDonationCellHeights;
 - (double)cellHeightForDonation:(id)arg1;
+- (_Bool)canBeShownFromSuspendedState;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)keyboardWillChangeFrame:(id)arg1;

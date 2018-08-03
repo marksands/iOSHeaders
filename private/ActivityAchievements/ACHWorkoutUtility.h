@@ -21,7 +21,7 @@
 - (unsigned long long)numberOfFirstPartyWorkoutsWithDuration:(double)arg1 withType:(id)arg2 startingAtOrAfterDate:(id)arg3 endingOnOrBeforeDate:(id)arg4;
 - (unsigned long long)numberOfFirstPartyWorkoutsWithDuration:(double)arg1 containedInInterval:(id)arg2;
 - (unsigned long long)numberOfFirstPartyWorkoutsWithDuration:(double)arg1 withType:(unsigned long long)arg2 endingOnOrBeforeDate:(id)arg3;
-- (id)firstPartyWorkoutsInDateInterval:(id)arg1;
+- (id)workoutsInDateInterval:(id)arg1;
 - (id)initWithProfile:(id)arg1;
 
 @end

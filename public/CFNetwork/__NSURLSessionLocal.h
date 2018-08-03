@@ -23,13 +23,10 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_outstandingTasks;
     NSObject<OS_dispatch_queue> *_invalidateQueue;
     CDUnknownBlockType _invalidateCallback;
-    const struct XURLCache *_xCache;
     const struct XCookieStorage *_xCookies;
     const struct XCredentialStorage *_xCreds;
-    _Bool _xCacheInitComplete;
     _Bool _xCookiesInitComplete;
     _Bool _xCredsInitComplete;
-    struct mutex _xCacheStorageInitLock;
     struct mutex _xCookieStorageInitLock;
     struct mutex _xCredStorageInitLock;
     NSArray *_localProtocolClassesForDefaultSession;
@@ -87,7 +84,6 @@ __attribute__((visibility("hidden")))
 - (const struct XCookieStorage *)_createXCookieStorage;
 - (const struct XCookieStorage *)_createXCookieStorage0;
 - (void)_withXURLCache:(CDUnknownBlockType)arg1;
-- (const struct XURLCache *)_createXURLCache0;
 - (struct _CFHSTSPolicy *)_copyHSTSPolicy;
 - (void)_onqueue_completeInvalidation:(_Bool)arg1;
 - (struct XTubeManager *)_actualTubeManager;

@@ -12,9 +12,6 @@
 
 @interface UIVisualEffectView : UIView <NSSecureCoding>
 {
-    struct {
-        unsigned int suppressReportingEmptyContentView:1;
-    } _effectViewFlags;
     UIView *_maskView;
     UIImage *_maskImage;
     _UIVisualEffectViewBackdropCaptureGroup *_captureGroup;
@@ -54,7 +51,6 @@
 - (id)_contentHost;
 - (id)_debug;
 - (void)_addSubview:(id)arg1 positioned:(long long)arg2 relativeTo:(id)arg3;
-- (void)viewDidMoveToSuperview;
 - (void)layoutSubviews;
 @property(nonatomic, getter=_useReducedTransparencyForContentEffects, setter=_setUseReducedTransparencyForContentEffects:) _Bool useReducedTransparencyForContentEffects;
 @property(retain, nonatomic, setter=_setMaskImage:) UIImage *_maskImage;
@@ -90,6 +86,10 @@
 - (void)_generateWorkaroundKeyframeAnimationsForEffects:(id)arg1;
 - (id)_initialValueForKey:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
+- (void)didMoveToWindow;
+- (void)didMoveToSuperview;
+- (void)willMoveToWindow:(id)arg1;
+- (void)willMoveToSuperview:(id)arg1;
 - (void)setContentView:(id)arg1;
 @property(readonly, nonatomic) UIView *contentView;
 - (void)_populateArchivedSubviews:(id)arg1;

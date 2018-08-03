@@ -8,17 +8,12 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSArray, NSDate, NSLayoutConstraint, NSString, STBarView, STDeviceBedtime, STPaddleView, STUsageItem, UIImageView, UILayoutGuide;
+@class NSArray, NSLayoutConstraint, NSString, STBarView, STDeviceBedtime, STPaddleView, STUsageReportGraphDataSet, UIImageView, UILayoutGuide;
 
 @interface STUsageGraphView : UIView <UIGestureRecognizerDelegate>
 {
+    STUsageReportGraphDataSet *_dataSet;
     STDeviceBedtime *_bedtime;
-    NSArray *_usageItems;
-    STUsageItem *_aggregateUsageItem;
-    unsigned long long _timePeriod;
-    NSDate *_startDate;
-    unsigned long long _timePeriodUnit;
-    unsigned long long _higherResolutionCalendarUnit;
     UIView *_titleView;
     STPaddleView *_paddleView;
     STBarView *_selectedBarView;
@@ -64,20 +59,15 @@
 @property(retain, nonatomic) STBarView *selectedBarView; // @synthesize selectedBarView=_selectedBarView;
 @property(retain, nonatomic) STPaddleView *paddleView; // @synthesize paddleView=_paddleView;
 @property(readonly, nonatomic) UIView *titleView; // @synthesize titleView=_titleView;
-@property(nonatomic) unsigned long long higherResolutionCalendarUnit; // @synthesize higherResolutionCalendarUnit=_higherResolutionCalendarUnit;
-@property(nonatomic) unsigned long long timePeriodUnit; // @synthesize timePeriodUnit=_timePeriodUnit;
-@property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(nonatomic) unsigned long long timePeriod; // @synthesize timePeriod=_timePeriod;
-@property(retain, nonatomic) STUsageItem *aggregateUsageItem; // @synthesize aggregateUsageItem=_aggregateUsageItem;
-@property(copy, nonatomic) NSArray *usageItems; // @synthesize usageItems=_usageItems;
 @property(copy, nonatomic) STDeviceBedtime *bedtime; // @synthesize bedtime=_bedtime;
+@property(retain, nonatomic) STUsageReportGraphDataSet *dataSet; // @synthesize dataSet=_dataSet;
 - (void).cxx_destruct;
 - (void)selectBarWithClosestHorizontalPositionToPoint:(struct CGPoint)arg1;
 - (void)handleGesture:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldRecognizeSimultaneouslyWithGestureRecognizer:(id)arg2;
 - (id)createWeeklyAverageLineWithLayoutGuide:(id)arg1;
 - (id)createBedtimeField;
-- (id)createBarViewWithUsageItems:(id)arg1 layoutGuide:(id)arg2 previousView:(id)arg3 previousLayoutGuide:(id)arg4 layoutGuideWidthMultiplier:(double)arg5 startDate:(id)arg6;
+- (id)createBarViewWithDataPoint:(id)arg1 layoutGuide:(id)arg2 previousView:(id)arg3 previousLayoutGuide:(id)arg4 layoutGuideWidthMultiplier:(double)arg5;
 - (id)createDividerWithView:(id)arg1 layoutGuide:(id)arg2 previousLayoutGuide:(id)arg3 layoutGuideWidthMultiplier:(double)arg4;
 - (id)createFirstDivider;
 - (void)setUpWeeklyAverageLine:(_Bool)arg1;
@@ -85,7 +75,7 @@
 - (void)updateBarViews;
 - (void)setUpBarViewHeightContraints;
 - (void)setUpGraphWithDividerInterval:(unsigned long long)arg1 labelFormatter:(id)arg2;
-- (void)setUsageItems:(id)arg1 aggregateUsageItem:(id)arg2 timePeriod:(unsigned long long)arg3 startDate:(id)arg4 timePeriodUnit:(unsigned long long)arg5 higherResolutionCalendarUnit:(unsigned long long)arg6 animated:(_Bool)arg7;
+- (void)setDataSet:(id)arg1 animated:(_Bool)arg2;
 - (id)initWithTitleView:(id)arg1 graphHeight:(double)arg2;
 
 // Remaining properties

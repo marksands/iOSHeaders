@@ -17,7 +17,7 @@
 + (_Bool)addCodableObject:(id)arg1 toCollection:(id)arg2;
 + (id)codableObjectsFromObjectCollection:(id)arg1;
 + (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 inDatabase:(id)arg3 persistentID:(id)arg4 error:(id *)arg5;
-+ (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)deleteStatementsForRelatedEntitiesInDatabase:(id)arg1;
 + (id)columnNameForSortIdentifier:(id)arg1;
 + (id)databaseTable;

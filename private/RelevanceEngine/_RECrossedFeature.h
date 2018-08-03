@@ -16,6 +16,7 @@
     unsigned long long _featureType;
     unsigned long long _bitCount;
     REFeatureSet *_dependentFeatures;
+    REFeatureSet *_rootFeatures;
     NSArray *_features;
 }
 

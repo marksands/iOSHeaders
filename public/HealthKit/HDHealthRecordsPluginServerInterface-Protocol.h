@@ -9,6 +9,8 @@
 @class HKClinicalBrand, HKMedicalCodingCollection, HKMedicalRecord, HKSource, NSArray, NSFileHandle, NSNumber, NSSet, NSString, NSUUID;
 
 @protocol HDHealthRecordsPluginServerInterface <NSObject>
+- (void)remote_deregisterAppSourceFromClinicalUnlimitedAuthorizationModeConfirmation:(HKSource *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
+- (void)remote_registerAppSourceForClinicalUnlimitedAuthorizationModeConfirmation:(HKSource *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)remote_fetchLogoDataForFeaturedBrandsAtScaleKey:(NSString *)arg1 completion:(void (^)(NSDictionary *, NSError *))arg2;
 - (void)remote_fetchLogoDataForBrand:(HKClinicalBrand *)arg1 scaleKey:(NSString *)arg2 completion:(void (^)(NSData *, NSError *))arg3;
 - (void)remote_fetchRemoteGatewayWithExternalID:(NSString *)arg1 batchID:(NSString *)arg2 completion:(void (^)(HKClinicalGateway *, NSError *))arg3;

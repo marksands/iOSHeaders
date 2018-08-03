@@ -10,7 +10,7 @@
 #import "PUSearchResultsValueSorting.h"
 #import "PUTripSearchResult.h"
 
-@class NSArray, NSAttributedString, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PLSearchResult, PSIDate;
+@class NSArray, NSAttributedString, NSDate, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, PHPerson, PLSearchResult, PSIDate;
 
 __attribute__((visibility("hidden")))
 @interface PUSearchResultsValue : NSObject <PUSearchResultsValueSorting, PUSearchResultItem, PUTripSearchResult>
@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
     NSString *_collectionUUID;
     NSString *_collectionTitle;
     unsigned long long _approximateCount;
+    PHPerson *_person;
     NSString *_selectedDisplayTitle;
     NSMutableDictionary *_uuidToAssetMap;
     id <PUSearchResultsValueDelegate> _delegate;
@@ -45,6 +46,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <PUSearchResultsValueDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly) NSMutableDictionary *uuidToAssetMap; // @synthesize uuidToAssetMap=_uuidToAssetMap;
 @property(retain, setter=_setSelectedDisplayTitle:) NSString *selectedDisplayTitle; // @synthesize selectedDisplayTitle=_selectedDisplayTitle;
+@property(retain, nonatomic, setter=_setPerson:) PHPerson *person; // @synthesize person=_person;
 @property(setter=_setApproximateCount:) unsigned long long approximateCount; // @synthesize approximateCount=_approximateCount;
 @property(readonly) NSString *collectionTitle; // @synthesize collectionTitle=_collectionTitle;
 @property(readonly) NSString *collectionUUID; // @synthesize collectionUUID=_collectionUUID;

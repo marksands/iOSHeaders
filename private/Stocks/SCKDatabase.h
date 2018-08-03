@@ -12,6 +12,7 @@
 
 @interface SCKDatabase : NSObject <SCKDatabaseStoreCoordinatorObserver>
 {
+    struct os_unfair_lock_s _observersLock;
     SCKDatabaseSchema *_schema;
     id <SCKDatabaseStoreCoordinator> _storeCoordinator;
     id <SCKContainerProxying> _container;
@@ -26,6 +27,7 @@
 
 @property(retain, nonatomic) NSMutableDictionary *zoneSnapshotsByZoneName; // @synthesize zoneSnapshotsByZoneName=_zoneSnapshotsByZoneName;
 @property long long status; // @synthesize status=_status;
+@property(nonatomic) struct os_unfair_lock_s observersLock; // @synthesize observersLock=_observersLock;
 @property(retain, nonatomic) NSMutableDictionary *observersByZoneName; // @synthesize observersByZoneName=_observersByZoneName;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(retain, nonatomic) SCKAsyncSerialQueue *ckSyncQueue; // @synthesize ckSyncQueue=_ckSyncQueue;

@@ -15,5 +15,6 @@
 
 // Remaining properties
 @property(copy, nonatomic) NSSet *blueprints; // @dynamic blueprints;
+@property(retain, nonatomic) NSSet *outboundPayloads; // @dynamic outboundPayloads;
 @end
 

@@ -33,6 +33,8 @@
 - (void)_exportTextureAtlasForDevice:(id)arg1 forFont:(long long)arg2 modifier:(id)arg3 values:(id)arg4 padWithZeroes:(_Bool)arg5 preload:(_Bool)arg6;
 - (id)_keyForLabelWithFont:(long long)arg1 fontSize:(double)arg2 padWithZeroes:(_Bool)arg3;
 - (id)_keyForLabelWithFont:(long long)arg1 modifier:(id)arg2 padWithZeroes:(_Bool)arg3;
+- (id)_currentImageSuffixesForDevice:(id)arg1;
+- (id)_supportedImageSuffixesForDevice:(id)arg1;
 - (void)_loadAtlases;
 - (void)checkVersion;
 - (_Bool)_localeChanged;

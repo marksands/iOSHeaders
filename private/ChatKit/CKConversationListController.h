@@ -155,6 +155,7 @@
 - (void)viewDidAppearDeferredSetup;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)_endHoldingUpdatesOnViewWillAppear;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidUnload;
 - (void)viewDidLoad;
@@ -173,6 +174,7 @@
 - (void)_reloadVisibleConversationList:(id)arg1;
 - (void)updateSMSSpamConversationsDisplayName;
 - (void)endHoldingConversationListUpdatesForKey:(id)arg1;
+- (void)endHoldingAllConversationListUpdatesForKey:(id)arg1;
 - (void)beginHoldingConversationListUpdatesForKey:(id)arg1;
 - (void)scrollToTop;
 - (void)significantTimeChange;

@@ -26,6 +26,7 @@
 - (int)purpleBuddyPIDWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (NSNumber *)focusedAppPIDWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (_Bool)isSystemAppShowingAnAlertWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
+- (void)serverInstance:(_AXSpringBoardServerInstance *)arg1 performVoiceShortcutWithIdentifier:(NSString *)arg2 bundleID:(NSString *)arg3;
 - (void)rebootDeviceWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)activateSOSModeWithServerInstance:(_AXSpringBoardServerInstance *)arg1;
 - (void)setDashBoardSystemGesturesEnabled:(_Bool)arg1 withServerInstance:(_AXSpringBoardServerInstance *)arg2;

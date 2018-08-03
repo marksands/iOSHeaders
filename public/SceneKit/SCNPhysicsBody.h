@@ -29,8 +29,8 @@
     struct SCNVector3 _angularVelocityFactor;
     struct SCNVector3 _velocity;
     _Bool _ignoreGravity;
-    double _linearSleepingThreshold;
-    double _angularSleepingThreshold;
+    double _linearRestingThreshold;
+    double _angularRestingThreshold;
     _Bool _explicitMomentOfInertia;
     struct SCNVector3 _momentOfInertia;
     struct SCNVector3 _centerOfMassOffset;
@@ -80,8 +80,12 @@
 @property(nonatomic) unsigned long long categoryBitMask;
 @property(retain, nonatomic) SCNPhysicsShape *physicsShape;
 - (struct btCollisionShape *)_shapeHandleWithShape:(id)arg1 owner:(id)arg2;
-@property(nonatomic) double angularSleepingThreshold;
-@property(nonatomic) double linearSleepingThreshold;
+- (double)angularSleepingThreshold;
+- (void)setAngularSleepingThreshold:(double)arg1;
+- (double)linearSleepingThreshold;
+- (void)setLinearSleepingThreshold:(double)arg1;
+@property(nonatomic) double angularRestingThreshold;
+@property(nonatomic) double linearRestingThreshold;
 @property(nonatomic) double angularDamping;
 @property(nonatomic) double damping;
 @property(nonatomic) double rollingFriction;

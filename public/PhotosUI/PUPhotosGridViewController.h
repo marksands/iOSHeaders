@@ -228,6 +228,7 @@
 - (void)popoverPresentationControllerDidDismissPopover:(id)arg1;
 - (_Bool)popoverPresentationControllerShouldDismissPopover:(id)arg1;
 - (void)prepareForPopoverPresentation:(id)arg1;
+- (_Bool)_navigateToBottomIfNeededAnimated:(_Bool)arg1;
 - (_Bool)pu_handleSecondTabTap;
 - (void)navigateToBottomAnimated:(_Bool)arg1;
 - (void)navigateToRevealPhoto:(id)arg1 inAssetContainer:(id)arg2 animated:(_Bool)arg3;

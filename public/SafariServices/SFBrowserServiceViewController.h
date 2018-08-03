@@ -19,6 +19,7 @@ __attribute__((visibility("hidden")))
     NSDate *_lastHostApplicationSuspendDate;
     WKProcessPool *_processPool;
     _Bool _canNotifyHostApplicationOfRedirects;
+    _Bool _touchEventsShouldStopRedirectNotifications;
     _Bool _isExpectingClientRedirect;
     _Bool _hasBegunFirstNavigation;
     SFBrowserPersonaAnalyticsHelper *_cachedAnalyticsHelper;
@@ -32,7 +33,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSString *hostApplicationCallbackURLScheme; // @synthesize hostApplicationCallbackURLScheme=_hostApplicationCallbackURLScheme;
 @property(retain, nonatomic) SFUserNotification *userNotification; // @synthesize userNotification=_userNotification;
 - (void).cxx_destruct;
-- (void)browserViewDidReceiveFirstTouchEvent:(id)arg1;
+- (void)browserViewDidReceiveTouchEvent:(id)arg1;
 - (void)safariActivity:(id)arg1 didFinish:(_Bool)arg2;
 - (void)webViewControllerWebProcessDidCrash:(id)arg1;
 - (void)webViewController:(id)arg1 didChangeFullScreen:(_Bool)arg2;

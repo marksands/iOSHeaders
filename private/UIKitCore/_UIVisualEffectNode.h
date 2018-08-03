@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSDictionary, NSMutableArray;
+@class NSArray, NSDictionary, NSMutableArray, UIVisualEffectView;
 
 __attribute__((visibility("hidden")))
 @interface _UIVisualEffectNode : NSObject
@@ -17,6 +17,7 @@ __attribute__((visibility("hidden")))
     NSMutableArray *_overlays;
     _Bool _textShouldRenderWithTintColor;
     _Bool _disableInPlaceFiltering;
+    UIVisualEffectView *_hostEffectView;
     NSDictionary *_options;
 }
 
@@ -28,6 +29,7 @@ __attribute__((visibility("hidden")))
 @property(copy, nonatomic) NSArray *viewEffects; // @synthesize viewEffects=_viewEffects;
 @property(copy, nonatomic) NSArray *filterEntries; // @synthesize filterEntries=_filterEntries;
 @property(readonly, copy, nonatomic) NSDictionary *options; // @synthesize options=_options;
+@property(nonatomic) __weak UIVisualEffectView *hostEffectView; // @synthesize hostEffectView=_hostEffectView;
 - (void).cxx_destruct;
 - (id)description;
 - (id)copyForTransitionToNode:(id)arg1;

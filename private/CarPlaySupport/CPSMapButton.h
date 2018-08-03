@@ -11,6 +11,8 @@
 }
 
 + (id)buttonWithCPMapButton:(id)arg1;
+- (void)setCharge:(float)arg1;
+- (float)charge;
 
 @end
 

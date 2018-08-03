@@ -13,6 +13,7 @@
 @interface ASFriendListQuery : HKQuery <ASFriendListQueryClientInterface>
 {
     CDUnknownBlockType _updateHandler;
+    int _mostRecentToken;
 }
 
 + (id)clientInterfaceProtocol;

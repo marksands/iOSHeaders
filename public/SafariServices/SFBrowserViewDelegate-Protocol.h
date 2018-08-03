@@ -11,6 +11,6 @@
 @protocol SFBrowserViewDelegate <NSObject>
 
 @optional
-- (void)browserViewDidReceiveFirstTouchEvent:(_SFBrowserView *)arg1;
+- (void)browserViewDidReceiveTouchEvent:(_SFBrowserView *)arg1;
 @end
 

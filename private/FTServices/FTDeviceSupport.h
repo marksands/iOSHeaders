@@ -91,7 +91,7 @@
 @property(readonly, nonatomic) NSDictionary *CTNetworkInformation;
 - (void)_handlePotentialPhoneNumberRegistrationStateChanged;
 - (void)_invalidateValuesCachedForSelectedPhoneNumberRegistration;
-- (void)noteSelectedPhoneNumberRegistrationSubscriptionNumberDidChange;
+- (void)noteSelectedPhoneNumberRegistrationSubscriptionDidChange;
 - (void)_handleCarrierSettingsChanged;
 - (void)_handleSIMStatusChangedToStatus:(id)arg1;
 - (void)simStatusDidChange:(id)arg1 status:(id)arg2;

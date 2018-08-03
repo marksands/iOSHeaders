@@ -60,6 +60,7 @@
 - (void)didSelectMessage:(id)arg1 conversation:(id)arg2;
 - (void)willSelectMessage:(id)arg1 conversation:(id)arg2;
 - (void)dismiss;
+- (void)_dismissAndPresentPhotosApp;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

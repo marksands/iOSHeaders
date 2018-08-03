@@ -8,7 +8,7 @@
 
 #import "SCKZoneStore.h"
 
-@class CKServerChangeToken, NSArray, NSDate, SCKZoneSchema;
+@class CKServerChangeToken, NSArray, NSDate, NSString;
 
 @interface SCKZoneJSONStore : NSObject <SCKZoneStore>
 {
@@ -17,10 +17,10 @@
     NSDate *_lastSyncDate;
     NSDate *_lastDirtyDate;
     CKServerChangeToken *_serverChangeToken;
-    SCKZoneSchema *_schema;
+    NSString *_zoneName;
 }
 
-@property(retain, nonatomic) SCKZoneSchema *schema; // @synthesize schema=_schema;
+@property(copy, nonatomic) NSString *zoneName; // @synthesize zoneName=_zoneName;
 @property(copy, nonatomic) CKServerChangeToken *serverChangeToken; // @synthesize serverChangeToken=_serverChangeToken;
 @property(copy, nonatomic) NSDate *lastDirtyDate; // @synthesize lastDirtyDate=_lastDirtyDate;
 @property(copy, nonatomic) NSDate *lastSyncDate; // @synthesize lastSyncDate=_lastSyncDate;
@@ -30,7 +30,7 @@
 - (void)clearPendingCommandsUpToCount:(unsigned long long)arg1;
 - (void)addPendingCommands:(id)arg1;
 - (void)applyServerRecordsDiff:(id)arg1;
-- (id)initWithSchema:(id)arg1 serverRecords:(id)arg2 lastSyncDate:(id)arg3 lastDirtyDate:(id)arg4 serverChangeToken:(id)arg5 pendingCommands:(id)arg6;
+- (id)initWithZoneName:(id)arg1 serverRecords:(id)arg2 lastSyncDate:(id)arg3 lastDirtyDate:(id)arg4 serverChangeToken:(id)arg5 pendingCommands:(id)arg6;
 
 @end
 

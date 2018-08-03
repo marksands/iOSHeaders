@@ -6,11 +6,10 @@
 
 #import <ScreenTimeUI/STShowMoreUsageGroupSpecifierProvider.h>
 
-@class BBSettingsGateway, NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+@class BBSettingsGateway, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface STNotificationsUsageGroupSpecifierProvider : STShowMoreUsageGroupSpecifierProvider
 {
-    NSDictionary *_usageItemsByIdentifier;
     NSMutableDictionary *_notificationSectionByBundleID;
     BBSettingsGateway *_notificationSettingsGateway;
     NSObject<OS_dispatch_queue> *_notificationSettingsGatewayQueue;
@@ -19,7 +18,6 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *notificationSettingsGatewayQueue; // @synthesize notificationSettingsGatewayQueue=_notificationSettingsGatewayQueue;
 @property(readonly, nonatomic) BBSettingsGateway *notificationSettingsGateway; // @synthesize notificationSettingsGateway=_notificationSettingsGateway;
 @property(readonly, nonatomic) NSMutableDictionary *notificationSectionByBundleID; // @synthesize notificationSectionByBundleID=_notificationSectionByBundleID;
-@property(copy, nonatomic) NSDictionary *usageItemsByIdentifier; // @synthesize usageItemsByIdentifier=_usageItemsByIdentifier;
 - (void).cxx_destruct;
 - (id)getNotificationsInfo:(id)arg1;
 - (id)getUsageReport:(id)arg1;

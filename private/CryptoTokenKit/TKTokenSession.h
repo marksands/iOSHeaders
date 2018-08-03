@@ -12,7 +12,6 @@
 {
     NSObject<OS_xpc_object> *_clientConnection;
     NSObject<OS_dispatch_queue> *_sessionQueue;
-    LAContext *authenticationCtx;
     TKToken *_token;
     id <TKTokenSessionDelegate> _delegate;
     LAContext *_LAContext;

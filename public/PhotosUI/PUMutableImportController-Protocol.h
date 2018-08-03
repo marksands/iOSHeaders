@@ -7,6 +7,8 @@
 #import "NSObject.h"
 
 @protocol PUMutableImportController <NSObject>
+@property(nonatomic, getter=isLoadingInitialBatchOfAssets) _Bool loadingInitialBatchOfAssets;
+@property(nonatomic) _Bool hasLoadedInitialBatchOfAssets;
 @property(nonatomic, getter=isUserRequiredToTrustHostOnSourceDevice) _Bool userRequiredToTrustHostOnSourceDevice;
 @property(nonatomic, getter=isDeletingAssets) _Bool deletingAssets;
 @property(nonatomic, getter=isImportingAssets) _Bool importingAssets;

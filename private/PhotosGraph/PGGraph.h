@@ -188,6 +188,7 @@
 - (id)insertSpecialPOIAmusementParkNodeFromMomentNode:(id)arg1;
 - (id)insertSceneNodesWithClueCollection:(id)arg1 fromMomentNode:(id)arg2;
 - (id)insertSceneNodeWithScene:(id)arg1 fromEventNode:(id)arg2;
+- (id)largeFrequentLocationNodes;
 - (id)sceneNodesForSceneNames:(id)arg1;
 - (id)_poiLabelForPOIType:(id)arg1;
 - (id)seasonNodes;
@@ -394,9 +395,6 @@
 - (void)invalidateIsCelebratingInGeneralCache;
 - (id)celebratingMomentNodesForDateNode:(id)arg1 eventRule:(id)arg2;
 - (_Bool)isCelebratingHolidayEventInGeneralForEventRule:(id)arg1;
-- (_Bool)isMePresentForMomenNode:(id)arg1;
-- (unsigned long long)eventRuleLocationTraitForMomentNode:(id)arg1;
-- (unsigned long long)eventRulePeopleTraitForMomentNode:(id)arg1;
 - (id)allDatesForEventRule:(id)arg1 yearRange:(struct _NSRange)arg2;
 - (id)allDatesForEventRule:(id)arg1;
 - (id)insertPartOfDayNodeWithPartOfDayName:(id)arg1 fromEventNode:(id)arg2 edgeWeight:(float)arg3;

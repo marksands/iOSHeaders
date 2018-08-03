@@ -160,6 +160,7 @@
 @property(retain, nonatomic) CKMessageEntryView *entryView; // @synthesize entryView=_entryView;
 - (void).cxx_destruct;
 - (void)controller:(id)arg1 didCompleteClassificationRequest:(id)arg2 withResponse:(id)arg3;
+- (void)presentPhotosApp;
 - (void)stageAssetArchive:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)willDismissFunCamera:(id)arg1;
 - (void)startCommitPayload:(id)arg1 forConversation:(id)arg2;
@@ -261,6 +262,7 @@
 - (void)messageEntryViewSendButtonLongPressBegan:(id)arg1;
 - (void)messageEntryViewSendButtonHitWhileDisabled:(id)arg1;
 - (void)_passKitUIDismissed:(id)arg1;
+- (void)selectAccountAndSendComposition:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)messageEntryViewSendButtonHit:(id)arg1;
 - (void)messageEntryView:(id)arg1 didTapMediaObject:(id)arg2;
 - (_Bool)messageEntryView:(id)arg1 shouldInsertMediaObjects:(id)arg2;
@@ -270,6 +272,7 @@
 - (void)messageEntryViewRecordingDidChange:(id)arg1;
 - (void)messageEntryViewDidChange:(id)arg1;
 - (void)_validateAndSendComposition:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)presentActionMenuForAccountSelection:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)_shouldValidatePayloadBeforeSendingPayload:(id)arg1;
 - (void)prewarmFunCamera;
 - (void)sendCurrentLocation;

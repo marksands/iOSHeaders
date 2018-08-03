@@ -13,9 +13,9 @@
 @interface PSUISubscriptionContextMenusGroup : NSObject <PSSpecifierGroup>
 {
     _Bool _popViewControllerOnPlanDeletion;
+    PSSpecifier *_parentSpecifier;
     PSSpecifier *_groupSpecifier;
     PSListController *_listController;
-    PSSpecifier *_parentSpecifier;
     PSUICallingSubgroup *_callingSubgroup;
     PSUICarrierSpaceGroup *_carrierSpaceSubgroup;
     PSUINetworkSelectionSubgroup *_networkSelectionSubgroup;
@@ -39,15 +39,14 @@
 @property(retain, nonatomic) PSUICarrierSpaceGroup *carrierSpaceSubgroup; // @synthesize carrierSpaceSubgroup=_carrierSpaceSubgroup;
 @property(retain, nonatomic) PSUICallingSubgroup *callingSubgroup; // @synthesize callingSubgroup=_callingSubgroup;
 @property(nonatomic) _Bool popViewControllerOnPlanDeletion; // @synthesize popViewControllerOnPlanDeletion=_popViewControllerOnPlanDeletion;
-@property(nonatomic) __weak PSSpecifier *parentSpecifier; // @synthesize parentSpecifier=_parentSpecifier;
 @property(nonatomic) __weak PSListController *listController; // @synthesize listController=_listController;
 @property(nonatomic) __weak PSSpecifier *groupSpecifier; // @synthesize groupSpecifier=_groupSpecifier;
+@property(retain, nonatomic) PSSpecifier *parentSpecifier; // @synthesize parentSpecifier=_parentSpecifier;
 - (void).cxx_destruct;
 - (id)specifiers;
 - (void)viewWillAppear;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
-- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 callingSubgroup:(id)arg4 carrierSpaceSubgroup:(id)arg5 networkSelectionSubgroup:(id)arg6 myNumberSubgroup:(id)arg7 networkSettingsSubgroup:(id)arg8 simSubgroup:(id)arg9 simStatusCache:(id)arg10 carrierBundleCache:(id)arg11 planManagerCache:(id)arg12 cellularPlanManager:(id)arg13 popViewControllerOnPlanDeletion:(_Bool)arg14;
-- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 parentSpecifier:(id)arg3 popViewControllerOnPlanDeletion:(_Bool)arg4;
+- (id)initWithFactory:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

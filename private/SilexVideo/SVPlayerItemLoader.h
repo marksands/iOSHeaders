@@ -14,7 +14,7 @@
 {
     id <SVPlayerItemFactory> _playerItemFactory;
     id <SVURLAssetLoading> _URLAssetLoader;
-    id <SVVideoMetadataProviding> _metadataProvider;
+    id <SVVideoMetadata> _metadata;
     NFStateMachine *_stateMachine;
     NSMutableArray *_loadingStateChangeBlocks;
     unsigned long long _state;
@@ -29,7 +29,7 @@
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSMutableArray *loadingStateChangeBlocks; // @synthesize loadingStateChangeBlocks=_loadingStateChangeBlocks;
 @property(readonly, nonatomic) NFStateMachine *stateMachine; // @synthesize stateMachine=_stateMachine;
-@property(readonly, nonatomic) id <SVVideoMetadataProviding> metadataProvider; // @synthesize metadataProvider=_metadataProvider;
+@property(readonly, nonatomic) id <SVVideoMetadata> metadata; // @synthesize metadata=_metadata;
 @property(readonly, nonatomic) id <SVURLAssetLoading> URLAssetLoader; // @synthesize URLAssetLoader=_URLAssetLoader;
 @property(readonly, nonatomic) id <SVPlayerItemFactory> playerItemFactory; // @synthesize playerItemFactory=_playerItemFactory;
 - (void).cxx_destruct;
@@ -37,7 +37,7 @@
 - (void)onLoadingStateChange:(CDUnknownBlockType)arg1;
 - (void)load;
 - (void)dealloc;
-- (id)initWithPlayerItemFactory:(id)arg1 URLAssetLoader:(id)arg2 metadataProvider:(id)arg3;
+- (id)initWithPlayerItemFactory:(id)arg1 URLAssetLoader:(id)arg2 metadata:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

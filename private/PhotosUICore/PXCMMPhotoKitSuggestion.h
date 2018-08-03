@@ -44,6 +44,7 @@
 @property(readonly, nonatomic) id <PXPeopleFetchResult> peopleFetchResult;
 @property(readonly, nonatomic) long long count;
 @property(readonly, nonatomic) NSString *identifier;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons;
 - (id)suggestionWithUpdatedPeopleSuggestionsFetchResult:(id)arg1;
 - (id)suggestionWithUpdatedPreviewAssetsFetchResult:(id)arg1;
 @property(readonly, copy) NSString *description;

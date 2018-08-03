@@ -122,6 +122,7 @@ __attribute__((visibility("hidden")))
     NSLayoutConstraint *_biasEscapeButtonLeftConstraint;
     NSLayoutConstraint *_biasEscapeButtonRightConstraint;
     NSMutableSet *_keyplaneTransformations;
+    _Bool _externalDictationAndInternationalKeys;
     _Bool _muteNextKeyClickSound;
     int playKeyClickSoundOn;
     UIKBRenderConfig *_renderConfig;

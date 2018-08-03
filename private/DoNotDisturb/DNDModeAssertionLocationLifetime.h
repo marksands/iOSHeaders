@@ -13,6 +13,7 @@
 + (_Bool)supportsSecureCoding;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (unsigned long long)lifetimeType;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 

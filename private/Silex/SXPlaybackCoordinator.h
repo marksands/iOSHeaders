@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "SVVideoMetadataProviding.h"
+#import "SVVideoMetadata.h"
 
 @class NSArray, NSError, NSHashTable, NSObject<SXVideoPlaybackHost>, NSString, SVKeyValueObserver, SXAVPlayer;
 
-@interface SXPlaybackCoordinator : NSObject <SVVideoMetadataProviding>
+@interface SXPlaybackCoordinator : NSObject <SVVideoMetadata>
 {
     _Bool _playbackLikelyToKeepUp;
     _Bool _playbackBufferFull;

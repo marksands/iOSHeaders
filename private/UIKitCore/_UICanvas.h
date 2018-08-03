@@ -9,10 +9,11 @@
 #import "FBSSceneDelegate.h"
 #import "UICoordinateSpace.h"
 #import "_UICanvasLifecycleStateMonitoring.h"
+#import "_UIContextBinderDelegate.h"
 
 @class FBSDisplayConfigurationRequest, FBSScene, FBSSceneSettings, NSArray, NSPointerArray, NSString, UIScreen, _UIContextBinder, __UISceneSubstrate;
 
-@interface _UICanvas : UIResponder <UICoordinateSpace, FBSSceneDelegate, _UICanvasLifecycleStateMonitoring>
+@interface _UICanvas : UIResponder <UICoordinateSpace, _UIContextBinderDelegate, FBSSceneDelegate, _UICanvasLifecycleStateMonitoring>
 {
     _UIContextBinder *_binder;
     UIScreen *_screen;
@@ -22,7 +23,6 @@
     id <_UICanvasMetricsUpdating> _metricsCalculator;
     NSPointerArray *_inheritingCanvases;
     _Bool _active;
-    unsigned char _displayConfigurationRequestRefCount;
     _Bool suspendedEventsOnly;
     _Bool runningInTaskSwitcher;
     _Bool suspendedUnderLock;
@@ -55,7 +55,11 @@
 @property(readonly, nonatomic) long long state; // @synthesize state;
 - (void).cxx_destruct;
 @property(retain, nonatomic, getter=_displayConfigurationRequest, setter=_setDisplayConfigurationRequest:) FBSDisplayConfigurationRequest *displayConfigurationRequest;
-@property(readonly, nonatomic) _Bool _activeDisplayConfigurationRequestTransaction; // @dynamic _activeDisplayConfigurationRequestTransaction;
+- (void)_setRequestedRefreshRate:(double)arg1 HDRMode:(long long)arg2;
+@property(readonly, nonatomic, getter=_requestedHDRMode) long long requestedHDRMode; // @dynamic requestedHDRMode;
+@property(readonly, nonatomic, getter=_requestedRefreshRate) double requestedRefreshRate; // @dynamic requestedRefreshRate;
+@property(nonatomic, getter=_requestedOverscanCompensation, setter=_setRequestedOverscanCompensation:) long long requestedOverscanCompensation; // @dynamic requestedOverscanCompensation;
+@property(nonatomic, getter=_requestedDisplayPixelSize, setter=_setRequestedDisplayPixelSize:) struct CGSize requestedDisplayPixelSize; // @dynamic requestedDisplayPixelSize;
 @property(readonly, nonatomic) id <_UIAnimationFenceCoordinating> animationFencingCoordinator;
 - (void)_invalidate;
 - (void)_recycleAttachmentForWindow:(id)arg1;
@@ -79,6 +83,7 @@
 @property(readonly, nonatomic, getter=_effectiveSettings) FBSSceneSettings *effectiveSettings;
 - (void)scene:(id)arg1 didReceiveActions:(id)arg2;
 - (void)scene:(id)arg1 didUpdateWithDiff:(id)arg2 transitionContext:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (void)enrolledBindablesDidChangeForBinder:(id)arg1;
 @property(readonly, nonatomic) struct CGRect bounds;
 - (struct CGRect)convertRect:(struct CGRect)arg1 fromCoordinateSpace:(id)arg2;
 - (struct CGRect)convertRect:(struct CGRect)arg1 toCoordinateSpace:(id)arg2;

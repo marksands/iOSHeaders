@@ -89,6 +89,8 @@
 - (void)remote_obliterateHealthDataWithOptions:(unsigned long long)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_getHealthDirectorySizeInBytesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)diagnosticDescription;
+- (void)remote_setServerURL:(id)arg1 forAssetType:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)remote_fetchServerURLForAssetType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_getHealthLiteValueForKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)remote_setHealthLiteValue:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)remote_removeDefaultForKey:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

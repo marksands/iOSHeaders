@@ -6,11 +6,13 @@
 
 #import "UIImageView.h"
 
-@class CNMonogrammer, PHAssetCollection, PXViewLayoutHelper, UIGraphicsImageRenderer, UIImage;
+@class CAShapeLayer, CNMonogrammer, NSObject<OS_os_log>, PHAssetCollection, PXViewLayoutHelper, UIGraphicsImageRenderer, UIImage;
 
 __attribute__((visibility("hidden")))
 @interface PUSharedAlbumAvatarView : UIImageView
 {
+    _Bool _isRTL;
+    _Bool _enabled;
     PHAssetCollection *_sharedAlbumCollection;
     CNMonogrammer *_monogrammer;
     UIGraphicsImageRenderer *_imageRenderer;
@@ -18,24 +20,31 @@ __attribute__((visibility("hidden")))
     UIImage *_firstAvatar;
     UIImage *_secondAvatar;
     UIImage *_thirdAvatar;
+    CAShapeLayer *_overlayLayer;
 }
 
-+ (id)_sharedSerialQueue;
++ (id)sharedSerialQueue;
+@property(retain, nonatomic) CAShapeLayer *overlayLayer; // @synthesize overlayLayer=_overlayLayer;
 @property(retain, nonatomic) UIImage *thirdAvatar; // @synthesize thirdAvatar=_thirdAvatar;
 @property(retain, nonatomic) UIImage *secondAvatar; // @synthesize secondAvatar=_secondAvatar;
 @property(retain, nonatomic) UIImage *firstAvatar; // @synthesize firstAvatar=_firstAvatar;
 @property(retain, nonatomic) PXViewLayoutHelper *layoutHelper; // @synthesize layoutHelper=_layoutHelper;
 @property(retain, nonatomic) UIGraphicsImageRenderer *imageRenderer; // @synthesize imageRenderer=_imageRenderer;
 @property(retain, nonatomic) CNMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
+@property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) PHAssetCollection *sharedAlbumCollection; // @synthesize sharedAlbumCollection=_sharedAlbumCollection;
 - (void).cxx_destruct;
+@property(readonly) NSObject<OS_os_log> *log;
 - (void)accessibilityInvertColorsStatusDidChange:(id)arg1;
 - (void)_renderAvatarsForAlbumCollection:(id)arg1;
+- (void)setPersonPhoto:(id)arg1 atIndex:(long long)arg2 albumCollection:(id)arg3;
 - (void)_requestPersonPhoto:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
-- (id)_getPersonOrPhotoOrInitialsForSubscriber:(id)arg1 contact:(id)arg2 outAvatarType:(unsigned long long *)arg3;
 - (void)_setImage:(id)arg1 forIndex:(unsigned long long)arg2;
+- (void)_setContentsImage:(id)arg1 withShadowPath:(struct CGPath *)arg2 forAlbumCollection:(id)arg3;
+- (void)_resetViewContentsIfNeededForAlbumCollection:(id)arg1;
+- (void)_resetViewContents;
 - (void)_resetImages;
-- (void)_updateSubscriberAvatarsWithAlbumCollection:(id)arg1 meContact:(id)arg2 subscribers:(id)arg3;
+- (void)_updateSubscriberAvatarsWithAlbumCollection:(id)arg1;
 - (void)_updateSubscriberAvatars;
 - (struct CGSize)_sizeForNumberOfAvatars:(unsigned long long)arg1;
 - (void)embedInView:(id)arg1;

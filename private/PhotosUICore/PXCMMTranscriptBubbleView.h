@@ -25,6 +25,7 @@
     struct UIEdgeInsets _bubbleSafeAreaInsets;
 }
 
++ (struct CGSize)sizeThatFits:(struct CGSize)arg1 withSpec:(id)arg2;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted; // @synthesize highlighted=_highlighted;
 @property(readonly, nonatomic) id <PXUIImageProvider> mediaProvider; // @synthesize mediaProvider=_mediaProvider;
 @property(readonly, nonatomic) id <PXDisplayAsset> asset; // @synthesize asset=_asset;

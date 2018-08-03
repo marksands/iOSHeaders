@@ -33,7 +33,6 @@
 - (void)encodeWithCoder:(id)arg1;
 - (id)associatedBundleID;
 - (double)associatedAppRegistrationDate;
-- (id)syncStateObject;
 
 @end
 

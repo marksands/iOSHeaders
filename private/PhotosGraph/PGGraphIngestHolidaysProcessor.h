@@ -10,8 +10,8 @@
 {
 }
 
-- (void)insertHolidaysBetweenLocalDate:(id)arg1 andLocalDate:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
-- (void)insertHolidaysWithMomentNodes:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
+- (void)insertHolidaysBetweenLocalDate:(id)arg1 andLocalDate:(id)arg2 locale:(id)arg3 progressBlock:(CDUnknownBlockType)arg4;
+- (void)insertHolidaysWithMomentNodes:(id)arg1 locale:(id)arg2 progressBlock:(CDUnknownBlockType)arg3;
 - (void)runWithGraphUpdate:(id)arg1 progressBlock:(CDUnknownBlockType)arg2;
 - (_Bool)shouldRunWithGraphUpdate:(id)arg1;
 

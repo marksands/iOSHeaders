@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HKHealthStore, HKSource, NSArray, NSDate, NSError, NSMutableSet, NSSet;
+@class HKHealthRecordsStore, HKHealthStore, HKSource, NSArray, NSDate, NSError, NSMutableSet, NSSet;
 
 @interface HKClinicalSourceAuthorizationController : NSObject
 {
@@ -17,14 +17,18 @@
     long long _authorizationModeForSource;
     NSDate *_displayReadAuthorizationAnchorDate;
     HKHealthStore *_healthStore;
+    HKHealthRecordsStore *_healthRecordsStore;
     NSSet *_typesForReading;
     NSSet *_typesRequestedForReading;
     NSMutableSet *_typesEnabledForReading;
+    CDUnknownBlockType __unitTesting_reminderRegistryCompletion;
 }
 
+@property(copy, nonatomic, setter=_unitTesting_setReminderRegistryCompletion:) CDUnknownBlockType _unitTesting_reminderRegistryCompletion; // @synthesize _unitTesting_reminderRegistryCompletion=__unitTesting_reminderRegistryCompletion;
 @property(readonly, nonatomic) NSMutableSet *typesEnabledForReading; // @synthesize typesEnabledForReading=_typesEnabledForReading;
 @property(readonly, copy, nonatomic) NSSet *typesRequestedForReading; // @synthesize typesRequestedForReading=_typesRequestedForReading;
 @property(copy, nonatomic) NSSet *typesForReading; // @synthesize typesForReading=_typesForReading;
+@property(readonly, nonatomic) HKHealthRecordsStore *healthRecordsStore; // @synthesize healthRecordsStore=_healthRecordsStore;
 @property(readonly, nonatomic) HKHealthStore *healthStore; // @synthesize healthStore=_healthStore;
 @property(copy, nonatomic) NSDate *displayReadAuthorizationAnchorDate; // @synthesize displayReadAuthorizationAnchorDate=_displayReadAuthorizationAnchorDate;
 @property(nonatomic) _Bool anyDeterminedTypeAllowsReading; // @synthesize anyDeterminedTypeAllowsReading=_anyDeterminedTypeAllowsReading;
@@ -40,6 +44,8 @@
 @property(readonly, nonatomic) _Bool anyTypeRequested;
 - (_Bool)anyTypeEnabled;
 - (_Bool)allTypesEnabled;
+- (void)_commitModeConfirmationAlertRegistrationShouldDisplay:(_Bool)arg1;
+- (void)_updateReminderRegistrationIfNeededForCommittingModes:(id)arg1 anyTypeEnabled:(_Bool)arg2;
 - (void)_updateDisplayReadAuthorizationAnchorDateIfNeededForCommittingModes:(id)arg1;
 - (_Bool)_shouldUpdateDisplayReadAuthorizationAnchorDateWhenCommittingWithMode:(long long)arg1;
 - (void)commitAllTypesAndUpdateAuthorizationAnchorWithMode:(long long)arg1;
@@ -48,7 +54,8 @@
 - (_Bool)isTypeEnabled:(id)arg1;
 - (id)_orderTypes:(id)arg1;
 - (void)reload;
-- (id)initWithHealthStore:(id)arg1 source:(id)arg2 typesRequestedForReading:(id)arg3;
+- (id)_fetchAllClinicalAuthorizationRecordsWithError:(id *)arg1;
+- (id)initWithHealthStore:(id)arg1 healthRecordsStore:(id)arg2 source:(id)arg3 typesRequestedForReading:(id)arg4;
 
 @end
 

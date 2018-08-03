@@ -17,7 +17,7 @@
 @property(readonly, nonatomic) UILabel *noDataDetailTextLabel; // @synthesize noDataDetailTextLabel=_noDataDetailTextLabel;
 @property(retain, nonatomic) STUser *user; // @synthesize user=_user;
 - (void).cxx_destruct;
-- (id)initWithPreferredFontTextStyle:(id)arg1;
+- (id)initWithPreferredFontTextStyle:(id)arg1 isWidget:(_Bool)arg2;
 
 @end
 

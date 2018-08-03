@@ -12,7 +12,8 @@
 
 + (id)propertyForSyncProvenance;
 + (id)uniquedColumns;
-+ (id)columnsDefinition;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (long long)protectionClass;
 + (id)_predicateForTypes:(id)arg1;

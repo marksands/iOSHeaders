@@ -12,7 +12,8 @@
 
 + (id)privateSubEntities;
 + (long long)protectionClass;
-+ (id)columnsDefinition;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (id)finishWorkoutBuilderWithIdentifier:(id)arg1 dateInterval:(id)arg2 profile:(id)arg3 error:(id *)arg4;
 + (_Bool)discardBuilderWithIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;

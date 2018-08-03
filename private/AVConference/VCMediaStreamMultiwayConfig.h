@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class NSArray, NSString;
 
 __attribute__((visibility("hidden")))
 @interface VCMediaStreamMultiwayConfig : NSObject
@@ -24,8 +24,10 @@ __attribute__((visibility("hidden")))
     unsigned short _repairedStreamID;
     unsigned int _repairedMaxNetworkBitrate;
     _Bool _hasRepairedStreamID;
+    _Bool _startOnDemand;
 }
 
+@property(nonatomic) _Bool startOnDemand; // @synthesize startOnDemand=_startOnDemand;
 @property(nonatomic) _Bool hasRepairedStreamID; // @synthesize hasRepairedStreamID=_hasRepairedStreamID;
 @property(nonatomic) unsigned int repairedMaxNetworkBitrate; // @synthesize repairedMaxNetworkBitrate=_repairedMaxNetworkBitrate;
 @property(nonatomic) unsigned short repairedStreamID; // @synthesize repairedStreamID=_repairedStreamID;
@@ -39,6 +41,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long idsParticipantID; // @synthesize idsParticipantID=_idsParticipantID;
 @property(retain, nonatomic) NSString *participantId; // @synthesize participantId=_participantId;
 @property(retain, nonatomic) NSString *sessionId; // @synthesize sessionId=_sessionId;
+@property(readonly, nonatomic) NSArray *streamIds;
 - (void)dealloc;
 
 @end

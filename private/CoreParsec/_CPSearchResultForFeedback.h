@@ -88,6 +88,9 @@
 @property(copy, nonatomic) NSString *resultBundleId; // @synthesize resultBundleId=_resultBundleId;
 - (id)initWithFacade:(id)arg1;
 - (id)feedbackJSON;
+@property(readonly, copy, nonatomic) NSString *jsonApplicationBundleIdentifier;
+@property(readonly, copy, nonatomic) NSString *jsonSectionBundleIdentifier;
+@property(readonly, copy, nonatomic) NSString *jsonResultBundleIdentifier;
 @property(readonly, copy, nonatomic) id <NSCopying> jsonIdentifier;
 
 // Remaining properties

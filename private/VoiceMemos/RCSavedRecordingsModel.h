@@ -8,7 +8,7 @@
 
 #import "NSFetchedResultsControllerDelegate.h"
 
-@class NSArray, NSCloudKitMirroringRequestOptions, NSData, NSEntityDescription, NSManagedObjectContext, NSPersistentContainer, NSPersistentStore, NSString, RCDatabaseMetadata, RCPersistentContainer, RCSavedRecordingsController;
+@class NSArray, NSCloudKitMirroringRequestOptions, NSData, NSEntityDescription, NSManagedObjectContext, NSPersistentContainer, NSPersistentStore, NSSet, NSString, RCDatabaseMetadata, RCPersistentContainer, RCSavedRecordingsController;
 
 @interface RCSavedRecordingsModel : NSObject <NSFetchedResultsControllerDelegate>
 {
@@ -108,6 +108,7 @@
 - (id)recordingAtIndex:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *recordings;
 @property(readonly, nonatomic) unsigned long long count;
+@property(readonly, nonatomic) NSSet *audioProperties;
 @property(readonly, nonatomic) NSArray *allRecordings;
 - (id)mirroringOptions;
 - (id)cloudRecordingEntity;

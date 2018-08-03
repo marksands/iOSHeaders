@@ -23,7 +23,9 @@
     _Bool _waitingForPredictedAppFeedback;
     _Bool _waitingForPredictedActionFeedback;
     SFSearchResult *_engagedResult;
+    NSMutableArray *_explicitlyDismissedActions;
     _Bool _backgroundActionExecuted;
+    _Bool _cardWasEngaged;
     unsigned long long _lastResultsDidBecomeVisibleTimeStamp;
     unsigned long long _lastDidStartSearchTimeStamp;
     unsigned long long _lastSearchViewDidAppearTimeStamp;

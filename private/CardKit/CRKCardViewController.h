@@ -23,6 +23,7 @@
     id <CRKCardSectionViewSourcing> _builtInCardSectionViewProviderManager;
     NSMutableArray *_loadingCardSections;
     _Bool _indicatingActivity;
+    _Bool _loadBundles;
     id <CRCard> _card;
     id <CRKCardViewControllerDelegate> _cardViewControllerDelegate;
     id <CRKCardSectionViewSourcing> _cardSectionViewSource;
@@ -32,6 +33,7 @@
 + (void)_registerCardSectionViewControllers;
 + (void)initialize;
 @property long long preferredPunchoutIndex; // @synthesize preferredPunchoutIndex=_preferredPunchoutIndex;
+@property(nonatomic) _Bool loadBundles; // @synthesize loadBundles=_loadBundles;
 @property(readonly, nonatomic, getter=isIndicatingActivity) _Bool indicatingActivity; // @synthesize indicatingActivity=_indicatingActivity;
 @property(retain, nonatomic) id <CRKCardSectionViewSourcing> cardSectionViewSource; // @synthesize cardSectionViewSource=_cardSectionViewSource;
 @property(nonatomic) __weak id <CRKCardViewControllerDelegate> cardViewControllerDelegate; // @synthesize cardViewControllerDelegate=_cardViewControllerDelegate;
@@ -71,6 +73,7 @@
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 - (void)_loadCardSectionViewControllersFromCard:(id)arg1 currentSourceInvalid:(_Bool)arg2;
+- (void)_setCardWithLoadedBundles:(id)arg1 loadProvidersImmediately:(_Bool)arg2;
 - (void)_setCard:(id)arg1 loadProvidersImmediately:(_Bool)arg2;
 - (id)_generateCardViewAppearanceFeedback;
 - (_Bool)_isActuallyVisible;
@@ -87,6 +90,7 @@
 - (void)_cancelTouchesIfNecessary;
 - (id)_loadCardSectionViewControllerFromCardSection:(id)arg1;
 - (id)_initWithCard:(id)arg1;
+- (id)_initWithCard:(id)arg1 delegate:(id)arg2 loadBundles:(_Bool)arg3 loadProvidersImmediately:(_Bool)arg4;
 - (id)_initWithCard:(id)arg1 delegate:(id)arg2 loadProvidersImmediately:(_Bool)arg3;
 @property(readonly, nonatomic, getter=isLoading) _Bool loading;
 - (void)cardEventDidOccur:(unsigned long long)arg1 withIdentifier:(id)arg2 userInfo:(id)arg3;

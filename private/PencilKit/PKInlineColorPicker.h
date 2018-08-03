@@ -17,6 +17,7 @@
 {
     _Bool _isUsedOnDarkBackground;
     _Bool _shouldEmboss;
+    _Bool _didSelectColorUsingSpringLoadedSelection;
     unsigned long long _sizeState;
     unsigned long long _selectionState;
     id <PKInlineColorPickerDelegate> _delegate;
@@ -30,10 +31,13 @@
     UIView *_rightOverflowView;
     PKColorPicker *_presentedColorPicker;
     UIColor *__pickerColor;
+    UIColor *_selectedColorBeforeSpringLoadedSelection;
     id <_PKInlineColorPickerAllowDrawingWithPopoverDelegate> __allowDrawingWithPopoverDelegate;
 }
 
 @property(nonatomic) __weak id <_PKInlineColorPickerAllowDrawingWithPopoverDelegate> _allowDrawingWithPopoverDelegate; // @synthesize _allowDrawingWithPopoverDelegate=__allowDrawingWithPopoverDelegate;
+@property(nonatomic) _Bool didSelectColorUsingSpringLoadedSelection; // @synthesize didSelectColorUsingSpringLoadedSelection=_didSelectColorUsingSpringLoadedSelection;
+@property(retain, nonatomic) UIColor *selectedColorBeforeSpringLoadedSelection; // @synthesize selectedColorBeforeSpringLoadedSelection=_selectedColorBeforeSpringLoadedSelection;
 @property(retain, nonatomic) UIColor *_pickerColor; // @synthesize _pickerColor=__pickerColor;
 @property(retain, nonatomic) PKColorPicker *presentedColorPicker; // @synthesize presentedColorPicker=_presentedColorPicker;
 @property(nonatomic) _Bool shouldEmboss; // @synthesize shouldEmboss=_shouldEmboss;
@@ -64,13 +68,13 @@
 - (id)colorsForColorSet:(unsigned long long)arg1;
 - (void)showOverflowViewsIfNeeded;
 - (unsigned long long)colorIndexMatchingColor:(id)arg1;
+- (void)notifyDelegateDidSelectColorInCompactChooseToolState;
+- (void)notifiyDelegateDidSelectColor:(_Bool)arg1;
 - (id)createColorPickerButtonShouldEmboss:(_Bool)arg1;
 - (id)createColorButtonItemWithColor:(id)arg1 shouldEmboss:(_Bool)arg2;
-- (void)colorUnpressed:(id)arg1;
-- (void)colorPressed:(id)arg1;
-- (void)colorTappedInCompactChooseToolState:(id)arg1;
-- (void)colorTappedInChooseColorState:(id)arg1;
-- (void)_setSelectedColorIndexAndNotifyDelegate:(unsigned long long)arg1 colorChanged:(_Bool)arg2;
+- (void)springLoadingGestureHandler:(id)arg1;
+- (void)colorButtonTapHandler:(id)arg1;
+- (void)_selectColorWithButton:(id)arg1;
 - (void)_toggleColorPickerPopoverPresentation:(_Bool)arg1;
 - (void)_dismissColorPickerPopover:(_Bool)arg1;
 - (void)_presentColorPickerPopover:(_Bool)arg1;

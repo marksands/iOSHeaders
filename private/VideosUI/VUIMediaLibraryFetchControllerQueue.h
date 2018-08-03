@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSOperationQueue, VUIDelayOperation, VUIMediaLibrary, VUIMediaLibraryFetchControllerQueueOperation;
+#import "VUINowPlayingObserverDelegate.h"
 
-@interface VUIMediaLibraryFetchControllerQueue : NSObject
+@class NSArray, NSMutableArray, NSObject<OS_dispatch_queue>, NSOperationQueue, NSString, VUIDelayOperation, VUIMediaLibrary, VUIMediaLibraryFetchControllerQueueOperation, VUINowPlayingObserver;
+
+@interface VUIMediaLibraryFetchControllerQueue : NSObject <VUINowPlayingObserverDelegate>
 {
     _Bool _paused;
     _Bool _shouldFetchOnResume;
@@ -20,9 +22,11 @@
     VUIMediaLibraryFetchControllerQueueOperation *_currentFetchOperation;
     VUIDelayOperation *_delayContentsChangeOperation;
     NSOperationQueue *_serialFetchOperationQueue;
+    VUINowPlayingObserver *_nowPlayingObserver;
 }
 
 + (id)defaultQueueWithMediaLibrary:(id)arg1;
+@property(retain, nonatomic) VUINowPlayingObserver *nowPlayingObserver; // @synthesize nowPlayingObserver=_nowPlayingObserver;
 @property(retain, nonatomic) NSOperationQueue *serialFetchOperationQueue; // @synthesize serialFetchOperationQueue=_serialFetchOperationQueue;
 @property(retain, nonatomic) VUIDelayOperation *delayContentsChangeOperation; // @synthesize delayContentsChangeOperation=_delayContentsChangeOperation;
 @property(retain, nonatomic) VUIMediaLibraryFetchControllerQueueOperation *currentFetchOperation; // @synthesize currentFetchOperation=_currentFetchOperation;
@@ -46,6 +50,7 @@
 - (void)_addStateObserverForFetchControllers:(id)arg1;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)_handleMediaLibraryContentsDidChangeNotification:(id)arg1;
+- (void)nowPlayingObserver:(id)arg1 latestObservationDidChange:(id)arg2;
 - (void)resumeFetching;
 - (void)pauseFetching;
 - (void)removeFetchControllers:(id)arg1;
@@ -56,6 +61,12 @@
 - (void)dealloc;
 - (id)initWithMediaLibrary:(id)arg1;
 - (id)init;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

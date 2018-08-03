@@ -219,6 +219,7 @@
 - (_Bool)isHDROnSupportedForDevice:(long long)arg1;
 - (_Bool)isAutomaticHDRSupportedForDevice:(long long)arg1;
 - (_Bool)isIrisSupportedForDevice:(long long)arg1;
+- (_Bool)shouldSuspendVideoHDRForHDRMode:(long long)arg1 captureMode:(long long)arg2;
 - (_Bool)isHDRSupportedForMode:(long long)arg1 device:(long long)arg2;
 - (_Bool)isHDRSupportedForDevice:(long long)arg1;
 - (_Bool)isTorchSupportedForDevice:(long long)arg1;

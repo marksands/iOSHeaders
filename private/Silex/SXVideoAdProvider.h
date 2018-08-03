@@ -16,7 +16,7 @@
     id <SXVideoAdProviderDataSource> _dataSource;
     id <SXAnalyticsReporting> _analyticsReporter;
     SXPrerollAdResponse *_response;
-    id <SVVideoMetadataProviding> _metadata;
+    id <SVVideoMetadata> _metadata;
     SVTimeline *_timeline;
     id <SXVideoAdViewControllerProviding> _fullscreenViewControllerProvider;
     SXVideoAdStateManager *_stateManager;
@@ -31,7 +31,7 @@
 @property(readonly, nonatomic) SXVideoAdStateManager *stateManager; // @synthesize stateManager=_stateManager;
 @property(readonly, nonatomic) id <SXVideoAdViewControllerProviding> fullscreenViewControllerProvider; // @synthesize fullscreenViewControllerProvider=_fullscreenViewControllerProvider;
 @property(readonly, nonatomic) SVTimeline *timeline; // @synthesize timeline=_timeline;
-@property(nonatomic) __weak id <SVVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
+@property(nonatomic) __weak id <SVVideoMetadata> metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) SXPrerollAdResponse *response; // @synthesize response=_response;
 @property(retain, nonatomic) id <SXAnalyticsReporting> analyticsReporter; // @synthesize analyticsReporter=_analyticsReporter;
 @property(nonatomic) __weak id <SXVideoAdProviderDataSource> dataSource; // @synthesize dataSource=_dataSource;

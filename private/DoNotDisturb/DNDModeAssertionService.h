@@ -24,7 +24,7 @@
 + (void)initialize;
 @property(readonly, copy, nonatomic) NSString *clientIdentifier; // @synthesize clientIdentifier=_clientIdentifier;
 - (void).cxx_destruct;
-- (void)_handleLostXPCConnection;
+- (void)_handleLostXPCConnectionWithRetry:(_Bool)arg1;
 - (_Bool)_queue_registerForAssertionUpdatesIfRequired;
 - (void)_handleModeAssertionInvalidation:(id)arg1;
 - (void)_invalidateAllAssertionsWithReason:(unsigned long long)arg1;

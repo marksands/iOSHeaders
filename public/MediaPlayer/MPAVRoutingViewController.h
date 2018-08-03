@@ -26,6 +26,7 @@
     NSArray *_cachedPickedRoutes;
     NSArray *_cachedPendingPickedRoutes;
     NSArray *_cachedDisplayAsPickedRoutes;
+    NSArray *_cachedVolumeCapableRoutes;
     MPWeakTimer *_updateTimer;
     MPAVRoutingController *_routingController;
     long long _routeDiscoveryMode;
@@ -71,12 +72,12 @@
 - (double)_tableViewHeaderViewHeight;
 - (id)_tableHeaderView;
 - (unsigned long long)_tableViewNumberOfRows;
-- (_Bool)_volumeSliderVisibility:(id)arg1;
 - (void)_applyUpdate:(id)arg1;
 - (id)_createReloadUpdate;
 - (void)_enqueueUpdate:(id)arg1;
 - (void)_updateDisplayedRoutes;
 - (void)_reloadEmptyStateVisibility;
+- (id)_volumeCapableRoutesInRoutes:(id)arg1;
 - (id)_displayAsPickedRoutesInRoutes:(id)arg1;
 - (id)_displayableRoutesInRoutes:(id)arg1;
 - (void)_volumeSliderVolumeControlAvailabilityDidChangeNotification:(id)arg1;

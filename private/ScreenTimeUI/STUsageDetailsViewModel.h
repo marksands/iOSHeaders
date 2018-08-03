@@ -6,25 +6,28 @@
 
 #import "NSObject.h"
 
-@class NSDictionary, NSString, STUsageReport;
+@class NSArray, NSDate, NSString, STUsageReport;
 
 @interface STUsageDetailsViewModel : NSObject
 {
-    NSDictionary *_rawUsageItemsByStartDateByIdentifier;
     unsigned long long _selectedTimePeriod;
     NSString *_selectedItemDisplayName;
+    NSDate *_lastUpdatedDate;
     STUsageReport *_todayUsageReport;
     STUsageReport *_weekUsageReport;
+    NSArray *_rawUsageItems;
 }
 
-+ (id)keyPathsForValuesAffectingSelectedPickupInfo;
 + (id)keyPathsForValuesAffectingSelectedUsageReport;
-@property(copy, nonatomic) STUsageReport *weekUsageReport; // @synthesize weekUsageReport=_weekUsageReport;
-@property(copy, nonatomic) STUsageReport *todayUsageReport; // @synthesize todayUsageReport=_todayUsageReport;
++ (id)keyPathsForValuesAffectingHasUsageData;
+@property(readonly, copy, nonatomic) NSArray *rawUsageItems; // @synthesize rawUsageItems=_rawUsageItems;
+@property(retain, nonatomic) STUsageReport *weekUsageReport; // @synthesize weekUsageReport=_weekUsageReport;
+@property(retain, nonatomic) STUsageReport *todayUsageReport; // @synthesize todayUsageReport=_todayUsageReport;
+@property(retain, nonatomic) NSDate *lastUpdatedDate; // @synthesize lastUpdatedDate=_lastUpdatedDate;
 @property(copy, nonatomic) NSString *selectedItemDisplayName; // @synthesize selectedItemDisplayName=_selectedItemDisplayName;
 @property unsigned long long selectedTimePeriod; // @synthesize selectedTimePeriod=_selectedTimePeriod;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSDictionary *rawUsageItemsByStartDateByIdentifier; // @synthesize rawUsageItemsByStartDateByIdentifier=_rawUsageItemsByStartDateByIdentifier;
+- (void)setRawUsageItems:(id)arg1 lastUpdatedDate:(id)arg2;
 @property(readonly, nonatomic) STUsageReport *selectedUsageReport;
 @property(readonly, nonatomic) _Bool hasUsageData;
 - (id)init;

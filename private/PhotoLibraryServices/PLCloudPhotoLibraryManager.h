@@ -22,10 +22,8 @@
     PLCloudBatchUploader *_uploader;
     PLCloudBatchDownloader *_downloader;
     id <PLCloudChangeTracker> _changeTracker;
-    NSString *_lastKnownStoreUUID;
     _Bool _wasRebuild;
     _Bool _hasAttemptedMigration;
-    NSDate *_lastDeviceDataFeedbackTime;
     NSObject<OS_dispatch_queue> *_isolationQueue;
     PLBatterySaverWatcher *_batterySaverWatcher;
     _Bool _processingChange;
@@ -85,6 +83,7 @@
 @property(retain, nonatomic, setter=_setNumberOfPhotosToPush:) NSNumber *_numberOfPhotosToPush; // @synthesize _numberOfPhotosToPush=__numberOfPhotosToPush;
 - (void).cxx_destruct;
 - (void)queryUserIdentitiesWithParticipants:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)forceSyncMomentShareWithScopeIdentifier:(id)arg1;
 - (void)boostPriorityForMomentShareWithScopeIdentifier:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)acceptCPLMomentShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)fetchMomentShareFromShareURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
@@ -140,8 +139,6 @@
 - (_Bool)overrideSystemBudgetsForSyncSession:(_Bool)arg1 forSystemBudgets:(unsigned long long)arg2;
 - (void)getSystemBudgetsWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)startAutomaticPrefetchOrPrune;
-- (void)writeObject:(id)arg1 toCPLPlistWithKey:(id)arg2;
-- (id)readObjectFromCPLPlistWithKey:(id)arg1;
 - (id)lastKnownCloudVersionFromDisk;
 - (void)_processUploadBatchWithStartupFailureCount:(unsigned long long)arg1;
 - (void)_finishUploadWithNoBatchesToUpload;
@@ -160,6 +157,11 @@
 - (void)dumpStatusIncludingDaemon:(_Bool)arg1;
 - (void)doSoftResetSync;
 - (void)resetSyncDueToMigrationMarker;
+- (id)readLocalVersion;
+- (void)setLocalVersion:(id)arg1;
+- (void)setMigratedLocalVersion:(id)arg1;
+- (void)setMigrationMarker:(id)arg1;
+- (id)readMigrationMarker;
 - (void)_doResetSync:(long long)arg1;
 - (void)deleteResources:(id)arg1 checkServerIfNecessary:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)downloadResourceInMemoryForAsset:(id)arg1 resourceType:(unsigned long long)arg2 masterResourceOnly:(_Bool)arg3 proposedTaskIdentifier:(id)arg4 taskDidBeginHandler:(CDUnknownBlockType)arg5 completionHandler:(CDUnknownBlockType)arg6;
@@ -176,10 +178,10 @@
 - (void)registerPlaceholderAssetAvailabilityHandler:(CDUnknownBlockType)arg1 forAssetUUID:(id)arg2;
 - (void)changeTrackerDidReceiveChanges;
 - (_Bool)connectToChangeTracker;
-- (void)saveTokenObject:(id)arg1 forKey:(id)arg2;
-- (id)readTokenObjectWithKey:(id)arg1;
+- (void)saveTokenObject:(id)arg1;
+- (id)readTokenObject;
 - (void)saveLastKnownChangeTrackerTokenToDisk;
-- (void)_setupHubConnection;
+- (void)_setupPLCPLPlist;
 - (void)batterySaverModeDidChange;
 - (void)_checkEnableState;
 - (void)_processNextTransaction;

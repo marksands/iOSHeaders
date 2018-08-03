@@ -143,6 +143,7 @@ __attribute__((visibility("hidden")))
 - (void)stopVideoStreams;
 - (void)stopAudioStreams;
 - (void)stopAudioStreamsCompletion;
+- (void)stopAudioIOCompletion;
 - (void)startVideoStreams;
 - (void)startAudioStreams;
 - (void)startAudioIO;

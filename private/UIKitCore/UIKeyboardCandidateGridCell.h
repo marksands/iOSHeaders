@@ -6,7 +6,7 @@
 
 #import <UIKitCore/UICollectionViewCell.h>
 
-@class NSString, UILabel;
+@class NSString, UIImage, UILabel;
 
 __attribute__((visibility("hidden")))
 @interface UIKeyboardCandidateGridCell : UICollectionViewCell
@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     _Bool _needsUpdateLabels;
     int _candidatesVisualStyle;
     NSString *_text;
+    UIImage *_icon;
     NSString *_alternativeText;
     NSString *_annotationText;
     unsigned long long _candidateNumber;
@@ -70,6 +71,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) unsigned long long candidateNumber; // @synthesize candidateNumber=_candidateNumber;
 @property(copy, nonatomic) NSString *annotationText; // @synthesize annotationText=_annotationText;
 @property(copy, nonatomic) NSString *alternativeText; // @synthesize alternativeText=_alternativeText;
+@property(copy, nonatomic) UIImage *icon; // @synthesize icon=_icon;
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(nonatomic) _Bool usesGroupHeaderAppearance; // @synthesize usesGroupHeaderAppearance=_usesGroupHeaderAppearance;
 @property(nonatomic) _Bool dummy; // @synthesize dummy=_dummy;

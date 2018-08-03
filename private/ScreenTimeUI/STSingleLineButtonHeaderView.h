@@ -19,6 +19,7 @@
 @property(readonly, nonatomic) UIButton *button1; // @synthesize button1=_button1;
 @property(retain, nonatomic) UIButton *selectedButton; // @synthesize selectedButton=_selectedButton;
 - (void).cxx_destruct;
+- (double)preferredHeightForWidth:(double)arg1;
 - (void)setSpecifier:(id)arg1;
 - (void)reloadFromSpecifier;
 - (id)initWithSpecifier:(id)arg1 useContentLayoutGuide:(_Bool)arg2;

@@ -356,6 +356,7 @@
 - (void)touchesBegan:(id)arg1 withEvent:(id)arg2;
 - (id)_selectableIndexPathForItemContainingHitView:(id)arg1;
 - (void)_unhighlightAllItems;
+- (void)_accessibilitySetInterfaceStyleIntent:(unsigned long long)arg1;
 - (void)_invalidateLayoutWithContext:(id)arg1;
 - (void)_invalidateWithBlock:(CDUnknownBlockType)arg1;
 - (void)_performBatchUpdates:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2 invalidationContext:(id)arg3 tentativelyForReordering:(_Bool)arg4 animator:(id)arg5;
@@ -409,6 +410,7 @@
 - (void)registerClass:(Class)arg1 forSupplementaryViewOfKind:(id)arg2 withReuseIdentifier:(id)arg3;
 - (void)registerClass:(Class)arg1 forCellWithReuseIdentifier:(id)arg2;
 - (void)_registeredSupplementaryViewKind:(id)arg1;
+- (double)_focusFastScrollingBarZPosition;
 - (struct UIEdgeInsets)_focusFastScrollingIndexBarInsets;
 - (id)_focusFastScrollingDestinationItemForIndexEntry:(id)arg1;
 - (id)_focusFastScrollingDestinationItemAtContentEnd;

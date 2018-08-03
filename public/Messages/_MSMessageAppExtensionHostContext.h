@@ -27,6 +27,7 @@
 - (void)_openURL:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)_updateSnapshotForNextLaunch:(id)arg1;
+- (void)_dismissAndPresentPhotosApp;
 - (void)_dismiss;
 - (void)_requestPresentationStyle:(unsigned long long)arg1;
 - (void)_startDragMediaItem:(id)arg1 frameInRemoteView:(struct CGRect)arg2 fence:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

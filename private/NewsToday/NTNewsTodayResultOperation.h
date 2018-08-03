@@ -6,7 +6,7 @@
 
 #import <NewsToday/NTTodayResultOperation.h>
 
-@class NSDate, NSDictionary, NSObject, NTCatchUpOperationForYouFetchInfo, NTPBTodayResultOperationFetchInfo, NTTodayResults;
+@class NSDate, NSDictionary, NTCatchUpOperationForYouFetchInfo, NTPBTodayResultOperationFetchInfo, NTTodayResults;
 
 @interface NTNewsTodayResultOperation : NTTodayResultOperation
 {
@@ -16,11 +16,9 @@
     NTTodayResults *_resultTodayResults;
     NSDictionary *_resultAssetHandlesByAssetID;
     NTPBTodayResultOperationFetchInfo *_resultFetchInfo;
-    NSObject *_resultHoldToken;
 }
 
 + (void)initialize;
-@property(retain, nonatomic) NSObject *resultHoldToken; // @synthesize resultHoldToken=_resultHoldToken;
 @property(copy, nonatomic) NTPBTodayResultOperationFetchInfo *resultFetchInfo; // @synthesize resultFetchInfo=_resultFetchInfo;
 @property(copy, nonatomic) NSDictionary *resultAssetHandlesByAssetID; // @synthesize resultAssetHandlesByAssetID=_resultAssetHandlesByAssetID;
 @property(copy, nonatomic) NTTodayResults *resultTodayResults; // @synthesize resultTodayResults=_resultTodayResults;

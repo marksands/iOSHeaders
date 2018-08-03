@@ -82,6 +82,7 @@
 - (id)localizeValueOfSlotDescription:(id)arg1 forLanguage:(id)arg2;
 - (id)intentSlotDescriptions;
 @property(readonly) long long _intents_toggleState;
+- (id)_renderedResponseForLanguage:(id)arg1 requiresSiriCompatibility:(_Bool)arg2;
 - (id)_propertiesByNameForLanguage:(id)arg1;
 - (id)_responseTemplateForLanguage:(id)arg1 requiresSiriCompatibility:(_Bool)arg2;
 - (id)_responseTemplateForLanguage:(id)arg1;

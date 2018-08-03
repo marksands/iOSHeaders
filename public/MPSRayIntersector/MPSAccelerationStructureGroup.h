@@ -9,18 +9,22 @@
 @interface MPSAccelerationStructureGroup : NSObject
 {
     struct MPSBufferAllocator *_triangleIndexBufferAllocator;
-    struct MPSBufferAllocator *_nodeBufferAllocator;
-    struct MPSBufferAllocator *_displacementTableBufferAllocator;
-    struct MPSBufferAllocator *_hashTableBufferAllocator;
+    struct MPSBufferAllocator *_innerNodeBufferAllocator;
+    struct MPSBufferAllocator *_leafNodeBufferAllocator;
+    struct MPSBufferAllocator *_pageTable0BufferAllocator;
+    struct MPSBufferAllocator *_pageTable1BufferAllocator;
+    struct MPSBufferAllocator *_pageBufferAllocator;
     id <MTLDevice> _device;
 }
 
 @property(readonly, nonatomic) id <MTLDevice> device; // @synthesize device=_device;
 - (void)dealloc;
 - (id)initWithDevice:(id)arg1;
-- (struct MPSBufferAllocator *)hashTableBufferAllocator;
-- (struct MPSBufferAllocator *)displacementTableBufferAllocator;
-- (struct MPSBufferAllocator *)nodeBufferAllocator;
+- (struct MPSBufferAllocator *)pageBufferAllocator;
+- (struct MPSBufferAllocator *)pageTable1BufferAllocator;
+- (struct MPSBufferAllocator *)pageTable0BufferAllocator;
+- (struct MPSBufferAllocator *)leafNodeBufferAllocator;
+- (struct MPSBufferAllocator *)innerNodeBufferAllocator;
 - (struct MPSBufferAllocator *)triangleIndexBufferAllocator;
 
 @end

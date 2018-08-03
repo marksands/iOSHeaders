@@ -28,6 +28,7 @@
     id <PXFeedSectionInfosManagerDelegate> _delegate;
 }
 
++ (id)mostRecentCreationDate;
 @property(nonatomic) __weak id <PXFeedSectionInfosManagerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) unsigned long long fetchLimit; // @synthesize fetchLimit=_fetchLimit;
 @property(retain, nonatomic) NSDate *earliestDate; // @synthesize earliestDate=_earliestDate;

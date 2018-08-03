@@ -23,6 +23,7 @@
 - (struct CGSize)intrinsicContentSize;
 - (void)layoutSubviews;
 - (struct UIEdgeInsets)alignmentRectInsets;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (void)_updateImages;
 - (id)initWithLayoutStyle:(long long)arg1;
 - (void)_commonCAMCreativeCameraButtonInitializationWithStyle:(long long)arg1;

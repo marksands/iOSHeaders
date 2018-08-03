@@ -21,13 +21,13 @@
     unsigned long long _rightwardMorphTargetIndex;
     unsigned long long _upwardMorphTargetIndex;
     unsigned long long _downwardMorphTargetIndex;
-    SCNMorpher *_extraSimulationFactorReadMorpher;
+    SCNNode *_extraSimulationFactorReadMorpherNode;
     unsigned long long _extraSimulationFactorTargetIndex;
 }
 
 @property(nonatomic) _Bool mirrored; // @synthesize mirrored=_mirrored;
 @property(nonatomic) unsigned long long extraSimulationFactorTargetIndex; // @synthesize extraSimulationFactorTargetIndex=_extraSimulationFactorTargetIndex;
-@property(retain, nonatomic) SCNMorpher *extraSimulationFactorReadMorpher; // @synthesize extraSimulationFactorReadMorpher=_extraSimulationFactorReadMorpher;
+@property(retain, nonatomic) SCNNode *extraSimulationFactorReadMorpherNode; // @synthesize extraSimulationFactorReadMorpherNode=_extraSimulationFactorReadMorpherNode;
 @property(nonatomic) unsigned long long downwardMorphTargetIndex; // @synthesize downwardMorphTargetIndex=_downwardMorphTargetIndex;
 @property(nonatomic) unsigned long long upwardMorphTargetIndex; // @synthesize upwardMorphTargetIndex=_upwardMorphTargetIndex;
 @property(nonatomic) unsigned long long rightwardMorphTargetIndex; // @synthesize rightwardMorphTargetIndex=_rightwardMorphTargetIndex;

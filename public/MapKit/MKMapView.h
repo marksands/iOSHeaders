@@ -627,6 +627,7 @@
 @property(nonatomic) _Bool showsAttribution;
 - (void)_restoreViewportFromDictionary:(id)arg1;
 - (id)_viewportDictionary;
+- (void)_forceManifestUpdateIfNecessary;
 @property(retain, nonatomic, getter=_additionalManifestConfiguration, setter=_setAdditionalManifestConfiguration:) GEOResourceManifestConfiguration *additionalManifestConfiguration;
 @property(readonly, nonatomic, getter=_mapLayer) VKMapView *mapLayer;
 - (void)traitCollectionDidChange:(id)arg1;

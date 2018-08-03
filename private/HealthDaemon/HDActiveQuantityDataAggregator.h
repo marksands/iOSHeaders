@@ -18,6 +18,7 @@
 - (id)description;
 - (id)aggregateSensorData:(id)arg1 collector:(id)arg2 device:(id)arg3 requestedAggregationDate:(id)arg4 mode:(long long)arg5 error:(id *)arg6;
 - (Class)sensorDatumClass;
+- (double)defaultDataCollectionInterval;
 - (id)objectType;
 - (id)initForQuantityType:(id)arg1 dataCollectionManager:(id)arg2;
 

@@ -69,9 +69,14 @@
     NSArray *_people;
     NSMapTable *_realNameToFirstSeenTimestamp;
     unsigned long long _peopleStartTimestamp;
+    _Bool _browserPaused;
+    _Bool _didSelectNode;
+    int _sharedItemsCount;
+    NSMutableDictionary *_sharedItemsMap;
     _Bool _sharedItemsAvailable;
     _Bool _otherActivityViewPresented;
     _Bool _darkStyleOnLegacyApp;
+    _Bool _manuallyManageBrowsing;
     NSObject<SFAirDropActivityViewControllerDelegate> *_delegate;
     NSString *_overriddenTitleText;
     NSString *_overriddenNoWiFIBTText;
@@ -82,6 +87,7 @@
 
 + (_Bool)airDropActivityCanPerformActivityWithItemClasses:(id)arg1;
 + (_Bool)isAirDropAvailable;
+@property(nonatomic) _Bool manuallyManageBrowsing; // @synthesize manuallyManageBrowsing=_manuallyManageBrowsing;
 @property(copy, nonatomic) NSString *overriddenInstructionsText; // @synthesize overriddenInstructionsText=_overriddenInstructionsText;
 @property(copy, nonatomic) NSString *overriddenNoAWDLText; // @synthesize overriddenNoAWDLText=_overriddenNoAWDLText;
 @property(copy, nonatomic) NSString *overriddenNoWiFIBTText; // @synthesize overriddenNoWiFIBTText=_overriddenNoWiFIBTText;
@@ -104,14 +110,14 @@
 - (_Bool)addItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
 - (_Bool)addItemProvider:(id)arg1 withDataType:(id)arg2 attachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5;
 - (void)handleOtherItemProvider:(id)arg1 withDataType:(id)arg2 attachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5;
-- (void)handleImageItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
-- (void)handleLivePhotoItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
-- (_Bool)addAttributedString:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
-- (_Bool)addString:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
-- (_Bool)createURLPayloadForData:(id)arg1 ofType:(id)arg2 withAttachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5 completion:(CDUnknownBlockType)arg6;
-- (_Bool)addData:(id)arg1 ofType:(id)arg2 withAttachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5;
-- (_Bool)addImage:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
-- (_Bool)addURL:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4;
+- (void)handleImageItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4 itemIndex:(int)arg5;
+- (void)handleLivePhotoItemProvider:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4 itemIndex:(int)arg5;
+- (_Bool)addAttributedString:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4 itemIndex:(int)arg5;
+- (_Bool)addString:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4 itemIndex:(int)arg5;
+- (_Bool)createURLPayloadForData:(id)arg1 ofType:(id)arg2 withAttachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5 itemIndex:(int)arg6 completion:(CDUnknownBlockType)arg7;
+- (_Bool)addData:(id)arg1 ofType:(id)arg2 withAttachmentName:(id)arg3 description:(id)arg4 previewImage:(id)arg5 itemIndex:(int)arg6;
+- (_Bool)addImage:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4 itemIndex:(int)arg5;
+- (_Bool)addURL:(id)arg1 withAttachmentName:(id)arg2 description:(id)arg3 previewImage:(id)arg4 itemIndex:(int)arg5;
 - (_Bool)isValidPayload:(id)arg1 toPerson:(id)arg2 invalidMessage:(id *)arg3;
 - (void)startTransferForPeople:(id)arg1;
 - (void)setNeedsRequestingSharedItems;
@@ -147,6 +153,7 @@
 - (_Bool)isBluetoothEnabled;
 - (_Bool)isWifiEnabled;
 - (_Bool)isTetheredModeEnabled;
+- (_Bool)isDebugMode;
 - (_Bool)enableModernShareSheeet;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)attributedStringWithTitle:(id)arg1 content:(id)arg2;
@@ -167,6 +174,7 @@
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)willEnterForeground:(id)arg1;
 - (void)didEnterBackground:(id)arg1;
+- (void)_setIsLoadingActivityItemProviders:(_Bool)arg1;
 - (void)stopBrowsing;
 - (void)startBrowsing;
 - (void)invalidate;

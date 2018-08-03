@@ -29,6 +29,7 @@ __attribute__((visibility("hidden")))
     PXFeatureSpec *_featureSpec;
     PXAssetBadgeManager *_badgeManager;
     PXCollectionTileLayoutTemplate *_collectionTileLayoutTemplate;
+    struct CGSize _albumCellSize;
 }
 
 + (id)_placeholderImageWithSize:(struct CGSize)arg1 backgroundColor:(id)arg2 glyphImageName:(id)arg3 glyphAlpha:(double)arg4;
@@ -44,6 +45,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImage *addSharedAlbumPlaceholderImage; // @synthesize addSharedAlbumPlaceholderImage=_addSharedAlbumPlaceholderImage;
 @property(retain, nonatomic) UIImage *emptySharedAlbumPlaceholderImage; // @synthesize emptySharedAlbumPlaceholderImage=_emptySharedAlbumPlaceholderImage;
 @property(retain, nonatomic) UIImage *emptyAlbumPlaceholderImage; // @synthesize emptyAlbumPlaceholderImage=_emptyAlbumPlaceholderImage;
+@property(nonatomic) struct CGSize albumCellSize; // @synthesize albumCellSize=_albumCellSize;
 @property(retain, nonatomic) PUFontManager *fontManager; // @synthesize fontManager=_fontManager;
 @property(readonly, nonatomic) PXPhotoKitCollectionsDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 @property(readonly, nonatomic) PUAlbumListCellContentViewHelperConfiguration *configuration; // @synthesize configuration=_configuration;
@@ -63,8 +65,8 @@ __attribute__((visibility("hidden")))
 - (id)_visibleAssetsForCollection:(id)arg1 maximumNumberOfVisibleAssets:(long long)arg2 correspondingCollections:(out id *)arg3;
 - (id)_visibleAssetsForCollection:(id)arg1 correspondingCollections:(out id *)arg2;
 - (unsigned long long)_editCapabilitiesForAlbum:(id)arg1;
-- (struct CGSize)albumCellSize;
-- (void)invalidateFontManager;
+- (void)_recalculateAlbumCellSize;
+- (void)_invalidateAlbumCellSize;
 - (void)reconfigureImageInAlbumListCellContentView:(id)arg1 withPlaceholderImage:(id)arg2;
 - (long long)estimatedIndexOfAssetForStackItemAtIndex:(long long)arg1 inCollection:(id)arg2 albumListCellContentView:(id)arg3;
 - (void)configureAlbumListCellContentView:(id)arg1 forCollection:(id)arg2 title:(id)arg3 animated:(_Bool)arg4 enabled:(_Bool)arg5 editing:(_Bool)arg6;

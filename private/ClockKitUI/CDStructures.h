@@ -42,6 +42,7 @@ struct CLKUIAtlasBackingStructure {
 
 struct CLKUIGLUniforms {
     int rotation;
+    int dialRadius;
     int sampleRadius;
     int sampleCenter;
     int primaryTexture;

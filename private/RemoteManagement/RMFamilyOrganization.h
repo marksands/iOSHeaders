@@ -6,7 +6,7 @@
 
 #import <RemoteManagement/RMCoreOrganization.h>
 
-@class RMFamilyOrganizationSettings;
+@class NSSet;
 
 @interface RMFamilyOrganization : RMCoreOrganization
 {
@@ -15,7 +15,7 @@
 + (id)fetchOrCreateFamilyOrganizationWithContext:(id)arg1 error:(id *)arg2;
 
 // Remaining properties
-@property(retain, nonatomic) RMFamilyOrganizationSettings *settings; // @dynamic settings;
+@property(retain, nonatomic) NSSet *settings; // @dynamic settings;
 
 @end
 

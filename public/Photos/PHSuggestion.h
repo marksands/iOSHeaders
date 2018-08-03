@@ -14,6 +14,8 @@
     NSData *_featuresData;
     NSDate *_creationDate;
     unsigned long long _approximateCount;
+    unsigned long long _approximatePhotosCount;
+    unsigned long long _approximateVideosCount;
     unsigned short _type;
     unsigned short _subtype;
     unsigned short _state;
@@ -51,12 +53,15 @@
 @property(readonly, nonatomic) unsigned short subtype; // @synthesize subtype=_subtype;
 @property(readonly, nonatomic) unsigned short type; // @synthesize type=_type;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons;
 - (id)description;
 @property(readonly, nonatomic) NSDictionary *featuresProperties; // @synthesize featuresProperties=_featuresProperties;
 @property(readonly, nonatomic) NSDictionary *actionProperties; // @synthesize actionProperties=_actionProperties;
 - (id)predicateForAllMomentsFromRepresentativeAssets;
 - (id)predicateForAllAssets;
 - (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
+- (unsigned long long)estimatedVidoesCount;
+- (unsigned long long)estimatedPhotosCount;
 - (unsigned long long)estimatedAssetCount;
 - (id)creationDate;
 - (id)localizedSubtitle;

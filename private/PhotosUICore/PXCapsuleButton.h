@@ -6,14 +6,16 @@
 
 #import "UIButton.h"
 
-@class NSMutableDictionary, UIActivityIndicatorView;
+@class NSMutableDictionary, NSString, UIActivityIndicatorView;
 
 @interface PXCapsuleButton : UIButton
 {
     NSMutableDictionary *_stateColorMap;
     UIActivityIndicatorView *_activityIndicatorView;
+    NSString *_maxContentSizeCategory;
 }
 
+@property(nonatomic) NSString *maxContentSizeCategory; // @synthesize maxContentSizeCategory=_maxContentSizeCategory;
 - (void).cxx_destruct;
 - (id)_backgroundImageWithColor:(id)arg1;
 - (id)_titleFont;

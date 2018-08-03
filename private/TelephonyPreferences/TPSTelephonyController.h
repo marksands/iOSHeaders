@@ -27,21 +27,23 @@
 @property(nonatomic) struct os_unfair_lock_s accessorLock; // @synthesize accessorLock=_accessorLock;
 @property(readonly, nonatomic) CoreTelephonyClient *telephonyClient; // @synthesize telephonyClient=_telephonyClient;
 - (void).cxx_destruct;
+- (void)context:(id)arg1 capabilitiesChanged:(id)arg2;
 - (void)subscriptionInfoDidChange;
 - (id)systemCapabilitiesForSubscriptionContext:(id)arg1 error:(id *)arg2;
 - (id)systemCapabilitiesForSubscriptionContext:(id)arg1;
-- (_Bool)supportsCellularNetworkSelectionForSubscriptionContext:(id)arg1;
-- (_Bool)supportsCallWaitingForSubscriptionContext:(id)arg1;
-- (_Bool)supportsCallForwardingForSubscriptionContext:(id)arg1;
-- (_Bool)supportsCapabilityWithName:(id)arg1 subscriptionContext:(id)arg2;
-- (void)performAtomicDelegateBlock:(CDUnknownBlockType)arg1;
-- (void)performAtomicAccessorBlock:(CDUnknownBlockType)arg1;
+- (_Bool)supportsSystemCapabilityCallWaitingForSubscriptionContext:(id)arg1;
+- (_Bool)supportsSystemCapabilityCallForwardingForSubscriptionContext:(id)arg1;
+- (_Bool)supportsSystemCapabilityCallerIDForSubscriptionContext:(id)arg1;
+- (_Bool)supportsSystemCapabilityWithName:(id)arg1 subscriptionContext:(id)arg2;
 - (id)fetchSystemCapabilitiesForSubscriptions:(id)arg1;
 - (id)fetchSubscriptions;
+- (_Bool)supportsCellularNetworkSelectionForSubscriptionContext:(id)arg1;
+- (void)performAtomicDelegateBlock:(CDUnknownBlockType)arg1;
+- (void)performAtomicAccessorBlock:(CDUnknownBlockType)arg1;
 - (void)removeDelegate:(id)arg1;
 - (void)addDelegate:(id)arg1 queue:(id)arg2;
-@property(copy, nonatomic) NSOrderedSet *subscriptions; // @synthesize subscriptions=_subscriptions;
 @property(copy, nonatomic) NSDictionary *systemCapabilities; // @synthesize systemCapabilities=_systemCapabilities;
+@property(copy, nonatomic) NSOrderedSet *subscriptions; // @synthesize subscriptions=_subscriptions;
 - (id)init;
 
 // Remaining properties

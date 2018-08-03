@@ -13,6 +13,7 @@
 
 @property(retain, nonatomic) id <STContentPrivacyViewModelCoordinator> coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
+- (id)defaultSwitchSpecifierWithConfiguration:(id)arg1 key:(id)arg2;
 - (id)radioGroupSpecifierWithName:(id)arg1 footerText:(id)arg2 item:(id)arg3;
 - (id)defaultLinkListSpecifierWithConfiguration:(id)arg1 key:(id)arg2;
 - (id)defaultLinkListSpecifierWithConfiguration:(id)arg1 key:(id)arg2 titlesByValue:(id)arg3 sortByTitle:(_Bool)arg4;

@@ -22,6 +22,7 @@
 @property(nonatomic) __weak id <DNDSScheduleManagerDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
 - (void)_queue_refreshWithDate:(id)arg1;
+- (id)transformedModeIdentifierForModeAssertion:(id)arg1;
 - (id)transformedLifetimeForModeAssertion:(id)arg1;
 - (void)modeAssertionProvider:(id)arg1 didPerformInvalidations:(id)arg2;
 - (void)refresh;

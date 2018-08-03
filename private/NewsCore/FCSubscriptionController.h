@@ -36,11 +36,14 @@
 - (void)_handleTagSubscriptionsAdded:(id)arg1 tagSubscriptionsChanged:(id)arg2 tagSubscriptionsMoved:(id)arg3 tagSubscriptionsRemoved:(id)arg4 eventInitiationLevel:(long long)arg5;
 - (void)_notifyOfTagsWithNotificationSupport:(id)arg1;
 - (void)_notifyOfTagsAdded:(id)arg1 tagsChanged:(id)arg2 tagsMoved:(id)arg3 tagsRemoved:(id)arg4 subscriptionType:(unsigned long long)arg5 eventInitiationLevel:(long long)arg6;
+- (void)_prewarmFeedNavAssetsInOrderedSubscribedTags:(id)arg1 limit:(unsigned long long)arg2;
 - (void)_fetchTagsForIDs:(id)arg1 maxCachedAge:(double)arg2 qualityOfService:(long long)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_integrateTags:(id)arg1 eventInitiationLevel:(long long)arg2;
 - (void)_fetchMissingTagsWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_refreshChannelsWithNotificationsEnabled;
-- (void)_purchaseListDidChange;
+- (void)_updateNotificationsForPurchaseTagIDs:(id)arg1 isPaid:(_Bool)arg2;
+- (void)_purchaseListDidRemoveTagIDs:(id)arg1;
+- (void)_purchaseListDidAddTagIDs:(id)arg1;
 - (void)activityObservingApplicationDidEnterBackground;
 - (void)subscriptionList:(id)arg1 didAddSubscriptions:(id)arg2 changeSubscriptions:(id)arg3 moveSubscriptions:(id)arg4 removeSubscriptions:(id)arg5 eventInitiationLevel:(long long)arg6;
 - (_Bool)addGroupableSubscriptionForTagID:(id)arg1 origin:(unsigned long long)arg2 eventInitiationLevel:(long long)arg3;

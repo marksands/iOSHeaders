@@ -9,10 +9,11 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSDate, NSString, REIdentifier;
+@class NSDate, NSDictionary, NSString, REIdentifier;
 
 @interface REDonatedAction : NSObject <NSSecureCoding, NSCopying>
 {
+    _Bool _isIntentBacked;
     _Bool _localDonation;
     unsigned long long _type;
     NSDate *_creationDate;
@@ -23,11 +24,13 @@
     unsigned long long _relevanceProvidersHash;
     NSString *_intentTypeName;
     NSString *_activityType;
+    NSDictionary *_metrics;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)supportedActivityType:(id)arg1 forBundleID:(id)arg2;
 + (id)bundleIdForExtensionId:(id)arg1;
+@property(retain, nonatomic) NSDictionary *metrics; // @synthesize metrics=_metrics;
 @property(readonly, nonatomic) NSString *activityType; // @synthesize activityType=_activityType;
 @property(readonly, nonatomic) NSString *intentTypeName; // @synthesize intentTypeName=_intentTypeName;
 @property(readonly, nonatomic) unsigned long long relevanceProvidersHash; // @synthesize relevanceProvidersHash=_relevanceProvidersHash;
@@ -46,6 +49,7 @@
 - (void)loadIntent:(CDUnknownBlockType)arg1;
 - (void)loadUserActivity:(CDUnknownBlockType)arg1;
 - (void)_loadDuetEvent:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) unsigned long long trainingActionIdentifier;
 @property(readonly, nonatomic) NSString *localBundleIdentifier;
 @property(readonly, nonatomic) NSString *remoteBundleIdentifier;
 @property(readonly, nonatomic) NSString *bundleIdentifier;

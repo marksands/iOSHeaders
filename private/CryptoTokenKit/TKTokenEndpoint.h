@@ -26,7 +26,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)dealloc;
 - (void)acceptNewConnection:(id)arg1;
-- (id)sessionForEvent:(id)arg1 error:(id *)arg2;
+- (id)sessionForEvent:(id)arg1 context:(id *)arg2 error:(id *)arg3;
 @property(readonly) NSXPCListenerEndpoint *endpoint;
 - (void)terminateAfterRemovingClientWithNotification:(CDUnknownBlockType)arg1;
 - (void)resumeWithToken:(id)arg1 tokenError:(id)arg2;

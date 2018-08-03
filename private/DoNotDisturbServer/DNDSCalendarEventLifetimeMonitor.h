@@ -19,6 +19,7 @@
 - (void)_calendarEventStoreChangedWithNotification:(id)arg1;
 - (void)_timerFired:(id)arg1;
 - (id)updateForModeAssertionDetails:(id)arg1 date:(id)arg2;
+- (id)activeDateIntervalForCalendarEventLifetime:(id)arg1 assertionStartDate:(id)arg2;
 - (id)init;
 
 @end

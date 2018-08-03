@@ -11,6 +11,7 @@
 }
 
 + (id)sharedInstance;
+@property(readonly, nonatomic) _Bool allowsDAUMetricCollection;
 @property(readonly, nonatomic) _Bool allowsShowingUndownloadedMovies;
 @property(readonly, nonatomic) _Bool allowsShowingUndownloadedTVShows;
 

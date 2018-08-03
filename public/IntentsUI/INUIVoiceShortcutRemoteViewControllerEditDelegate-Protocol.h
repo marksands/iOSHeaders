@@ -9,7 +9,7 @@
 @class NSError, NSUUID, VCVoiceShortcut;
 
 @protocol INUIVoiceShortcutRemoteViewControllerEditDelegate <NSObject>
-- (void)remoteViewControllerEditDidCacnel;
+- (void)remoteViewControllerEditDidCancel;
 - (void)remoteViewControllerDidDeleteVoiceShortcutWithIdentifier:(NSUUID *)arg1;
 - (void)remoteViewControllerDidEditVoiceShortcut:(VCVoiceShortcut *)arg1 error:(NSError *)arg2;
 @end

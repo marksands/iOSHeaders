@@ -15,12 +15,12 @@
 {
     NSString *_identifier;
     id <NUVideoItem> _videoItem;
-    id <SVVideoMetadataProviding> _metadata;
+    id <SVVideoMetadata> _metadata;
     id <NUVideoEventTracker> _eventTracker;
 }
 
 @property(retain, nonatomic) id <NUVideoEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
-@property(nonatomic) __weak id <SVVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
+@property(retain, nonatomic) id <SVVideoMetadata> metadata; // @synthesize metadata=_metadata;
 @property(readonly, copy, nonatomic) id <NUVideoItem> videoItem; // @synthesize videoItem=_videoItem;
 @property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;

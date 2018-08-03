@@ -11,7 +11,8 @@
 }
 
 + (id)uniquedColumns;
-+ (id)columnsDefinition;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (long long)protectionClass;
 + (id)ownerEntityReferenceColumn;
 + (Class)ownerEntityClass;

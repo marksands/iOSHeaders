@@ -33,6 +33,7 @@
 - (id)_sectionInfoForBulletin:(id)arg1;
 - (id)_bulletinsPerSectionIdForNotificationRequests:(id)arg1;
 - (void)_applicationIconChanged:(id)arg1;
+- (void)dispatcher:(id)arg1 setAllowsCriticalAlerts:(_Bool)arg2 forSectionIdentifier:(id)arg3;
 - (void)dispatcher:(id)arg1 setDeliverQuietly:(_Bool)arg2 forSectionIdentifier:(id)arg3 subSectionIdentifier:(id)arg4;
 - (void)dispatcher:(id)arg1 setAllowsNotifications:(_Bool)arg2 forSectionIdentifier:(id)arg3;
 - (void)dispatcher:(id)arg1 requestsClearingNotificationRequestsFromDate:(id)arg2 toDate:(id)arg3 inSections:(id)arg4;

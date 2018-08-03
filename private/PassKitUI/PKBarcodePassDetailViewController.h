@@ -9,7 +9,7 @@
 #import "PKPassHeaderViewDelegate.h"
 #import "UITextViewDelegate.h"
 
-@class BluetoothManager, NSArray, NSMutableDictionary, NSObject<OS_dispatch_source>, NSString, PKLinkedAppView, PKPass, PKPassColorProfile, PKPassDisplayProfile, PKPassHeaderView, PKSettingTableCell, UIRefreshControl, UISegmentedControl, UITableViewCell, UIView, UIVisualEffectView;
+@class BluetoothManager, NSArray, NSMutableDictionary, NSObject<OS_dispatch_source>, NSString, PKBarcodeTableViewCell, PKLinkedAppView, PKPass, PKPassColorProfile, PKPassDisplayProfile, PKPassHeaderView, PKSettingTableCell, UIRefreshControl, UISegmentedControl, UITableViewCell, UIView, UIVisualEffectView;
 
 @interface PKBarcodePassDetailViewController : PKSectionTableViewController <UITextViewDelegate, PKPassHeaderViewDelegate>
 {
@@ -25,6 +25,7 @@
     UITableViewCell *_shareCell;
     UITableViewCell *_personalizePassCell;
     UITableViewCell *_deleteCell;
+    PKBarcodeTableViewCell *_barcodeCell;
     NSMutableDictionary *_fieldCellsByRow;
     NSMutableDictionary *_fieldCellHeightsByRow;
     _Bool _forcedRefresh;
@@ -46,6 +47,7 @@
     UIVisualEffectView *_blurView;
     UISegmentedControl *_tabBar;
     UIView *_keyLine;
+    _Bool _didRampScreenBrightness;
     PKPass *_pass;
     unsigned long long _suppressedContent;
     id <PKPassDeleteHandler> _deleteOverrider;
@@ -69,6 +71,7 @@
 - (id)_settingsCellForRow:(unsigned long long)arg1;
 - (unsigned long long)_settingForRow:(unsigned long long)arg1;
 - (id)_personalizePassCell;
+- (id)_barcodeCell;
 - (id)_deleteCell;
 - (id)_shareCell;
 - (id)_automaticSelectionCell;
@@ -115,6 +118,7 @@
 - (void)reloadSection:(unsigned long long)arg1;
 - (_Bool)shouldMapSection:(unsigned long long)arg1;
 - (void)viewDidLayoutSubviews;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
 - (_Bool)pkui_prefersNavigationBarShadowHidden;

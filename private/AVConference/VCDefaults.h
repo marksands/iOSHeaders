@@ -115,7 +115,7 @@ __attribute__((visibility("hidden")))
 @property(readonly) _Bool enableVPBLogging;
 @property(readonly) int enable2vuyCapture;
 @property(readonly) _Bool enableBitstreamCapture;
-@property(readonly) _Bool forceDisablePearlCamera;
+@property(readonly) _Bool forceEnablePearlCamera;
 @property(readonly) _Bool forceMirroredCapture;
 @property(readonly) _Bool forceARCapture;
 @property(readonly) int forceKeyFrameInterval;

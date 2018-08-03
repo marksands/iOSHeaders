@@ -24,6 +24,7 @@
 - (id)diagnosticDictionary;
 - (id)assetsProgressListenerWithPresentationStyle:(long long)arg1;
 - (id)description;
+- (id)notificationSuppressionContexts;
 - (id)initWithPhotoKitContext:(id)arg1;
 - (id)initWithContext:(id)arg1;
 

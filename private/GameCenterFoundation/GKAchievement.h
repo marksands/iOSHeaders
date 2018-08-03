@@ -47,6 +47,7 @@
 - (id)initWithCoder:(id)arg1;
 @property(readonly, retain, nonatomic) GKPlayer *player; // @synthesize player=_player;
 @property(copy, nonatomic) NSString *playerID; // @dynamic playerID;
+- (id)init;
 - (id)initWithIdentifier:(id)arg1 forPlayer:(id)arg2;
 - (id)initWithIdentifier:(id)arg1 player:(id)arg2;
 - (id)initWithIdentifier:(id)arg1;

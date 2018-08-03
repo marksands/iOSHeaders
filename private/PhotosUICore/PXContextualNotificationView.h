@@ -8,7 +8,7 @@
 
 #import "PXChangeObserver.h"
 
-@class AVAsset, AVPlayerItem, AVVideoComposition, NSLayoutConstraint, NSString, PXContextualNotification, PXImageRequester, PXVideoPlayerView, UIImage, UIImageView, UILabel;
+@class AVAsset, AVPlayerItem, AVVideoComposition, NSArray, NSLayoutConstraint, NSString, PXCapsuleButton, PXContextualNotification, PXContextualNotificationChevronView, PXImageRequester, PXVideoPlayerView, UIImage, UIImageView, UILabel;
 
 @interface PXContextualNotificationView : UIView <PXChangeObserver>
 {
@@ -31,8 +31,14 @@
     NSLayoutConstraint *_mediaViewHeightConstraint;
     double __mediaAspectRatio;
     AVPlayerItem *__loopingPlayerItem;
+    PXCapsuleButton *_actionButton;
+    PXContextualNotificationChevronView *_chevronView;
+    NSArray *_constraints;
 }
 
+@property(copy, nonatomic) NSArray *constraints; // @synthesize constraints=_constraints;
+@property(retain, nonatomic) PXContextualNotificationChevronView *chevronView; // @synthesize chevronView=_chevronView;
+@property(retain, nonatomic) PXCapsuleButton *actionButton; // @synthesize actionButton=_actionButton;
 @property(retain, nonatomic, setter=_setLoopingPlayerItem:) AVPlayerItem *_loopingPlayerItem; // @synthesize _loopingPlayerItem=__loopingPlayerItem;
 @property(nonatomic, setter=_setMediaAspectRatio:) double _mediaAspectRatio; // @synthesize _mediaAspectRatio=__mediaAspectRatio;
 @property(readonly, nonatomic) NSLayoutConstraint *mediaViewHeightConstraint; // @synthesize mediaViewHeightConstraint=_mediaViewHeightConstraint;
@@ -62,6 +68,9 @@
 - (void)_handleDidSetVideoAudioSession;
 - (void)_updateLoopingPlayerItem;
 - (void)setPlaceholderImage:(id)arg1 imageRequester:(id)arg2;
+- (void)_updateMessageLabelForCMMCard;
+- (void)_preferredContentSizeChanged:(id)arg1;
+- (void)updateConstraints;
 - (id)initWithFrame:(struct CGRect)arg1 style:(long long)arg2;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

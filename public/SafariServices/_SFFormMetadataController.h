@@ -38,6 +38,7 @@
 - (void)focusFormForStreamlinedLogin:(double)arg1 inFrame:(id)arg2;
 - (void)finishedAutoFillingForm:(id)arg1 inFrame:(id)arg2;
 - (void)clearField:(id)arg1 inFrame:(id)arg2;
+- (void)removeAutomaticPasswordVisualTreatmentInFrame:(id)arg1 passwordControlUniqueIDs:(id)arg2;
 - (void)removeAutomaticPasswordElementsInFrame:(id)arg1 focusedPasswordControlUniqueID:(id)arg2 passwordControlUniqueIDs:(id)arg3 blurAfterRemoval:(_Bool)arg4;
 - (id)fillForm:(double)arg1 inFrame:(id)arg2 withPassword:(id)arg3;
 - (void)autoFillFormInFrame:(id)arg1 withValues:(id)arg2 fillSynchronously:(_Bool)arg3 setAutoFilled:(_Bool)arg4 focusFieldAfterFilling:(_Bool)arg5 fieldToFocus:(id)arg6 submitForm:(_Bool)arg7;

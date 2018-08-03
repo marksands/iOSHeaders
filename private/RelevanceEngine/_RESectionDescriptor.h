@@ -6,17 +6,19 @@
 
 #import "NSObject.h"
 
-@class NSSet, NSString;
+@class NSArray, NSString;
 
 @interface _RESectionDescriptor : NSObject
 {
     _Bool _invertRanking;
+    _Bool _allowsSubsections;
     NSString *_name;
     long long _maxElementCount;
-    NSSet *_rules;
+    NSArray *_rules;
 }
 
-@property(copy, nonatomic) NSSet *rules; // @synthesize rules=_rules;
+@property(readonly, nonatomic) _Bool allowsSubsections; // @synthesize allowsSubsections=_allowsSubsections;
+@property(copy, nonatomic) NSArray *rules; // @synthesize rules=_rules;
 @property(nonatomic) long long maxElementCount; // @synthesize maxElementCount=_maxElementCount;
 @property(readonly, nonatomic) _Bool invertRanking; // @synthesize invertRanking=_invertRanking;
 @property(readonly, nonatomic) NSString *name; // @synthesize name=_name;

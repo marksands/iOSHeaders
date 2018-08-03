@@ -8,7 +8,7 @@
 
 #import "PXTapToRadar.h"
 
-@class NSDictionary, NSString, PXAssetsDataSourceManager, PXCMMActionManager, PXCMMPeopleSuggestionsDataSourceManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMSendBackSuggestionSource, PXCMMViewModel, PXUIMediaProvider;
+@class NSDictionary, NSSet, NSString, PXAssetsDataSourceManager, PXCMMActionManager, PXCMMPeopleSuggestionsDataSourceManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMSendBackSuggestionSource, PXCMMViewModel, PXUIMediaProvider;
 
 @interface PXCMMSession : NSObject <PXTapToRadar>
 {
@@ -45,6 +45,7 @@
 @property(readonly, nonatomic) PXAssetsDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSDictionary *diagnosticDictionary;
+@property(readonly, nonatomic) NSSet *notificationSuppressionContexts;
 - (id)assetsProgressListenerWithPresentationStyle:(long long)arg1;
 - (id)initWithContext:(id)arg1;
 - (id)init;

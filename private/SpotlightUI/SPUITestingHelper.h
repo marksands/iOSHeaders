@@ -20,7 +20,6 @@
 - (void)setDefaultsForSearchVC;
 - (void)searchForString:(id)arg1 testName:(id)arg2 event:(unsigned long long)arg3 sourcePreference:(long long)arg4 completion:(CDUnknownBlockType)arg5;
 - (void)searchManyStringsForTestName:(id)arg1 options:(id)arg2 event:(unsigned long long)arg3 sourcePreference:(long long)arg4 completion:(CDUnknownBlockType)arg5;
-- (void)scrollTableView:(int)arg1 testName:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)scrollMainResultsForTest:(id)arg1 forQuery:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)scrollForSectionHeader:(id)arg1 forSearchString:(id)arg2 testName:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)performCardScrollTest:(id)arg1 completion:(CDUnknownBlockType)arg2;

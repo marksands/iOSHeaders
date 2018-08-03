@@ -96,7 +96,6 @@
 - (void)setReferenceOriginTransformUpdated:(_Bool)arg1;
 - (_Bool)referenceOriginTransformUpdated;
 - (_Bool)referenceOriginTransformAvailable;
-- (id)vioStateInformation;
 @property(readonly, nonatomic) ARPointCloud *rawFeaturePoints;
 - (struct CGAffineTransform)displayTransformForOrientation:(long long)arg1 viewportSize:(struct CGSize)arg2;
 - (id)hitTest:(struct CGPoint)arg1 types:(unsigned long long)arg2;

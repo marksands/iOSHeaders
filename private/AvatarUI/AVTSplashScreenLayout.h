@@ -25,7 +25,7 @@
 
 + (struct CGRect)secondaryVideoFrameForContentFrame:(struct CGRect)arg1;
 + (struct CGRect)primaryVideoFrameForContentFrame:(struct CGRect)arg1 wantsSecondaryVideo:(_Bool)arg2;
-+ (struct CGRect)subTitleFrameForString:(id)arg1 titleFrame:(struct CGRect)arg2 containerSize:(struct CGSize)arg3;
++ (struct CGRect)subTitleFrameForString:(id)arg1 titleFrame:(struct CGRect)arg2 buttonFrame:(struct CGRect)arg3 wantsSecondaryVideo:(_Bool)arg4 containerSize:(struct CGSize)arg5;
 + (struct CGRect)titleFrameForString:(id)arg1 yOrigin:(double)arg2 containerSize:(struct CGSize)arg3;
 + (struct CGRect)buttonFrameForString:(id)arg1 containerSize:(struct CGSize)arg2 edgeInsets:(struct UIEdgeInsets)arg3;
 + (id)buttonFont;

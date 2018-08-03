@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (id)_initWithURLRepresentation:(id)arg1;
 - (id)_URLRepresentation;
 - (void)_setUri:(id)arg1;
+- (id)_uri;
 - (id)_copyWithSubclass:(Class)arg1;
 - (_Bool)_requiresRetrieval;
 - (id)_identifier;

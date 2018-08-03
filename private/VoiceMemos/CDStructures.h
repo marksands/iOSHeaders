@@ -59,12 +59,8 @@ struct PowerMeter {
     double mDecay;
     int mPrevBlockSize;
     int mPeakHoldCount;
-    double mAveragePowerPeak;
     double mMaxPeak;
     struct AudioUnitMeterClipping mClipping;
-    double mAveragePowerF;
-    float m_vAvePower[16];
-    int mAveragePowerI;
 };
 
 struct UIEdgeInsets {
@@ -82,6 +78,11 @@ struct UIOffset {
 struct _NSRange {
     unsigned long long _field1;
     unsigned long long _field2;
+};
+
+struct _RCWaveformRendererState {
+    _Bool recordDidSwitch;
+    double lastRenderTime;
 };
 
 struct in_addr {

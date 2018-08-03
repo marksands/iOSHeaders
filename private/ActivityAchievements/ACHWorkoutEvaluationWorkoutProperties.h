@@ -8,12 +8,14 @@
 
 @interface ACHWorkoutEvaluationWorkoutProperties : NSObject
 {
+    _Bool _isFirstParty;
     unsigned long long _type;
     double _duration;
     double _kilocalories;
     double _kilometers;
 }
 
+@property(readonly, nonatomic) _Bool isFirstParty; // @synthesize isFirstParty=_isFirstParty;
 @property(readonly, nonatomic) double kilometers; // @synthesize kilometers=_kilometers;
 @property(readonly, nonatomic) double kilocalories; // @synthesize kilocalories=_kilocalories;
 @property(readonly, nonatomic) double duration; // @synthesize duration=_duration;

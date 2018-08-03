@@ -39,6 +39,7 @@
 - (void)cardViewControllerBoundsDidChange:(id)arg1;
 - (void)cardViewControllerDidLoad:(id)arg1;
 - (void)intentController:(id)arg1 didHandleInteraction:(id)arg2;
+- (void)intentControllerDidFailAuthorizationCheck:(id)arg1;
 - (void)intentController:(id)arg1 didFailWithError:(id)arg2 forInteraction:(id)arg3;
 - (void)intentController:(id)arg1 requiresContinuingInAppForIntent:(id)arg2 proceedHandler:(CDUnknownBlockType)arg3;
 - (void)intentController:(id)arg1 requiresConfirmationForIntent:(id)arg2 intentResponse:(id)arg3;
@@ -48,6 +49,7 @@
 - (id)_contentForCardRequestWithInteraction:(id)arg1;
 - (void)_createOrUpdateCardViewControllerForInteraction:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_installChildViewController:(id)arg1;
+- (void)launchAppWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)titleForConfirmAction;
 - (void)confirmationGranted:(_Bool)arg1;
 - (void)beginRunningIntent;

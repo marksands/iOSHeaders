@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSString;
+@class UITraitCollection;
 
 @protocol SVVideoAccessoryBarSizing <NSObject>
-- (double)accessoryBarHeightForContentSizeCategory:(NSString *)arg1;
+- (double)accessoryBarWidthForTraitCollection:(UITraitCollection *)arg1;
+- (double)accessoryBarHeightForTraitCollection:(UITraitCollection *)arg1;
 @end
 

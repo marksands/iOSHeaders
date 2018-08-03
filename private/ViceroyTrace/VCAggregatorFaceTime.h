@@ -64,10 +64,20 @@ __attribute__((visibility("hidden")))
     VCAdaptiveLearning *_adaptiveLearning;
 }
 
-- (int)shortTermMLAverageForSegment:(id)arg1;
-- (int)longTermMLAverageForSegment:(id)arg1;
+- (int)initialSettledBitrate;
+- (int)shortTermAverageBWEForSegment:(id)arg1;
+- (int)longTermAverageBWEForSegment:(id)arg1;
+- (int)shortTermAverageSARBRForSegment:(id)arg1;
+- (int)longTermAverageSARBRForSegment:(id)arg1;
+- (int)shortTermAverageSATXBRForSegment:(id)arg1;
+- (int)longTermAverageSATXBRForSegment:(id)arg1;
+- (int)previousISBRForSegment:(id)arg1;
+- (int)shortTermAverageISBRForSegment:(id)arg1;
+- (int)longTermAverageISBRForSegment:(id)arg1;
+- (int)shortTermAverageTBRForSegment:(id)arg1;
+- (int)longTermAverageTBRForSegment:(id)arg1;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
-- (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
+- (void)updateSegment:(id)arg1 TBR:(int)arg2 ISBTR:(int)arg3 SATXBR:(int)arg4 SARBR:(int)arg5 BWE:(int)arg6;
 - (int)adaptiveLearningState;
 - (void)processEventWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3;
 - (void)updateAdaptiveLearningStats:(unsigned int)arg1 payload:(id)arg2;

@@ -36,6 +36,7 @@
 - (void)didSelectItemAtIndex:(long long)arg1 cell:(id)arg2;
 - (void)didUnhighlightItemAtIndex:(long long)arg1 cell:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (void)didHighlightItemAtIndex:(long long)arg1 cell:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
+- (void)invalidateLayout;
 - (void)resetToDefaultState;
 - (void)cell:(id)arg1 willDisplayAtIndex:(long long)arg2;
 - (struct UIEdgeInsets)edgeInsetsFittingSize:(struct CGSize)arg1;

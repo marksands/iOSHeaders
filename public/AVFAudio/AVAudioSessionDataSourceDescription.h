@@ -13,7 +13,7 @@
     void *_impl;
 }
 
-+ (id)privateCreateOrConfigureArray:(id)arg1 withRawSourceArray:(id)arg2 portID:(id)arg3 sessionID:(unsigned int)arg4;
++ (id)privateCreateArray:(id)arg1 portID:(id)arg2 sessionID:(unsigned int)arg3;
 - (id)privateGetOwningPortID;
 - (void)configurePolarPatterns:(id)arg1;
 - (id)initWithRawSourceDescription:(id)arg1 andOwningPortID:(id)arg2 andSessionID:(unsigned int)arg3;

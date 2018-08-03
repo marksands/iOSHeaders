@@ -53,12 +53,12 @@
 - (void)setType:(long long)arg1;
 - (void)didPerformChanges;
 - (id)mutableChangeObject;
+@property(readonly, copy) NSString *description;
 - (id)initWithMomentShare:(id)arg1 presentationStyle:(long long)arg2;
 - (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

@@ -23,6 +23,7 @@
     _Bool _hiddenFromFeeds;
     _Bool _pressRelease;
     _Bool _hiddenFromAutoFavorites;
+    _Bool _webEmbedsEnabled;
     _Bool _paid;
     _Bool _canBePurchased;
     NSString *_versionIdentifier;
@@ -89,6 +90,7 @@
 - (id)coverArt;
 - (void)setPaid:(_Bool)arg1;
 - (_Bool)isPaid;
+- (_Bool)webEmbedsEnabled;
 - (long long)minimumNewsVersion;
 - (_Bool)isHiddenFromAutoFavorites;
 - (_Bool)isPressRelease;

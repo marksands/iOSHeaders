@@ -1242,11 +1242,11 @@ struct NetworkLoadMetrics {
     struct Seconds requestStart;
     struct Seconds responseStart;
     struct Seconds responseEnd;
-    _Bool complete;
     struct String protocol;
     struct optional<WTF::String> remoteAddress;
     struct optional<WTF::String> connectionIdentifier;
     struct optional<WebCore::NetworkLoadPriority> priority;
+    _Bool complete;
     struct optional<WebCore::HTTPHeaderMap> requestHeaders;
     struct optional<unsigned long long> requestHeaderBytesSent;
     struct optional<unsigned long long> requestBodyBytesSent;
@@ -1284,10 +1284,10 @@ struct Page;
 struct PageOverlay;
 
 struct ParsedContentRange {
-    _Bool m_isValid;
     long long m_firstBytePosition;
     long long m_lastBytePosition;
     long long m_instanceLength;
+    _Bool m_isValid;
 };
 
 struct Path {
@@ -1644,36 +1644,36 @@ struct ResourceLoader {
 };
 
 struct ResourceLoaderOptions {
-    int _field1;
-    int _field2;
-    int _field3;
-    int _field4;
-    int _field5;
-    int _field6;
-    struct String _field7;
-    _Bool _field8;
+    unsigned char _field1;
+    unsigned char _field2;
+    unsigned char _field3;
+    unsigned char _field4;
+    unsigned char _field5;
+    unsigned char _field6;
+    _Bool _field7;
+    struct String _field8;
     struct optional<WTF::ObjectIdentifier<WebCore::DocumentIdentifierType>> _field9;
-    int _field10;
-    int _field11;
-    int _field12;
-    int _field13;
-    int _field14;
-    int _field15;
-    int _field16;
+    struct optional<WTF::ObjectIdentifier<WebCore::ServiceWorkerRegistrationIdentifierType>> _field10;
+    struct HashSet<WebCore::HTTPHeaderName, WTF::IntHash<WebCore::HTTPHeaderName>, WTF::StrongEnumHashTraits<WebCore::HTTPHeaderName>> _field11;
+    struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> _field12;
+    struct optional<WebCore::ContentSecurityPolicyResponseHeaders> _field13;
+    unsigned int _field14;
+    unsigned char _field15;
+    unsigned char _field16;
     unsigned char _field17;
     unsigned char _field18;
-    unsigned char _field19;
-    int _field20;
-    int _field21;
-    int _field22;
-    int _field23;
-    struct optional<WTF::ObjectIdentifier<WebCore::ServiceWorkerRegistrationIdentifierType>> _field24;
-    struct HashSet<WebCore::HTTPHeaderName, WTF::IntHash<WebCore::HTTPHeaderName>, WTF::StrongEnumHashTraits<WebCore::HTTPHeaderName>> _field25;
-    int _field26;
-    unsigned int _field27;
-    struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> _field28;
-    int _field29;
-    struct optional<WebCore::ContentSecurityPolicyResponseHeaders> _field30;
+    int _field19;
+    unsigned char _field20;
+    unsigned char _field21;
+    unsigned char _field22;
+    unsigned char _field23;
+    unsigned char _field24;
+    unsigned char _field25;
+    unsigned char _field26;
+    unsigned char _field27;
+    unsigned char _field28;
+    unsigned char _field29;
+    unsigned char _field30;
 };
 
 struct ResourceRequest {
@@ -1686,10 +1686,10 @@ struct ResourceRequest {
     struct HTTPHeaderMap _field7;
     struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> _field8;
     struct RefPtr<WebCore::FormData, WTF::DumbPtrTraits<WebCore::FormData>> _field9;
-    int _field10;
-    int _field11;
-    int _field12;
-    int _field13;
+    unsigned char _field10;
+    unsigned char _field11;
+    unsigned char _field12;
+    unsigned char _field13;
     _Bool _field14;
     _Bool _field15;
     _Bool _field16;
@@ -1719,11 +1719,6 @@ struct ResourceResponse {
     struct ParsedContentRange m_contentRange;
     struct CacheControlDirectives m_cacheControlDirectives;
     struct optional<std::__1::array<unsigned char, 20>> m_cacheBodyKey;
-    int m_source;
-    int m_type;
-    int m_tainting;
-    int m_httpStatusCode;
-    _Bool m_isNull;
     _Bool m_haveParsedCacheControlHeader;
     _Bool m_haveParsedAgeHeader;
     _Bool m_haveParsedDateHeader;
@@ -1731,6 +1726,11 @@ struct ResourceResponse {
     _Bool m_haveParsedLastModifiedHeader;
     _Bool m_haveParsedContentRangeHeader;
     _Bool m_isRedirected;
+    unsigned char m_source;
+    unsigned char m_type;
+    unsigned char m_tainting;
+    _Bool m_isNull;
+    int m_httpStatusCode;
     unsigned int m_initLevel:3;
     _Bool m_isQuickLook;
     struct RetainPtr<NSURLResponse> m_nsResponse;
@@ -2110,12 +2110,12 @@ struct URL {
     unsigned int m_isValid:1;
     unsigned int m_protocolIsInHTTPFamily:1;
     unsigned int m_cannotBeABaseURL:1;
-    unsigned int m_schemeEnd;
+    unsigned int m_portLength:3;
+    unsigned int m_schemeEnd:26;
     unsigned int m_userStart;
     unsigned int m_userEnd;
     unsigned int m_passwordEnd;
     unsigned int m_hostEnd;
-    unsigned int m_portEnd;
     unsigned int m_pathAfterLastSlash;
     unsigned int m_pathEnd;
     unsigned int m_queryEnd;
@@ -2733,7 +2733,7 @@ union constexpr_storage_t<WebCore::FloatRect> {
 
 union constexpr_storage_t<WebCore::NetworkLoadPriority> {
     unsigned char dummy_;
-    int value_;
+    unsigned char value_;
 };
 
 union constexpr_storage_t<std::__1::array<unsigned char, 20>> {

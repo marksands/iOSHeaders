@@ -17,6 +17,7 @@
     _Bool _isFullTextToken;
     _Bool _belongsToSearchText;
     NSString *_text;
+    unsigned long long _assetCount;
     NSString *_identifier;
     NSIndexSet *_searchedCategories;
     unsigned long long _userCategory;
@@ -41,10 +42,12 @@
 @property(readonly, nonatomic) unsigned long long matchType; // @synthesize matchType=_matchType;
 @property(nonatomic) unsigned long long userCategory; // @synthesize userCategory=_userCategory;
 @property(copy, nonatomic) NSIndexSet *searchedCategories; // @synthesize searchedCategories=_searchedCategories;
-@property(readonly, copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(nonatomic) unsigned long long assetCount; // @synthesize assetCount=_assetCount;
 @property(readonly, copy, nonatomic) NSString *text; // @synthesize text=_text;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (void)replaceIdentifier:(id)arg1;
 - (id)description;
 - (id)tokenByWordEmbeddingWithMatch:(id)arg1;
 @property(readonly, nonatomic) _Bool containsMarker;

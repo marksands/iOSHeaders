@@ -182,6 +182,7 @@
 - (id)_clientPrefixEntitlement;
 - (id)applicationIdentifier;
 - (id)serviceNameForContainerMapEntitlement;
+- (_Bool)hasNonLegacyShareURLEntitlement;
 - (_Bool)hasDisplaysSystemAcceptPromptEntitlement;
 - (_Bool)hasParticipantPIIEntitlement;
 - (_Bool)hasOutOfProcessUIEntitlement;

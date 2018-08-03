@@ -16,7 +16,7 @@
 {
     _Bool _loadedContentData;
     PXGadgetSpec *_gadgetSpec;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     PXFeedInvitationSectionInfo *_invitationSectionInfo;
     PXSharedAlbumHeaderView *_headerView;
@@ -29,7 +29,7 @@
 @property(retain, nonatomic) PXSharedAlbumHeaderView *headerView; // @synthesize headerView=_headerView;
 @property(retain, nonatomic) PXFeedInvitationSectionInfo *invitationSectionInfo; // @synthesize invitationSectionInfo=_invitationSectionInfo;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
@@ -53,6 +53,7 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, copy) NSString *debugDescription;

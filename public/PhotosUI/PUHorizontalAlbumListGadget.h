@@ -27,6 +27,7 @@
 @property(retain, nonatomic) PUSessionInfo *sessionInfo; // @synthesize sessionInfo=_sessionInfo;
 @property(readonly, nonatomic) PUAlbumsGadgetProvider *provider; // @synthesize provider=_provider;
 - (void).cxx_destruct;
+- (void)_updateCollectionViewLayout;
 - (void)_navigateToCollection:(id)arg1 animated:(_Bool)arg2 interactive:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (_Bool)_canUseStackedAlbumTransitionToNavigationToCollection:(id)arg1;
 - (void)_handlePinch:(id)arg1;
@@ -37,6 +38,8 @@
 - (void)stackedAlbumTransition:(id)arg1 setVisibility:(_Bool)arg2 forCollection:(id)arg3;
 - (void)gadget:(id)arg1 didChange:(unsigned long long)arg2;
 - (void)setGadgetSpec:(id)arg1;
+- (const struct __CFString *)accessoryButtonEventTrackerKey;
+- (id)accessoryButtonTitle;
 - (unsigned long long)accessoryButtonType;
 - (unsigned long long)gadgetType;
 - (void)collectionView:(id)arg1 performDropWithCoordinator:(id)arg2;

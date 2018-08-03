@@ -17,6 +17,7 @@
 {
     PKPaymentSetupBrowseProductsModel *_model;
     PKLinkedApplication *_loadingLinkedApplication;
+    id <PKPaymentSetupActivitySpinnerProtocol> _loadingLinkedApplicationSpinner;
     PKSearchableTableHeaderView *_headerView;
     id <PKPaymentSetupViewControllerDelegate> _setupDelegate;
     PKPaymentProvisioningController *_provisioningController;
@@ -36,12 +37,14 @@
 - (void)hideActivitySpinner;
 - (void)showActivitySpinner;
 - (void)linkedApplicationDidChangeState:(id)arg1;
+- (void)_showCameraCapture;
+- (void)_showAppRequiredForProduct:(id)arg1 withSpinner:(id)arg2;
 - (void)_pushAppRequiredViewControllerForProduct:(id)arg1 linkedApplication:(id)arg2;
+- (id)_cardTypeFlowPickerForProduct:(id)arg1;
 - (void)_updateFilterString:(id)arg1 userInteraction:(_Bool)arg2;
 - (void)_nextStepInSetupFlowWithProduct:(id)arg1;
 - (void)_notifyDelegateDidSelectProduct:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)_nextTapped:(id)arg1;
-- (void)_cameraCaptureTapped;
 - (_Bool)textFieldShouldReturn:(id)arg1;
 - (_Bool)textFieldShouldClear:(id)arg1;
 - (_Bool)textField:(id)arg1 shouldChangeCharactersInRange:(struct _NSRange)arg2 replacementString:(id)arg3;

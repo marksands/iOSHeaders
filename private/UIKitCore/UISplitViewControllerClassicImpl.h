@@ -171,7 +171,7 @@ __attribute__((visibility("hidden")))
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
-- (void)_displayModeBarButtonItemWasAddedForFirstTime:(id)arg1;
+- (void)_displayModeBarButtonItemWasUsedForFirstTime:(id)arg1;
 - (id)displayModeButtonItem;
 - (void)_updateDisplayModeButtonItem;
 - (void)_triggerDisplayModeAction:(id)arg1;

@@ -10,13 +10,16 @@
 
 @interface AREnvironmentTexturingTechnique : ARTechnique
 {
+    _Bool _networkIntialized;
     AREnvironmentProbeManager *_probeManager;
 }
 
+@property _Bool networkIntialized; // @synthesize networkIntialized=_networkIntialized;
 @property(retain) AREnvironmentProbeManager *probeManager; // @synthesize probeManager=_probeManager;
 - (void).cxx_destruct;
 - (_Bool)isEqual:(id)arg1;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
+- (void)prepare;
 - (id)processData:(id)arg1;
 - (void)reconfigureFrom:(id)arg1;
 - (_Bool)reconfigurableFrom:(id)arg1;

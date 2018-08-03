@@ -10,6 +10,7 @@
 
 @interface STAppInfo : NSObject
 {
+    unsigned long long _source;
     NSString *_bundleIdentifier;
     NSString *_displayName;
     NSString *_developerName;
@@ -22,6 +23,7 @@
 @property(copy, nonatomic) NSString *developerName; // @synthesize developerName=_developerName;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
+@property(nonatomic) unsigned long long source; // @synthesize source=_source;
 - (void).cxx_destruct;
 - (id)description;
 

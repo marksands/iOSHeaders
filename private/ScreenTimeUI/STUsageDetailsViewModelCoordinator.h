@@ -6,29 +6,30 @@
 
 #import "NSObject.h"
 
+#import "NSFetchedResultsControllerDelegate.h"
 #import "STUsageDetailsViewModelCoordinator.h"
 
-@class NSArray, NSDate, NSNumber, NSString, NSTimer, STAppInfoCache, STUsageDetailsViewModel;
+@class NSArray, NSDate, NSFetchedResultsController, NSNumber, NSString, NSTimer, STUsageDetailsViewModel;
 
-@interface STUsageDetailsViewModelCoordinator : NSObject <STUsageDetailsViewModelCoordinator>
+@interface STUsageDetailsViewModelCoordinator : NSObject <NSFetchedResultsControllerDelegate, STUsageDetailsViewModelCoordinator>
 {
     STUsageDetailsViewModel *_viewModel;
     NSArray *_devices;
     NSString *_selectedDeviceIdentifier;
     NSString *_organizationIdentifier;
     NSNumber *_userDSID;
-    STAppInfoCache *_appCache;
     id <RMPersistenceControllerProtocol> _persistenceController;
     NSDate *_lastUsageDataRefreshTime;
     NSTimer *_usageDataRefreshTimer;
     unsigned long long _usageDataRefreshReferenceCount;
+    NSFetchedResultsController *_usageBlocksFetchedResultsController;
 }
 
+@property(retain, nonatomic) NSFetchedResultsController *usageBlocksFetchedResultsController; // @synthesize usageBlocksFetchedResultsController=_usageBlocksFetchedResultsController;
 @property(nonatomic) unsigned long long usageDataRefreshReferenceCount; // @synthesize usageDataRefreshReferenceCount=_usageDataRefreshReferenceCount;
 @property(retain, nonatomic) NSTimer *usageDataRefreshTimer; // @synthesize usageDataRefreshTimer=_usageDataRefreshTimer;
 @property(retain, nonatomic) NSDate *lastUsageDataRefreshTime; // @synthesize lastUsageDataRefreshTime=_lastUsageDataRefreshTime;
 @property(retain, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
-@property(retain, nonatomic) STAppInfoCache *appCache; // @synthesize appCache=_appCache;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(copy, nonatomic) NSString *organizationIdentifier; // @synthesize organizationIdentifier=_organizationIdentifier;
 @property(copy, nonatomic) NSString *selectedDeviceIdentifier; // @synthesize selectedDeviceIdentifier=_selectedDeviceIdentifier;
@@ -38,6 +39,8 @@
 - (void)updateWithUserDevicePairRecord:(id)arg1;
 - (void)updateWithUser:(id)arg1;
 - (void)loadViewModelWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (id)_usageItemsWithUser:(id)arg1 device:(id)arg2 lastUpdatedDate:(id *)arg3 inManagedObjectContext:(id)arg4 error:(id *)arg5;
+- (void)controllerDidChangeContent:(id)arg1;
 - (void)_persistenceStoreDidChange:(id)arg1;
 - (void)_registerForPersistenceStoreNotifications;
 - (void)refreshUsageDataWithCompletion:(CDUnknownBlockType)arg1;

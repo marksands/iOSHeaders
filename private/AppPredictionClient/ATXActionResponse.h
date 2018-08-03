@@ -13,6 +13,7 @@
 @interface ATXActionResponse : NSObject <NSSecureCoding>
 {
     NSIndexSet *_shownActionIndices;
+    NSIndexSet *_explicitlyDismissedActionIndices;
     NSArray *_shownActionsCache;
     unsigned char _consumerSubType;
     NSUUID *_uuid;
@@ -51,11 +52,12 @@
 - (_Bool)isEqualToActionResponse:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 - (id)sessionId;
+@property(readonly, nonatomic) NSArray *explicitlyDismissedActions;
 @property(readonly, nonatomic) NSArray *shownActions;
 - (_Bool)indexWasShown:(unsigned long long)arg1;
 @property(readonly, nonatomic) NSArray *actions;
 - (void)updateWithMatchingIntentDonatedAction:(id)arg1 intentDonationDate:(id)arg2;
-- (void)updateConsumerSubType:(unsigned char)arg1 engagedAction:(id)arg2 shownActions:(id)arg3 feedbackStage:(unsigned long long)arg4;
+- (void)updateConsumerSubType:(unsigned char)arg1 engagedAction:(id)arg2 shownActions:(id)arg3 feedbackStage:(unsigned long long)arg4 explicitlyDismissedActions:(id)arg5;
 - (id)initWithScoredActions:(id)arg1 cacheFileData:(id)arg2 consumerSubType:(unsigned char)arg3 error:(id)arg4;
 
 @end

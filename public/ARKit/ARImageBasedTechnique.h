@@ -23,6 +23,7 @@
 - (void)pushResultData:(id)arg1 forFrame:(struct __CVBuffer *)arg2;
 - (void)pushResultData:(id)arg1 forFrameReference:(id)arg2;
 - (void)requestResultDataAtTimestamp:(double)arg1 context:(id)arg2;
+- (id)processData:(id)arg1;
 - (id)init;
 
 @end

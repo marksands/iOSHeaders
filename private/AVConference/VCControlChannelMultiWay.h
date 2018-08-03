@@ -10,7 +10,7 @@
 #import "VCControlChannelencryptionDelegate.h"
 #import "VCSecurityEventHandler.h"
 
-@class NSMutableArray, NSMutableDictionary, NSString;
+@class NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface VCControlChannelMultiWay : VCControlChannel <VCControlChannelencryptionDelegate, VCControlChannelTransactionDelegate, VCSecurityEventHandler>
@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     _Bool _isEncryptionEnabled;
     NSMutableDictionary *_cryptors;
     void *_currentSendMKI;
+    NSObject<OS_dispatch_queue> *_sequentialKeyMaterialQueue;
 }
 
 @property(readonly) _Bool isEncryptionEnabled; // @synthesize isEncryptionEnabled=_isEncryptionEnabled;
@@ -42,7 +43,9 @@ __attribute__((visibility("hidden")))
 - (_Bool)isParticipantActive:(unsigned long long)arg1;
 - (void)addToReceivedStats:(int)arg1;
 - (void)addToSentStats:(int)arg1;
+- (void)addNewKeyMaterial:(id)arg1;
 - (void)scheduleAfter:(unsigned int)arg1 block:(CDUnknownBlockType)arg2;
+- (void)removeAllActiveParticipants;
 - (void)removeActiveParticipant:(unsigned long long)arg1;
 - (void)addActiveParticipant:(unsigned long long)arg1;
 - (void)broadcastUnreliableMessage:(id)arg1;
@@ -59,6 +62,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)encryptData:(char *)arg1 size:(int)arg2 sequenceNumber:(unsigned short)arg3;
 - (int)updateEncryption:(CDStruct_5b6da142 *)arg1 derivedSSRC:(unsigned int)arg2;
 - (int)getKeyDerivationCryptoSet:(CDStruct_5b6da142 *)arg1 withKeyMaterial:(id)arg2 derivedSSRC:(unsigned int *)arg3;
+- (void)setCurrentSendMKIWithKeyMaterial:(id)arg1;
 - (void)updateEncryptionWithKeyMaterial:(id)arg1;
 - (void)initializeSRTPInfo:(struct tagSRTPINFO *)arg1;
 - (void)finalizeEncryption;

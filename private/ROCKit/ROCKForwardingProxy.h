@@ -4,12 +4,12 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ROCKit/ROCKRemoteImpersonator.h>
+#import <ROCKit/ROCKImpersonatableProxy.h>
 
 @class NSSet;
 
 __attribute__((visibility("hidden")))
-@interface ROCKForwardingProxy : ROCKRemoteImpersonator
+@interface ROCKForwardingProxy : ROCKImpersonatableProxy
 {
     id <NSObject> _instance;
     NSSet *_protocols;
@@ -22,8 +22,8 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)description;
 - (id)debugDescription;
-- (id)initWithSessionManager:(id)arg1 remoteImpersonatorUUID:(id)arg2 instance:(id)arg3 error:(id *)arg4;
-- (id)initWithSessionManager:(id)arg1 remoteImpersonatorUUID:(id)arg2 instance:(id)arg3 protocols:(id)arg4 error:(id *)arg5;
+- (id)initWithSessionManager:(id)arg1 impersonatableProxyUUID:(id)arg2 instance:(id)arg3 error:(id *)arg4;
+- (id)initWithSessionManager:(id)arg1 impersonatableProxyUUID:(id)arg2 instance:(id)arg3 protocols:(id)arg4 error:(id *)arg5;
 - (void)_forwardStackInvocation:(id)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;

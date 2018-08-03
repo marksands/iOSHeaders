@@ -14,6 +14,7 @@
 
 @interface PKTiledCanvasView : UIView <UIGestureRecognizerDelegate, PKDrawingGestureTarget, PKControllerDelegate>
 {
+    unsigned long long _numSkippedDoubleBufferedFrames;
     _Bool _isDrawing;
     _Bool _allowLiveInteraction;
     _Bool _shouldPause;

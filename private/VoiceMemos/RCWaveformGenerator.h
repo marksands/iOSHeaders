@@ -48,7 +48,7 @@
 - (void)_onQueue_flushRemainingData;
 - (void)_onQueue_flushWithNextSegmentWithEndTime:(double)arg1 isPredigest:(_Bool)arg2;
 - (void)_onQueue_flushWaveformSegment:(id)arg1;
-- (void)_appendAveragePowerLevelsByDigestingWaveformSegments:(id)arg1;
+- (_Bool)_appendAveragePowerLevelsByDigestingWaveformSegments:(id)arg1;
 - (id)synchronouslyApproximateWaveformForAVContentURL:(id)arg1 byReadingCurrentFileAheadTimeRange:(CDStruct_73a5d3ca)arg2;
 - (void)_onQueue_appendAveragePowerLevelsByDigestingTimeRange:(CDStruct_73a5d3ca)arg1 inExtAudioFile:(id)arg2 sourceFormat:(struct AudioStreamBasicDescription *)arg3 outputFormat:(struct AudioStreamBasicDescription *)arg4;
 - (void)_appendAveragePowerLevelsByDigestingTimeRange:(CDStruct_73a5d3ca)arg1 inExtAudioFile:(id)arg2 sourceFormat:(struct AudioStreamBasicDescription *)arg3 outputFormat:(struct AudioStreamBasicDescription *)arg4;
@@ -60,7 +60,6 @@
 - (void)_onQueue_performInternalFinishedLoadingBlocksAndFinishObservers;
 - (void)_onQueue_performLoadingFinishedBlock:(CDUnknownBlockType)arg1 internalBlockUUID:(id)arg2 isTimeout:(_Bool)arg3;
 - (void)async_finishLoadingByTerminating:(_Bool)arg1 loadingFinishedBlockTimeout:(unsigned long long)arg2 loadingFinishedBlock:(CDUnknownBlockType)arg3;
-- (double)digestedTimeAtTime:(double)arg1;
 - (double)totalFlushedTime;
 - (void)finishLoadingWithCompletionTimeout:(unsigned long long)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)terminateLoadingImmediately;

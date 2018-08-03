@@ -14,6 +14,9 @@
 {
     PXVideoPlayerView *_videoView;
     long long _requestID;
+    unsigned long long _loadingIntervalID;
+    unsigned long long _playbackIntervalID;
+    id _timeObserver;
     _Bool _canLoadVideo;
     ISWrappedAVPlayer *_videoPlayer;
     AVPlayerItem *_videoPlayerItem;
@@ -27,6 +30,10 @@
 @property(retain, nonatomic) AVPlayerItem *videoPlayerItem; // @synthesize videoPlayerItem=_videoPlayerItem;
 @property(retain, nonatomic) ISWrappedAVPlayer *videoPlayer; // @synthesize videoPlayer=_videoPlayer;
 - (void).cxx_destruct;
+- (void)_endLoadingInterval:(_Bool)arg1;
+- (void)_endPlaybackInterval;
+- (void)_updateVideoViewPlaceholderFilters;
+- (void)_handleVideoPlayerTimeObserverWithTime:(CDStruct_1b6d18a9)arg1;
 - (void)_updateVideoViewContentMode;
 - (void)_updateVideoPlayerPlayerItem;
 - (void)_handlePlayerItemResult:(id)arg1 info:(id)arg2 requestID:(long long)arg3;
@@ -36,6 +43,7 @@
 @property(nonatomic) unsigned long long activityCoordinatorQueuePosition;
 - (void)contentsRectDidChange;
 - (void)placeholderTransitionDurationDidChange;
+- (void)isDisplayingFullQualityContentDidChange;
 - (_Bool)isDisplayingFullQualityContent;
 - (void)contentModeDidChange;
 - (void)placeholderImageFiltersDidChange;
@@ -47,6 +55,7 @@
 - (struct CGRect)currentContentsRect;
 - (id)contentView;
 - (long long)playbackStyle;
+- (void)dealloc;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

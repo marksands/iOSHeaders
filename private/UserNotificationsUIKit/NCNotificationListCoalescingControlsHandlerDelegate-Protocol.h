@@ -13,6 +13,8 @@
 @optional
 - (void)notificationListCoalescingControlsHandler:(id <NCNotificationListCoalescingControlsHandler>)arg1 didTransitionToClearState:(_Bool)arg2;
 - (void)notificationListCoalescingControlsHandlerRequestsClearingAllNotifications:(id <NCNotificationListCoalescingControlsHandler>)arg1;
+- (void)notificationListCoalescingControlsHandlerDidDismissPreviewInteractionPresentedContent:(id <NCNotificationListCoalescingControlsHandler>)arg1;
+- (void)notificationListCoalescingControlsHandlerDidPresentPreviewInteractionPresentedContent:(id <NCNotificationListCoalescingControlsHandler>)arg1;
 - (UIView *)containerViewForCoalescingControlsHandlerPreviewInteractionPresentedContent:(id <NCNotificationListCoalescingControlsHandler>)arg1;
 - (void)notificationListCoalescingControlsHandler:(id <NCNotificationListCoalescingControlsHandler>)arg1 requestsClearingNotificationsWithCoalescingIdentifier:(NSString *)arg2 inSection:(unsigned long long)arg3;
 - (void)notificationListCoalescingControlsHandler:(id <NCNotificationListCoalescingControlsHandler>)arg1 requestsRestackingNotificationsWithCoalescingIdentifier:(NSString *)arg2 inSection:(unsigned long long)arg3;

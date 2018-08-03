@@ -36,7 +36,6 @@
 - (void)dealloc;
 - (void)displayRTTFirstUseAlert;
 - (void)dismissRTTFirstUseAlert;
-- (void)updateRelayNumber;
 - (id)callForUUID:(id)arg1;
 - (void)handleUpdatedCalls:(id)arg1;
 - (void)callDidConnect:(id)arg1;

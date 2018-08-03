@@ -162,6 +162,7 @@
     UISApplicationState *_appState;
     _Bool optOutOfRTL;
     _Bool _isDisplayingActivityContinuationUI;
+    _Bool _applicationWantsGESEvents;
     SBSApplicationShortcutService *_shortcutService;
     CDUnknownBlockType ___queuedOrientationChange;
     long long __expectedViewOrientation;
@@ -208,6 +209,7 @@
 + (id)sharedApplication;
 + (_Bool)_wantsApplicationBehaviorAsExtension;
 + (void)registerObjectForStateRestoration:(id)arg1 restorationIdentifier:(id)arg2;
+@property(getter=_applicationWantsGESEvents, setter=_setApplicationWantsGESEvents:) _Bool applicationWantsGESEvents; // @synthesize applicationWantsGESEvents=_applicationWantsGESEvents;
 @property(nonatomic, setter=_setExpectedViewOrientation:) long long _expectedViewOrientation; // @synthesize _expectedViewOrientation=__expectedViewOrientation;
 @property(copy, nonatomic, setter=__setQueuedOrientationChange:) CDUnknownBlockType __queuedOrientationChange; // @synthesize __queuedOrientationChange=___queuedOrientationChange;
 @property(retain, nonatomic) SBSApplicationShortcutService *shortcutService; // @synthesize shortcutService=_shortcutService;
@@ -442,6 +444,7 @@
 - (double)statusBarHeightForOrientation:(long long)arg1;
 @property(readonly, nonatomic) struct CGRect statusBarFrame;
 - (struct CGRect)statusBarFrameForOrientation:(long long)arg1;
+- (long long)statusBar:(id)arg1 styleForRequestedStyle:(long long)arg2 overrides:(int)arg3;
 - (void)statusBar:(id)arg1 didAnimateFromHeight:(double)arg2 toHeight:(double)arg3 animation:(int)arg4;
 - (void)statusBar:(id)arg1 willAnimateFromHeight:(double)arg2 toHeight:(double)arg3 duration:(double)arg4 animation:(int)arg5;
 - (int)statusBar:(id)arg1 effectiveStyleOverridesForRequestedStyle:(long long)arg2 overrides:(int)arg3;
@@ -708,15 +711,16 @@
 - (id)statusBarWindow;
 - (id)statusBar;
 - (void)_createStatusBarWithRequestedStyle:(long long)arg1 orientation:(long long)arg2 hidden:(_Bool)arg3;
-- (_Bool)_wantsDeferredStatusBarCreation;
 - (_Bool)handleDoubleHeightStatusBarTapWithStyleOverride:(int)arg1;
 @property(nonatomic, getter=isNetworkActivityIndicatorVisible) _Bool networkActivityIndicatorVisible;
 - (_Bool)sendAction:(SEL)arg1 to:(id)arg2 from:(id)arg3 forEvent:(id)arg4;
 - (_Bool)sendAction:(SEL)arg1 toTarget:(id)arg2 fromSender:(id)arg3 forEvent:(id)arg4;
 - (id)_targetInChainForAction:(SEL)arg1 sender:(id)arg2;
 - (id)nextResponder;
+- (void)_popRunLoopMode:(id)arg1 requester:(id)arg2 reason:(id)arg3;
 - (void)popRunLoopMode:(id)arg1 requester:(id)arg2;
 - (void)popRunLoopMode:(id)arg1;
+- (void)_pushRunLoopMode:(id)arg1 requester:(id)arg2 reason:(id)arg3;
 - (void)pushRunLoopMode:(id)arg1 requester:(id)arg2;
 - (void)pushRunLoopMode:(id)arg1;
 - (id)userInfoDictionaryForRunLoopMode:(id)arg1 requester:(id)arg2;
@@ -741,7 +745,7 @@
 - (_Bool)_applicationLaunchesIntoPortrait;
 - (double)_launchTime;
 - (double)_execOrResumeTime;
-- (void)_reportAppLaunchComplete;
+- (void)_reportMainSceneUpdateFinishedPossiblyDeferredPortions;
 - (void)_reportMainSceneUpdateFinished:(CDUnknownBlockType)arg1;
 - (void)workspaceNoteAssertionExpirationImminent:(id)arg1;
 - (void)workspace:(id)arg1 didReceiveActions:(id)arg2;

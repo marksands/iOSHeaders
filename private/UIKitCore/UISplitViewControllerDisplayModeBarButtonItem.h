@@ -9,14 +9,16 @@
 __attribute__((visibility("hidden")))
 @interface UISplitViewControllerDisplayModeBarButtonItem : UIBarButtonItem
 {
-    _Bool _wasAddedToNavigationItem;
+    _Bool _hasBeenUsed;
     id <UISplitViewControllerImpl> _impl;
 }
 
-@property(nonatomic, getter=_wasAddedToNavigationItem, setter=_setWasAddedToNavigationItem:) _Bool wasAddedToNavigationItem; // @synthesize wasAddedToNavigationItem=_wasAddedToNavigationItem;
+@property(readonly, nonatomic, getter=_hasBeenUsed) _Bool hasBeenUsed; // @synthesize hasBeenUsed=_hasBeenUsed;
 @property(nonatomic, getter=_impl, setter=_setImpl:) __weak id <UISplitViewControllerImpl> impl; // @synthesize impl=_impl;
 - (void).cxx_destruct;
-@property(readonly, nonatomic, getter=_hasNavigationItem) _Bool hasNavigationItem;
+- (void)_wasUsed;
+- (SEL)action;
+- (id)target;
 - (void)_setOwningNavigationItem:(id)arg1;
 
 @end

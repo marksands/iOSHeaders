@@ -27,7 +27,6 @@
     AVView *_transportControlsContainerView;
     AVButton *_doneButton;
     AVButton *_fullScreenButton;
-    AVButton *_tapAnywhereToEnterFullScreenButton;
     AVButton *_videoGravityButton;
     AVButton *_pictureInPictureButton;
     NSArray *_customDisplayModeButtons;
@@ -89,7 +88,6 @@
 @property(readonly, nonatomic) NSArray *customDisplayModeButtons; // @synthesize customDisplayModeButtons=_customDisplayModeButtons;
 @property(readonly, nonatomic) AVButton *pictureInPictureButton; // @synthesize pictureInPictureButton=_pictureInPictureButton;
 @property(readonly, nonatomic) AVButton *videoGravityButton; // @synthesize videoGravityButton=_videoGravityButton;
-@property(readonly, nonatomic) AVButton *tapAnywhereToEnterFullScreenButton; // @synthesize tapAnywhereToEnterFullScreenButton=_tapAnywhereToEnterFullScreenButton;
 @property(readonly, nonatomic) AVButton *fullScreenButton; // @synthesize fullScreenButton=_fullScreenButton;
 @property(readonly, nonatomic) AVButton *doneButton; // @synthesize doneButton=_doneButton;
 @property(readonly, nonatomic) AVView *transportControlsContainerView; // @synthesize transportControlsContainerView=_transportControlsContainerView;

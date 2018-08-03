@@ -9,6 +9,7 @@
 @class APUIWFLIntentController, INIntent, INIntentResponse, INInteraction, NSError;
 
 @protocol APUIWFLIntentControllerDelegate <NSObject>
+- (void)intentControllerDidFailAuthorizationCheck:(APUIWFLIntentController *)arg1;
 - (void)intentController:(APUIWFLIntentController *)arg1 didFailWithError:(NSError *)arg2 forInteraction:(INInteraction *)arg3;
 - (void)intentController:(APUIWFLIntentController *)arg1 didHandleInteraction:(INInteraction *)arg2;
 - (void)intentController:(APUIWFLIntentController *)arg1 requiresContinuingInAppForIntent:(INIntent *)arg2 proceedHandler:(void (^)(_Bool))arg3;

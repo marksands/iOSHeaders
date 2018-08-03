@@ -19,7 +19,7 @@
 + (id)_searchSummerCriteriaWithGraph:(id)arg1;
 + (id)_searchSpringCriteriaWithGraph:(id)arg1;
 + (id)_searchWinterCriteriaWithGraph:(id)arg1;
-+ (id)_compulsaryRequiredTraitsFromBaseSceneNames:(id)arg1 leafSceneNames:(id)arg2;
++ (id)_compulsoryRequiredTraitsFromBaseSceneNames:(id)arg1 leafSceneNames:(id)arg2;
 + (id)_longTripCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
 + (id)_shortTripCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;
 + (id)_dinnerCriteriaWithGraph:(id)arg1 client:(unsigned long long)arg2;

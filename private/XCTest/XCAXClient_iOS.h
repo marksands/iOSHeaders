@@ -31,7 +31,7 @@
 - (_Bool)_setAXTimeout:(double)arg1 error:(id *)arg2;
 - (id)localizableStringsDataForActiveApplications;
 - (_Bool)performAction:(int)arg1 onElement:(id)arg2 value:(id)arg3 error:(id *)arg4;
-- (id)parameterizedAttribute:(id)arg1 forElement:(id)arg2 parameter:(id)arg3;
+- (id)parameterizedAttribute:(id)arg1 forElement:(id)arg2 parameter:(id)arg3 error:(id *)arg4;
 - (_Bool)setAttribute:(id)arg1 value:(id)arg2 element:(id)arg3 outError:(id *)arg4;
 @property(readonly) _Bool allowsRemoteAccess;
 - (id)attributesForElement:(id)arg1 attributes:(id)arg2 error:(id *)arg3;
@@ -45,6 +45,9 @@
 @property(readonly) _Bool supportsAnimationsInactiveNotifications;
 - (void)notifyWhenEventLoopIsIdleForApplication:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (id)interruptingUIElementsAffectingSnapshot:(id)arg1;
+@property(readonly) _Bool usePointTransformationsForFrameConversions;
+@property(readonly) _Bool supportsHostedViewCoordinateTransformations;
+@property(readonly) _Bool axNotificationsIncludeElement;
 - (void)handleAccessibilityNotification:(long long)arg1 fromElement:(id)arg2 payload:(id)arg3;
 - (void)notifyOnNextOccurrenceOfUserTestingEvent:(id)arg1 handler:(CDUnknownBlockType)arg2;
 - (void)handleUserTestingNotification:(id)arg1;

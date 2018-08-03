@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
-@class ACHDataStore, ACHEarnedInstanceStore, HDProfile, NSCalendar, NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>;
+#import "HDDatabaseProtectedDataObserver.h"
 
-@interface ACHEarnedInstanceAwardingEngine : NSObject
+@class ACHDataStore, ACHEarnedInstanceStore, HDProfile, NSCalendar, NSDate, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString;
+
+@interface ACHEarnedInstanceAwardingEngine : NSObject <HDDatabaseProtectedDataObserver>
 {
     HDProfile *_profile;
     ACHDataStore *_dataStore;
@@ -18,12 +20,14 @@
     NSCalendar *_calendar;
     NSObject<OS_dispatch_queue> *_internalQueue;
     NSDate *_currentDateOverride;
+    NSMutableDictionary *_queuedIncrementalEvaluations;
 }
 
 - (void).cxx_destruct;
 - (id)currentDate;
 - (void)setCurrentDateOverride:(id)arg1;
 - (void)_queue_evaluateHistoryForSource:(id)arg1 databaseContext:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)database:(id)arg1 protectedDataDidBecomeAvailable:(_Bool)arg2;
 - (void)requestHistoricalEvaluationForAllSourcesWithDatabaseContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestHistoricalEvaluationForAllSourcesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)requestIncrementalEvaluationForSource:(id)arg1 evaluationBlock:(CDUnknownBlockType)arg2;
@@ -32,6 +36,12 @@
 - (id)dataStorePropertyProviderForSource:(id)arg1;
 - (unsigned long long)sourceCount;
 - (id)initWithProfile:(id)arg1 dataStore:(id)arg2 earnedInstanceStore:(id)arg3 historicalEvaluationPolicy:(CDStruct_7c8d061c)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

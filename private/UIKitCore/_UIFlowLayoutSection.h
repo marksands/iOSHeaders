@@ -81,6 +81,7 @@ __attribute__((visibility("hidden")))
 - (void)setEstimatedSize:(struct CGSize)arg1 forSection:(long long)arg2;
 - (void)updateEstimatedSizeForSection:(long long)arg1;
 - (void)computeLayoutInRect:(struct CGRect)arg1 forSection:(long long)arg2 invalidating:(_Bool)arg3 invalidationContext:(id)arg4;
+- (void)computeLayoutValidatingForwardForIndexPath:(id)arg1;
 @property(readonly, nonatomic) struct CGRect effectiveFooterFrameWithSectionMarginsApplied;
 @property(readonly, nonatomic) struct CGRect effectiveHeaderFrameWithSectionMarginsApplied;
 - (void)setFooterDimension:(double)arg1 forSection:(long long)arg2;

@@ -6,11 +6,12 @@
 
 #import "UIView.h"
 
+#import "CPSLinearFocusProviding.h"
 #import "CPSRouteRowInteracting.h"
 
 @class NSArray, NSString;
 
-@interface CPSAlternateRoutesView : UIView <CPSRouteRowInteracting>
+@interface CPSAlternateRoutesView : UIView <CPSRouteRowInteracting, CPSLinearFocusProviding>
 {
     NSArray *_availableRouteChoices;
     unsigned long long _indexForSelectedRoute;
@@ -23,6 +24,8 @@
 @property(nonatomic) unsigned long long indexForSelectedRoute; // @synthesize indexForSelectedRoute=_indexForSelectedRoute;
 @property(retain, nonatomic) NSArray *availableRouteChoices; // @synthesize availableRouteChoices=_availableRouteChoices;
 - (void).cxx_destruct;
+- (id)_linearFocusItems;
+- (id)preferredFocusEnvironments;
 - (void)didSelectRow:(id)arg1 representingRouteChoice:(id)arg2;
 - (void)_reloadRows;
 - (id)initWithFrame:(struct CGRect)arg1;

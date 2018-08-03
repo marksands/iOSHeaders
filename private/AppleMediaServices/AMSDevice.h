@@ -35,23 +35,31 @@
 + (id)hardwarePlatform;
 + (id)deviceGUID;
 + (id)buildVersion;
-+ (_Bool)postFollowUpForDeviceOffersWithIdentitier:(id)arg1 account:(id)arg2 priority:(long long)arg3 logKey:(id)arg4;
++ (void)removeDeviceOfferWithIdentifier:(id)arg1 account:(id)arg2 logKey:(id)arg3;
++ (_Bool)postDeviceOfferFollowUpWithIdentifier:(id)arg1 account:(id)arg2 priority:(long long)arg3 logKey:(id)arg4;
++ (_Bool)postAllDeviceOfferFollowUpsForAccount:(id)arg1 priority:(long long)arg2 logKey:(id)arg3;
 + (id)deviceOffersForProductType:(unsigned long long)arg1;
 + (_Bool)deviceOffersContainProductType:(unsigned long long)arg1;
-+ (id)_followUpItemWithIdentifier:(id)arg1 account:(id)arg2 priority:(long long)arg3 logKey:(id)arg4;
++ (id)_followUpItemWithIdentifier:(id)arg1 account:(id)arg2 priority:(long long)arg3 bagContract:(id)arg4 logKey:(id)arg5;
 + (_Bool)tearDownDeviceOfferFollowUpWithIdentifier:(id)arg1 account:(id)arg2 logKey:(id)arg3;
 + (_Bool)tearDownAllDeviceOfferFollowUpsForAccount:(id)arg1 logKey:(id)arg2;
 + (_Bool)shouldPresentSetupOffersForAccount:(id)arg1;
-+ (void)removeDeviceOfferWithIdentifier:(id)arg1 account:(id)arg2 logKey:(id)arg3;
++ (void)setDeviceOffersCheckEncodingForRequestParameters:(id)arg1;
++ (_Bool)saveDeviceOffersForAccount:(id)arg1 response:(id)arg2 logKey:(id)arg3;
++ (void)removeDeviceOfferWithIdentifier:(id)arg1 account:(id)arg2 bagContract:(id)arg3 logKey:(id)arg4;
 + (void)registerCompanionWithSerialNumber:(id)arg1;
-+ (_Bool)postDeviceOfferFollowUpWithIdentifier:(id)arg1 account:(id)arg2 priority:(long long)arg3 logKey:(id)arg4;
-+ (_Bool)postAllDeviceOfferFollowUpsForAccount:(id)arg1 priority:(long long)arg2 logKey:(id)arg3;
++ (_Bool)postDeviceOfferFollowUpWithIdentifier:(id)arg1 account:(id)arg2 priority:(long long)arg3 bagContract:(id)arg4 logKey:(id)arg5;
++ (_Bool)postAllDeviceOfferFollowUpsForAccount:(id)arg1 priority:(long long)arg2 bagContract:(id)arg3 logKey:(id)arg4;
 + (id)deviceOffersForType:(unsigned long long)arg1;
 + (_Bool)deviceOffersContainType:(unsigned long long)arg1;
 + (_Bool)isGift;
 + (_Bool)isEligibleForOffers;
 + (_Bool)expressedIntent;
 + (id)deviceOffers;
++ (void)_startListeningForDeviceLanguageChangeWithBagContract:(id)arg1 callback:(CDUnknownBlockType)arg2;
++ (id)_appleLanguagesObservable;
++ (void)stopListeningForDeviceLanguageChange;
++ (void)startListeningForDeviceLanguageChangeWithBagContract:(id)arg1;
 
 @end
 

@@ -24,8 +24,6 @@
 @property(retain, nonatomic) id <VCUITypeToSiriFieldDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (_Bool)textFieldShouldReturn:(id)arg1;
-- (void)textFieldDidEndEditing:(id)arg1 reason:(long long)arg2;
-- (void)textFieldDidEndEditing:(id)arg1;
 - (void)textFieldDidChange:(id)arg1;
 - (void)detach;
 - (_Bool)becomeFirstResponder;

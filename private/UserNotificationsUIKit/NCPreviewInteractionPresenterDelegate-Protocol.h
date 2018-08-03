@@ -13,6 +13,7 @@
 @optional
 - (void)previewInteractionPresenterDidDismiss:(NCPreviewInteractionPresenter *)arg1;
 - (void)previewInteractionPresenterDidPresent:(NCPreviewInteractionPresenter *)arg1;
+- (void)previewInteractionPresenterDidCommitToPresentation:(NCPreviewInteractionPresenter *)arg1;
 - (_Bool)previewInteractionPresenterShouldBegin:(NCPreviewInteractionPresenter *)arg1;
 - (UIView *)containerViewForPreviewInteractionPresenter:(NCPreviewInteractionPresenter *)arg1;
 @end

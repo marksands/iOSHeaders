@@ -13,6 +13,7 @@
 @property(copy, nonatomic) NSString *coalescingIdentifier;
 @property(nonatomic) __weak id <NCNotificationListCoalescingControlsHandlerDelegate> handlerDelegate;
 - (_Bool)shouldReceiveTouchAtPointInWindowSpace:(struct CGPoint)arg1;
+- (_Bool)dismissModalFullScreenIfNeeded;
 - (void)resetClearButtonStateAnimated:(_Bool)arg1;
 @end
 

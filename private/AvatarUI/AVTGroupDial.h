@@ -10,7 +10,7 @@
 #import "UICollectionViewDelegate.h"
 #import "UICollectionViewDelegateFlowLayout.h"
 
-@class AVTCenteringCollectionViewDelegate, AVTGroupDialMaskingView, AVTUIEnvironment, NSArray, NSIndexPath, NSString, UICollectionView;
+@class AVTCenteringCollectionViewDelegate, AVTGroupDialMaskingView, AVTUIEnvironment, NSArray, NSIndexPath, NSString, UICollectionView, UICollectionViewFlowLayout;
 
 @interface AVTGroupDial : UIView <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
@@ -21,6 +21,7 @@
     NSArray *_groupTitles;
     NSArray *_cachedGroupTitleSizes;
     UICollectionView *_collectionView;
+    UICollectionViewFlowLayout *_collectionViewLayout;
     AVTCenteringCollectionViewDelegate *_centeringCollectionViewDelegate;
     unsigned long long _currentScrollDirection;
     long long _currentSelectedItemIndex;
@@ -37,6 +38,7 @@
 @property(nonatomic) long long currentSelectedItemIndex; // @synthesize currentSelectedItemIndex=_currentSelectedItemIndex;
 @property(nonatomic) unsigned long long currentScrollDirection; // @synthesize currentScrollDirection=_currentScrollDirection;
 @property(readonly, nonatomic) AVTCenteringCollectionViewDelegate *centeringCollectionViewDelegate; // @synthesize centeringCollectionViewDelegate=_centeringCollectionViewDelegate;
+@property(retain, nonatomic) UICollectionViewFlowLayout *collectionViewLayout; // @synthesize collectionViewLayout=_collectionViewLayout;
 @property(readonly, nonatomic) UICollectionView *collectionView; // @synthesize collectionView=_collectionView;
 @property(readonly, nonatomic) NSArray *cachedGroupTitleSizes; // @synthesize cachedGroupTitleSizes=_cachedGroupTitleSizes;
 @property(readonly, nonatomic) NSArray *groupTitles; // @synthesize groupTitles=_groupTitles;
@@ -67,6 +69,7 @@
 - (void)setBounds:(struct CGRect)arg1;
 - (void)setFrame:(struct CGRect)arg1;
 - (void)layoutSubviews;
+- (void)setContentPadding:(double)arg1;
 - (void)setupDial;
 - (void)cacheTitleSizes;
 - (void)setupMasking;

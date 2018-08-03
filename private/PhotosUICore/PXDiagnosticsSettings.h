@@ -14,10 +14,16 @@
     _Bool _enableTitleFontService;
     _Bool _enableCompleteMyMomentService;
     _Bool _simulateLaunchedToTest;
+    _Bool _enableScrollService;
+    double _scrollSpeed;
+    long long _scrollIterations;
 }
 
 + (id)sharedInstance;
 + (id)settingsControllerModule;
+@property(nonatomic) long long scrollIterations; // @synthesize scrollIterations=_scrollIterations;
+@property(nonatomic) double scrollSpeed; // @synthesize scrollSpeed=_scrollSpeed;
+@property(nonatomic) _Bool enableScrollService; // @synthesize enableScrollService=_enableScrollService;
 @property(nonatomic) _Bool simulateLaunchedToTest; // @synthesize simulateLaunchedToTest=_simulateLaunchedToTest;
 @property(nonatomic) _Bool enableCompleteMyMomentService; // @synthesize enableCompleteMyMomentService=_enableCompleteMyMomentService;
 @property(nonatomic) _Bool enableTitleFontService; // @synthesize enableTitleFontService=_enableTitleFontService;

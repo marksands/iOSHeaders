@@ -105,9 +105,9 @@
 @property(nonatomic) _Bool shouldUpdatePersistentServiceTokens; // @synthesize shouldUpdatePersistentServiceTokens=_shouldUpdatePersistentServiceTokens;
 @property(nonatomic) _Bool shouldPromptForPasswordOnly; // @synthesize shouldPromptForPasswordOnly=_shouldPromptForPasswordOnly;
 @property(nonatomic) unsigned long long authenticationType; // @synthesize authenticationType=_authenticationType;
-@property(copy) NSString *helpBook; // @synthesize helpBook=_helpBook;
-@property(copy) NSString *helpAnchor; // @synthesize helpAnchor=_helpAnchor;
-@property(retain) NSString *title; // @synthesize title=_title;
+@property(copy, nonatomic) NSString *helpBook; // @synthesize helpBook=_helpBook;
+@property(copy, nonatomic) NSString *helpAnchor; // @synthesize helpAnchor=_helpAnchor;
+@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) _Bool needsRepair; // @synthesize needsRepair=_needsRepair;
 @property(nonatomic) _Bool shouldOfferSecurityUpgrade; // @synthesize shouldOfferSecurityUpgrade=_shouldOfferSecurityUpgrade;
 @property(retain, nonatomic) id clientInfo; // @synthesize clientInfo=_clientInfo;

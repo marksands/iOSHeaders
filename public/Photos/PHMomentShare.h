@@ -64,7 +64,9 @@
 @property(readonly, nonatomic) unsigned short status; // @synthesize status=_status;
 - (void).cxx_destruct;
 - (void)publishWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)forceSyncWithCompletion:(CDUnknownBlockType)arg1;
 - (void)acceptShareWithCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)shouldSuggestShareBack;
 - (_Bool)shouldPromptUserToIgnoreBudgets;
 - (id)initWithFetchDictionary:(id)arg1 propertyHint:(unsigned long long)arg2 photoLibrary:(id)arg3;
 @property(readonly, nonatomic) PHMomentSharePreview *preview; // @dynamic preview;

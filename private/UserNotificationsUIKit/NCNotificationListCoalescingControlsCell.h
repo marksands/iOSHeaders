@@ -39,6 +39,8 @@
 - (void)_configureCoalescingControlsViewIfNecessary;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
+- (void)notificationListCoalescingControlsViewDidDismissPreviewInteractionPresentedContent:(id)arg1;
+- (void)notificationListCoalescingControlsViewDidPresentPreviewInteractionPresentedContent:(id)arg1;
 - (id)containerViewForCoalescingControlsPreviewInteractionPresentedContent:(id)arg1;
 - (void)notificationListCoalescingControlsView:(id)arg1 didTransitionToClearState:(_Bool)arg2;
 - (void)notificationListCoalescingControlsViewRequestsRestack:(id)arg1;
@@ -47,6 +49,7 @@
 - (void)adjustForLegibilitySettingsChange:(id)arg1;
 - (void)prepareForReuse;
 - (_Bool)shouldReceiveTouchAtPointInWindowSpace:(struct CGPoint)arg1;
+- (_Bool)dismissModalFullScreenIfNeeded;
 - (void)resetClearButtonStateAnimated:(_Bool)arg1;
 - (void)layoutSubviews;
 

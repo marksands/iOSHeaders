@@ -12,17 +12,20 @@
 
 @interface CRUpdateProgressCommand : NSObject <CRCommand>
 {
+    _Bool _animatesProgress;
     unsigned long long commandDirection;
     NSDictionary *userInfo;
     unsigned long long _event;
     NSProgress *_progress;
 }
 
+@property(nonatomic) _Bool animatesProgress; // @synthesize animatesProgress=_animatesProgress;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(nonatomic) unsigned long long event; // @synthesize event=_event;
 @property(copy, nonatomic) NSDictionary *userInfo; // @synthesize userInfo;
 @property(nonatomic) unsigned long long commandDirection; // @synthesize commandDirection;
 - (void).cxx_destruct;
+- (id)init;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

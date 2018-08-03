@@ -8,15 +8,17 @@
 
 #import "MLCustomModel.h"
 
-@class MLModelDescription;
+@class MLModelConfiguration, MLModelDescription;
 
 __attribute__((visibility("hidden")))
 @interface _MLVNScenePrintCustomModel : NSObject <MLCustomModel>
 {
     int _scenePrintRequestRevision;
     MLModelDescription *_modelDescription;
+    MLModelConfiguration *_configuration;
 }
 
+@property(readonly, nonatomic) MLModelConfiguration *configuration; // @synthesize configuration=_configuration;
 @property(readonly, nonatomic) int scenePrintRequestRevision; // @synthesize scenePrintRequestRevision=_scenePrintRequestRevision;
 @property(readonly, nonatomic) MLModelDescription *modelDescription; // @synthesize modelDescription=_modelDescription;
 - (void).cxx_destruct;

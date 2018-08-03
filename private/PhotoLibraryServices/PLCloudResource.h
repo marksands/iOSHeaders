@@ -35,6 +35,7 @@
 @property(nonatomic) short prefetchCount; // @dynamic prefetchCount;
 @property(retain, nonatomic) NSDate *lastPrefetchDate; // @dynamic lastPrefetchDate;
 @property(nonatomic) _Bool isLocallyAvailable; // @dynamic isLocallyAvailable;
+- (void)createSidecarFileForMasterAssetIfNeeded:(id)arg1;
 - (id)cplResourceIncludeFile:(_Bool)arg1;
 @property(readonly, retain, nonatomic) CPLScopedIdentifier *scopedIdentifier;
 - (void)_duplicatePropertiesFromCloudResource:(id)arg1 withFilePath:(id)arg2 forAssetUuid:(id)arg3;

@@ -6,22 +6,19 @@
 
 #import <ScreenTimeUI/STGroupSpecifierProvider.h>
 
-@class CTCategory, PSSpecifier, STAppInfo, STUsageItem;
+@class PSSpecifier, STAppInfo, STUsageItem;
 
 @interface STAppDetailsGroupSpecifierProvider : STGroupSpecifierProvider
 {
     PSSpecifier *_appIconSpecifier;
     STUsageItem *_appUsageItem;
     STAppInfo *_appInfo;
-    CTCategory *_category;
 }
 
-@property(retain, nonatomic) CTCategory *category; // @synthesize category=_category;
 @property(readonly, nonatomic) STAppInfo *appInfo; // @synthesize appInfo=_appInfo;
 @property(readonly, nonatomic) STUsageItem *appUsageItem; // @synthesize appUsageItem=_appUsageItem;
 @property(readonly, nonatomic) PSSpecifier *appIconSpecifier; // @synthesize appIconSpecifier=_appIconSpecifier;
 - (void).cxx_destruct;
-- (void)didFetchCategory:(id)arg1;
 - (id)developer:(id)arg1;
 - (id)ageRating:(id)arg1;
 - (id)category:(id)arg1;

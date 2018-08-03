@@ -13,10 +13,8 @@
     double _bannerHeight;
     double _statusFooterHeight;
     double _sendBackFooterHeight;
-    double _progressTileHeight;
 }
 
-@property(nonatomic) double progressTileHeight; // @synthesize progressTileHeight=_progressTileHeight;
 @property(nonatomic) double sendBackFooterHeight; // @synthesize sendBackFooterHeight=_sendBackFooterHeight;
 @property(nonatomic) double statusFooterHeight; // @synthesize statusFooterHeight=_statusFooterHeight;
 @property(nonatomic) double bannerHeight; // @synthesize bannerHeight=_bannerHeight;

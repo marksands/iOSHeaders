@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HDSQLiteDatabase, HDSQLiteStatement, NSArray, NSDate, NSNumber, NSSet, NSString, NSUUID;
+@class HDSQLiteDatabase, HDSQLiteStatement, NSArray, NSDate, NSDictionary, NSNumber, NSSet, NSString, NSUUID;
 
 @protocol HDSQLiteEntity <NSObject>
 + (Class)entityClassForEnumeration;
@@ -19,7 +19,10 @@
 + (NSArray *)privateSubEntities;
 + (_Bool)isTemporary;
 + (NSArray *)indices;
++ (NSDictionary *)foreignKeys;
++ (void)enumerateColumnsWithBlock:(void (^)(_HDSQLiteEntityColumn *, _Bool *))arg1;
 + (NSArray *)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (NSArray *)tableAliases;
 + (NSString *)databaseTable;
 + (NSString *)databaseName;

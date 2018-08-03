@@ -9,7 +9,7 @@
 #import "FADigitalHealthDelegate.h"
 #import "LSApplicationWorkspaceObserverProtocol.h"
 
-@class DMFWebsitePolicyMonitor, FALockOutView, LSApplicationProxy, NSObject<OS_dispatch_group>, NSString, NSURL, RMAskForTimeResource, RMManagementState, UIAlertController, UIImage;
+@class DMFWebsitePolicyMonitor, FALockOutView, LSApplicationProxy, NSObject<OS_dispatch_group>, NSString, NSURL, RMAskForTimeResource, RMManagementState, SBSLockScreenService, UIAlertController, UIImage;
 
 @interface FALockOutViewController : UIViewController <LSApplicationWorkspaceObserverProtocol, FADigitalHealthDelegate>
 {
@@ -24,6 +24,7 @@
     DMFWebsitePolicyMonitor *_websitePolicyMonitor;
     RMManagementState *_managementState;
     RMAskForTimeResource *_askForTimeResource;
+    SBSLockScreenService *_sbsLockScreenService;
     CDUnknownBlockType _restrictionsPINControllerCompletion;
     UIAlertController *_presentedAlertController;
     _Bool _isHourglassStateInitialized;
@@ -50,6 +51,7 @@
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(nonatomic, getter=isForSnapshot) _Bool forSnapshot; // @synthesize forSnapshot=_forSnapshot;
 - (void).cxx_destruct;
+- (void)contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_handleRestrictionsPINNotification:(id)arg1;
 - (void)_stopListeningForRestrictionsPINEntryNotification;
 - (void)_startListeningForRestrictionsPINEntryNotification;
@@ -113,7 +115,10 @@
 - (void)_authenticatedApproveForAdditionalTime:(double)arg1;
 - (double)_timeIntervalToEndOfDay;
 - (_Bool)_authenticatedApproveActionSheet;
+- (void)_unlockWithSuccessMainCompletion:(CDUnknownBlockType)arg1;
+- (_Bool)_actionUnlockedEnterScreenTimePasscodeActionSheet;
 - (_Bool)_actionEnterScreenTimePasscodeActionSheet;
+- (_Bool)_actionUnlockedAskOrApproveActionSheet;
 - (_Bool)_actionAskOrApproveActionSheet;
 - (_Bool)_actionIgnoreLimitActionSheet;
 - (_Bool)_actionIgnoreLimitForToday;

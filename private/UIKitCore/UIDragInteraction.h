@@ -16,6 +16,7 @@
 {
     _Bool _didSetEnabled;
     _Bool _enabled;
+    struct CGPoint _deferredLiftPointInWindow;
     _UIDragSessionImpl *_preliminarySession;
     _UIDragSessionImpl *_sessionForAddingItems;
     UIDragInteractionContextImpl *_interactionContext;
@@ -90,6 +91,7 @@
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)gestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (void)_dragSourceGestureStateChanged:(id)arg1;
+- (void)_prepareToLiftWithGesture:(id)arg1 atPoint:(struct CGPoint)arg2;
 - (void)_cancelLift;
 - (void)_finalizeLiftCancellation;
 - (void)_endLift;
@@ -118,7 +120,6 @@
 - (void)_accessibilityPrepareForDragAtPoint:(struct CGPoint)arg1 completion:(CDUnknownBlockType)arg2;
 - (struct CGPoint)_locationInView:(id)arg1;
 - (_Bool)_isActive;
-- (void)setLiftMoveHysteresis:(double)arg1;
 - (double)liftDelay;
 - (void)setLiftDelay:(double)arg1;
 - (void)setDragCancellationDelay:(double)arg1;

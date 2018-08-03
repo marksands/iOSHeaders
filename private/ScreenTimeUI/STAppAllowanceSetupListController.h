@@ -6,19 +6,19 @@
 
 #import <ScreenTimeUI/STAllowanceSetupListController.h>
 
-@class NSArray, NSDictionary, PSSpecifier;
+@class NSArray, NSSet, PSSpecifier;
 
 @interface STAppAllowanceSetupListController : STAllowanceSetupListController
 {
     NSArray *_chooseBundleIDs;
-    NSDictionary *_appsByBundleID;
+    NSSet *_installedBundleIDs;
     PSSpecifier *_chooseAppsGroupSpecifier;
     NSArray *_chooseAppsSpecifiers;
 }
 
 @property(retain, nonatomic) NSArray *chooseAppsSpecifiers; // @synthesize chooseAppsSpecifiers=_chooseAppsSpecifiers;
 @property(retain, nonatomic) PSSpecifier *chooseAppsGroupSpecifier; // @synthesize chooseAppsGroupSpecifier=_chooseAppsGroupSpecifier;
-@property(copy, nonatomic) NSDictionary *appsByBundleID; // @synthesize appsByBundleID=_appsByBundleID;
+@property(copy, nonatomic) NSSet *installedBundleIDs; // @synthesize installedBundleIDs=_installedBundleIDs;
 @property(copy, nonatomic) NSArray *chooseBundleIDs; // @synthesize chooseBundleIDs=_chooseBundleIDs;
 - (void).cxx_destruct;
 - (id)appSpecifiersForBundleIDs:(id)arg1;

@@ -4,37 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <IMAP/IMAPAccount.h>
+#import <IMAP/YahooAccount.h>
 
-@interface AOLAccount : IMAPAccount
+#import "MFOAuth2TokenAuthProtocol.h"
+
+@class NSString;
+
+@interface AOLAccount : YahooAccount <MFOAuth2TokenAuthProtocol>
 {
 }
 
-+ (unsigned int)deliveryAccountPortNumber;
-+ (_Bool)deliveryAccountUsesSSL;
-+ (id)deliveryAccountHostname;
-+ (_Bool)usesSSL;
-+ (id)accountPropertiesValueForKey:(id)arg1 value:(id)arg2;
-+ (id)_usernameWithHostname:(id)arg1;
-+ (_Bool)usernameIsEmailAddress;
-+ (id)hostname;
-+ (_Bool)isPredefinedAccountType;
++ (id)accountTypeIdentifier;
 + (id)displayedAccountTypeString;
-+ (id)legacyPathNameForAccountWithHostname:(id)arg1 username:(id)arg2;
-+ (id)emailAddressHostPart;
-- (_Bool)shouldFetchACEDBInfoForError:(id)arg1;
-- (id)_deliveryAccountCreateIfNeeded:(_Bool)arg1;
-- (_Bool)derivesDeliveryAccountInfoFromMailAccount;
 - (id)iconString;
-- (void)setUsesSSL:(_Bool)arg1;
-- (_Bool)usesSSL;
-- (void)setUsername:(id)arg1;
-- (id)displayUsername;
-- (id)emailAddresses;
-- (void)setHostname:(id)arg1;
 - (id)statisticsKind;
-- (id)hostname;
-- (id)_defaultSpecialMailboxNameForType:(int)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

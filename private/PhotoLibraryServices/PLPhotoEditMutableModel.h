@@ -31,7 +31,7 @@
 @property(nonatomic, getter=isPortraitEffectEnabled) _Bool portraitEffectEnabled; // @dynamic portraitEffectEnabled;
 @property(nonatomic) _Bool hasPortraitEffectAdjustment; // @dynamic hasPortraitEffectAdjustment;
 - (_Bool)canRenderPortraitEffect;
-@property(nonatomic) float depthEffectAperture; // @dynamic depthEffectAperture;
+@property(nonatomic) double depthEffectAperture; // @dynamic depthEffectAperture;
 @property(copy, nonatomic) NSDictionary *depthEffectSettings; // @dynamic depthEffectSettings;
 @property(nonatomic, getter=isDepthEffectEnabled) _Bool depthEffectEnabled; // @dynamic depthEffectEnabled;
 @property(copy, nonatomic) NSDictionary *fusionParameters; // @dynamic fusionParameters;

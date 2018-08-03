@@ -12,11 +12,13 @@
 {
     _Bool _requiresCoreLocationAssertion;
     _Bool _requiresRecovery;
+    _Bool _supportsAppRelaunchForRecovery;
     HKWorkoutConfiguration *_workoutConfiguration;
     NSUUID *_sessionUUID;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool supportsAppRelaunchForRecovery; // @synthesize supportsAppRelaunchForRecovery=_supportsAppRelaunchForRecovery;
 @property(nonatomic) _Bool requiresRecovery; // @synthesize requiresRecovery=_requiresRecovery;
 @property(nonatomic) _Bool requiresCoreLocationAssertion; // @synthesize requiresCoreLocationAssertion=_requiresCoreLocationAssertion;
 @property(copy, nonatomic) NSUUID *sessionUUID; // @synthesize sessionUUID=_sessionUUID;

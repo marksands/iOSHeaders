@@ -8,13 +8,16 @@
 
 #import "_DKSyncRemoteKnowledgeStorage.h"
 
-@class NSDictionary, RPCompanionLinkClient, _DKEventTypeResultStatsCounter;
+@class NSDictionary, NSMutableDictionary, NSObject<OS_dispatch_source>, RPCompanionLinkClient, _DKEventTypeResultStatsCounter;
 
 @interface _DKSyncRapportKnowledgeStorage : NSObject <_DKSyncRemoteKnowledgeStorage>
 {
     NSDictionary *_failIfAsleepOption;
     _DKEventTypeResultStatsCounter *_failIfAsleepStats;
     RPCompanionLinkClient *_client;
+    NSMutableDictionary *_companionLinkClients;
+    unsigned long long _outstandingRequestCount;
+    NSObject<OS_dispatch_source> *_companionLinkClientsCleanupTimer;
     double _retryTimeout;
     unsigned long long _currentChangeSetSequenceNumber;
     _Bool _isAvailable;
@@ -29,8 +32,13 @@
 - (id)changeSetFromCompressedData:(id)arg1 deviceIdentifier:(id)arg2 sequenceNumber:(unsigned long long)arg3;
 - (id)changeSetForSyncWithEventsToInsert:(id)arg1 eventIDsToDeletes:(id)arg2 error:(id *)arg3;
 - (void)handleAvailabilityFailureWithPeer:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)sendRequestID:(id)arg1 request:(id)arg2 destinationID:(id)arg3 options:(id)arg4 responseHandler:(CDUnknownBlockType)arg5;
+- (void)performCompanionLinkCleanup;
+- (void)companionLinkCleanupTimerFired;
+- (void)createOrRescheduleCompanionLinkClientsCleanupTimer;
+- (void)sendRequestID:(id)arg1 request:(id)arg2 peer:(id)arg3 client:(id)arg4 options:(id)arg5 responseHandler:(CDUnknownBlockType)arg6;
 - (void)sendRequestID:(id)arg1 request:(id)arg2 peer:(id)arg3 options:(id)arg4 responseHandler:(CDUnknownBlockType)arg5;
+- (id)deviceForPeer:(id)arg1;
+- (_Bool)isTransportActiveForPeer:(id)arg1;
 - (long long)transportType;
 - (id)name;
 - (void)updateStorageWithAddedEvents:(id)arg1 deletedEventIDs:(id)arg2 highPriority:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
@@ -57,12 +65,14 @@
 - (id)myDeviceID;
 - (id)transformCaughtObject:(id)arg1 existingError:(id)arg2;
 - (id)transformResponseError:(id)arg1;
+- (void)handleActivateCompanionLinkClient:(id)arg1 forPeer:(id)arg2 error:(id)arg3;
 - (void)handleActivateWithError:(id)arg1;
 - (void)handleDeviceLost:(id)arg1;
 - (void)handleDeviceChanged:(id)arg1 changes:(unsigned int)arg2;
-- (void)handshakeWithDuetSyncPeer:(id)arg1;
+- (void)handshakeWithDuetSyncPeer:(id)arg1 orError:(id)arg2;
 - (void)handleDeviceFound:(id)arg1;
 - (void)handleInvalidation;
+- (void)registerRequestIDsWithClient:(id)arg1;
 - (void)startRapport;
 - (void)cancelOutstandingOperations;
 - (void)start;

@@ -6,25 +6,19 @@
 
 #import <RemoteManagement/RMCoreOrganizationSettings.h>
 
-#import "RMSerializableManagedObject.h"
-
 @class NSString, RMiCloudOrganization;
 
-@interface RMiCloudOrganizationSettings : RMCoreOrganizationSettings <RMSerializableManagedObject>
+@interface RMiCloudOrganizationSettings : RMCoreOrganizationSettings
 {
 }
 
+@property(copy, nonatomic) NSString *passcode; // @dynamic passcode;
 - (id)dictionaryRepresentation;
 - (void)updateWithDictionaryRepresentation:(id)arg1;
+- (id)computeUniqueIdentifier;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
 @property(retain, nonatomic) RMiCloudOrganization *organization; // @dynamic organization;
-@property(copy, nonatomic) NSString *passcode; // @dynamic passcode;
-@property(nonatomic) _Bool screenTimeEnabled; // @dynamic screenTimeEnabled;
-@property(readonly) Class superclass;
 
 @end
 

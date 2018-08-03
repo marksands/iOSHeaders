@@ -213,6 +213,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, nonatomic) id <FCHeadlineStocksFields> stocksFields;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) _Bool webEmbedsEnabled;
 
 @end
 

@@ -8,18 +8,20 @@
 
 #import "SVCustomControlsViewProviding.h"
 
-@class AVPlayerViewControllerCustomControlsView, NSString;
+@class NSString, UIView;
 
 @interface SVCustomControlsViewProvider : NSObject <SVCustomControlsViewProviding>
 {
-    AVPlayerViewControllerCustomControlsView *_controlsView;
+    UIView *_controlsView;
+    id <SVCustomControlsLayoutGuideProviding> _layoutGuideProvider;
     id <SVVideoViewControllerProviding> _viewControllerProvider;
 }
 
 @property(readonly, nonatomic) id <SVVideoViewControllerProviding> viewControllerProvider; // @synthesize viewControllerProvider=_viewControllerProvider;
+@property(readonly, nonatomic) id <SVCustomControlsLayoutGuideProviding> layoutGuideProvider; // @synthesize layoutGuideProvider=_layoutGuideProvider;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) AVPlayerViewControllerCustomControlsView *controlsView; // @synthesize controlsView=_controlsView;
-- (id)initWithViewControllerProvider:(id)arg1;
+@property(readonly, nonatomic) UIView *controlsView; // @synthesize controlsView=_controlsView;
+- (id)initWithViewControllerProvider:(id)arg1 layoutGuideProvider:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

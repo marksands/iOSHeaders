@@ -9,6 +9,7 @@
 @class NSString;
 
 @protocol PXNavigableGadgetViewController <NSObject>
+- (_Bool)navigateToGadgetDeferIfNeeded:(id <PXGadget>)arg1 animated:(_Bool)arg2 nestedNavigationBlock:(void (^)(id <PXGadget>))arg3;
 - (_Bool)navigateToGadgetWithIdDeferIfNeeded:(NSString *)arg1 animated:(_Bool)arg2 nestingNavigationBlock:(void (^)(id <PXGadget>))arg3;
 - (_Bool)navigateToFirstGadgetWithTypeDeferIfNeeded:(unsigned long long)arg1 animated:(_Bool)arg2 nestedNavigationBlock:(void (^)(id <PXGadget>))arg3;
 - (_Bool)navigateToGadget:(id <PXGadget>)arg1 animated:(_Bool)arg2;

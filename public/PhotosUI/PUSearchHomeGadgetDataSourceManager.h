@@ -6,23 +6,25 @@
 
 #import "PXGadgetDataSourceManager.h"
 
-@class PUSearchZeroKeywordGadgetProvider, PXNoContentGadget;
+@class PUSearchZeroKeywordGadgetProvider;
 
 __attribute__((visibility("hidden")))
 @interface PUSearchHomeGadgetDataSourceManager : PXGadgetDataSourceManager
 {
     PUSearchZeroKeywordGadgetProvider *_zeroKeywordGadgetProvider;
-    PXNoContentGadget *_searchNoContentGadget;
+    long long _filteringState;
 }
 
-@property(retain, nonatomic) PXNoContentGadget *searchNoContentGadget; // @synthesize searchNoContentGadget=_searchNoContentGadget;
+@property(nonatomic) long long filteringState; // @synthesize filteringState=_filteringState;
 @property(retain, nonatomic) PUSearchZeroKeywordGadgetProvider *zeroKeywordGadgetProvider; // @synthesize zeroKeywordGadgetProvider=_zeroKeywordGadgetProvider;
 - (void).cxx_destruct;
 - (void)ppt_prepareZeroKeywordRequest:(CDUnknownBlockType)arg1;
 - (id)_sortingRankForGadget:(id)arg1;
 - (void)refreshData;
 - (CDUnknownBlockType)gadgetSortComparator;
-- (id)noContentGadget;
+- (void)_waitForFirstDisplayTimedOut;
+- (id)filteredUndisplayedGadgets:(id)arg1;
+@property(readonly, nonatomic) _Bool isExpectedToLoadNonEmptyDataSourceSoon;
 - (id)gadgetProviders;
 
 @end

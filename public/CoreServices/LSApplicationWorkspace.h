@@ -119,6 +119,7 @@
 - (void)enumerateBundlesOfType:(unsigned long long)arg1 usingBlock:(CDUnknownBlockType)arg2;
 - (id)pluginsWithIdentifiers:(id)arg1 protocols:(id)arg2 version:(id)arg3;
 - (id)pluginsWithIdentifiers:(id)arg1 protocols:(id)arg2 version:(id)arg3 withFilter:(CDUnknownBlockType)arg4;
+- (id)URLOverrideForNewsURL:(id)arg1;
 - (id)URLOverrideForURL:(id)arg1;
 - (_Bool)isApplicationAvailableToOpenURLCommon:(id)arg1 includePrivateURLSchemes:(_Bool)arg2 error:(id *)arg3;
 - (_Bool)isApplicationAvailableToOpenURL:(id)arg1 includePrivateURLSchemes:(_Bool)arg2 error:(id *)arg3;

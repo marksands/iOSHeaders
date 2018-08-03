@@ -17,6 +17,7 @@
 + (id)filterNameForEffectName:(id)arg1;
 + (id)effectNameForFilterName:(id)arg1;
 + (_Bool)isSupportedAutoLoopRecipe:(id)arg1;
++ (_Bool)isPortraitStageEffect:(id)arg1;
 + (_Bool)isPortraitEffect:(id)arg1;
 + (_Bool)is3DEffect:(id)arg1;
 + (void)removeAssetIdentifierFromMetadataArray:(id)arg1;

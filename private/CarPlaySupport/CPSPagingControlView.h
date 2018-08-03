@@ -6,33 +6,43 @@
 
 #import "UIView.h"
 
-@class CPSPagingControlButton, NSNumberFormatter, UILabel;
+#import "CPSLinearFocusProviding.h"
 
-@interface CPSPagingControlView : UIView
+@class NSNumberFormatter, NSString, UIButton, UILabel;
+
+@interface CPSPagingControlView : UIView <CPSLinearFocusProviding>
 {
     unsigned long long _pageIndex;
     unsigned long long _pageCount;
+    UIButton *_previousButton;
+    UIButton *_nextButton;
     id <CPSPageControlling> _pagingDelegate;
-    CPSPagingControlButton *_previousButton;
-    CPSPagingControlButton *_nextButton;
     UILabel *_positionLabel;
     NSNumberFormatter *_numberFormatter;
 }
 
 @property(retain, nonatomic) NSNumberFormatter *numberFormatter; // @synthesize numberFormatter=_numberFormatter;
 @property(retain, nonatomic) UILabel *positionLabel; // @synthesize positionLabel=_positionLabel;
-@property(retain, nonatomic) CPSPagingControlButton *nextButton; // @synthesize nextButton=_nextButton;
-@property(retain, nonatomic) CPSPagingControlButton *previousButton; // @synthesize previousButton=_previousButton;
 @property(nonatomic) __weak id <CPSPageControlling> pagingDelegate; // @synthesize pagingDelegate=_pagingDelegate;
+@property(retain, nonatomic) UIButton *nextButton; // @synthesize nextButton=_nextButton;
+@property(retain, nonatomic) UIButton *previousButton; // @synthesize previousButton=_previousButton;
 @property(nonatomic) unsigned long long pageCount; // @synthesize pageCount=_pageCount;
 @property(nonatomic) unsigned long long pageIndex; // @synthesize pageIndex=_pageIndex;
 - (void).cxx_destruct;
+- (id)_linearFocusItems;
 - (void)_invokeDelegateForPageIndex:(unsigned long long)arg1;
 - (void)_handleNextButton:(id)arg1;
 - (void)_handlePreviousButton:(id)arg1;
+- (void)enablePageControlsIfNecessary;
 - (void)_update;
 - (void)traitCollectionDidChange:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

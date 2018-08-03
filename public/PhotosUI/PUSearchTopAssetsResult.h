@@ -18,8 +18,10 @@ __attribute__((visibility("hidden")))
     NSArray *_thumbnailAssets;
     id <PUSearchTopAssetsResultChangeDelegate> _delegate;
     PHFetchResult *_thumbnailAssetsFetchResult;
+    NSString *_priorityAssetUUID;
 }
 
+@property(copy, nonatomic) NSString *priorityAssetUUID; // @synthesize priorityAssetUUID=_priorityAssetUUID;
 @property(retain, nonatomic) PHFetchResult *thumbnailAssetsFetchResult; // @synthesize thumbnailAssetsFetchResult=_thumbnailAssetsFetchResult;
 @property(nonatomic) __weak id <PUSearchTopAssetsResultChangeDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSArray *thumbnailAssets; // @synthesize thumbnailAssets=_thumbnailAssets;
@@ -33,7 +35,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) unsigned long long itemType;
 - (void)photoLibraryDidChange:(id)arg1;
 - (void)dealloc;
-- (id)initWithAssetUUIDs:(id)arg1;
+- (id)initWithAssetUUIDs:(id)arg1 priorityAssetUUID:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *description;

@@ -6,14 +6,12 @@
 
 #import "UIControl.h"
 
-#import "_PKColorAlphaSliderDelegate.h"
+@class PKInk, UIView, _PKColorAlphaSlider, _PKInkThicknessPicker;
 
-@class NSString, PKInk, UIView, _PKColorAlphaSlider, _PKInkAttributesOpacityLabel, _PKInkThicknessPicker;
-
-@interface _PKInkAttributesPickerView : UIControl <_PKColorAlphaSliderDelegate>
+@interface _PKInkAttributesPickerView : UIControl
 {
     PKInk *_ink;
-    _PKInkAttributesOpacityLabel *_opacityLabel;
+    unsigned long long _displayMode;
     _PKInkThicknessPicker *_thicknessPicker;
     _PKColorAlphaSlider *_colorAlphaSlider;
     UIView *_separatorView;
@@ -23,22 +21,14 @@
 @property(retain, nonatomic) UIView *separatorView; // @synthesize separatorView=_separatorView;
 @property(retain, nonatomic) _PKColorAlphaSlider *colorAlphaSlider; // @synthesize colorAlphaSlider=_colorAlphaSlider;
 @property(retain, nonatomic) _PKInkThicknessPicker *thicknessPicker; // @synthesize thicknessPicker=_thicknessPicker;
-@property(retain, nonatomic) _PKInkAttributesOpacityLabel *opacityLabel; // @synthesize opacityLabel=_opacityLabel;
+@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 @property(retain, nonatomic) PKInk *ink; // @synthesize ink=_ink;
 - (void).cxx_destruct;
-- (void)colorAlphaSlider:(id)arg1 didBeginSliding:(_Bool)arg2;
-- (void)_showOpacityLabel:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)opacityValueChanged:(id)arg1;
 - (void)thicknessValueChanged:(id)arg1;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithInk:(id)arg1;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

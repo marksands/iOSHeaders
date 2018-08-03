@@ -42,6 +42,7 @@
 - (void)returnToPreviousInputMode;
 - (void)handleInputModeListFromView:(id)arg1 withEvent:(id)arg2;
 - (void)advanceToNextInputMode;
+- (void)proceedShouldReturnIfPossibleForASP;
 - (void)dismissKeyboard;
 @property(readonly, nonatomic) _Bool needsInputModeSwitchKey;
 @property(readonly, nonatomic) _Bool hasFullAccess;

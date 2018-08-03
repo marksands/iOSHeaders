@@ -27,11 +27,15 @@
     _Bool _clipsVisibleContentToBounds;
     UIScrollView *_scrollView;
     UIControl *_dismissControl;
+    double _contentBottomInset;
+    id <PLExpandedPlatterViewDelegate> _delegate;
     UIView *_mainContentView;
     struct CGSize _customContentSize;
 }
 
 @property(retain, nonatomic, getter=_mainContentView) UIView *mainContentView; // @synthesize mainContentView=_mainContentView;
+@property(nonatomic) __weak id <PLExpandedPlatterViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) double contentBottomInset; // @synthesize contentBottomInset=_contentBottomInset;
 @property(nonatomic) _Bool clipsVisibleContentToBounds; // @synthesize clipsVisibleContentToBounds=_clipsVisibleContentToBounds;
 @property(nonatomic) struct CGSize customContentSize; // @synthesize customContentSize=_customContentSize;
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
@@ -41,6 +45,8 @@
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory;
 - (void)scrollViewDidEndDragging:(id)arg1 willDecelerate:(_Bool)arg2;
 - (void)scrollViewDidScroll:(id)arg1;
+- (void)forwardInvocation:(id)arg1;
+- (_Bool)respondsToSelector:(SEL)arg1;
 - (void)_layoutActionsView;
 - (void)_layoutContentView;
 - (void)_layoutTopRubberbandingView;

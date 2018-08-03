@@ -109,6 +109,7 @@
 - (void)screenLockStatus:(CDUnknownBlockType)arg1;
 - (_Bool)isScreenLockedWithPasscode:(_Bool *)arg1;
 - (void)_getPasscodeStatusImmediate:(CDUnknownBlockType)arg1;
+- (void)performVoiceShortcutWithIdentifier:(id)arg1 bundleID:(id)arg2;
 - (void)activateSOSMode;
 - (_Bool)isSoftwareUpdateUIVisible;
 - (_Bool)isNowPlayingUIVisible;

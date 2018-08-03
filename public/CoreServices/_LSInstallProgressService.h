@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 {
     NSMutableSet *_observers;
     LSInstallProgressList *_progresses;
+    NSMutableSet *_publishingStrings;
     NSMutableDictionary *_installIndexes;
     NSMutableOrderedSet *_orderedInstalls;
     NSMutableSet *_inactiveInstalls;

@@ -10,7 +10,7 @@
 #import "RCPreviewControllerObserver.h"
 #import "RCWaveformViewDelegate.h"
 
-@class NSString, NSTimer, RCAVState, RCCaptureSession, RCCompositionController, RCLayoutMetrics, RCPreviewController, RCWaveformDataSource, RCWaveformViewController;
+@class NSString, NSTimer, RCAVState, RCCaptureSession, RCCompositionController, RCHitTestForwardingView, RCLayoutMetrics, RCPreviewController, RCWaveformDataSource, RCWaveformViewController;
 
 @interface RCAVWaveformViewController : UIViewController <RCWaveformViewDelegate, RCPreviewControllerObserver, RCCaptureSessionObserver>
 {
@@ -23,6 +23,8 @@
     RCCaptureSession *_activeCaptureSession;
     RCCompositionController *_activeCaptureCompositionController;
     NSTimer *_autoscrollPlaybackTimer;
+    RCHitTestForwardingView *_leftForwardingView;
+    RCHitTestForwardingView *_rightForwardingView;
     _Bool _currentTimeTracksCapturedEndPoint;
     _Bool _autocenterCurrentTimeIndicatorAlways;
     _Bool _clipsTimeMarkersToDuration;
@@ -107,7 +109,7 @@
 - (void)viewDidLayoutSubviews;
 - (void)viewDidLoad;
 - (void)dealloc;
-- (id)initWithWaveformDataSource:(id)arg1 isOverview:(_Bool)arg2 delegate:(id)arg3;
+- (id)initWithWaveformDataSource:(id)arg1 isOverview:(_Bool)arg2 isLockScreen:(_Bool)arg3 delegate:(id)arg4;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithNibName:(id)arg1 bundle:(id)arg2;
 

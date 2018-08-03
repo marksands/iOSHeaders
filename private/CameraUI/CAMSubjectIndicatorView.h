@@ -17,6 +17,8 @@
 @property(readonly, nonatomic) UIImageView *_imageView; // @synthesize _imageView=__imageView;
 - (void).cxx_destruct;
 @property(nonatomic, getter=isPulsing) _Bool pulsing;
+- (void)stopScalingWithDuration:(double)arg1;
+- (void)startScalingWithExpansionWidth:(double)arg1 duration:(double)arg2 repeatCount:(unsigned long long)arg3 timingFunction:(id)arg4;
 - (void)startScalingWithExpansionWidth:(double)arg1 duration:(double)arg2 repeatCount:(unsigned long long)arg3;
 - (void)setHidden:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;

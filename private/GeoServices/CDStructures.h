@@ -588,36 +588,6 @@ struct deque<geo::TransitEdgePiece, std::__1::allocator<geo::TransitEdgePiece>> 
     } __size_;
 };
 
-struct deque<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>, std::__1::allocator<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>>> {
-    struct __split_buffer<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>*, std::__1::allocator<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>*>> {
-        struct tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale> **__first_;
-        struct tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale> **__begin_;
-        struct tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale> **__end_;
-        struct __compressed_pair<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>**, std::__1::allocator<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>*>> {
-            struct tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale> **__value_;
-        } __end_cap_;
-    } __map_;
-    unsigned long long __start_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>>> {
-        unsigned long long __value_;
-    } __size_;
-};
-
-struct deque<unsigned int, std::__1::allocator<unsigned int>> {
-    struct __split_buffer<unsigned int *, std::__1::allocator<unsigned int *>> {
-        unsigned int **__first_;
-        unsigned int **__begin_;
-        unsigned int **__end_;
-        struct __compressed_pair<unsigned int **, std::__1::allocator<unsigned int *>> {
-            unsigned int **__value_;
-        } __end_cap_;
-    } __map_;
-    unsigned long long __start_;
-    struct __compressed_pair<unsigned long, std::__1::allocator<unsigned int>> {
-        unsigned long long __value_;
-    } __size_;
-};
-
 struct list<CacheItem, std::__1::allocator<CacheItem>> {
     struct __list_node_base<CacheItem, void *> __end_;
     struct __compressed_pair<unsigned long, std::__1::allocator<std::__1::__list_node<CacheItem, void *>>> {
@@ -692,14 +662,6 @@ struct os_unfair_lock_s {
     unsigned int _os_unfair_lock_opaque;
 };
 
-struct queue<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>, std::__1::deque<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>, std::__1::allocator<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>>>> {
-    struct deque<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>, std::__1::allocator<std::__1::tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>>> c;
-};
-
-struct queue<unsigned int, std::__1::deque<unsigned int, std::__1::allocator<unsigned int>>> {
-    struct deque<unsigned int, std::__1::allocator<unsigned int>> c;
-};
-
 struct shared_ptr<addr_obj::AddressObject> {
     struct AddressObject *__ptr_;
     struct __shared_weak_count *__cntrl_;
@@ -765,8 +727,6 @@ struct sqlite3_module {
     CDUnknownFunctionPointerType _field22;
     CDUnknownFunctionPointerType _field23;
 };
-
-struct tuple<GEOTileSetStyle, GEOTileSize, GEOTileScale>;
 
 struct unique_ptr<geo::DispatchTimer, std::__1::default_delete<geo::DispatchTimer>> {
     struct __compressed_pair<geo::DispatchTimer *, std::__1::default_delete<geo::DispatchTimer>> {
@@ -1033,11 +993,11 @@ typedef struct {
 } CDStruct_1c2d31f2;
 
 typedef struct {
-    unsigned int minX;
-    unsigned int maxX;
-    unsigned int minY;
-    unsigned int maxY;
-} CDStruct_928c0167;
+    unsigned int _field1;
+    unsigned int _field2;
+    unsigned int _field3;
+    unsigned int _field4;
+} CDStruct_7523a67d;
 
 typedef struct {
     unsigned int _field1;
@@ -1305,7 +1265,7 @@ typedef struct {
 } CDStruct_8f1ffc8e;
 
 typedef struct {
-    CDStruct_928c0167 _field1;
+    CDStruct_7523a67d _field1;
     struct {
         unsigned int _field1;
         int _field2;
@@ -1320,7 +1280,7 @@ typedef struct {
             unsigned short _field2;
         } _field9[16];
     } _field2;
-} CDStruct_aaaa018a;
+} CDStruct_db2bd8f2;
 
 typedef struct {
     CDStruct_d6359813 _field1;
@@ -1757,6 +1717,6 @@ union _GEOPlaceDataComponentKey {
         unsigned short _field3;
         unsigned int _field4;
     } _field1;
-    CDStruct_928c0167 _field2;
+    CDStruct_7523a67d _field2;
 };
 

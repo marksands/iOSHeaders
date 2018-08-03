@@ -28,8 +28,6 @@ struct MPSBVHOptions {
     unsigned int _field10;
 };
 
-struct MPSBVHRefitLevelData;
-
 struct MPSBufferAllocator {
     id _field1;
     id _field2;
@@ -77,14 +75,6 @@ struct MPSLibraryInfo {
     struct MPSDeviceSpecificInfo _field21;
 };
 
-struct vector<MPSBVHRefitLevelData, std::__1::allocator<MPSBVHRefitLevelData>> {
-    struct MPSBVHRefitLevelData *__begin_;
-    struct MPSBVHRefitLevelData *__end_;
-    struct __compressed_pair<MPSBVHRefitLevelData *, std::__1::allocator<MPSBVHRefitLevelData>> {
-        struct MPSBVHRefitLevelData *__value_;
-    } __end_cap_;
-};
-
 #pragma mark Typedef'd Unions
 
 typedef union {
@@ -105,8 +95,9 @@ typedef union {
         unsigned int :3;
         unsigned int :2;
         unsigned int :8;
-        unsigned int :9;
+        unsigned int :1;
+        unsigned int :8;
     } _field1;
     unsigned long long _field2;
-} CDUnion_8ae6be23;
+} CDUnion_8611dee6;
 

@@ -44,6 +44,7 @@
     NSMutableArray *_pendingStunRequests;
     NSMutableArray *_repliedStunRequests;
     NSMutableDictionary *_requestIDToQueryLinkIDs;
+    NSMutableDictionary *_requestIDToSessionInfoReqType;
     NSMutableDictionary *_stunSentBytesToRequestID;
     NSUUID *_defaultLocalDeviceCBUUID;
     NSUUID *_defaultRemoteDeviceCBUUID;
@@ -60,6 +61,8 @@
     CDUnknownBlockType _sessionConnectedTimeoutBlock;
     NSObject<OS_dispatch_source> *_sessionConvergenceTimer;
     CDUnknownBlockType _sessionConvergenceBlock;
+    NSObject<OS_dispatch_source> *_sessionGoAwayTimer;
+    CDUnknownBlockType _sessionGoAwayBlock;
     _Bool _pendingRealloc;
     NSObject<OS_dispatch_source> *_reallocTimer;
     _Bool _recvDisconnected;
@@ -71,6 +74,7 @@
     _Bool _serverIsDegraded;
     double _testStartTime;
     unsigned int _testOptions;
+    _Bool _isDisconnecting;
 }
 
 + (id)candidatePairWithLocalCandidate:(id)arg1 remoteCandidate:(id)arg2 sessionID:(id)arg3 delegate:(id)arg4 sendMsgBlock:(CDUnknownBlockType)arg5;
@@ -99,6 +103,7 @@
 @property(readonly, nonatomic) unsigned char statsIntervalInSeconds; // @synthesize statsIntervalInSeconds=_statsIntervalInSeconds;
 @property(nonatomic) double lastOutgoingPacketTime; // @synthesize lastOutgoingPacketTime=_lastOutgoingPacketTime;
 @property(nonatomic) double lastIncomingPacketTime; // @synthesize lastIncomingPacketTime=_lastIncomingPacketTime;
+@property(nonatomic) _Bool isDisconnecting; // @synthesize isDisconnecting=_isDisconnecting;
 @property(readonly, nonatomic) double testStartTime; // @synthesize testStartTime=_testStartTime;
 @property(copy) NSData *skeData; // @synthesize skeData=_skeData;
 @property(nonatomic) _Bool recvDisconnectedAck; // @synthesize recvDisconnectedAck=_recvDisconnectedAck;
@@ -126,14 +131,14 @@
 @property(nonatomic) unsigned long long state; // @synthesize state=_state;
 - (void).cxx_destruct;
 - (void)_notifyQREventAdded:(id)arg1;
-- (void)_notifySessionStreamInfoReceived:(id)arg1 withParticipants:(id)arg2 sentBytes:(unsigned long long)arg3 receivedBytes:(unsigned long long)arg4 success:(_Bool)arg5;
+- (void)_notifySessionStreamInfoReceived:(id)arg1 withParticipants:(id)arg2 sentBytes:(unsigned long long)arg3 receivedBytes:(unsigned long long)arg4 offlineRequest:(_Bool)arg5 streamInfoRequest:(_Bool)arg6 success:(_Bool)arg7;
 - (void)processSessionInfoRequestTimeout:(id)arg1;
-- (_Bool)processStunErrorResponse:(id)arg1 packetBuffer:(CDStruct_f4928324 *)arg2 headerOverhead:(unsigned long long)arg3;
+- (_Bool)processStunErrorResponse:(id)arg1 packetBuffer:(CDStruct_c4cff10b *)arg2 headerOverhead:(unsigned long long)arg3;
 - (_Bool)processSessionInfoIndication:(id)arg1 arrivalTime:(double)arg2;
 - (_Bool)processInfoIndication:(id)arg1 arrivalTime:(double)arg2;
 - (_Bool)processTestResponse:(id)arg1 arrivalTime:(double)arg2;
-- (_Bool)processSessionInfoResponse:(id)arg1 packetBuffer:(CDStruct_f4928324 *)arg2 headerOverhead:(unsigned long long)arg3;
-- (_Bool)processInfoResponse:(id)arg1 packetBuffer:(CDStruct_f4928324 *)arg2 headerOverhead:(unsigned long long)arg3;
+- (_Bool)processSessionInfoResponse:(id)arg1 packetBuffer:(CDStruct_c4cff10b *)arg2 headerOverhead:(unsigned long long)arg3;
+- (_Bool)processInfoResponse:(id)arg1 packetBuffer:(CDStruct_c4cff10b *)arg2 headerOverhead:(unsigned long long)arg3;
 - (_Bool)processStatsResponse:(id)arg1 arrivalTime:(double)arg2;
 - (void)sendTestRequest:(id)arg1;
 - (void)sendSessionInfoRequest:(id)arg1 options:(id)arg2;
@@ -154,6 +159,9 @@
 - (void)setTestOptionsFromUserDefaults;
 - (void)setChannelSettings:(unsigned int)arg1;
 @property(readonly, nonatomic) unsigned short hbCounter; // @synthesize hbCounter=_hbCounter;
+- (void)stopSessionGoAwayTimer;
+- (void)startSessionGoAwayTimer:(int)arg1 block:(CDUnknownBlockType)arg2;
+- (void)_handleSessionGoAwayTimer;
 - (void)stopSessionConvergenceTimer;
 - (void)startSessionConvergenceTimer:(int)arg1 block:(CDUnknownBlockType)arg2;
 - (void)_handleSessionConvergenceTimer;

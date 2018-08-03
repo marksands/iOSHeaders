@@ -43,6 +43,7 @@ __attribute__((visibility("hidden")))
 - (void)_updateHeaderView;
 - (void)_updateColors;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (void)tintColorDidChange;
 - (void)prepareForReuse;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;

@@ -7,6 +7,7 @@
 #import "NSArray.h"
 
 @interface NSArray (XCTestAdditions)
+- (id)xct_arrayByApplyingBlock:(CDUnknownBlockType)arg1;
 - (id)xct_objectsPassingTest:(CDUnknownBlockType)arg1;
 @end
 

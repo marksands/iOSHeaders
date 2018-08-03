@@ -25,6 +25,7 @@
 + (id)dataSourceManager;
 + (id)_dataSourceManagerWithPredicate:(id)arg1;
 + (id)emptyDataSourceManager;
++ (id)mostRecentCreationDate;
 - (void).cxx_destruct;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1 withPreparedInfo:(id)arg2;
 - (id)prepareForPhotoLibraryChange:(id)arg1;

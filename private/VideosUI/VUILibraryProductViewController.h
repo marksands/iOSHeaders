@@ -12,7 +12,7 @@
 #import "VUIProductLockupViewDelegate.h"
 #import "VUIRoundButtonDelegate.h"
 
-@class NSString, VUILibraryProductInfoView, VUIMediaEntitiesFetchController, VUIMediaEntityDownloadViewController, VUIMediaItem, VUIProductLockupView;
+@class NSString, VUILibraryProductInfoView, VUIMediaEntitiesFetchController, VUIMediaEntityDownloadViewController, VUIMediaItem, VUIMetricsController, VUIProductLockupView;
 
 __attribute__((visibility("hidden")))
 @interface VUILibraryProductViewController : VUILibraryStackViewController <UICollectionViewDataSource, VUIMediaEntityDownloadViewControllerDelegate, VUIMediaEntitiesFetchControllerDelegate, VUIProductLockupViewDelegate, VUIRoundButtonDelegate>
@@ -22,8 +22,10 @@ __attribute__((visibility("hidden")))
     VUIProductLockupView *_productLockupView;
     VUILibraryProductInfoView *_productInfoView;
     VUIMediaEntityDownloadViewController *_downloadViewController;
+    VUIMetricsController *_metricsController;
 }
 
+@property(retain, nonatomic) VUIMetricsController *metricsController; // @synthesize metricsController=_metricsController;
 @property(retain, nonatomic) VUIMediaEntityDownloadViewController *downloadViewController; // @synthesize downloadViewController=_downloadViewController;
 - (void).cxx_destruct;
 - (id)_productSectionForHeader:(id)arg1 data:(id)arg2 group:(id)arg3 maxItemCount:(unsigned long long)arg4;

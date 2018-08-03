@@ -15,10 +15,12 @@ __attribute__((visibility("hidden")))
 {
     NSString *_title;
     PSIQueryToken *_queryToken;
+    NSString *_priorityAssetUUID;
 }
 
 + (id)new;
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) NSString *priorityAssetUUID; // @synthesize priorityAssetUUID=_priorityAssetUUID;
 @property(readonly, nonatomic) PSIQueryToken *queryToken; // @synthesize queryToken=_queryToken;
 @property(readonly, nonatomic) NSString *title; // @synthesize title=_title;
 - (void).cxx_destruct;
@@ -27,6 +29,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)isEqual:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+- (id)initWithTitle:(id)arg1 queryToken:(id)arg2 priorityAssetUUID:(id)arg3;
 - (id)initWithTitle:(id)arg1 queryToken:(id)arg2;
 - (id)init;
 

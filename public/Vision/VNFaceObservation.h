@@ -39,12 +39,14 @@
 }
 
 +     // Error parsing type: B104@0:8{?=[4]}16^f80^f88^f96, name: computeYawPitchRollFromPoseMatrix:outputYaw:outputPitch:outputRoll:
++ (id)faceObservationWithRequestRevision:(unsigned long long)arg1 boundingBox:(struct CGRect)arg2 alignedBoundingBox:(struct CGRect)arg3 roll:(id)arg4 yaw:(id)arg5;
 + (id)faceObservationWithRequestRevision:(unsigned long long)arg1 boundingBox:(struct CGRect)arg2 roll:(id)arg3 yaw:(id)arg4;
 + (id)faceObservationWithRequestRevision:(unsigned long long)arg1 boundingBox:(struct CGRect)arg2 faceprint:(id)arg3;
 + (id)faceObservationWithBoundingBox:(struct CGRect)arg1 faceprint:(id)arg2;
 + (id)faceObservationWithRequestRevision:(unsigned long long)arg1 boundingBox:(struct CGRect)arg2 andAlignedBoundingBox:(struct CGRect)arg3;
 + (id)faceObservationWithBoundingBox:(struct CGRect)arg1 andAlignedBoundingBox:(struct CGRect)arg2;
 + (_Bool)supportsSecureCoding;
++ (_Bool)_exifOrientationFromFaceRollAngle:(float)arg1 exifOrientation:(int *)arg2 error:(id *)arg3;
 @property(readonly, nonatomic) VNFaceLandmarkSegments *faceLandmarkSegments; // @synthesize faceLandmarkSegments=_faceLandmarkSegments;
 @property(retain, nonatomic) VNFaceprint *faceprint; // @synthesize faceprint=_faceprint;
 @property(nonatomic) unsigned long long faceId; // @synthesize faceId=_faceId;
@@ -62,6 +64,7 @@
 @property(retain, nonatomic) NSNumber *yaw; // @synthesize yaw=_yaw;
 @property(retain, nonatomic) NSNumber *roll; // @synthesize roll=_roll;
 - (void).cxx_destruct;
+- (_Bool)getFaceEXIFOrientation:(int *)arg1 error:(id *)arg2;
 - (void)setFaceTorsoprint:(id)arg1;
 @property(readonly, nonatomic) VNFaceTorsoprint *faceTorsoprint;
 @property(retain, nonatomic) VNTorsoprint *torsoprint;

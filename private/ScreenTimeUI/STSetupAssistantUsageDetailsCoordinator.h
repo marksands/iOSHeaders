@@ -8,24 +8,22 @@
 
 #import "STUsageDetailsViewModelCoordinator.h"
 
-@class NSArray, NSString, STAppInfoCache, STUsageDetailsViewModel;
+@class NSArray, NSString, STUsageDetailsViewModel;
 
 @interface STSetupAssistantUsageDetailsCoordinator : NSObject <STUsageDetailsViewModelCoordinator>
 {
     NSArray *_devices;
     NSString *_selectedDeviceIdentifier;
     STUsageDetailsViewModel *_viewModel;
-    STAppInfoCache *_appCache;
 }
 
-@property(readonly, nonatomic) STAppInfoCache *appCache; // @synthesize appCache=_appCache;
 @property(readonly, nonatomic) STUsageDetailsViewModel *viewModel; // @synthesize viewModel=_viewModel;
 @property(copy, nonatomic) NSString *selectedDeviceIdentifier; // @synthesize selectedDeviceIdentifier=_selectedDeviceIdentifier;
 @property(readonly, copy, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 - (void).cxx_destruct;
 - (void)stopRefreshingUsageData;
 - (void)startRefreshingUsageData;
-- (id)introUsageItemsByStartDateByIdentifier;
+- (id)introUsageItems;
 - (id)categoryConfigByIdentifier;
 - (id)appConfigByIdentifier;
 - (id)init;

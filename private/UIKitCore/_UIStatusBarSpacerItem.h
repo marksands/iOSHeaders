@@ -6,25 +6,15 @@
 
 #import <UIKitCore/_UIStatusBarItem.h>
 
-@class NSArray, UILayoutGuide;
-
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarSpacerItem : _UIStatusBarItem
 {
-    UILayoutGuide *_layoutGuide;
-    NSArray *_constraints;
-    struct CGSize _size;
 }
 
-@property(nonatomic) struct CGSize size; // @synthesize size=_size;
-@property(retain, nonatomic) NSArray *constraints; // @synthesize constraints=_constraints;
-@property(retain, nonatomic) UILayoutGuide *layoutGuide; // @synthesize layoutGuide=_layoutGuide;
-- (void).cxx_destruct;
-- (void)displayItem:(id)arg1 didMoveToContainerView:(id)arg2;
++ (id)randomDisplayIdentifier;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
-- (void)setupDisplayItem:(id)arg1;
+- (id)createDisplayItemForIdentifier:(id)arg1;
 - (_Bool)canEnableDisplayItem:(id)arg1 fromData:(id)arg2;
-- (id)initWithIdentifier:(id)arg1 statusBar:(id)arg2;
 
 @end
 

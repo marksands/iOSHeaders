@@ -87,6 +87,7 @@
     _Bool _highDynamicRangeSceneDetectionEnabled;
     _Bool _automaticallyAdjustsVideoHDREnabled;
     _Bool _videoHDREnabled;
+    _Bool _videoHDRSuspended;
     _Bool _sceneIsHighDynamicRange;
     _Bool _isStillImageStabilizationScene;
     long long _activeColorSpace;
@@ -117,6 +118,7 @@
     NSMutableDictionary *_propertyToFigCaptureSourcePropertyMap;
     NSMutableDictionary *_cachedFigCaptureSourceProperties;
     AVCaptureSystemPressureState *_systemPressureState;
+    int _highestSystemPressureLevelEncountered;
 }
 
 + (_Bool)automaticallyNotifiesObserversForKey:(id)arg1;
@@ -142,6 +144,7 @@
 - (_Bool)isHEIFSupported;
 - (_Bool)isHEVCPreferred;
 - (_Bool)isHEVCSupported;
+- (_Bool)isHEVCRelaxedAverageBitRateTargetSupported;
 - (int)hevcTurboModeVersion;
 - (_Bool)usesQuantizationScalingMatrix_H264_Steep_16_48;
 - (int)minMacroblocksForHighProfileAbove30fps;
@@ -169,7 +172,7 @@
 - (_Bool)_isDepthDataDeliveryEnabled;
 - (void)_setShallowDepthOfFieldEffectStatus:(long long)arg1;
 - (long long)shallowDepthOfFieldEffectStatus;
-- (id)_recommendedFrameRateRangeForVideoFormat:(id)arg1 depthFormat:(id)arg2 systemPressureLevel:(id)arg3;
+- (id)_recommendedFrameRateRangeForVideoFormat:(id)arg1 depthFormat:(id)arg2 figSystemPressureLevel:(int)arg3;
 - (id)systemPressureState;
 - (_Bool)isCameraIntrinsicMatrixDeliverySupported;
 - (_Bool)isVideoStabilizationSupported;
@@ -180,6 +183,9 @@
 - (_Bool)isWideColorSupported;
 - (void)setActiveColorSpace:(long long)arg1;
 - (long long)activeColorSpace;
+- (void)_resetVideoHDRSuspended;
+- (void)setVideoHDRSuspended:(_Bool)arg1;
+- (_Bool)isVideoHDRSuspended;
 - (void)_setVideoHDREnabled:(_Bool)arg1;
 - (void)setVideoHDREnabled:(_Bool)arg1;
 - (_Bool)isVideoHDREnabled;

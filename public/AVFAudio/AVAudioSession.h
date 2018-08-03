@@ -153,7 +153,6 @@
 @property(readonly) unsigned long long routeSharingPolicy;
 @property(readonly) unsigned long long categoryOptions;
 @property(readonly) NSString *category;
-- (id)privateConfigureRouteDescription:(id)arg1;
 - (void)dealloc;
 - (id)initAuxiliarySession;
 - (id)initWithSessionID:(unsigned int)arg1;

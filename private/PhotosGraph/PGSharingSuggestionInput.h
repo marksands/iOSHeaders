@@ -10,12 +10,13 @@
 
 @interface PGSharingSuggestionInput : NSObject
 {
-    PGGraph *_graph;
     NSArray *_momentIdentifiers;
     NSMutableArray *_momentNodes;
     PHFetchResult *_moments;
+    PGGraph *_graph;
 }
 
+@property(readonly, nonatomic) PGGraph *graph; // @synthesize graph=_graph;
 - (void).cxx_destruct;
 - (id)description;
 @property(readonly, nonatomic) PHFetchResult *moments;

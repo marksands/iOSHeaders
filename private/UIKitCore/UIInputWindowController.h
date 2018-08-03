@@ -61,6 +61,7 @@ __attribute__((visibility("hidden")))
     _Bool _wasOnScreen;
     NSString *_lastKeyboardID;
     NSDate *_keyboardShowTimestamp;
+    _Bool _supportsDockViewController;
     _Bool _shouldNotifyRemoteKeyboards;
     _Bool _dontDismissKeyboardOnScrolling;
     _Bool _dontDismissReachability;
@@ -151,6 +152,8 @@ __attribute__((visibility("hidden")))
 - (void)invalidateInputView;
 - (void)updateKeyboardDockViewVisibility;
 - (void)configureDockViewController:(_Bool)arg1;
+- (void)_updateContentOverlayInsetsForSelfAndChildren;
+- (void)updateSupportsDockViewController;
 - (_Bool)_shouldShowInputDockView;
 - (id)_inputDockView;
 - (void)setPlacement:(id)arg1 quietly:(_Bool)arg2 animated:(_Bool)arg3 generateSplitNotification:(_Bool)arg4;

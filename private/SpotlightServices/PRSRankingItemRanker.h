@@ -13,6 +13,7 @@
     _Bool _isInternalDevice;
     _Bool _policyDisabled;
     _Bool _isCancelled;
+    _Bool _isCJK;
     float _lastIsSpaceFeature;
     NSString *_keyboardLanguage;
     NSString *_searchString;
@@ -33,11 +34,13 @@
 + (id)mailBundle;
 + (void)setDockApps:(id)arg1;
 + (CDUnknownBlockType)shouldUpdateFuncForSnippetFeature:(unsigned long long)arg1;
++ (_Bool)isCJK;
 + (void)clearState;
 + (id)contactsBundle;
 + (id)sortedUniqueBundleFeatureValuesFromBundleFeatures:(id)arg1;
 + (id)requiredAttributes;
 + (void)initialize;
+@property _Bool isCJK; // @synthesize isCJK=_isCJK;
 @property _Bool isCancelled; // @synthesize isCancelled=_isCancelled;
 @property(nonatomic) float lastIsSpaceFeature; // @synthesize lastIsSpaceFeature=_lastIsSpaceFeature;
 @property(nonatomic) _Bool policyDisabled; // @synthesize policyDisabled=_policyDisabled;
@@ -56,9 +59,8 @@
 - (void)resetbundleFeaturesScratchBuf:(float *)arg1;
 - (CDUnknownBlockType)comparatorByJoiningComparator:(CDUnknownBlockType)arg1 withPredicate:(id)arg2;
 - (_Bool)wasItemCreatedWithinAWeek:(id)arg1;
-- (void)rerankItemsWithPolicyForBundleItems:(id)arg1;
-- (void)updateScoresForPreparedItems:(id)arg1;
-- (_Bool)updateFeedbackScoresForPreparedItems:(id)arg1 currentL2ModelVersion:(id *)arg2 currentL2ShadowModelVersion:(id *)arg3;
+- (void)rerankItemsWithPolicyForBundleItems:(id)arg1 isCJK:(_Bool)arg2;
+- (void)updateScoresForPreparedItems:(id)arg1 isCJK:(_Bool)arg2;
 - (void)hackMusicResultsWithItem:(id)arg1 featureVector:(id)arg2;
 - (float *)computeScoresForVectors:(id)arg1 withBundleFeatures:(id)arg2;
 - (void)computeRelativeFeatureForContext:(id)arg1 items:(id)arg2;
@@ -76,7 +78,7 @@
 - (id)rankingConfiguration;
 - (void)dealloc;
 - (void)cancel;
-- (id)initWithSearchString:(id)arg1 language:(id)arg2 experimentalWeight1:(double)arg3 experimentalWeight2:(double)arg4;
+- (id)initWithSearchString:(id)arg1 language:(id)arg2 isCJK:(_Bool)arg3 experimentalWeight1:(double)arg4 experimentalWeight2:(double)arg5;
 - (id)initWithSearchString:(id)arg1 language:(id)arg2;
 - (id)init;
 

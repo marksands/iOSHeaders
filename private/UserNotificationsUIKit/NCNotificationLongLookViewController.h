@@ -63,6 +63,8 @@
 - (struct CGSize)_preferredCustomContentSizeForSize:(struct CGSize)arg1 parentContentContainerBounds:(struct CGRect)arg2;
 - (void)_notificationViewControllerViewDidLoad;
 - (id)_scrollView;
+- (id)_expandedPlatterPresentationViewScrollView;
+- (id)_longLookViewScrollView;
 - (void)_loadLookView;
 - (_Bool)_shouldPadScrollViewContentSizeHeight;
 - (void)_updateTitleWithProvidedCustomContent;

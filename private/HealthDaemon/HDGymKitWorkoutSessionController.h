@@ -19,8 +19,8 @@
     NSObject<OS_dispatch_queue> *_queue;
     HDDefaultWorkoutSessionController *_defaultSessionController;
     NSUUID *_fitnessMachineSessionUUID;
-    _Bool _needsDataAccumulator;
-    id <HDWorkoutDataAccumulator> _accumulator;
+    _Bool _acceptsDataAccumulators;
+    id <HDWorkoutDataAccumulator> _currentAccumulator;
 }
 
 + (void)willFinishSessionWithRecoveryData:(id)arg1 profile:(id)arg2;

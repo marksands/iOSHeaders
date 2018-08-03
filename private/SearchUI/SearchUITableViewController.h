@@ -46,6 +46,7 @@
 - (void)tapAtIndexPath:(id)arg1;
 - (id)currentTableModel;
 - (_Bool)updateMustAccountForLayout;
+- (void)performScrollTestWithHandlerForFirstScrollCompletion:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performScrollTestWithCompletion:(CDUnknownBlockType)arg1;
 - (void)updateContentScrolledOffScreenStatus;
 - (double)offScreenContentScrollDistance;

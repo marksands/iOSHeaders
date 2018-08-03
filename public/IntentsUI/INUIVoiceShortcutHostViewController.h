@@ -29,10 +29,10 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <INUIVoiceShortcutRemoteViewControllerEditDelegate> editDelegate; // @synthesize editDelegate=_editDelegate;
 @property(nonatomic) __weak id <INUIVoiceShortcutRemoteViewControllerAddDelegate> addDelegate; // @synthesize addDelegate=_addDelegate;
 - (void).cxx_destruct;
-- (void)remoteViewControllerEditDidCacnel;
+- (void)remoteViewControllerEditDidCancel;
 - (void)remoteViewControllerDidDeleteVoiceShortcutWithIdentifier:(id)arg1;
 - (void)remoteViewControllerDidEditVoiceShortcut:(id)arg1 error:(id)arg2;
-- (void)remoteViewControllerAddDidCacnel;
+- (void)remoteViewControllerAddDidCancel;
 - (void)remoteViewControllerDidAddVoiceShortcut:(id)arg1 error:(id)arg2;
 - (void)viewServiceDidTerminateWithError:(id)arg1;
 

@@ -11,7 +11,7 @@
 #import "SCKDatabaseStoreCoordinator.h"
 #import "SCKOperationThrottlerDelegate.h"
 
-@class CKServerChangeToken, NSDate, NSFileCoordinator, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSSet, NSString, NSURL, SCKDatabaseSchema;
+@class CKServerChangeToken, NSDate, NSFileCoordinator, NSHashTable, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSSet, NSString, NSURL;
 
 @interface SCKDatabaseJSONStore : NSObject <SCKOperationThrottlerDelegate, NSFilePresenter, SCKDatabaseStoreCoordinator, SCKDatabaseStore>
 {
@@ -24,11 +24,11 @@
     CKServerChangeToken *_serverChangeToken;
     NSURL *_presentedItemURL;
     NSOperationQueue *_presentedItemOperationQueue;
-    SCKDatabaseSchema *_schema;
     NSFileCoordinator *_fileCoordinator;
     NSObject<OS_dispatch_queue> *_accessQueue;
     NSHashTable *_observers;
     NSMutableDictionary *_zoneStoresByName;
+    NSMutableDictionary *_foreignZoneDictsByName;
     NSObject<OS_dispatch_queue> *_workQueue;
     id <SCKOperationThrottler> _saveThrottler;
     NSObject<OS_dispatch_source> *_changeListenerSource;
@@ -45,13 +45,13 @@
 @property(retain, nonatomic) id <SCKOperationThrottler> saveThrottler; // @synthesize saveThrottler=_saveThrottler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(nonatomic) _Bool havePendingChanges; // @synthesize havePendingChanges=_havePendingChanges;
+@property(retain, nonatomic) NSMutableDictionary *foreignZoneDictsByName; // @synthesize foreignZoneDictsByName=_foreignZoneDictsByName;
 @property(retain, nonatomic) NSMutableDictionary *zoneStoresByName; // @synthesize zoneStoresByName=_zoneStoresByName;
 @property(retain, nonatomic) NSHashTable *observers; // @synthesize observers=_observers;
 @property(nonatomic) unsigned int lastKnownStoreChangeTag; // @synthesize lastKnownStoreChangeTag=_lastKnownStoreChangeTag;
 @property(nonatomic) _Bool loadedFromDisk; // @synthesize loadedFromDisk=_loadedFromDisk;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *accessQueue; // @synthesize accessQueue=_accessQueue;
 @property(retain, nonatomic) NSFileCoordinator *fileCoordinator; // @synthesize fileCoordinator=_fileCoordinator;
-@property(readonly, nonatomic) SCKDatabaseSchema *schema; // @synthesize schema=_schema;
 @property(readonly, retain) NSOperationQueue *presentedItemOperationQueue; // @synthesize presentedItemOperationQueue=_presentedItemOperationQueue;
 @property(readonly, copy) NSURL *presentedItemURL; // @synthesize presentedItemURL=_presentedItemURL;
 @property(nonatomic, getter=isBackupEnabled) _Bool backupEnabled; // @synthesize backupEnabled=_backupEnabled;

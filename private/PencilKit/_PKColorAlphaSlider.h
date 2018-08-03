@@ -10,7 +10,6 @@
 
 @interface _PKColorAlphaSlider : UIControl
 {
-    id <_PKColorAlphaSliderDelegate> _delegate;
     UIColor *_color;
     double _colorAlpha;
     double _minAlpha;
@@ -33,9 +32,7 @@
 @property(nonatomic) double minAlpha; // @synthesize minAlpha=_minAlpha;
 @property(nonatomic) double colorAlpha; // @synthesize colorAlpha=_colorAlpha;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
-@property(nonatomic) __weak id <_PKColorAlphaSliderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (_Bool)isRTLLanguage;
 - (void)didPanSliderKnob:(id)arg1;
 - (double)colorAlphaForSliderKnobXPosition:(double)arg1;
 - (double)sliderKnobXPositionForColorAlpha:(double)arg1;

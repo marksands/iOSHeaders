@@ -50,6 +50,7 @@
 - (id)allUsers;
 - (void)userListDidUpdate;
 - (void)_allUsersDidChange;
+@property(readonly, copy, nonatomic) UMUser *loginUser;
 @property(readonly, copy, nonatomic) UMUser *currentUser;
 - (_Bool)canAccessUserProperties;
 @property(readonly, nonatomic) unsigned long long maxNumberOfUsers;

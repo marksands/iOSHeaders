@@ -81,7 +81,8 @@ typedef struct {
     double audioTime;
     unsigned int droppedFrame;
     _Bool doubleBuffer;
-} CDStruct_9aafc617;
+    unsigned int onlineShaderCompilationCount;
+} CDStruct_53ba08a1;
 
 typedef struct {
     long long value;

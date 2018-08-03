@@ -27,6 +27,9 @@
 - (_Bool)fillCloudObject:(id)arg1 fromLocalObject:(id)arg2 cloudDelta:(id)arg3 localDelta:(id)arg4 error:(id *)arg5;
 - (id)localObjectIDForUniqueIdentifier:(id)arg1;
 - (id)cloudObjectIDForUniqueIdentifier:(id)arg1;
+- (_Bool)newDeleteLocalObjectWithUniqueIdentifier:(id)arg1 managedObjectContext:(id)arg2 error:(id *)arg3;
+- (_Bool)newDeleteCloudObjectWithUniqueIdentifier:(id)arg1 managedObjectContext:(id)arg2 error:(id *)arg3;
+- (id)updateCloudObjectWithUniqueIdentifier:(id)arg1 dictionary:(id)arg2 managedObjectContext:(id)arg3 error:(id *)arg4;
 - (_Bool)initializeCachesWithManagedObjectContext:(id)arg1 withCloudStore:(id)arg2 andLocalStore:(id)arg3 error:(id *)arg4;
 - (id)init;
 

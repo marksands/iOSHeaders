@@ -17,6 +17,7 @@
     NCToggleControl *_clearButton;
     _Bool _adjustsFontForContentSizeCategory;
     _Bool _shouldOverrideForReveal;
+    NSString *_preferredContentSizeCategory;
     id <NCNotificationListSectionHeaderViewDelegate> _delegate;
     NSString *_sectionIdentifier;
     NSString *_title;
@@ -27,8 +28,10 @@
     struct CGPoint _overrideCenter;
 }
 
-+ (struct CGSize)_labelSizeWithWidth:(double)arg1 title:(id)arg2;
 + (double)headerHeightWithWidth:(double)arg1 title:(id)arg2;
++ (struct CGSize)_clearButtonPreferredSize;
++ (void)_contentSizeCategoryDidChange:(id)arg1;
++ (void)initialize;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(retain, nonatomic) NCNotificationListHeaderTitleView *headerTitleView; // @synthesize headerTitleView=_headerTitleView;
 @property(nonatomic) struct CGPoint overrideCenter; // @synthesize overrideCenter=_overrideCenter;
@@ -38,6 +41,7 @@
 @property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(copy, nonatomic) NSString *sectionIdentifier; // @synthesize sectionIdentifier=_sectionIdentifier;
 @property(nonatomic) __weak id <NCNotificationListSectionHeaderViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(copy, nonatomic) NSString *preferredContentSizeCategory; // @synthesize preferredContentSizeCategory=_preferredContentSizeCategory;
 @property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 - (void).cxx_destruct;
 - (void)_handleClearAll:(id)arg1;
@@ -49,7 +53,6 @@
 - (void)_configureClearButtonIfNecessary;
 - (void)_resetRevealOverrides;
 - (void)_resetClearButtonStateAnimated:(_Bool)arg1;
-- (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
 - (void)_updateHeaderTitleViewWithLegibilitySettings:(id)arg1;
 - (void)adjustForLegibilitySettingsChange:(id)arg1;
@@ -69,7 +72,6 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
-@property(copy, nonatomic) NSString *preferredContentSizeCategory;
 @property(readonly) Class superclass;
 
 @end

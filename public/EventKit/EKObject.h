@@ -83,6 +83,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithObject:(id)arg1;
 @property(readonly, nonatomic) _Bool hasChanges;
 @property(readonly, nonatomic, getter=isNew) _Bool new;
+@property(readonly, nonatomic) NSString *semanticIdentifier;
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
 - (_Bool)_isPropertyUnavailable:(id)arg1 convertToFullObjectIfUnavailable:(_Bool)arg2;
 - (void)setPersistentObject:(id)arg1;
@@ -137,7 +138,6 @@ __attribute__((visibility("hidden")))
 - (void)addChangesFromObject:(id)arg1 except:(id)arg2;
 - (void)addChangesFromObject:(id)arg1;
 - (id)_previousValueForKey:(id)arg1;
-- (id)previouslySavedObject;
 - (_Bool)_areOnlyChangedKeys:(id)arg1;
 - (_Bool)_isOnlyChangedKey:(id)arg1;
 - (_Bool)_hasChangesForKey:(id)arg1 checkUnsaved:(_Bool)arg2;

@@ -43,6 +43,7 @@
 - (void)_didFinishSession:(id)arg1 withState:(unsigned long long)arg2 avoidDismissal:(_Bool)arg3;
 - (void)_didFinishSession:(id)arg1 withState:(unsigned long long)arg2;
 - (void)_performSendBackActionForSession:(id)arg1;
+- (void)_performNotifyIfNeededActionForSession:(id)arg1;
 - (void)_performCleanupActionForSession:(id)arg1;
 - (id)_performReceiveActionForSession:(id)arg1;
 - (void)_performPhotosPickerActionForSession:(id)arg1 gridPresentation:(id)arg2;

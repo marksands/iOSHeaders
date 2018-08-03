@@ -29,6 +29,7 @@
 - (id)nameForVoiceIdentifier:(id)arg1;
 - (id)alternativeVoiceIdentifiersForLangauge:(id)arg1;
 - (_Bool)isAlexAvailableForLanguage:(id)arg1;
+- (_Bool)isNashvilleSystemVoice:(id)arg1;
 - (_Bool)isSiriVoiceIdentifier:(id)arg1;
 - (_Bool)isOldSiriVoiceIdentifier:(id)arg1;
 - (_Bool)isAlternativeVoice:(id)arg1;

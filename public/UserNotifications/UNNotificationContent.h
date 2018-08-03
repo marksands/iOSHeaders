@@ -28,6 +28,7 @@
     _Bool _shouldHideDate;
     _Bool _shouldHideTime;
     _Bool _shouldIgnoreDoNotDisturb;
+    _Bool _shouldIgnoreDowntime;
     _Bool _shouldSuppressScreenLightUp;
     _Bool _shouldPreventNotificationDismissalAfterDefaultAction;
     _Bool _shouldAuthenticateDefaultAction;
@@ -74,6 +75,7 @@
 @property(readonly, nonatomic) _Bool shouldPreventNotificationDismissalAfterDefaultAction; // @synthesize shouldPreventNotificationDismissalAfterDefaultAction=_shouldPreventNotificationDismissalAfterDefaultAction;
 @property(readonly, nonatomic) _Bool shouldBackgroundDefaultAction; // @synthesize shouldBackgroundDefaultAction=_shouldBackgroundDefaultAction;
 @property(readonly, nonatomic) _Bool shouldAuthenticateDefaultAction; // @synthesize shouldAuthenticateDefaultAction=_shouldAuthenticateDefaultAction;
+@property(readonly, nonatomic) _Bool shouldIgnoreDowntime; // @synthesize shouldIgnoreDowntime=_shouldIgnoreDowntime;
 @property(readonly, nonatomic) _Bool shouldIgnoreDoNotDisturb; // @synthesize shouldIgnoreDoNotDisturb=_shouldIgnoreDoNotDisturb;
 @property(readonly, nonatomic) _Bool shouldHideTime; // @synthesize shouldHideTime=_shouldHideTime;
 @property(readonly, nonatomic) _Bool shouldHideDate; // @synthesize shouldHideDate=_shouldHideDate;
@@ -87,7 +89,7 @@
 @property(readonly, copy, nonatomic) NSDate *date; // @synthesize date=_date;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)_initWithAttachments:(id)arg1 badge:(id)arg2 body:(id)arg3 categoryIdentifier:(id)arg4 date:(id)arg5 icon:(id)arg6 defaultActionTitle:(id)arg7 defaultActionURL:(id)arg8 expirationDate:(id)arg9 header:(id)arg10 launchImageName:(id)arg11 peopleIdentifiers:(id)arg12 shouldHideDate:(_Bool)arg13 shouldHideTime:(_Bool)arg14 shouldIgnoreDoNotDisturb:(_Bool)arg15 shouldSuppressScreenLightUp:(_Bool)arg16 shouldAuthenticateDefaultAction:(_Bool)arg17 shouldBackgroundDefaultAction:(_Bool)arg18 shouldPreventNotificationDismissalAfterDefaultAction:(_Bool)arg19 shouldSuppressDefaultAction:(_Bool)arg20 shouldSuppressSyncDismissalWhenRemoved:(_Bool)arg21 shouldUseRequestIdentifierForDismissalSync:(_Bool)arg22 sound:(id)arg23 subtitle:(id)arg24 threadIdentifier:(id)arg25 title:(id)arg26 topicIdentifiers:(id)arg27 summaryArgument:(id)arg28 summaryArgumentCount:(unsigned long long)arg29 userInfo:(id)arg30;
+- (id)_initWithAttachments:(id)arg1 badge:(id)arg2 body:(id)arg3 categoryIdentifier:(id)arg4 date:(id)arg5 icon:(id)arg6 defaultActionTitle:(id)arg7 defaultActionURL:(id)arg8 expirationDate:(id)arg9 header:(id)arg10 launchImageName:(id)arg11 peopleIdentifiers:(id)arg12 shouldHideDate:(_Bool)arg13 shouldHideTime:(_Bool)arg14 shouldIgnoreDoNotDisturb:(_Bool)arg15 shouldIgnoreDowntime:(_Bool)arg16 shouldSuppressScreenLightUp:(_Bool)arg17 shouldAuthenticateDefaultAction:(_Bool)arg18 shouldBackgroundDefaultAction:(_Bool)arg19 shouldPreventNotificationDismissalAfterDefaultAction:(_Bool)arg20 shouldSuppressDefaultAction:(_Bool)arg21 shouldSuppressSyncDismissalWhenRemoved:(_Bool)arg22 shouldUseRequestIdentifierForDismissalSync:(_Bool)arg23 sound:(id)arg24 subtitle:(id)arg25 threadIdentifier:(id)arg26 title:(id)arg27 topicIdentifiers:(id)arg28 summaryArgument:(id)arg29 summaryArgumentCount:(unsigned long long)arg30 userInfo:(id)arg31;
 
 @end
 

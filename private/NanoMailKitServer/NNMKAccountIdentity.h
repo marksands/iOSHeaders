@@ -12,24 +12,25 @@
 
 @interface NNMKAccountIdentity : NSObject <NSSecureCoding>
 {
+    NSString *_accountId;
     NSString *_username;
     NSString *_displayName;
     NSString *_token;
     NSString *_refreshToken;
-    NSString *_accountIdentifier;
     unsigned long long _identityType;
 }
 
 + (_Bool)supportsSecureCoding;
 @property(nonatomic) unsigned long long identityType; // @synthesize identityType=_identityType;
-@property(copy, nonatomic) NSString *accountIdentifier; // @synthesize accountIdentifier=_accountIdentifier;
 @property(copy, nonatomic) NSString *refreshToken; // @synthesize refreshToken=_refreshToken;
 @property(copy, nonatomic) NSString *token; // @synthesize token=_token;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(copy, nonatomic) NSString *username; // @synthesize username=_username;
+@property(copy, nonatomic) NSString *accountId; // @synthesize accountId=_accountId;
 - (void).cxx_destruct;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
+@property(copy, nonatomic) NSString *accountIdentifier;
 
 @end
 

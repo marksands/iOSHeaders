@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString;
+@class NSArray, NSString;
 
 @interface _XCTestExpectationImplementation : NSObject
 {
@@ -22,10 +22,8 @@
     NSArray *_fulfillCallStackReturnAddresses;
     _Bool _inverted;
     _Bool _assertForOverFulfill;
-    NSObject<OS_dispatch_queue> *_delegateQueue;
 }
 
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue; // @synthesize delegateQueue=_delegateQueue;
 @property(nonatomic) unsigned long long numberOfFulfillments; // @synthesize numberOfFulfillments=_numberOfFulfillments;
 @property(nonatomic) unsigned long long expectedFulfillmentCount; // @synthesize expectedFulfillmentCount=_expectedFulfillmentCount;
 @property(copy) NSArray *fulfillCallStackReturnAddresses; // @synthesize fulfillCallStackReturnAddresses=_fulfillCallStackReturnAddresses;
@@ -39,7 +37,6 @@
 @property(copy) NSString *expectationDescription; // @synthesize expectationDescription=_expectationDescription;
 @property _Bool fulfilled; // @synthesize fulfilled=_fulfilled;
 - (void).cxx_destruct;
-- (id)init;
 
 @end
 

@@ -14,7 +14,7 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSMutableSet, NSProgress, NSString, PXCMMAddRecipientButton, PXCMMComposeRecipientDataSource, PXCMMComposeRecipientDataSourceManager, PXCMMComposeRecipientSelectionManager, PXCMMComposeRecipientValidationManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMSession, PXCMMSpecManager, PXPhotoRecipientViewController, PXUpdater, UIButton, UILabel, UITableView;
+@class NSMutableSet, NSProgress, NSString, PXCMMAddRecipientButton, PXCMMComposeRecipientDataSource, PXCMMComposeRecipientDataSourceManager, PXCMMComposeRecipientSelectionManager, PXCMMComposeRecipientValidationManager, PXCMMPeopleSuggestionsMediaProvider, PXCMMSession, PXCMMSpecManager, PXPhotoRecipientViewController, PXUpdater, UIButton, UILabel, UITableView, UIVisualEffectView;
 
 @interface PXCMMComposeRecipientViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, PXPhotoRecipientViewControllerDelegate, PXCMMComposeRecipientDataSourceManagerDelegate, PXCMMComposeRecipientSelectionManagerDelegate, PXCMMComposeRecipientValidationManagerDelegate, CNContactViewControllerDelegate>
 {
@@ -25,6 +25,7 @@
     PXUpdater *_updater;
     UITableView *_composeRecipientTableView;
     PXCMMAddRecipientButton *_addRecipientButton;
+    UIVisualEffectView *_footerVisualEffectView;
     UILabel *_privacyMessageLabel;
     UIButton *_sendButton;
     NSProgress *_actionProgress;
@@ -55,6 +56,7 @@
 @property(retain, nonatomic) NSProgress *actionProgress; // @synthesize actionProgress=_actionProgress;
 @property(retain, nonatomic) UIButton *sendButton; // @synthesize sendButton=_sendButton;
 @property(retain, nonatomic) UILabel *privacyMessageLabel; // @synthesize privacyMessageLabel=_privacyMessageLabel;
+@property(retain, nonatomic) UIVisualEffectView *footerVisualEffectView; // @synthesize footerVisualEffectView=_footerVisualEffectView;
 @property(retain, nonatomic) PXCMMAddRecipientButton *addRecipientButton; // @synthesize addRecipientButton=_addRecipientButton;
 @property(retain, nonatomic) UITableView *composeRecipientTableView; // @synthesize composeRecipientTableView=_composeRecipientTableView;
 @property(readonly, nonatomic) PXUpdater *updater; // @synthesize updater=_updater;
@@ -75,6 +77,7 @@
 - (void)composeRecipientDataSourceManager:(id)arg1 didUpdateDataSourceWithChangeDetails:(id)arg2;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (double)tableView:(id)arg1 heightForFooterInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForFooterInSection:(long long)arg2;
 - (id)tableView:(id)arg1 titleForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
@@ -82,6 +85,7 @@
 - (long long)numberOfSectionsInTableView:(id)arg1;
 - (id)_validationTextColorForComposeRecipient:(id)arg1;
 - (void)_updateUserInteraction;
+- (double)_headerHeight;
 - (void)_updateTableView;
 - (void)_updateFooter;
 - (void)_setNeedsUpdate;

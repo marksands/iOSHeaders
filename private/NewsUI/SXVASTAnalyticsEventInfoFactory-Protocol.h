@@ -9,8 +9,8 @@
 @class ADMediaAnalyticsEventInfo, ADMediaAnalyticsProgressEventInfo;
 
 @protocol SXVASTAnalyticsEventInfoFactory <NSObject>
-- (ADMediaAnalyticsProgressEventInfo *)createAnalyticsProgressEventInfoForQuartile:(unsigned long long)arg1 withMetadata:(id <SVVideoMetadataProviding>)arg2;
-- (ADMediaAnalyticsEventInfo *)createAnalyticsEventInfoWithMetadata:(id <SVVideoMetadataProviding>)arg1;
+- (ADMediaAnalyticsProgressEventInfo *)createAnalyticsProgressEventInfoForQuartile:(unsigned long long)arg1 withMetadata:(id <SVVideoMetadata>)arg2;
+- (ADMediaAnalyticsEventInfo *)createAnalyticsEventInfoWithMetadata:(id <SVVideoMetadata>)arg1;
 - (ADMediaAnalyticsEventInfo *)createAnalyticsEventInfo;
 @end
 

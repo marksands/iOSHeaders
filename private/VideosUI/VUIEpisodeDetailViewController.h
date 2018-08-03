@@ -10,7 +10,7 @@
 #import "VUIEpisodeDetailViewDelegate.h"
 #import "VUIMediaEntitiesFetchControllerDelegate.h"
 
-@class NSString, UITapGestureRecognizer, VUIEpisodeDetailView, VUIMediaItem;
+@class NSString, UITapGestureRecognizer, VUIEpisodeDetailView, VUIMediaItem, VUIMetricsController;
 
 __attribute__((visibility("hidden")))
 @interface VUIEpisodeDetailViewController : VUILibraryFetchControllerViewController <UIGestureRecognizerDelegate, VUIEpisodeDetailViewDelegate, VUIMediaEntitiesFetchControllerDelegate>
@@ -19,8 +19,10 @@ __attribute__((visibility("hidden")))
     id <VUIEpisodeDetailViewControllerDelegate> _delegate;
     VUIEpisodeDetailView *_detailView;
     UITapGestureRecognizer *_tapGestureRecognizer;
+    VUIMetricsController *_metricsController;
 }
 
+@property(retain, nonatomic) VUIMetricsController *metricsController; // @synthesize metricsController=_metricsController;
 @property(retain, nonatomic) UITapGestureRecognizer *tapGestureRecognizer; // @synthesize tapGestureRecognizer=_tapGestureRecognizer;
 @property(retain, nonatomic) VUIEpisodeDetailView *detailView; // @synthesize detailView=_detailView;
 @property(nonatomic) __weak id <VUIEpisodeDetailViewControllerDelegate> delegate; // @synthesize delegate=_delegate;

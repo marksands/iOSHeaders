@@ -44,6 +44,8 @@
 @property(retain, nonatomic) NSString *requestIdentifier; // @synthesize requestIdentifier=_requestIdentifier;
 @property(retain, nonatomic) NSString *version; // @synthesize version=_version;
 - (void).cxx_destruct;
+- (_Bool)isVersionSupported;
+- (_Bool)isAnyUnknownRootKey;
 @property(readonly, nonatomic) Class rootModelObject;
 @property(readonly, nonatomic) NSString *rootKey;
 - (id)encodedStringForDictionary:(id)arg1;

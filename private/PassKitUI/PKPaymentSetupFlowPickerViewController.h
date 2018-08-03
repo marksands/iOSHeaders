@@ -47,6 +47,7 @@
 - (void)browseProductsViewController:(id)arg1 didSelectProduct:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
 - (void)_didSelectProducts:(id)arg1;
 - (void)addPickerSection:(id)arg1;
+- (void)addPickerItems:(id)arg1 toSection:(id)arg2;
 - (void)addPickerItem:(id)arg1 toSection:(id)arg2;
 - (void)_setNavigationBarEnabled:(_Bool)arg1;
 - (void)hideActivitySpinner;

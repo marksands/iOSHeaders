@@ -16,6 +16,7 @@
 
 @property(nonatomic) long long year; // @synthesize year=_year;
 @property(nonatomic) NSString *city; // @synthesize city=_city;
+- (_Bool)canFallbackToDejunkAndDedupeForShowMore;
 - (id)_potentialMemoriesForDryTesting;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (void)_enumeratePotentialMemoriesUsingBlock:(CDUnknownBlockType)arg1;

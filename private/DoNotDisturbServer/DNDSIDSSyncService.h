@@ -9,7 +9,7 @@
 #import "DNDSSyncService.h"
 #import "IDSServiceDelegate.h"
 
-@class IDSService, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
+@class IDSDevice, IDSService, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface DNDSIDSSyncService : NSObject <IDSServiceDelegate, DNDSSyncService>
 {
@@ -17,6 +17,7 @@
     unsigned long long _versionNumber;
     NSObject<OS_dispatch_queue> *_queue;
     IDSService *_syncService;
+    IDSDevice *_activePairedDevice;
     NSHashTable *_updateListeners;
 }
 
@@ -24,6 +25,7 @@
 - (void)_queue_handleIncomingMessage:(id)arg1 sourceIdentifier:(id)arg2;
 - (_Bool)_queue_sendRecordToRemotes:(id)arg1 error:(id *)arg2;
 - (void)_queue_resume;
+- (void)service:(id)arg1 didSwitchActivePairedDevice:(id)arg2 acknowledgementBlock:(CDUnknownBlockType)arg3;
 - (void)service:(id)arg1 account:(id)arg2 incomingMessage:(id)arg3 fromID:(id)arg4 context:(id)arg5;
 - (void)removeUpdateListener:(id)arg1;
 - (void)addUpdateListener:(id)arg1;

@@ -17,7 +17,10 @@ __attribute__((visibility("hidden")))
 + (double)lowerExpandedBaselineOffset;
 + (double)itemSpacing;
 + (double)baselineBottomInset;
-+ (double)centeringEdgeInset;
++ (id)pillFont;
++ (struct CGSize)pillSize;
++ (double)pillCenteringEdgeInset;
++ (double)leadingCenteringEdgeInset;
 + (struct CGSize)notchSize;
 + (double)referenceWidth;
 - (id)styleAttributes;

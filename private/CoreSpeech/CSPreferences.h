@@ -14,6 +14,7 @@
 + (id)deviceCategoryStringRepresentationForCategoryType:(unsigned long long)arg1;
 + (_Bool)isCurrentDeviceCompatibleWithVoiceProfileAt:(id)arg1;
 + (id)sharedPreferences;
+- (_Bool)useSiriActivationSPIForHomePod;
 - (unsigned long long)maxNumLoggingFiles;
 - (double)audioSessionActivationDelay;
 - (_Bool)smartSiriVolumeSoftVolumeEnabled;

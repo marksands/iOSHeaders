@@ -10,6 +10,7 @@
 @class NSString, PXAssetCollectionActionManager, PXCMMContext;
 
 @protocol PXCMMSuggestion <NSObject, PXMediaTypeAggregating>
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons;
 @property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
 @property(readonly, nonatomic) id <PXPeopleFetchResult> peopleFetchResult;
 @property(readonly, nonatomic) id <PXUIImageProvider> posterMediaProvider;

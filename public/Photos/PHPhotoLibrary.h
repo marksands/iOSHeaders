@@ -84,6 +84,7 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(readonly, nonatomic) unsigned short type; // @synthesize type=_type;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool canUpdatePersonState;
 - (void)_notifiyPersistentChangeObservers;
 @property(readonly, nonatomic) PHPersistentChangeToken *currentToken;
 - (id)_fetchPersistentChangesSinceToken:(id)arg1 maximumChangeThreshold:(unsigned long long)arg2 error:(id *)arg3;

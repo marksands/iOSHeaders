@@ -7,30 +7,34 @@
 #import <PhotosUICore/PXGadgetProvider.h>
 
 #import "PXChangeObserver.h"
+#import "PXForYouRankable.h"
 #import "PXSectionedDataSourceManagerObserver.h"
 #import "PXSettingsKeyObserver.h"
 
-@class NSString, PXCMMInvitationsDataSourceManager, PXForYouBadgeManager;
+@class NSDate, NSString, PXCMMInvitationsDataSourceManager;
 
-@interface PXCMMInvitationsHorizontalGadgetProvider : PXGadgetProvider <PXSettingsKeyObserver, PXChangeObserver, PXSectionedDataSourceManagerObserver>
+@interface PXCMMInvitationsHorizontalGadgetProvider : PXGadgetProvider <PXSettingsKeyObserver, PXChangeObserver, PXSectionedDataSourceManagerObserver, PXForYouRankable>
 {
     PXCMMInvitationsDataSourceManager *_dataSourceManager;
     _Bool _didGenerateGadgets;
-    PXForYouBadgeManager *_badgeManager;
+    NSDate *_cachedPriorityDate;
 }
 
-@property(retain, nonatomic) PXForYouBadgeManager *badgeManager; // @synthesize badgeManager=_badgeManager;
+@property(retain, nonatomic) NSDate *cachedPriorityDate; // @synthesize cachedPriorityDate=_cachedPriorityDate;
 - (void).cxx_destruct;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (void)resetPriorityDate;
+@property(readonly, nonatomic) unsigned long long gadgetType;
+@property(readonly, nonatomic) long long defaultPriority;
+@property(readonly, nonatomic) long long priorityType;
+@property(readonly, nonatomic) NSDate *priorityDate;
 - (void)generateGadgets;
 - (void)loadDataForGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
-- (void)loadDataForPriority;
-- (unsigned long long)loadingPriority;
+- (_Bool)supportsDynamicRanking;
 - (void)_updateGadgets;
 - (void)_configureDataSourceManager;
-- (void)navigateToCMMInvitationWithUUID:(id)arg1 animated:(_Bool)arg2 presentShareActionView:(_Bool)arg3;
 - (id)init;
 
 // Remaining properties

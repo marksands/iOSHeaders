@@ -12,9 +12,10 @@
 }
 
 @property(nonatomic) _Bool adjustsStartTime; // @synthesize adjustsStartTime=_adjustsStartTime;
+- (_Bool)accessibilityScroll:(long long)arg1;
 - (void)accessibilityDecrement;
 - (void)accessibilityIncrement;
-- (void)_accessibilityIncreaseValue:(_Bool)arg1;
+- (void)_accessibilityIncreaseValue:(_Bool)arg1 isThreeFingerScroll:(_Bool)arg2;
 - (unsigned long long)accessibilityTraits;
 - (struct CGRect)accessibilityFrame;
 - (id)accessibilityValue;

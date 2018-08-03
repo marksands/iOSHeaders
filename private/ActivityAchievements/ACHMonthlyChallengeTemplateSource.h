@@ -8,7 +8,7 @@
 
 #import "ACHTemplateSource.h"
 
-@class ACHMonthlyChallengeDataSource, ACHMonthlyChallengeTemplateDataProvider, NSCalendar, NSDate, NSObject<ACHTemplateSourceDelegate>, NSString;
+@class ACHMonthlyChallengeDataSource, ACHMonthlyChallengeTemplateDataProvider, ACHSyncingMonthlyChallengeTemplateCache, NSCalendar, NSDate, NSObject<ACHTemplateSourceDelegate>, NSString;
 
 @interface ACHMonthlyChallengeTemplateSource : NSObject <ACHTemplateSource>
 {
@@ -19,9 +19,11 @@
     NSDate *_currentDate;
     ACHMonthlyChallengeDataSource *_dataSource;
     ACHMonthlyChallengeTemplateDataProvider *_templateDataProvider;
+    ACHSyncingMonthlyChallengeTemplateCache *_templateCache;
 }
 
 @property(nonatomic) _Bool isAppleWatch; // @synthesize isAppleWatch=_isAppleWatch;
+@property(retain, nonatomic) ACHSyncingMonthlyChallengeTemplateCache *templateCache; // @synthesize templateCache=_templateCache;
 @property(retain, nonatomic) ACHMonthlyChallengeTemplateDataProvider *templateDataProvider; // @synthesize templateDataProvider=_templateDataProvider;
 @property(retain, nonatomic) ACHMonthlyChallengeDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) NSDate *currentDate; // @synthesize currentDate=_currentDate;
@@ -55,7 +57,7 @@
 - (_Bool)sourceShouldRunForDate:(id)arg1;
 @property(readonly, nonatomic) long long runCadence;
 @property(readonly, nonatomic) NSString *identifier;
-- (id)initWithDataSource:(id)arg1 andDataProvider:(id)arg2;
+- (id)initWithDataSource:(id)arg1 dataProvider:(id)arg2 templateCache:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

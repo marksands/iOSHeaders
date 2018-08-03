@@ -39,6 +39,7 @@
 - (void)becomeReusable;
 - (void)didApplyGeometry:(struct PXTileGeometry)arg1 withUserData:(id)arg2;
 @property(readonly, nonatomic) UIView *view;
+- (void)_updateContainsUnverifierPersons;
 - (void)_configureBannerViewActionButtonWithTitle:(id)arg1;
 - (void)_updateLoadingPeopleSuggestions;
 - (void)_updateBannerActionButton;

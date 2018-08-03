@@ -44,6 +44,7 @@
 - (void)_performUpdatesToDelegate:(CDUnknownBlockType)arg1;
 - (void)_queue_updateElementRelevance;
 - (void)_queue_scheduleRelevanceUpdateForElement:(id)arg1;
+- (_Bool)_elementIsFullyLoaded:(id)arg1;
 - (void)relevanceEnvironment:(id)arg1 didUpdateRelevanceProvider:(id)arg2;
 - (void)predictorDidUpdate:(id)arg1;
 - (void)_checkPreferences;
@@ -63,6 +64,7 @@
 - (id)_elementIdentifierForIdentifier:(id)arg1;
 - (id)_identifierForElementIdentifier:(id)arg1;
 - (id)relevanceProviderEnvironment;
+- (id)featureMapForPredictedElement:(id)arg1 trainingContext:(id)arg2;
 - (void)refreshContent;
 
 // Remaining properties

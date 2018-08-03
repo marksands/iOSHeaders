@@ -14,6 +14,7 @@
 {
     _Bool _focusOnPeople;
     _Bool _complete;
+    _Bool _allowContextualTrip;
     _Bool _useSummarizer;
     _Bool _useContextualCurationOnly;
     _Bool _prefilterAssetsWithFaces;
@@ -29,6 +30,7 @@
 @property(nonatomic) _Bool prefilterAssetsWithFaces; // @synthesize prefilterAssetsWithFaces=_prefilterAssetsWithFaces;
 @property(nonatomic) _Bool useContextualCurationOnly; // @synthesize useContextualCurationOnly=_useContextualCurationOnly;
 @property(nonatomic) _Bool useSummarizer; // @synthesize useSummarizer=_useSummarizer;
+@property(nonatomic) _Bool allowContextualTrip; // @synthesize allowContextualTrip=_allowContextualTrip;
 @property(nonatomic) _Bool complete; // @synthesize complete=_complete;
 @property(nonatomic) unsigned long long precision; // @synthesize precision=_precision;
 @property(nonatomic) _Bool focusOnPeople; // @synthesize focusOnPeople=_focusOnPeople;

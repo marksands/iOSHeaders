@@ -9,6 +9,7 @@
 @class NSString, UISUIActivityViewControllerConfiguration;
 
 @protocol _UIShareExtensionService <NSObject>
+- (void)_closeWithCompletion:(void (^)(void))arg1;
 - (void)setIsLoadingActivityItemProviders:(_Bool)arg1;
 - (void)_viewControllerWasDismissed;
 - (void)setPresentedContextUsesDiscreteDismissButton:(_Bool)arg1;

@@ -15,11 +15,11 @@
 {
     _Bool _active;
     _Bool _willSuppressInterruptions;
-    NSArray *_activeModeIdentifiers;
+    NSArray *_activeModeAssertionMetadata;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(readonly, copy, nonatomic) NSArray *activeModeIdentifiers; // @synthesize activeModeIdentifiers=_activeModeIdentifiers;
+@property(readonly, copy, nonatomic) NSArray *activeModeAssertionMetadata; // @synthesize activeModeAssertionMetadata=_activeModeAssertionMetadata;
 @property(readonly, nonatomic) _Bool willSuppressInterruptions; // @synthesize willSuppressInterruptions=_willSuppressInterruptions;
 @property(readonly, nonatomic, getter=isActive) _Bool active; // @synthesize active=_active;
 - (void).cxx_destruct;
@@ -29,7 +29,8 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithActive:(_Bool)arg1 willSuppressInterruptions:(_Bool)arg2 activeModeIdentifiers:(id)arg3;
+- (id)initWithActive:(_Bool)arg1 willSuppressInterruptions:(_Bool)arg2 activeModeAssertionMetadata:(id)arg3;
+@property(readonly, copy, nonatomic) NSArray *activeModeIdentifiers; // @dynamic activeModeIdentifiers;
 
 @end
 

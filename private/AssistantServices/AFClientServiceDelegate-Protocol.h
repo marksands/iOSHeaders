@@ -51,6 +51,7 @@
 - (oneway void)requestRequestedDismissAssistant;
 - (oneway void)requestRequestedOpenURL:(NSURL *)arg1 reply:(void (^)(_Bool))arg2;
 - (oneway void)requestRequestedOpenApplicationWithBundleID:(NSString *)arg1 URL:(NSURL *)arg2 reply:(void (^)(_Bool))arg3;
+- (oneway void)requestHandleCommand:(AceObject<SAAceCommand> *)arg1 reply:(void (^)(AceObject<SAAceCommand> *, NSError *))arg2;
 - (oneway void)requestDidReceiveCommand:(AceObject<SAAceCommand> *)arg1 reply:(void (^)(AceObject<SAAceCommand> *))arg2;
 - (oneway void)audioSessionIDChanged:(unsigned int)arg1;
 - (oneway void)shouldSpeakChanged:(_Bool)arg1;

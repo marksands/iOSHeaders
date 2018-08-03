@@ -21,11 +21,9 @@
     double _horizontalInset;
     double _barWidth;
     double _spaceBetweenBars;
-    double _topPadding;
     double _bottomPadding;
     double _dayLabelBaselineOffset;
     double _maxBarHeight;
-    double _barBottomPadding;
     UIFont *_currentDateFont;
     UIFont *_dateFont;
     UIColor *_dateColor;
@@ -43,11 +41,9 @@
 @property(retain, nonatomic) UIColor *dateColor; // @synthesize dateColor=_dateColor;
 @property(retain, nonatomic) UIFont *dateFont; // @synthesize dateFont=_dateFont;
 @property(retain, nonatomic) UIFont *currentDateFont; // @synthesize currentDateFont=_currentDateFont;
-@property(nonatomic) double barBottomPadding; // @synthesize barBottomPadding=_barBottomPadding;
 @property(nonatomic) double maxBarHeight; // @synthesize maxBarHeight=_maxBarHeight;
 @property(nonatomic) double dayLabelBaselineOffset; // @synthesize dayLabelBaselineOffset=_dayLabelBaselineOffset;
 @property(nonatomic) double bottomPadding; // @synthesize bottomPadding=_bottomPadding;
-@property(nonatomic) double topPadding; // @synthesize topPadding=_topPadding;
 @property(nonatomic) double spaceBetweenBars; // @synthesize spaceBetweenBars=_spaceBetweenBars;
 @property(nonatomic) double barWidth; // @synthesize barWidth=_barWidth;
 @property(nonatomic) double horizontalInset; // @synthesize horizontalInset=_horizontalInset;

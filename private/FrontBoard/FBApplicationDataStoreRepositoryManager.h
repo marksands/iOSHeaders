@@ -25,7 +25,6 @@
 - (void)storeInvalidatedForIdentifier:(id)arg1;
 - (void)objectChangedForKeys:(id)arg1 application:(id)arg2;
 - (void)_performAfterDeferredWork:(CDUnknownBlockType)arg1;
-- (void)_handleApplicationsUninstalled:(id)arg1;
 - (void)_handleApplicationInstalled:(id)arg1;
 - (id)_safeObjectForKey:(id)arg1 forApplication:(id)arg2 ofType:(Class)arg3;
 - (void)clearExpiredUninstalledApplicationsFromStoreIfNecessary;

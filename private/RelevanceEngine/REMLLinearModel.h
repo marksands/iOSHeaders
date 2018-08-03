@@ -12,6 +12,8 @@
 {
     NSDictionary *_models;
     float _scaleFactor;
+    NSDictionary *_nonActionModels;
+    float _nonActionScaleFactor;
 }
 
 - (void).cxx_destruct;

@@ -192,6 +192,7 @@
 - (id)_debug_itemDescriptions;
 - (id)_debug_itemProviderDescriptions;
 - (void)_debug_registerForStateDump;
+- (void)didUpdateDemoModeStateForAccessory:(id)arg1;
 - (void)mediaSystem:(id)arg1 didUpdateConfiguredName:(id)arg2;
 - (void)mediaSystem:(id)arg1 didUpdateName:(id)arg2;
 - (void)mediaSystem:(id)arg1 didUpdateComponents:(id)arg2;
@@ -212,7 +213,7 @@
 - (void)home:(id)arg1 willExecuteActionSets:(id)arg2;
 - (void)home:(id)arg1 willWriteValuesForCharacteristics:(id)arg2;
 - (void)home:(id)arg1 willReadValuesForCharacteristics:(id)arg2;
-- (void)session:(id)arg1 didChangeState:(long long)arg2;
+- (void)fixSession:(id)arg1 didChangeState:(long long)arg2;
 - (void)symptomsHandler:(id)arg1 didUpdateSymptoms:(id)arg2;
 - (void)accessorySettings:(id)arg1 didWriteValueForSettings:(id)arg2 failedSettings:(id)arg3;
 - (void)accessorySettings:(id)arg1 willWriteValueForSettings:(id)arg2;
@@ -233,6 +234,9 @@
 - (void)residentDevice:(id)arg1 didUpdateCapabilities:(unsigned long long)arg2;
 - (void)residentDevice:(id)arg1 didUpdateName:(id)arg2;
 - (void)home:(id)arg1 didUpdateReprovisionStateForAccessory:(id)arg2;
+- (void)accessory:(id)arg1 didRemoveControlTarget:(id)arg2;
+- (void)accessory:(id)arg1 didAddControlTarget:(id)arg2;
+- (void)accessoryDidUpdateTargetControlSupport:(id)arg1;
 - (void)accessoryDidRemoveSymptomsHandler:(id)arg1;
 - (void)accessory:(id)arg1 didAddSymptomsHandler:(id)arg2;
 - (void)accessory:(id)arg1 didUpdateConfigurationStateForService:(id)arg2;

@@ -22,8 +22,5 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long count;
 - (id)initWithFeaturesFrom:(id)arg1 addedToFeaturesFrom:(id)arg2 error:(id *)arg3;
 
-// Remaining properties
-@property(readonly, nonatomic) long long featureProviderCount;
-
 @end
 

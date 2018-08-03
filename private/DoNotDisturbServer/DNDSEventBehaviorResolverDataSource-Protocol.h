@@ -6,10 +6,10 @@
 
 #import "NSObject.h"
 
-@class DNDBypassSettings, DNDSEventBehaviorResolver, DNDSState, NSString;
+@class DNDBypassSettings, DNDSEventBehaviorResolver, DNDState, NSString;
 
 @protocol DNDSEventBehaviorResolverDataSource <NSObject>
 - (DNDBypassSettings *)eventBehaviorResolver:(DNDSEventBehaviorResolver *)arg1 bypassSettingsForClientIdentifier:(NSString *)arg2;
-- (DNDSState *)currentStateForEventBehaviorResolver:(DNDSEventBehaviorResolver *)arg1;
+- (DNDState *)currentStateForEventBehaviorResolver:(DNDSEventBehaviorResolver *)arg1;
 @end
 

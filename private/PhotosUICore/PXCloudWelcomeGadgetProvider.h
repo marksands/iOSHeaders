@@ -6,9 +6,11 @@
 
 #import <PhotosUICore/PXGadgetProvider.h>
 
-@class NSArray;
+#import "PXForYouRankable.h"
 
-@interface PXCloudWelcomeGadgetProvider : PXGadgetProvider
+@class NSArray, NSDate;
+
+@interface PXCloudWelcomeGadgetProvider : PXGadgetProvider <PXForYouRankable>
 {
     unsigned long long _sourceType;
     id <PXCMMCloudGadgetViewControllerDelegate> _gadgetDelegate;
@@ -22,9 +24,13 @@
 - (void).cxx_destruct;
 - (void)didUpdateCloudPhotoLibraryEnablement:(id)arg1;
 - (void)presentationRequestForWelcomeCloudViewController:(id)arg1;
+- (void)resetPriorityDate;
+@property(readonly, nonatomic) unsigned long long gadgetType;
+@property(readonly, nonatomic) long long defaultPriority;
+@property(readonly, nonatomic) long long priorityType;
+@property(readonly, nonatomic) NSDate *priorityDate;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
-- (unsigned long long)loadingPriority;
 - (id)initWithSourceType:(unsigned long long)arg1;
 - (id)init;
 

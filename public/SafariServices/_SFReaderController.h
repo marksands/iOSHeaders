@@ -72,6 +72,8 @@
 - (void)didCreateReaderWebView:(id)arg1;
 - (void)clearUnusedReaderResourcesSoon;
 - (void)clearAvailability;
+- (void)willHideReader;
+- (void)didFinishPresentationUpdateAfterTransitioningToReader;
 - (void)createArticleFinder;
 - (id)scrollPositionInformation;
 - (void)deactivateReaderNow:(unsigned long long)arg1;

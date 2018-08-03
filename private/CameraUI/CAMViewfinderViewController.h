@@ -346,6 +346,7 @@
 @property(readonly, nonatomic) long long configuredCaptureDevice; // @synthesize configuredCaptureDevice=_configuredCaptureDevice;
 @property(readonly, nonatomic) long long configuredCaptureMode; // @synthesize configuredCaptureMode=_configuredCaptureMode;
 - (void).cxx_destruct;
+- (void)_handleCreativeCameraButtonTouchAttemptedWhileDisabled:(id)arg1;
 - (void)_handleDoneButtonReleased:(id)arg1;
 - (void)_handleCreativeCameraButtonReleased:(id)arg1;
 - (void)_handleCreativeCameraButtonPressed:(id)arg1;
@@ -502,8 +503,8 @@
 - (void)_handleFilterScrubberDismissGestureRecognizer:(id)arg1;
 - (void)filterScrubberViewDidChangeSelectedFilterType:(id)arg1;
 - (void)_setLightingType:(long long)arg1 forMode:(long long)arg2;
-- (long long)_lightingTypeForMode:(long long)arg1;
-- (void)_updateLightingUIForGraphConfiguration:(id)arg1;
+- (long long)_lightingTypeForMode:(long long)arg1 device:(long long)arg2;
+- (void)_updateLightingUIForGraphConfiguration:(id)arg1 animated:(_Bool)arg2;
 - (void)_dismissOverlays;
 - (void)_updateFilterNameBadgeAnimated:(_Bool)arg1;
 - (void)_hideUtilityBarAnimated:(_Bool)arg1;
@@ -515,7 +516,7 @@
 - (void)_updateFilterScrubberForGraphConfiguration:(id)arg1;
 - (id)_originalCaptureFiltersForMode:(long long)arg1;
 - (id)_captureFiltersForMode:(long long)arg1;
-- (id)_previewFiltersForMode:(long long)arg1;
+- (id)_previewFiltersForMode:(long long)arg1 device:(long long)arg2;
 - (unsigned long long)_previewConfigurationForMode:(long long)arg1 videoThumbnailOutputEnabled:(_Bool)arg2;
 - (_Bool)_shouldUseFiltersForGraphConfiguration:(id)arg1;
 - (long long)_lastCapturedFilterTypeForMode:(long long)arg1;
@@ -634,7 +635,7 @@
 - (void)_updateFlashButtonForMode:(long long)arg1;
 - (void)_updateFlashModeOnControllerIfNecessaryForMode:(long long)arg1;
 - (void)_resolveAndUpdatePotentiallyConflictingControls:(_Bool)arg1;
-- (void)_resolvePotentiallyConflictingControlsForGraphConfiguration:(id)arg1 resolvedFlashMode:(long long *)arg2 resolvedHDRMode:(long long *)arg3 resolvedLivePhotoMode:(long long *)arg4;
+- (void)_resolvePotentiallyConflictingControlsForMode:(long long)arg1 device:(long long)arg2 resolvedFlashMode:(long long *)arg3 resolvedHDRMode:(long long *)arg4 resolvedLivePhotoMode:(long long *)arg5;
 - (_Bool)_wantsHDRControlsVisible;
 - (void)_updateHDRSuggestionMonitoringForGraphConfiguration:(id)arg1;
 - (void)_hdrButtonDidChangeHDRMode:(id)arg1;
@@ -668,6 +669,8 @@
 - (_Bool)_shouldEnableZoomControl;
 - (_Bool)_shouldEnableZoomSlider;
 - (_Bool)_shouldEnableFilterButton;
+- (unsigned long long)_reasonsToDisableCreativeCameraButton;
+- (_Bool)_shouldEnableCreativeCameraButton;
 - (_Bool)_shouldShowShutterButtonDisabled;
 - (unsigned long long)_reasonsToDisableShutterButton;
 - (_Bool)_shouldEnableShutterButton;

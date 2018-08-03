@@ -17,6 +17,7 @@
     _Bool _selecting;
     _Bool _selectionEnabled;
     _Bool _shouldShowPlaceholder;
+    _Bool _containsUnverifiedPersons;
     _Bool _loadingPeopleSuggestions;
     NSString *_originalTitle;
     NSString *_title;
@@ -24,6 +25,7 @@
     PXSectionedSelectionManager *_selectionManager;
     NSArray *_recipients;
     NSURL *_shareURL;
+    NSString *_shareUUID;
     PXRecipient *_originatorRecipient;
     unsigned long long _numberOfReceivedAssets;
     id <PXDisplayAsset> _posterAsset;
@@ -42,6 +44,7 @@
 
 @property(readonly, nonatomic, getter=isLoadingPeopleSuggestions) _Bool loadingPeopleSuggestions; // @synthesize loadingPeopleSuggestions=_loadingPeopleSuggestions;
 @property(readonly, nonatomic) PXPhotosGlobalFooterViewModel *footerViewModel; // @synthesize footerViewModel=_footerViewModel;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons; // @synthesize containsUnverifiedPersons=_containsUnverifiedPersons;
 @property(readonly, nonatomic) _Bool shouldShowPlaceholder; // @synthesize shouldShowPlaceholder=_shouldShowPlaceholder;
 @property(readonly, nonatomic) NSSet *disabledActionTypes; // @synthesize disabledActionTypes=_disabledActionTypes;
 @property(readonly, nonatomic) long long selectedCount; // @synthesize selectedCount=_selectedCount;
@@ -58,6 +61,7 @@
 @property(readonly, copy, nonatomic) PXRecipient *originatorRecipient; // @synthesize originatorRecipient=_originatorRecipient;
 @property(readonly, nonatomic) _Bool selectionEnabled; // @synthesize selectionEnabled=_selectionEnabled;
 @property(readonly, nonatomic, getter=isSelecting) _Bool selecting; // @synthesize selecting=_selecting;
+@property(readonly, copy, nonatomic) NSString *shareUUID; // @synthesize shareUUID=_shareUUID;
 @property(readonly, copy, nonatomic) NSURL *shareURL; // @synthesize shareURL=_shareURL;
 @property(readonly, copy, nonatomic) NSArray *recipients; // @synthesize recipients=_recipients;
 @property(readonly, nonatomic) PXSectionedSelectionManager *selectionManager; // @synthesize selectionManager=_selectionManager;
@@ -67,6 +71,7 @@
 - (void).cxx_destruct;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)setDisabledActionTypes:(id)arg1;
+- (void)setContainsUnverifiedPersons:(_Bool)arg1;
 - (void)setShouldShowPlaceholder:(_Bool)arg1;
 - (void)setLoadingPeopleSuggestions:(_Bool)arg1;
 - (void)setTotalCount:(long long)arg1;
@@ -78,6 +83,7 @@
 - (void)setEndDate:(id)arg1;
 - (void)setStartDate:(id)arg1;
 - (void)setPosterAsset:(id)arg1 posterMediaProvider:(id)arg2;
+- (void)setShareUUID:(id)arg1;
 - (void)setShareURL:(id)arg1;
 - (void)setNumberOfReceivedAssets:(unsigned long long)arg1;
 - (void)setOriginatorRecipient:(id)arg1;

@@ -14,7 +14,8 @@
 {
 }
 
-- (double)accessoryBarHeightForContentSizeCategory:(id)arg1;
+- (double)accessoryBarWidthForTraitCollection:(id)arg1;
+- (double)accessoryBarHeightForTraitCollection:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

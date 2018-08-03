@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
     struct OpaqueCMTimebase *readOnlyTimebase;
     NSObject<OS_dispatch_queue> *rateQueue;
     float rate;
+    CDStruct_1b6d18a9 mostRecentlySetTime;
     NSObject<OS_dispatch_queue> *rendererListQueue;
     NSMutableArray *renderers;
     NSMutableArray *timedRenderRemovals;

@@ -18,6 +18,7 @@
 @property(nonatomic) NSSet *extraFeatures; // @synthesize extraFeatures=_extraFeatures;
 @property(nonatomic) long long year; // @synthesize year=_year;
 @property(nonatomic) long long socialGroupID; // @synthesize socialGroupID=_socialGroupID;
+- (_Bool)canFallbackToDejunkAndDedupeForShowMore;
 - (id)_potentialMemoriesForDryTesting;
 - (void)_generateExtendedCuratedSetForMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;

@@ -31,9 +31,10 @@
 - (_Bool)_shouldMakePresentedViewControllerFirstResponder;
 - (void)viewControllerAnimatorDidFinishFirstResponderChanges:(id)arg1;
 - (void)viewControllerAnimator:(id)arg1 willBeginPresentationAnimationWithTransitionContext:(id)arg2;
-- (struct CGRect)initialFrameOfPresentingViewInContainerView;
+- (struct CGRect)initialPresentationFrameOfPresentingViewInContainerView;
 - (struct CGRect)initialFrameOfPresentedViewInContainerView;
-- (struct CGRect)finalFrameOfPresentingViewInContainerView;
+- (struct CGRect)finalDismissalFrameOfPresentingViewInContainerView;
+- (struct CGRect)finalPresentationFrameOfPresentingViewInContainerView;
 @property(nonatomic) double additionalHomeAffordanceSpacing;
 @property(nonatomic) __weak UIPanGestureRecognizer *homeAffordancePanGesture;
 @property(nonatomic, getter=isHomeAffordanceVisible) _Bool homeAffordanceVisible;

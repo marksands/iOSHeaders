@@ -59,6 +59,8 @@
 - (void)getHealthDirectorySizeInBytesWithCompletion:(CDUnknownBlockType)arg1;
 - (void)clientRemote_waitOnHealthCloudSyncWithProgressDidStartWithUUID:(id)arg1;
 - (void)clientRemote_unitPreferencesDidUpdate;
+- (void)setServerURL:(id)arg1 forAssetType:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)fetchServerURLForAssetType:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)getHealthLiteValueForKey:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)setHealthLiteValue:(id)arg1 forKey:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)removeDefaultForKey:(id)arg1 withCompletion:(CDUnknownBlockType)arg2;

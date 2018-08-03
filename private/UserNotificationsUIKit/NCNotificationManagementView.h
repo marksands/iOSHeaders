@@ -18,6 +18,7 @@
     NCNotificationManagementBlueButton *_deliveryButton;
     UILabel *_explanation;
     UIView *_bottomSeparator;
+    _Bool _isCriticalAlert;
 }
 
 @property(readonly, nonatomic) NCNotificationManagementBlueButton *deliveryButton; // @synthesize deliveryButton=_deliveryButton;
@@ -28,15 +29,15 @@
 - (struct CGSize)_titleSizeForPlatterWidth:(double)arg1;
 - (id)_newSeparatorView;
 - (double)_separatorHeight;
-- (void)_configureExplanationIfNeccessary:(_Bool)arg1;
+- (void)_configureExplanationIfNeccessary:(id)arg1;
 - (void)_configureOffButtonIfNeccessary;
-- (void)_configureDeliveryButtonIfNeccessary:(_Bool)arg1;
+- (void)_configureDeliveryButtonIfNeccessary:(id)arg1;
 - (void)_configureTopSeparatorIfNeccessary;
 - (void)_configureSubtitleIfNeccessary:(id)arg1;
 - (void)_configureTitleIfNeccessary:(id)arg1;
 - (void)_configureIconIfNeccessary:(id)arg1;
 @property(readonly, nonatomic) NCNotificationManagementBlueButton *offButton; // @synthesize offButton=_offButton;
-- (id)initWithIcon:(id)arg1 title:(id)arg2 subtitle:(id)arg3 deliveredQuietly:(_Bool)arg4;
+- (id)initWithIcon:(id)arg1 title:(id)arg2 subtitle:(id)arg3 sectionSettings:(id)arg4 criticalAlert:(_Bool)arg5;
 
 @end
 

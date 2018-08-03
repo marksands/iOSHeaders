@@ -12,10 +12,12 @@
 {
     _Bool _isWideGamut;
     _Bool _isFixedPixelSize;
+    _Bool _doubleBuffered;
     PKInternalDrawingView *_drawingView;
     struct CGSize _fixedPixelSize;
 }
 
+@property(nonatomic) _Bool doubleBuffered; // @synthesize doubleBuffered=_doubleBuffered;
 @property(readonly, nonatomic) struct CGSize fixedPixelSize; // @synthesize fixedPixelSize=_fixedPixelSize;
 @property(readonly, nonatomic) _Bool isFixedPixelSize; // @synthesize isFixedPixelSize=_isFixedPixelSize;
 @property(readonly, nonatomic) _Bool isWideGamut; // @synthesize isWideGamut=_isWideGamut;
@@ -24,6 +26,7 @@
 - (void)flushDrawables;
 - (void)resizeDrawableIfNecessary;
 - (void)setFixedPixelSize:(struct CGSize)arg1;
+@property(readonly, nonatomic) _Bool isDrawableAvailable; // @dynamic isDrawableAvailable;
 @property(readonly, nonatomic) CAMetalLayer *metalLayer;
 - (id)initWithFrame:(struct CGRect)arg1 andPixelSize:(struct CGSize)arg2 isWideGamut:(_Bool)arg3;
 - (id)initWithFrame:(struct CGRect)arg1 isWideGamut:(_Bool)arg2;

@@ -69,6 +69,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)updatePlacement;
 - (void)resetToPreferredPlacement;
 - (_Bool)_updatePlacementWithRecursionBlock:(CDUnknownBlockType)arg1;
+- (_Bool)_resolveDependentItemStatesWithBlock:(CDUnknownBlockType)arg1;
 - (void)_updateStatuses;
 - (void)prepareForDataUpdate;
 - (id)placementStateForPlacement:(id)arg1;

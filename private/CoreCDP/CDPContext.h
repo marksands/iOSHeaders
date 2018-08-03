@@ -69,6 +69,7 @@
 @property(copy, nonatomic) NSDictionary *authenticationResults; // @synthesize authenticationResults=_authenticationResults;
 - (void).cxx_destruct;
 - (struct __CFData *)encodedTopLevelMetric;
+- (id)topLevelMetric;
 - (void)stopMetric:(id)arg1 withAttributes:(id)arg2;
 - (id)startMetricForEventName:(id)arg1;
 - (void)augmentWithCredentialsFromContext:(id)arg1;

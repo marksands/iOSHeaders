@@ -30,6 +30,7 @@
 - (void)colorPickerImplementationUserDidTouchUpInside:(id)arg1;
 - (void)colorPickerImplementationDidChangeSelectedColor:(id)arg1;
 - (_Bool)pointIsSignificantlyOutside:(struct CGPoint)arg1;
+- (void)_setSelectedColorForPoint:(struct CGPoint)arg1;
 - (void)didPanCrosshair:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;

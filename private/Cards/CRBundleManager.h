@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSMutableSet, NSSet;
+@class NSMutableSet, NSObject<OS_dispatch_queue>;
 
 @interface CRBundleManager : NSObject
 {
     NSMutableSet *_bundles;
+    NSObject<OS_dispatch_queue> *_serialQueue;
 }
 
 + (Class)bundleClass;
@@ -18,9 +19,8 @@
 + (id)bundleDirectoryPath;
 + (id)sharedInstance;
 - (void).cxx_destruct;
-@property(readonly, nonatomic) NSSet *bundles;
-- (void)registerBundle:(id)arg1;
-- (_Bool)loadBundles;
+- (void)_getBundlesOnCurrentQueueWithCompletion:(CDUnknownBlockType)arg1;
+- (void)getBundlesWithCompletion:(CDUnknownBlockType)arg1;
 - (id)init;
 
 @end

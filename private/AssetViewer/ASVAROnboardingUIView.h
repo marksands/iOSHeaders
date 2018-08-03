@@ -27,8 +27,6 @@
     UISelectionFeedbackGenerator *_feedbackGenerator;
     NSLayoutConstraint *_resetButtonBottomLayoutConstraint;
     long long _currentResetButtonOrientation;
-    NSString *_moveTextDefault;
-    NSString *_moveTextRelocalize;
     // Error parsing type: [10], name: _recentPositions
     float _recentAccelerationValues[30];
     // Error parsing type: , name: _initialCameraTranslation
@@ -50,6 +48,7 @@
     _Bool _isAnimating;
     _Bool _isRelocalizing;
     _Bool _accelerationBaselineCalculated;
+    _Bool _hasDisplayedPreviously;
     int _currentPositionIndex;
     int _accelOverThresholdCount;
     int _currentAccelerationIndex;
@@ -124,6 +123,7 @@
 - (void)cleanupAnimatedUI;
 - (void)prepareAnimatedUI;
 - (void)prepareOnboardingUI;
+- (void)prepareMoveText;
 - (void)updateResetButtonWithFadeIn:(_Bool)arg1;
 - (void)hideOnboardingUI;
 - (void)dealloc;

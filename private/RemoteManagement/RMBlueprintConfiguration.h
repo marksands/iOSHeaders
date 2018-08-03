@@ -6,17 +6,30 @@
 
 #import "NSManagedObject.h"
 
+#import "RMSyncableSubObject.h"
+#import "RMUniquelySerializableManagedObject.h"
+
 @class NSData, NSString, RMBlueprint;
 
-@interface RMBlueprintConfiguration : NSManagedObject
+@interface RMBlueprintConfiguration : NSManagedObject <RMUniquelySerializableManagedObject, RMSyncableSubObject>
 {
 }
 
++ (id)fetchOrCreateWithDictionaryRepresentation:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
+- (void)delete;
+- (id)syncableRootObject;
+- (id)dictionaryRepresentation;
+- (void)updateWithDictionaryRepresentation:(id)arg1;
 
 // Remaining properties
 @property(retain, nonatomic) RMBlueprint *blueprint; // @dynamic blueprint;
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
 @property(copy, nonatomic) NSString *identifier; // @dynamic identifier;
 @property(retain, nonatomic) NSData *payloadPlist; // @dynamic payloadPlist;
+@property(readonly) Class superclass;
 @property(copy, nonatomic) NSString *type; // @dynamic type;
+
 @end
 

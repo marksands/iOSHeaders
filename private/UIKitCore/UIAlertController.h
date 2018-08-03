@@ -186,6 +186,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (id)_requiredNotificationsForRemoteServices;
 - (void)viewDidLayoutSubviews;
+- (void)viewWillLayoutSubviews;
 - (void)_recomputePreferredContentSize;
 - (_Bool)_needsPreferredSizeCalculated;
 - (id)_alertControllerView;

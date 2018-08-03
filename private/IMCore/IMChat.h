@@ -244,6 +244,7 @@
 @property(readonly, nonatomic) long long lastFinishedMessageID;
 @property(readonly, nonatomic) NSDate *lastSentMessageDate;
 @property(readonly, nonatomic) IMMessage *lastSentMessage;
+@property(readonly, nonatomic) NSDate *lastTUConversationCreatedDate;
 @property(readonly, nonatomic) NSDate *lastFinishedMessageDate;
 @property(readonly, nonatomic) _Bool lastMessageExists;
 @property(readonly, nonatomic) IMMessage *lastMessage;
@@ -294,6 +295,9 @@
 - (_Bool)sendDowngradeNotificationTo:(id)arg1;
 - (void)sendDowngradePingForMessage:(id)arg1 manualDowngrade:(_Bool)arg2;
 - (void)refreshServiceForSending;
+- (long long)_compareChat:(id)arg1 withDate:(id)arg2 withDate:(id)arg3;
+- (id)_tuDateForChat:(id)arg1;
+- (long long)compareChatByTUDateAndLastFinishedMessageDate:(id)arg1;
 - (long long)compareChatByDate:(id)arg1;
 - (_Bool)_hasJustSentAMessage;
 - (void)verifyFiltering;

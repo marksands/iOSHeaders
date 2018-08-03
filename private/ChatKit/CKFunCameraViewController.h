@@ -25,12 +25,14 @@
 @property(retain, nonatomic) IMBalloonPlugin *balloonPlugin; // @synthesize balloonPlugin=_balloonPlugin;
 @property(nonatomic) __weak id <CKFunCameraViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)_dismissAndPresentPhotosApp:(_Bool)arg1;
 - (void)stageAssetArchive:(id)arg1 skipShelf:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)commitSticker:(id)arg1 withDragTarget:(id)arg2;
 - (void)commitSticker:(id)arg1;
 - (id)dragControllerTranscriptDelegate;
 - (void)dismissToKeyboard:(_Bool)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;
+- (void)dismissAndPresentPhotosApp;
 - (void)dismiss;
 - (void)dismissAndReloadInputViews:(_Bool)arg1;
 - (void)openURL:(id)arg1 applicationIdentifier:(id)arg2 pluginID:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;

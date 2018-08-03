@@ -37,7 +37,7 @@
 + (id)insertDataObject:(id)arg1 withProvenance:(id)arg2 inDatabase:(id)arg3 persistentID:(id)arg4 error:(id *)arg5;
 + (Class)_deletedEntityClass;
 + (id)indices;
-+ (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 - (id)_sampleTypeInDatabase:(id)arg1;
 

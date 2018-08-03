@@ -18,6 +18,7 @@
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)radioGroupSpecifierWithName:(id)arg1 footerText:(id)arg2 item:(id)arg3;
+- (id)tccSpecifierWithCapabilityKey:(id)arg1 id:(id)arg2;
 - (id)defaultLinkListSpecifierWithConfiguration:(id)arg1 key:(id)arg2;
 - (id)defaultLinkListSpecifierWithItem:(id)arg1;
 - (id)defaultRadioItemSpecifierWithGroup:(id)arg1 name:(id)arg2 value:(id)arg3;
@@ -31,6 +32,7 @@
 - (void)showAllowedAppsRestrictions:(id)arg1;
 - (void)showiTunesPurchasesRestrictions:(id)arg1;
 - (id)_allowChangesSpecifiers;
+- (id)_privacySpecifiers;
 - (id)_iTunesPurchasesSpecifiers;
 - (id)_topLevelSpecifiers;
 - (id)_featureSwitchSpecifier;

@@ -22,6 +22,7 @@
 - (void)resetMetricsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)reportAppEvent:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)recordMetricsWithCompletionBlock:(CDUnknownBlockType)arg1;
+- (void)recordLaunchesWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)getAppEventsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)flushMetricsWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (id)_initWithServiceBroker:(id)arg1;

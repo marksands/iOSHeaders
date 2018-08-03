@@ -10,10 +10,10 @@
 {
 }
 
-+ (id)buttonTitleForEmptyPhotoLibrary;
-+ (id)messageForEmptyForYou;
++ (id)openCameraButtonTitleForEmptyPhotoLibrary;
 + (id)messageForEmptyPhotoLibrary;
 + (id)titleForEmptyPhotoLibrary;
++ (id)currentDeviceCanonicalModel;
 
 @end
 

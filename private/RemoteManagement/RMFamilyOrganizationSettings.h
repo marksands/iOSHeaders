@@ -6,25 +6,21 @@
 
 #import <RemoteManagement/RMCoreOrganizationSettings.h>
 
-#import "RMSerializableManagedObject.h"
-
 @class NSString, RMFamilyOrganization;
 
-@interface RMFamilyOrganizationSettings : RMCoreOrganizationSettings <RMSerializableManagedObject>
+@interface RMFamilyOrganizationSettings : RMCoreOrganizationSettings
 {
 }
 
 - (id)dictionaryRepresentation;
 - (void)updateWithDictionaryRepresentation:(id)arg1;
+@property(copy, nonatomic) NSString *passcode; // @dynamic passcode;
+@property(nonatomic) _Bool isManaged; // @dynamic isManaged;
+- (id)computeUniqueIdentifier;
+- (void)didChangeValueForKey:(id)arg1;
 
 // Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(nonatomic) _Bool isManaged; // @dynamic isManaged;
 @property(retain, nonatomic) RMFamilyOrganization *organization; // @dynamic organization;
-@property(copy, nonatomic) NSString *passcode; // @dynamic passcode;
-@property(readonly) Class superclass;
 
 @end
 

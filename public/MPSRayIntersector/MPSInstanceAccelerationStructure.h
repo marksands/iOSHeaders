@@ -10,21 +10,24 @@
 
 @interface MPSInstanceAccelerationStructure : MPSAccelerationStructure
 {
-    struct MPSBufferRange *_nodeBufferRange;
-    struct MPSBufferRange *_displacementTableBufferRange;
-    struct MPSBufferRange *_hashTableBufferRange;
+    struct MPSBufferRange *_innerNodeBufferRange;
+    struct MPSBufferRange *_leafNodeBufferRange;
+    struct MPSBufferRange *_pageTable0BufferRange;
+    struct MPSBufferRange *_pageTable1BufferRange;
+    struct MPSBufferRange *_pageBufferRange;
     id <MTLBuffer> _instanceOffsetBuffer;
     id <MTLBuffer> _inverseTransformBuffer;
-    struct vector<MPSBVHRefitLevelData, std::__1::allocator<MPSBVHRefitLevelData>> _refitLevels;
-    id <MTLBuffer> _refitDataBuffer;
     unsigned long long _instanceOffsetBufferIdx;
     unsigned long long _instanceOffsetBufferOffset;
     NSObject<OS_dispatch_semaphore> *_instanceOffsetSem;
     _Bool _needFlushInstanceOffsets;
     unsigned long long _transformType;
+    int _rootNodeType;
+    unsigned long long _leafNodeCount;
+    unsigned long long _innerNodeCount;
     NSArray *_accelerationStructures;
-    id <MTLBuffer> _accelerationStructureIndexBuffer;
-    unsigned long long _accelerationStructureIndexBufferOffset;
+    id <MTLBuffer> _instanceBuffer;
+    unsigned long long _instanceBufferOffset;
     id <MTLBuffer> _transformBuffer;
     unsigned long long _transformBufferOffset;
     id <MTLBuffer> _maskBuffer;
@@ -38,11 +41,9 @@
 @property(retain, nonatomic) id <MTLBuffer> maskBuffer; // @synthesize maskBuffer=_maskBuffer;
 @property(nonatomic) unsigned long long transformBufferOffset; // @synthesize transformBufferOffset=_transformBufferOffset;
 @property(retain, nonatomic) id <MTLBuffer> transformBuffer; // @synthesize transformBuffer=_transformBuffer;
-@property(nonatomic) unsigned long long accelerationStructureIndexBufferOffset; // @synthesize accelerationStructureIndexBufferOffset=_accelerationStructureIndexBufferOffset;
-@property(retain, nonatomic) id <MTLBuffer> accelerationStructureIndexBuffer; // @synthesize accelerationStructureIndexBuffer=_accelerationStructureIndexBuffer;
+@property(nonatomic) unsigned long long instanceBufferOffset; // @synthesize instanceBufferOffset=_instanceBufferOffset;
+@property(retain, nonatomic) id <MTLBuffer> instanceBuffer; // @synthesize instanceBuffer=_instanceBuffer;
 @property(retain, nonatomic) NSArray *accelerationStructures; // @synthesize accelerationStructures=_accelerationStructures;
-- (id).cxx_construct;
-- (void).cxx_destruct;
 - (void)encodeRefitToCommandBuffer:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1 device:(id)arg2;
 - (id)copyWithZone:(struct _NSZone *)arg1 group:(id)arg2;
@@ -61,15 +62,22 @@
 - (id)initWithGroup:(id)arg1;
 - (id)initWithDevice:(id)arg1;
 - (void)sharedInitInstanceAccelerationStructure;
+- (void)setInnerNodeCount:(unsigned long long)arg1;
+- (unsigned long long)innerNodeCount;
+- (void)setLeafNodeCount:(unsigned long long)arg1;
+- (unsigned long long)leafNodeCount;
+- (void)setRootNodeType:(int)arg1;
+- (int)rootNodeType;
 @property(nonatomic) unsigned long long transformType;
 - (void)setInstanceOffsetBuffer:(id)arg1;
 - (id)instanceOffsetBuffer;
-- (void)setInstanceHashTableBufferRange:(struct MPSBufferRange *)arg1;
-- (struct MPSBufferRange *)hashTableBufferRange;
-- (void)setInstanceDisplacementTableBufferRange:(struct MPSBufferRange *)arg1;
-- (struct MPSBufferRange *)displacementTableBufferRange;
-- (void)setInstanceNodeBufferRange:(struct MPSBufferRange *)arg1;
-- (struct MPSBufferRange *)nodeBufferRange;
+- (struct MPSBufferRange *)pageBufferRange;
+- (struct MPSBufferRange *)pageTable1BufferRange;
+- (struct MPSBufferRange *)pageTable0BufferRange;
+- (void)setLeafNodeBufferRange:(struct MPSBufferRange *)arg1;
+- (struct MPSBufferRange *)leafNodeBufferRange;
+- (void)setInnerNodeBufferRange:(struct MPSBufferRange *)arg1;
+- (struct MPSBufferRange *)innerNodeBufferRange;
 
 @end
 

@@ -6,11 +6,10 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, UNUserNotificationCenter;
+@class UNUserNotificationCenter;
 
 @interface PLNotificationUNCenter : NSObject
 {
-    NSMutableDictionary *_currentNotificationsInUNC;
     UNUserNotificationCenter *_unc;
     id <PLNotificationUNCenterDelegate> _delegate;
 }
@@ -29,22 +28,22 @@
 + (id)_updatesLikedCategory;
 + (id)_updatesCategory;
 + (id)_UNNotificationInitialize;
-+ (id)_UNCategoryFromNotificationType:(long long)arg1;
-+ (id)_UNRequestIdentifierForCategory:(id)arg1 keyObjectUUID:(id)arg2;
-+ (id)_UNRequestIdentifierForNotification:(id)arg1;
 @property(nonatomic) __weak id <PLNotificationUNCenterDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_updateAppBadge;
+- (id)_copiedContentFromContent:(id)arg1 WithImageData:(id)arg2 identifier:(id)arg3;
 - (id)_notificationContentWithNotification:(id)arg1 withImageURL:(id)arg2 sound:(_Bool)arg3;
+- (id)_makeTempThumbnailFileForImageData:(id)arg1 identifier:(id)arg2;
 - (id)_makeTempThumbnailFileForNotification:(id)arg1;
-- (void)updateNotificationWithNotification:(id)arg1 imageData:(id)arg2;
+- (void)enumerateExistingNotificationsUsingBlock:(CDUnknownBlockType)arg1;
+- (void)findExistiingNotificationByIdentifier:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
+- (void)mergeExistingAndSendNotificationForNotification:(id)arg1 thumbnailHandler:(CDUnknownBlockType)arg2;
+- (void)removeNotificationWithRequestIdentifiers:(id)arg1;
+- (void)_findNotificationForRequestIdentifier:(id)arg1 withPendingHandler:(CDUnknownBlockType)arg2 deliveredHandler:(CDUnknownBlockType)arg3 completionHandler:(CDUnknownBlockType)arg4;
+- (void)updateImageData:(id)arg1 forNotificationWithIdentifier:(id)arg2;
 - (void)updateBadgeCountWithDelay:(unsigned long long)arg1;
 - (void)removeNotificationsForNotifications:(id)arg1;
 - (void)removeAllNotifications;
-- (id)existingNotificationsForKeyObjectUUID:(id)arg1 inTypes:(id)arg2;
-- (id)existingNotificationForKeyObjectUUID:(id)arg1 inType:(long long)arg2;
-- (id)existingNotificationForNotification:(id)arg1;
-- (id)existingNotifications;
 - (void)sendNotificationForNotification:(id)arg1 withAttachmentURL:(id)arg2 forceToSound:(_Bool)arg3;
 - (void)sendNotificationForNotification:(id)arg1;
 - (id)init;

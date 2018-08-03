@@ -4,12 +4,11 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <PhotosUI/PUSingleHeightHorizontalAlbumListGadgetLayout.h>
+#import <PhotosUI/PUHorizontalAlbumListGadgetLayout.h>
 
 @class NSMutableDictionary;
 
-__attribute__((visibility("hidden")))
-@interface PUDoubleHeightHorizontalAlbumListGadgetLayout : PUSingleHeightHorizontalAlbumListGadgetLayout
+@interface PUDoubleHeightHorizontalAlbumListGadgetLayout : PUHorizontalAlbumListGadgetLayout
 {
     NSMutableDictionary *_layoutAttributesByIndexPath;
 }
@@ -17,12 +16,12 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) NSMutableDictionary *layoutAttributesByIndexPath; // @synthesize layoutAttributesByIndexPath=_layoutAttributesByIndexPath;
 - (void).cxx_destruct;
 - (void)_adjustLayoutAttributes:(id)arg1;
-- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
 - (id)layoutAttributesForItemAtIndexPath:(id)arg1;
 - (id)layoutAttributesForElementsInRect:(struct CGRect)arg1;
 - (struct CGSize)collectionViewContentSize;
+- (_Bool)pagingEnabled;
 - (void)invalidateLayout;
-- (id)init;
+- (id)initWithHorizontalLayoutDelegate:(id)arg1;
 
 @end
 

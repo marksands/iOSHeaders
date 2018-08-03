@@ -20,7 +20,7 @@
 @property(retain, nonatomic, getter=_remoteHostViewController, setter=_setRemoteHostViewController:) INUIVoiceShortcutHostViewController *remoteHostViewController; // @synthesize remoteHostViewController=_remoteHostViewController;
 @property(nonatomic) __weak id <INUIEditVoiceShortcutViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)remoteViewControllerEditDidCacnel;
+- (void)remoteViewControllerEditDidCancel;
 - (void)remoteViewControllerDidDeleteVoiceShortcutWithIdentifier:(id)arg1;
 - (void)remoteViewControllerDidEditVoiceShortcut:(id)arg1 error:(id)arg2;
 - (void)loadView;

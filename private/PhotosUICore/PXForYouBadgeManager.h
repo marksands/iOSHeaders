@@ -6,51 +6,25 @@
 
 #import <PhotosUICore/PXObservable.h>
 
-#import "PHPhotoLibraryChangeObserver.h"
-#import "PXFeedSectionInfosManagerDelegate.h"
 #import "PXMutableForYouBadgeManager.h"
 
-@class NSDate, NSString, PHFetchResult, PXFeedSectionInfosManager;
+@class NSString;
 
-@interface PXForYouBadgeManager : PXObservable <PXMutableForYouBadgeManager, PXFeedSectionInfosManagerDelegate, PHPhotoLibraryChangeObserver>
+@interface PXForYouBadgeManager : PXObservable <PXMutableForYouBadgeManager>
 {
-    _Bool _hasLoaded;
     unsigned long long _unreadBadgeCount;
-    NSDate *_latestSharedAlbumActivityDate;
-    NSDate *_latestCMMActivityDate;
-    PXFeedSectionInfosManager *_feedSectionInfosManager;
-    PHFetchResult *_cmmInvitesFetchResult;
-    unsigned long long _sharedAlbumActivityUnreadCount;
-    unsigned long long _cmmActivityUnreadCount;
 }
 
 + (id)lastSeenBadgeDate;
 + (void)setLastSeenBadgeDate:(id)arg1;
-@property(nonatomic) _Bool hasLoaded; // @synthesize hasLoaded=_hasLoaded;
-@property(nonatomic) unsigned long long cmmActivityUnreadCount; // @synthesize cmmActivityUnreadCount=_cmmActivityUnreadCount;
-@property(nonatomic) unsigned long long sharedAlbumActivityUnreadCount; // @synthesize sharedAlbumActivityUnreadCount=_sharedAlbumActivityUnreadCount;
-@property(retain, nonatomic) PHFetchResult *cmmInvitesFetchResult; // @synthesize cmmInvitesFetchResult=_cmmInvitesFetchResult;
-@property(retain, nonatomic) PXFeedSectionInfosManager *feedSectionInfosManager; // @synthesize feedSectionInfosManager=_feedSectionInfosManager;
-@property(readonly, nonatomic) NSDate *latestCMMActivityDate; // @synthesize latestCMMActivityDate=_latestCMMActivityDate;
-@property(readonly, nonatomic) NSDate *latestSharedAlbumActivityDate; // @synthesize latestSharedAlbumActivityDate=_latestSharedAlbumActivityDate;
 @property(readonly, nonatomic) unsigned long long unreadBadgeCount; // @synthesize unreadBadgeCount=_unreadBadgeCount;
-- (void).cxx_destruct;
-- (void)photoLibraryDidChange:(id)arg1;
-- (void)_lastSeenBadgeDateDidChange:(id)arg1;
-- (void)feedSectionInfosManager:(id)arg1 sectionInfosDidChange:(id)arg2;
-- (void)_updateUnreadCounts;
-- (void)_invalidateFetches;
-- (void)_updateCMMActivityInformation;
-- (void)_updateSharedAlbumActivityInformation;
+- (void)_updateUnreadCount;
+- (void)_didFinishPostingNotifications:(id)arg1;
 - (void)_stopListeningForChanges;
-- (void)_startListeningForChanges;
-- (void)setLatestCMMActivityDate:(id)arg1;
-- (void)setLatestSharedAlbumActivityDate:(id)arg1;
+- (void)startListeningForChanges;
 - (void)setUnreadBadgeCount:(unsigned long long)arg1;
 - (id)mutableChangeObject;
 - (void)performChanges:(CDUnknownBlockType)arg1;
-- (unsigned long long)loadingPriorityForGadgetType:(unsigned long long)arg1;
-- (void)loadData;
 - (void)dealloc;
 
 // Remaining properties

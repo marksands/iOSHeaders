@@ -28,10 +28,12 @@
 - (_Bool)isEqual:(id)arg1;
 - (id)_copyWithSubclass:(Class)arg1;
 @property(readonly, nonatomic) _Bool isValid;
+- (void)unproxyImageFromService:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)purgeStoredImageWithCompletion:(CDUnknownBlockType)arg1;
 - (id)_identifier;
 - (id)_URLRepresentation;
 - (id)_initWithURLRepresentation:(id)arg1;
+- (void)_loadImageDataAndSizeWithHelper:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 
 @end
 

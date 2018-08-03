@@ -20,7 +20,7 @@
     UILabel *_doubleHeightLabel;
     UIView *_doubleHeightLabelContainer;
     NSString *_currentDoubleHeightText;
-    CDStruct_c6256135 _currentRawData;
+    CDStruct_1f606803 _currentRawData;
     NSMutableArray *_interruptedAnimationCompositeViews;
     UIStatusBarBackgroundView *_newStyleBackgroundView;
     UIStatusBarForegroundView *_newStyleForegroundView;
@@ -51,7 +51,7 @@
 + (double)_viewControllerAdjustmentForOrientation:(long long)arg1;
 + (void)setTintOverrideEnabled:(_Bool)arg1 withColor:(id)arg2;
 + (long long)lowBatteryLevel;
-+ (void)getData:(CDStruct_c6256135 *)arg1 forRequestedData:(const CDStruct_c6256135 *)arg2 withOverrides:(const CDStruct_f18e9e0a *)arg3;
++ (void)getData:(CDStruct_1f606803 *)arg1 forRequestedData:(const CDStruct_1f606803 *)arg2 withOverrides:(const CDStruct_e70f95cb *)arg3;
 + (int)cornerStyleForRequestedStyle:(long long)arg1 effectiveStyle:(long long)arg2 alignment:(int)arg3;
 + (void)enumerateStatusBarStyleOverridesWithBlock:(CDUnknownBlockType)arg1;
 + (id)navBarTintColorFromStatusBarTintColor:(id)arg1;
@@ -75,11 +75,11 @@
 - (_Bool)_isTransparent;
 - (id)_backgroundView;
 - (void)statusBarStateProvider:(id)arg1 didChangeDoubleHeightStatusStringForStyle:(long long)arg2;
-- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_c6256135 *)arg2 withActions:(int)arg3;
+- (void)statusBarStateProvider:(id)arg1 didPostStatusBarData:(const CDStruct_1f606803 *)arg2 withActions:(int)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveDoubleHeightStatusString:(id)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveGlowAnimationState:(_Bool)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveStyleOverrides:(int)arg2;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_c6256135 *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_1f606803 *)arg2 withActions:(int)arg3;
 - (void)_itemViewShouldEndDisablingRasterization:(id)arg1;
 - (void)_itemViewShouldBeginDisablingRasterization:(id)arg1;
 - (void)_endDisablingRasterizationForReason:(id)arg1;
@@ -160,7 +160,7 @@
 - (void)noteStyleOverridesChangedLocally;
 - (void)forceUpdateGlowAnimation;
 - (void)forceUpdateDoubleHeightStatus;
-- (void)forceUpdateToData:(const CDStruct_c6256135 *)arg1 animated:(_Bool)arg2;
+- (void)forceUpdateToData:(const CDStruct_1f606803 *)arg1 animated:(_Bool)arg2;
 - (void)forceUpdateData:(_Bool)arg1;
 - (void)forceUpdate:(_Bool)arg1;
 - (void)dealloc;

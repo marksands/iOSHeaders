@@ -20,8 +20,9 @@
 @property(readonly, nonatomic) _Bool supportsAssetsDrop;
 @property(readonly, nonatomic) _Bool supportsSelection;
 @property(readonly, nonatomic) _Bool supportsHighlighting;
-@property(nonatomic) unsigned long long priority;
+@property(nonatomic) long long priority;
 @property(readonly, nonatomic) unsigned long long headerStyle;
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, nonatomic) NSString *localizedTitle;

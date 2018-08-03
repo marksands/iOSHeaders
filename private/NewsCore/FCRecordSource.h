@@ -70,6 +70,7 @@
 - (_Bool)recognizesRecordID:(id)arg1;
 - (_Bool)isRecordStale:(id)arg1 withCachePolicy:(id)arg2;
 - (void)updateFetchDateForRecordIDs:(id)arg1;
+- (id)convertRecords:(id)arg1;
 - (id)saveRecords:(id)arg1;
 - (id)cachedRecordsWithIDs:(id)arg1;
 - (id)fetchOperationForRecordsWithIDs:(id)arg1 ignoreCacheForRecordIDs:(id)arg2;

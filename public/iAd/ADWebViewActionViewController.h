@@ -16,6 +16,7 @@
 @property(retain, nonatomic) ADHomeButtonHandler *homeButtonHandler; // @synthesize homeButtonHandler=_homeButtonHandler;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)dismissView;
 - (void)dealloc;
 
 // Remaining properties

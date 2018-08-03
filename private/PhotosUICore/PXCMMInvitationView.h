@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class NSString, PXCMMPosterHeaderView, PXRoundedCornerOverlayView, UIColor, UIFont, UILabel;
+@class NSAttributedString, PXCMMPosterHeaderView, PXRoundedCornerOverlayView, UIColor, UIFont, UILabel;
 
 @interface PXCMMInvitationView : UIView
 {
@@ -14,34 +14,29 @@
     UILabel *_subtitle1Label;
     UILabel *_subtitle2Label;
     PXRoundedCornerOverlayView *_roundedCornerOverlayView;
+    NSAttributedString *_attributedTitle;
     UIFont *_titleFont;
-    UIFont *_titleBoldFont;
-    struct _NSRange _titleBoldRange;
-    CDStruct_d97c9657 _updateFlags;
-    _Bool _isNew;
+    long long _titleTextStyle;
+    NSAttributedString *_attributedSubtitle1;
+    UIFont *_subtitle1Font;
+    long long _subtitle1TextStyle;
+    NSAttributedString *_attributedSubtitle2;
+    UIFont *_subtitle2Font;
+    long long _subtitle2TextStyle;
     PXCMMPosterHeaderView *_headerView;
-    NSString *_title;
-    NSString *_subtitle1;
-    NSString *_subtitle2;
     UIColor *_opaqueAncestorBackgroundColor;
 }
 
 @property(copy, nonatomic) UIColor *opaqueAncestorBackgroundColor; // @synthesize opaqueAncestorBackgroundColor=_opaqueAncestorBackgroundColor;
-@property(nonatomic) _Bool isNew; // @synthesize isNew=_isNew;
-@property(copy, nonatomic) NSString *subtitle2; // @synthesize subtitle2=_subtitle2;
-@property(copy, nonatomic) NSString *subtitle1; // @synthesize subtitle1=_subtitle1;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) PXCMMPosterHeaderView *headerView; // @synthesize headerView=_headerView;
 - (void).cxx_destruct;
-- (void)_contentSizeCategoryDidChange:(id)arg1;
-- (void)_updateIfNeeded;
-- (void)_updateTitle;
-- (void)_updateFonts;
 - (struct CGSize)_performLayoutInWidth:(double)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(nonatomic, getter=isHighlighted) _Bool highlighted;
-- (void)setTitle:(id)arg1 boldRange:(struct _NSRange)arg2;
+- (void)setAttributedSubtitle2:(id)arg1 withFont:(id)arg2 textStyle:(long long)arg3;
+- (void)setAttributedSubtitle1:(id)arg1 withFont:(id)arg2 textStyle:(long long)arg3;
+- (void)setAttributedTitle:(id)arg1 withFont:(id)arg2 textStyle:(long long)arg3;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

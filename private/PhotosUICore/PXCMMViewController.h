@@ -95,6 +95,8 @@
 - (void)_setupNavigationItem;
 - (void)updateViewConstraints;
 - (void)_startPreloadingTasksIfNeeded;
+- (void)_deactivateNotificationSuppressionIfNecessary;
+- (void)_activateNotificationSuppressionIfNecessary;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;

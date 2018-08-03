@@ -6,21 +6,24 @@
 
 #import "NSObject.h"
 
+#import "RMGroupFetchedResultsControllerDelegate.h"
 #import "STTimeAllowancesViewModelCoordinator.h"
 
-@class NSManagedObjectID, NSNumber, NSString, RMAskForTimeClient, STTimeAllowancesViewModel;
+@class NSManagedObjectID, NSNumber, NSString, RMAskForTimeClient, RMGroupFetchedResultsController, STTimeAllowancesViewModel;
 
-@interface STTimeAllowancesViewModelCoordinator : NSObject <STTimeAllowancesViewModelCoordinator>
+@interface STTimeAllowancesViewModelCoordinator : NSObject <RMGroupFetchedResultsControllerDelegate, STTimeAllowancesViewModelCoordinator>
 {
     STTimeAllowancesViewModel *_viewModel;
     NSString *_organizationIdentifier;
     NSNumber *_userDSID;
     id <RMPersistenceControllerProtocol> _persistenceController;
     RMAskForTimeClient *_askForTimeClient;
+    RMGroupFetchedResultsController *_groupFetchResultsController;
     NSManagedObjectID *_userObjectID;
 }
 
 @property(copy, nonatomic) NSManagedObjectID *userObjectID; // @synthesize userObjectID=_userObjectID;
+@property(readonly, nonatomic) RMGroupFetchedResultsController *groupFetchResultsController; // @synthesize groupFetchResultsController=_groupFetchResultsController;
 @property(readonly, nonatomic) RMAskForTimeClient *askForTimeClient; // @synthesize askForTimeClient=_askForTimeClient;
 @property(readonly, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
@@ -42,6 +45,7 @@
 - (id)_iCloudAccountPredicate;
 - (_Bool)_isPersonalOrganization;
 - (void)loadViewModelWithCompletionHandler:(CDUnknownBlockType)arg1;
+- (void)groupResultsController:(id)arg1 didChangeResultsForRequest:(id)arg2 objectID:(id)arg3 changeType:(unsigned long long)arg4;
 - (void)_persistenceStoreDidChange:(id)arg1;
 - (void)_registerForPersistenceStoreNotifications;
 - (void)_saveDefaultAlwaysAllowList;

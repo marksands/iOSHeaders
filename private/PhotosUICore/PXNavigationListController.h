@@ -44,6 +44,7 @@
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
 - (long long)numberOfSectionsInTableView:(id)arg1;
+- (void)tableViewContentSizeDidChange;
 - (void)_preferredContentSizeChanged:(id)arg1;
 - (double)_rowHeightForCurrentFont;
 @property(readonly, nonatomic) UITableView *tableView; // @synthesize tableView=_tableView;

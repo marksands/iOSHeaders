@@ -13,7 +13,7 @@
 #import "NSFastEnumeration.h"
 #import "NSSecureCoding.h"
 
-@class CNContact, HMDAccountIdentifier, HMFUnfairLock, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
+@class CNContact, HMDAccountHandle, HMDAccountIdentifier, HMFUnfairLock, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, NSUUID;
 
 @interface HMDAccount : HMFObject <HMFLogging, HMFMerging, HMDBackingStoreObjectProtocol, HMDBackingStoreModelBackedObjectProtocol, NSFastEnumeration, NSSecureCoding>
 {
@@ -50,12 +50,14 @@
 - (void)addDevice:(id)arg1;
 - (id)deviceWithModelIdentifier:(id)arg1;
 - (id)deviceForHandle:(id)arg1;
+- (id)deviceForIdentifier:(id)arg1;
 @property(readonly, copy) NSArray *devices;
 @property(readonly, copy) NSString *destination;
 - (id)accountHandleWithModelIdentifier:(id)arg1;
 - (void)removeHandle:(id)arg1;
 - (void)addHandle:(id)arg1;
 - (void)setHandles:(id)arg1;
+@property(readonly, copy) HMDAccountHandle *primaryHandle;
 @property(readonly, copy) NSArray *handles;
 @property(readonly, copy) CNContact *contact;
 @property(readonly, copy) NSString *name;

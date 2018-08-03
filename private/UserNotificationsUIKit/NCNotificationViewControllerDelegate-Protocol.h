@@ -25,6 +25,7 @@
 - (_Bool)showAdditionalMessageLinesForNotificationViewController:(NCNotificationViewController *)arg1;
 - (_Bool)notificationViewController:(NCNotificationViewController *)arg1 suggestsDismissingShortLookWithSource:(id)arg2;
 - (void)notificationViewController:(NCNotificationViewController *)arg1 shouldFinishLongLookTransitionWithCompletionBlock:(void (^)(_Bool))arg2;
+- (struct CGRect)notificationViewController:(NCNotificationViewController *)arg1 finalFrameForDismissingLongLookFromView:(UIView *)arg2;
 - (struct CGRect)notificationViewController:(NCNotificationViewController *)arg1 initialFrameForPresentingLongLookFromView:(UIView *)arg2;
 - (_Bool)notificationViewControllerShouldAllowInteractionGesture:(NCNotificationViewController *)arg1;
 - (_Bool)notificationViewControllerShouldBlurShortLook:(NCNotificationViewController *)arg1;

@@ -10,7 +10,6 @@
 + (id)hu_openiCloudKeychainPreferences;
 + (id)hu_openiCloudPreferencesURL;
 + (id)hu_applePrivacyURL;
-+ (id)hu_learnAboutHomeKitURL;
 + (id)hu_learnToAddAccessoriesURL;
 + (id)hu_locationServicesSettingsURL;
 + (id)hu_locationDeviceSettingsURL;

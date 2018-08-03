@@ -6,11 +6,8 @@
 
 #import "NSObject.h"
 
-@class GEOMapRegion, NSObject<OS_dispatch_queue>;
-
 @protocol GEODataSaverTileLoaderProxy <NSObject>
 @property(readonly, nonatomic, getter=isDataSaverEnabled) _Bool dataSaverEnabled;
-- (void)getMapRegionWithCallbackQueue:(NSObject<OS_dispatch_queue> *)arg1 callback:(void (^)(GEOMapRegion *, NSString *, NSDate *, NSError *))arg2;
-- (void)submitMapRegion:(GEOMapRegion *)arg1 completion:(void (^)(_Bool))arg2;
+- (void)_debug_initiateDataSaverPreload;
 @end
 

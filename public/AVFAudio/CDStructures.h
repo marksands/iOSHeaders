@@ -171,26 +171,24 @@ struct AVAudioSequencerImpl {
 struct AVAudioSessionImpl {
     id _field1;
     struct GenericRunLoopThread *_field2;
-    id _field3;
-    id _field4;
-    struct KVOProperty<float> _field5;
-    struct KVOProperty<float> _field6;
-    struct KVONSArrayProperty _field7;
-    struct KVONSArrayProperty _field8;
-    struct KVOProperty<unsigned int> _field9;
+    struct KVOProperty<float> _field3;
+    struct KVOProperty<float> _field4;
+    struct KVONSArrayProperty _field5;
+    struct KVONSArrayProperty _field6;
+    struct KVOProperty<unsigned int> _field7;
+    struct KVOProperty<unsigned int> _field8;
+    struct KVONSObjectProperty<NSArray *> _field9;
     struct KVOProperty<unsigned int> _field10;
-    struct KVONSObjectProperty<NSArray *> _field11;
-    struct KVOProperty<unsigned int> _field12;
-    id _field13;
-    _Bool _field14;
-    struct KVOProperty<unsigned int> _field15;
-    struct KVOProperty<unsigned int> _field16;
+    id _field11;
+    _Bool _field12;
+    struct KVOProperty<unsigned int> _field13;
+    struct KVOProperty<unsigned int> _field14;
+    unsigned int _field15;
+    unsigned int _field16;
     unsigned int _field17;
-    unsigned int _field18;
-    unsigned int _field19;
-    _Bool _field20;
-    struct SessionConnector _field21;
-    unsigned long long _field22;
+    _Bool _field18;
+    struct SessionConnector _field19;
+    unsigned long long _field20;
 };
 
 struct AVAudioUnitComponentManagerImpl {

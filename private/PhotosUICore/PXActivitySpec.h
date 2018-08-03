@@ -38,6 +38,7 @@
 + (double)activityCaptionTitleBaselineToSubtitleBaselineDynamicDistance;
 + (double)activityCaptionCellTopToTitleBaselineDynamicDistance;
 + (double)invitationJunkBottomDynamicDistance;
++ (double)invitationButtonToJunkBaselineDynamicDistance;
 + (double)invitationAlbumTitleBottomDynamicDistance;
 + (double)invitationTextToAlbumTitleBaselineDynamicDistance;
 + (double)invitationAvatarToTextBaselineDynamicDistance;

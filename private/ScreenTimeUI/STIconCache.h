@@ -6,20 +6,27 @@
 
 #import "NSObject.h"
 
-@class CNMonogrammer, NSCache, NSPersonNameComponentsFormatter;
+@class CNMonogrammer, NSCache, NSMutableSet, NSObject<OS_dispatch_queue>, NSPersonNameComponentsFormatter, NSURLSession;
 
 @interface STIconCache : NSObject
 {
     NSCache *_iconByKeyCache;
     CNMonogrammer *_monogrammer;
     NSPersonNameComponentsFormatter *_personNameComponentsFormatter;
+    NSObject<OS_dispatch_queue> *_lookupQueue;
+    NSURLSession *_urlSession;
+    NSMutableSet *_bundleIdentifiersWithPendingRequests;
 }
 
 + (id)sharedCache;
+@property(readonly, nonatomic) NSMutableSet *bundleIdentifiersWithPendingRequests; // @synthesize bundleIdentifiersWithPendingRequests=_bundleIdentifiersWithPendingRequests;
+@property(readonly, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *lookupQueue; // @synthesize lookupQueue=_lookupQueue;
 @property(retain, nonatomic) NSPersonNameComponentsFormatter *personNameComponentsFormatter; // @synthesize personNameComponentsFormatter=_personNameComponentsFormatter;
 @property(retain, nonatomic) CNMonogrammer *monogrammer; // @synthesize monogrammer=_monogrammer;
 - (void).cxx_destruct;
 - (id)monogramImageForNameComponents:(id)arg1;
+- (void)_updateCacheWithImage:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)_updateCacheWithImage:(id)arg1 dsid:(id)arg2;
 - (id)_correctlySizedImageFromImage:(id)arg1;
 - (void)_fetchFamilyPhotoWithDSID:(id)arg1;
@@ -29,7 +36,11 @@
 - (id)blankSpaceImageWithSize:(struct CGSize)arg1;
 - (id)imageForCategoryIdentifier:(id)arg1;
 - (id)tableUIImageForBundleID:(id)arg1;
-- (void)injectImage:(id)arg1 forBundleID:(id)arg2;
+- (void)_handleiTunesResponseForAppInfo:(id)arg1 response:(id)arg2 data:(id)arg3 error:(id)arg4;
+- (void)_fetchImageForAppInfoIfNeeded:(id)arg1;
+- (id)imageForBundleIdentifier:(id)arg1;
+- (id)imageForBlankApplicationIcon;
+- (void)dealloc;
 - (id)init;
 
 @end

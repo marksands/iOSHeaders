@@ -36,8 +36,10 @@ __attribute__((visibility("hidden")))
 - (id)playedState;
 - (id)coverArtImageIdentifier;
 - (id)contentRating;
+- (id)HLSAudioCapability;
 - (id)HLSColorCapability;
 - (id)HLSResolution;
+- (id)audioCapability;
 - (id)colorCapability;
 - (id)resolution;
 - (id)isLocal;

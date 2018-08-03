@@ -13,6 +13,7 @@
 @interface _RETransformedFeature : REFeature <REIndentedDescription>
 {
     NSString *_name;
+    REFeatureSet *_rootFeatures;
     REFeatureSet *_features;
     REFeatureTransformer *_transformer;
 }

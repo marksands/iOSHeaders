@@ -73,6 +73,8 @@
 @property(nonatomic) long long activationState; // @synthesize activationState=_activationState;
 @property(nonatomic) __weak id <WCSessionDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (unsigned long long)roundValue:(unsigned long long)arg1 toSignificantFigures:(int)arg2;
+- (void)reportFileTransfer:(id)arg1;
 - (id)fileSizeFromURL:(id)arg1;
 - (_Bool)verifySessionFile:(id)arg1;
 - (id)errorIfPreconditionsNotSatisfied;

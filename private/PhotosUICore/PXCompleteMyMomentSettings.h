@@ -40,12 +40,14 @@
     _Bool _showSectionHeaders;
     _Bool _sectionHeadersShouldFloat;
     _Bool _showProgressInGrid;
+    _Bool _showProgressBannerView;
     _Bool _directSendMessages;
     _Bool _fakeMomentShareURL;
     _Bool _autoAcceptBubbles;
     _Bool _simulateDelays;
     _Bool _showURLInBubble;
     _Bool _showDebugStatus;
+    _Bool _alwaysTapToRetry;
     _Bool _useDebugColors;
     _Bool _showMessageTextEntryGadget;
     _Bool _insertNewRecipientsAtTheEnd;
@@ -78,12 +80,14 @@
 @property(nonatomic) _Bool useDebugColors; // @synthesize useDebugColors=_useDebugColors;
 @property(nonatomic) long long overrideNumberOfColumnsInLandscape; // @synthesize overrideNumberOfColumnsInLandscape=_overrideNumberOfColumnsInLandscape;
 @property(nonatomic) long long overrideNumberOfColumnsInPortrait; // @synthesize overrideNumberOfColumnsInPortrait=_overrideNumberOfColumnsInPortrait;
+@property(nonatomic) _Bool alwaysTapToRetry; // @synthesize alwaysTapToRetry=_alwaysTapToRetry;
 @property(nonatomic) _Bool showDebugStatus; // @synthesize showDebugStatus=_showDebugStatus;
 @property(nonatomic) _Bool showURLInBubble; // @synthesize showURLInBubble=_showURLInBubble;
 @property(nonatomic) _Bool simulateDelays; // @synthesize simulateDelays=_simulateDelays;
 @property(nonatomic) _Bool autoAcceptBubbles; // @synthesize autoAcceptBubbles=_autoAcceptBubbles;
 @property(nonatomic) _Bool fakeMomentShareURL; // @synthesize fakeMomentShareURL=_fakeMomentShareURL;
 @property(nonatomic) _Bool directSendMessages; // @synthesize directSendMessages=_directSendMessages;
+@property(nonatomic) _Bool showProgressBannerView; // @synthesize showProgressBannerView=_showProgressBannerView;
 @property(nonatomic) _Bool showProgressInGrid; // @synthesize showProgressInGrid=_showProgressInGrid;
 @property(nonatomic) _Bool sectionHeadersShouldFloat; // @synthesize sectionHeadersShouldFloat=_sectionHeadersShouldFloat;
 @property(nonatomic) _Bool showSectionHeaders; // @synthesize showSectionHeaders=_showSectionHeaders;
@@ -123,7 +127,7 @@
 @property(nonatomic) _Bool showCMMSettingsAtTopLevel; // @synthesize showCMMSettingsAtTopLevel=_showCMMSettingsAtTopLevel;
 @property(nonatomic) _Bool cmmFeatureEnabled; // @synthesize cmmFeatureEnabled=_cmmFeatureEnabled;
 - (void).cxx_destruct;
-- (void)workflowCoordinator:(id)arg1 workflowViewController:(id)arg2 didFinishWithActivityState:(unsigned long long)arg3;
+- (void)workflowCoordinator:(id)arg1 workflowViewController:(id)arg2 didFinishSession:(id)arg3 withActivityState:(unsigned long long)arg4;
 @property(readonly, nonatomic) PXCMMWorkflowCoordinator *workflowCoordinator;
 - (void)setDefaultValues;
 - (id)parentSettings;

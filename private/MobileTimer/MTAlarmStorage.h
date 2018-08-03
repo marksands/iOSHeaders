@@ -68,7 +68,7 @@
 - (void)_queue_actuallyRemoveAlarm:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 source:(id)arg3;
 - (void)_queue_removeAlarmWithIdentifier:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 source:(id)arg3;
 - (void)_queue_removeAlarm:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 source:(id)arg3;
-- (void)_queue_updateAlarm:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 source:(id)arg3;
+- (id)_queue_updateAlarm:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 source:(id)arg3;
 - (void)_queue_addAlarm:(id)arg1 withCompletion:(CDUnknownBlockType)arg2 source:(id)arg3;
 - (void)dismissAlarmWithIdentifier:(id)arg1 dismissDate:(id)arg2 dismissAction:(unsigned long long)arg3 withCompletion:(CDUnknownBlockType)arg4 source:(id)arg5;
 - (void)dismissAlarmWithIdentifier:(id)arg1 dismissAction:(unsigned long long)arg2 withCompletion:(CDUnknownBlockType)arg3 source:(id)arg4;

@@ -11,8 +11,6 @@
 }
 
 + (_Bool)useValidationContainer;
-+ (void)setIsFetchedResultsControllerEnabled:(_Bool)arg1;
-+ (_Bool)isFetchedResultsControllerEnabled;
 + (void)setIsNewSchemaEnabled:(_Bool)arg1;
 + (_Bool)isNewSchemaEnabled;
 

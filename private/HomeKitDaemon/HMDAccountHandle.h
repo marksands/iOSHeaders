@@ -17,6 +17,7 @@
 
 @interface HMDAccountHandle : HMFObject <HMFLogging, HMDBackingStoreObjectProtocol, HMDBackingStoreModelBackedObjectProtocol, HMDRemoteAddressable, NSCopying, NSSecureCoding>
 {
+    _Bool _local;
     _Bool _locallyTracked;
     NSUUID *_modelIdentifier;
     NSUUID *_modelParentIdentifier;
@@ -29,12 +30,14 @@
 + (id)accountHandleForDestination:(id)arg1;
 @property(getter=isLocallyTracked) _Bool locallyTracked; // @synthesize locallyTracked=_locallyTracked;
 @property(readonly, copy) IDSURI *URI; // @synthesize URI=_URI;
+@property(readonly, getter=isLocal) _Bool local; // @synthesize local=_local;
 @property(readonly, copy) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSUUID *modelParentIdentifier; // @synthesize modelParentIdentifier=_modelParentIdentifier;
 @property(readonly, nonatomic) NSUUID *modelIdentifier; // @synthesize modelIdentifier=_modelIdentifier;
 - (void).cxx_destruct;
 - (id)logIdentifier;
 - (id)remoteDestinationString;
+- (_Bool)isBackingStorageEqual:(id)arg1;
 - (id)modelBackedObjects;
 - (id)backingStoreObjectsWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
@@ -49,8 +52,8 @@
 - (id)shortDescription;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;
-- (id)initWithURI:(id)arg1 accountModelIdentifier:(id)arg2;
 - (id)initWithObjectModel:(id)arg1;
+- (id)initWithURI:(id)arg1 local:(_Bool)arg2;
 - (id)initWithURI:(id)arg1;
 - (id)init;
 

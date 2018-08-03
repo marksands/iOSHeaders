@@ -23,8 +23,12 @@
 }
 
 + (void)initialize;
++ (id)webScriptNameForSelector:(SEL)arg1;
++ (id)webScriptNameForKeyName:(id)arg1;
 @property __weak id <SUScriptXMLHTTPStoreRequestDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (id)scriptAttributeKeys;
+- (id)attributeKeys;
 - (void)_setScriptObject:(id)arg1 forFunctionName:(id)arg2;
 - (id)_scriptObjectForFunctionName:(id)arg1;
 - (void)_callFunctionWithName:(id)arg1 arguments:(id)arg2;

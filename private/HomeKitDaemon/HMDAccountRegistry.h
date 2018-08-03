@@ -29,6 +29,7 @@
 - (void)__handleRemovedRemoteAccount:(id)arg1;
 - (void)__handleAddedRemoteAccount:(id)arg1;
 - (void)__handleAppleAccountDeviceAdded:(id)arg1;
+- (void)__handleAppleAccountHandlesUpdated:(id)arg1;
 - (void)__handleAppleAccountUpdate:(id)arg1;
 - (id)deviceForDevice:(id)arg1 exists:(_Bool *)arg2;
 - (id)deviceForDevice:(id)arg1;
@@ -36,6 +37,7 @@
 - (id)deviceForHandle:(id)arg1 exists:(_Bool *)arg2;
 - (id)deviceForHandle:(id)arg1;
 - (_Bool)deviceExistsForHandle:(id)arg1;
+- (id)deviceForIdentifier:(id)arg1;
 - (id)accountForHandle:(id)arg1 exists:(_Bool *)arg2;
 - (id)accountForHandle:(id)arg1;
 - (_Bool)accountExistsForHandle:(id)arg1;

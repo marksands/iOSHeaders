@@ -32,7 +32,6 @@
 - (struct CGSize)intrinsicContentSize;
 - (void)traitCollectionDidChange:(id)arg1;
 - (double)_thicknessForTraitCollection:(id)arg1;
-- (void)didMoveToWindow;
 - (void)_stopAnimatingWithStoppingAnimations:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)stopAnimatingWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)startAnimating;

@@ -18,6 +18,7 @@
 @property(retain, nonatomic) CAFilter *highlightFilter; // @synthesize highlightFilter=_highlightFilter;
 - (void).cxx_destruct;
 - (id)_sphiriImageNameForHeight:(double)arg1;
+- (id)_sphiriImageForHeight:(double)arg1;
 - (id)_addToSiriFont;
 - (id)_addToSiriText;
 - (void)_createHighlightFilterIfNecessary;

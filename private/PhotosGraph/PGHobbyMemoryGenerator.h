@@ -16,6 +16,7 @@
 @property(nonatomic) _Bool keepsOnlyIsInteresting; // @synthesize keepsOnlyIsInteresting=_keepsOnlyIsInteresting;
 @property(nonatomic) _Bool onlyOverTheYears; // @synthesize onlyOverTheYears=_onlyOverTheYears;
 @property(nonatomic) long long hobbyType; // @synthesize hobbyType=_hobbyType;
+- (_Bool)canFallbackToDejunkAndDedupeForShowMore;
 - (id)_potentialMemoriesForDryTesting;
 - (void)_generateExtendedCuratedSetForMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;

@@ -25,7 +25,7 @@
     NSURL *_URL;
     SVKeyValueObserver *_playbackStartedObserver;
     id <NUVideoAdEventTracker> _eventTracker;
-    id <SVVideoMetadataProviding> _metadata;
+    id <SVVideoMetadata> _metadata;
     SXVideoAdStateManager *_stateManager;
     id <NUAdProvider> _adProvider;
     id <SVVisibilityMonitoring> _videoPlayerVisibilityMonitor;
@@ -41,7 +41,7 @@
 @property(readonly, nonatomic) __weak id <SVVisibilityMonitoring> videoPlayerVisibilityMonitor; // @synthesize videoPlayerVisibilityMonitor=_videoPlayerVisibilityMonitor;
 @property(readonly, nonatomic) id <NUAdProvider> adProvider; // @synthesize adProvider=_adProvider;
 @property(readonly, nonatomic) SXVideoAdStateManager *stateManager; // @synthesize stateManager=_stateManager;
-@property(nonatomic) __weak id <SVVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
+@property(retain, nonatomic) id <SVVideoMetadata> metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) id <NUVideoAdEventTracker> eventTracker; // @synthesize eventTracker=_eventTracker;
 @property(retain, nonatomic) SVKeyValueObserver *playbackStartedObserver; // @synthesize playbackStartedObserver=_playbackStartedObserver;
 @property(copy, nonatomic) NSURL *URL; // @synthesize URL=_URL;

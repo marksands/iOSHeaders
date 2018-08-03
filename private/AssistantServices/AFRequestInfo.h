@@ -6,13 +6,15 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
 #import "NSSecureCoding.h"
 
 @class AFSpeechRequestOptions, NSData, NSDictionary, NSNumber, NSString, SAStartLocalRequest, SAStartRequest;
 
-@interface AFRequestInfo : NSObject <NSSecureCoding>
+@interface AFRequestInfo : NSObject <NSSecureCoding, NSCopying>
 {
     _Bool _handoffRequiresUserInteraction;
+    unsigned long long _timestamp;
     unsigned long long _options;
     NSNumber *_notifyState;
     NSString *_text;
@@ -63,11 +65,16 @@
 @property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(copy, nonatomic) NSNumber *notifyState; // @synthesize notifyState=_notifyState;
 @property(nonatomic) unsigned long long options; // @synthesize options=_options;
+@property(readonly, nonatomic) unsigned long long timestamp; // @synthesize timestamp=_timestamp;
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (_Bool)isSpeechRequest;
 - (_Bool)requiresUserInteraction;
+- (id)initWithTimestamp:(unsigned long long)arg1;
+- (id)init;
 
 @end
 

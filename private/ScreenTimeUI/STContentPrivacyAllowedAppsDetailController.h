@@ -14,6 +14,7 @@
 @property(retain, nonatomic) id <STContentPrivacyViewModelCoordinator> coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
 - (void)_addSystemAppSwitchSpecifier:(id)arg1 forBundleID:(id)arg2;
+- (id)_nameForInstalledSystemApp:(id)arg1;
 - (id)defaultSwitchSpecifierWithConfiguration:(id)arg1 key:(id)arg2 icon:(id)arg3;
 - (id)defaultSwitchSpecifierWithItem:(id)arg1 label:(id)arg2 icon:(id)arg3;
 - (id)radioGroupSpecifierWithName:(id)arg1 footerText:(id)arg2 item:(id)arg3;

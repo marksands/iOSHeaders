@@ -31,7 +31,6 @@
 - (void)setVista:(unsigned long long)arg1;
 - (id)generateAnimationArrayFromVista:(unsigned long long)arg1 toVista:(unsigned long long)arg2;
 - (void)showSupplemental:(_Bool)arg1 animated:(_Bool)arg2;
-- (void)drawRect:(struct CGRect)arg1;
 - (unsigned long long)vista;
 - (id)rotatable:(unsigned long long)arg1;
 - (void)layoutSubviews;

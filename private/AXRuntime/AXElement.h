@@ -102,6 +102,7 @@
 - (_Bool)supportsAction:(int)arg1;
 - (_Bool)canScrollInAtLeastOneDirection;
 - (_Bool)scrollToVisible;
+- (_Bool)showContextMenu;
 - (_Bool)canPerformTrackingDetail;
 @property(readonly, nonatomic) _Bool canPerformZoom;
 - (id)_remoteParentForContextID;

@@ -66,11 +66,10 @@
 - (void)passViewDidBeginAuthenticating:(id)arg1;
 - (void)passView:(id)arg1 didPresentPassDetailsViewController:(id)arg2;
 - (void)passView:(id)arg1 willPresentPassDetailsViewController:(id)arg2;
-- (void)passView:(id)arg1 resizeButtonPressedForPass:(id)arg2 withBarcode:(_Bool)arg3;
 - (_Bool)passView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
 - (void)passView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
-- (void)passViewDidResize:(id)arg1 animated:(_Bool)arg2;
-- (_Bool)passViewShouldResize:(id)arg1;
+- (void)passViewUpdateBarcodeVisibility:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)passViewCanShowBarcode:(id)arg1;
 - (void)passViewTapped:(id)arg1;
 - (void)dismissBackOfPassIfNecessaryForUniqueID:(id)arg1;
 - (void)markGroupDeleted;

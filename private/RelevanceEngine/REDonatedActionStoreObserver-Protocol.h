@@ -9,8 +9,10 @@
 @class NSDictionary, REDonatedAction;
 
 @protocol REDonatedActionStoreObserver <NSObject>
+- (void)donationActionStoreReceivedDonation:(REDonatedAction *)arg1 isNewDonation:(_Bool)arg2;
+
+@optional
 - (void)donationActionStoreRemoveAllDonations;
 - (void)donationActionStoreRemovedDonation:(NSDictionary *)arg1;
-- (void)donationActionStoreReceivedDonation:(REDonatedAction *)arg1 isNewDonation:(_Bool)arg2;
 @end
 

@@ -67,6 +67,7 @@ __attribute__((visibility("hidden")))
 - (int)startLocalSessionStatsReceive;
 - (void)startLocalSessionStatsUpdate;
 - (void)sendLocalStats;
+- (void)reset;
 - (void)dealloc;
 - (id)initWithConnectionManager:(id)arg1 uplinkStatsCollector:(id)arg2 downlinkStatsCollector:(id)arg3 reportingAgent:(struct opaqueRTCReporting *)arg4 transportSessionID:(unsigned int)arg5 streamID:(unsigned short)arg6 mediaQueue:(struct tagVCMediaQueue *)arg7;
 

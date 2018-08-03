@@ -28,12 +28,12 @@
     int _protectedDataAvailability;
     NSObject<OS_dispatch_queue> *_keyBagQueue;
     NSMutableSet *_messagesToThreadAtUnlock;
-    _Bool _suspendedUnderLock;
-    _Bool _isReconciling;
     MFWeakSet *_middleware;
     _MFMailMessageLibraryStatistics *_lastStats;
     MFFileCompressionQueue *_compressionQueue;
     _Bool _migrationHasRun;
+    _Bool _suspendedUnderLock;
+    _Bool _isReconciling;
     id <MFMailMessageLibraryDelegate> _delegate;
     MFSearchableIndexScheduler *_searchableIndexScheduler;
     id _migrationLock;
@@ -49,6 +49,8 @@
 + (id)defaultInstance;
 @property(retain, nonatomic) MFLibrarySearchableIndex *searchableIndex; // @synthesize searchableIndex=_searchableIndex;
 @property(retain, nonatomic) MFSearchableIndexBudgetConfiguration *searchableIndexBudgetConfiguration; // @synthesize searchableIndexBudgetConfiguration=_searchableIndexBudgetConfiguration;
+@property _Bool isReconciling; // @synthesize isReconciling=_isReconciling;
+@property _Bool suspendedUnderLock; // @synthesize suspendedUnderLock=_suspendedUnderLock;
 @property(readonly, nonatomic) id migrationLock; // @synthesize migrationLock=_migrationLock;
 @property(nonatomic) _Bool migrationHasRun; // @synthesize migrationHasRun=_migrationHasRun;
 @property(retain, nonatomic) MFSearchableIndexScheduler *searchableIndexScheduler; // @synthesize searchableIndexScheduler=_searchableIndexScheduler;

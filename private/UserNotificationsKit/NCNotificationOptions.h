@@ -18,6 +18,7 @@
     NSString *_alternateActionLabel;
     _Bool _dismissAutomatically;
     _Bool _overridesQuietMode;
+    _Bool _overridesDowntime;
     _Bool _alertsWhenLocked;
     _Bool _addToLockScreenWhenLocked;
     unsigned long long _lockScreenPersistence;
@@ -68,6 +69,7 @@
 @property(readonly, nonatomic) unsigned long long lockScreenPersistence; // @synthesize lockScreenPersistence=_lockScreenPersistence;
 @property(readonly, nonatomic) _Bool addToLockScreenWhenUnlocked; // @synthesize addToLockScreenWhenUnlocked=_addToLockScreenWhenLocked;
 @property(readonly, nonatomic) _Bool alertsWhenLocked; // @synthesize alertsWhenLocked=_alertsWhenLocked;
+@property(readonly, nonatomic) _Bool overridesDowntime; // @synthesize overridesDowntime=_overridesDowntime;
 @property(readonly, nonatomic) _Bool overridesQuietMode; // @synthesize overridesQuietMode=_overridesQuietMode;
 @property(readonly, nonatomic) _Bool dismissAutomatically; // @synthesize dismissAutomatically=_dismissAutomatically;
 @property(readonly, copy, nonatomic) NSString *alternateActionLabel; // @synthesize alternateActionLabel=_alternateActionLabel;

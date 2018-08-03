@@ -10,9 +10,12 @@
 
 @interface TPSListItemsController : PSListItemsController
 {
+    CTXPCServiceSubscriptionContext *_subscriptionContext;
 }
 
-@property(readonly, nonatomic) CTXPCServiceSubscriptionContext *subscriptionContext;
+@property(retain, nonatomic) CTXPCServiceSubscriptionContext *subscriptionContext; // @synthesize subscriptionContext=_subscriptionContext;
+- (void).cxx_destruct;
+- (void)setSpecifier:(id)arg1;
 
 @end
 

@@ -9,6 +9,7 @@
 @class NCNotificationDispatcher, NSDate, NSSet, NSString;
 
 @protocol NCNotificationDispatcherSourceDelegate <NSObject>
+- (void)dispatcher:(NCNotificationDispatcher *)arg1 setAllowsCriticalAlerts:(_Bool)arg2 forSectionIdentifier:(NSString *)arg3;
 - (void)dispatcher:(NCNotificationDispatcher *)arg1 setDeliverQuietly:(_Bool)arg2 forSectionIdentifier:(NSString *)arg3 subSectionIdentifier:(NSString *)arg4;
 - (void)dispatcher:(NCNotificationDispatcher *)arg1 setAllowsNotifications:(_Bool)arg2 forSectionIdentifier:(NSString *)arg3;
 - (void)dispatcher:(NCNotificationDispatcher *)arg1 requestsClearingNotificationRequestsInSections:(NSSet *)arg2;

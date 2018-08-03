@@ -6,18 +6,16 @@
 
 #import <ScreenTimeUI/STGroupSpecifierProvider.h>
 
-@class NSDictionary, NSObject<STRootViewModelCoordinator>, STUsageDetailsViewModel;
+@class NSObject<STRootViewModelCoordinator>, STUsageDetailsViewModel;
 
 @interface STCategoryDetailsGroupSpecifierProvider : STGroupSpecifierProvider
 {
-    NSDictionary *_usageItemsByIdentifier;
     STUsageDetailsViewModel *_usageDetailsViewModel;
     NSObject<STRootViewModelCoordinator> *_coordinator;
 }
 
 @property(readonly, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 @property(readonly, nonatomic) STUsageDetailsViewModel *usageDetailsViewModel; // @synthesize usageDetailsViewModel=_usageDetailsViewModel;
-@property(readonly, copy, nonatomic) NSDictionary *usageItemsByIdentifier; // @synthesize usageItemsByIdentifier=_usageItemsByIdentifier;
 - (void).cxx_destruct;
 - (void)showMostUsedDetailListController:(id)arg1;
 - (id)totalUsageDescription:(id)arg1;

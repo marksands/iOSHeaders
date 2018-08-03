@@ -6,12 +6,11 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSString, STAppInfoCache, STUsageDetailsViewModel;
+@class NSArray, NSString, STUsageDetailsViewModel;
 
 @protocol STUsageDetailsViewModelCoordinator <NSObject>
 @property(copy, nonatomic) NSString *selectedDeviceIdentifier;
 @property(readonly, copy, nonatomic) NSArray *devices;
-@property(readonly, nonatomic) STAppInfoCache *appCache;
 @property(readonly, nonatomic) STUsageDetailsViewModel *viewModel;
 - (void)stopRefreshingUsageData;
 - (void)startRefreshingUsageData;

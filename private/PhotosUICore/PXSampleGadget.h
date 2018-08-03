@@ -15,7 +15,7 @@
     _Bool _hasContentToDisplay;
     _Bool _expanded;
     _Bool _hasBeenToldToLoadContent;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     unsigned long long _accessoryButtonType;
     PXGadgetSpec *_gadgetSpec;
@@ -34,7 +34,7 @@
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 @property(nonatomic) unsigned long long accessoryButtonType; // @synthesize accessoryButtonType=_accessoryButtonType;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 - (void)userDidSelectAccessoryButton:(id)arg1;
 - (void)loadContentData;
@@ -49,6 +49,7 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

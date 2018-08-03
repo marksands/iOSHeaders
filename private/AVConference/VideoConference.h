@@ -301,6 +301,7 @@
 - (void)session:(id)arg1 localIPChange:(id)arg2 withCallID:(unsigned int)arg3;
 - (void)session:(id)arg1 withCallID:(unsigned int)arg2 videoIsDegraded:(_Bool)arg3 isRemote:(_Bool)arg4;
 - (void)session:(id)arg1 withCallID:(unsigned int)arg2 networkHint:(_Bool)arg3;
+- (void)sourceFrameRateDidChange:(unsigned int)arg1;
 - (void)thermalLevelDidChange:(int)arg1;
 - (void)setConferenceVisualRectangle:(struct CGRect)arg1 forCallID:(unsigned int)arg2;
 - (void)setConferenceState:(unsigned int)arg1 forCallID:(unsigned int)arg2;

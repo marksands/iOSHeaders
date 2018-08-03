@@ -47,6 +47,7 @@ __attribute__((visibility("hidden")))
 - (void)handleSecondaryConnectionRemoved;
 - (void)handlePrimaryConnectionRemoved;
 - (int)addConnection:(id)arg1;
+- (_Bool)isPrimaryConnectionSameAsConnection:(id)arg1;
 - (_Bool)selectPrimaryAndSecondaryWithConnection:(id)arg1;
 - (unsigned int)downlinkBitrateCapForConnectionType:(int)arg1;
 - (unsigned int)uplinkBitrateCapForConnectionType:(int)arg1;

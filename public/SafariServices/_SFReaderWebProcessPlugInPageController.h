@@ -27,6 +27,7 @@
 - (void)increaseReaderTextSize;
 - (void)setReaderTheme:(id)arg1;
 - (void)setReaderFont:(id)arg1;
+- (void)reloadArticle;
 - (void)loadNewArticle;
 - (void)_initializeReaderJSControllerForFrame:(id)arg1;
 - (struct OpaqueJSValue *)originalArticleFinder;

@@ -26,6 +26,7 @@
 - (void)updateObject:(id)arg1;
 - (void)removeObject:(id)arg1;
 - (void)addObject:(id)arg1;
+- (void)_createDependenciesForObject:(id)arg1;
 - (id)objectAtIndexedSubscript:(unsigned long long)arg1;
 - (id)objectAtIndex:(unsigned long long)arg1;
 - (unsigned long long)indexOfObject:(id)arg1;

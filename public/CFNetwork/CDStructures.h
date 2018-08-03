@@ -495,10 +495,6 @@ struct XTubeManager {
     struct HTTPConnectionCacheLimits _field6;
 };
 
-struct XURLCache {
-    CDUnknownFunctionPointerType *_field1;
-};
-
 struct _CFCachedURLResponse;
 
 struct _CFHTTPAuthentication;

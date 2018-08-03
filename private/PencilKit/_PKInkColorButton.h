@@ -6,14 +6,13 @@
 
 #import "UIButton.h"
 
-@class UIColor, _PKInkColorButtonOpacityMaskView;
+@class UIColor;
 
 @interface _PKInkColorButton : UIButton
 {
     _Bool _isCompact;
     _Bool _isUsedOnDarkBackground;
     UIColor *_color;
-    _PKInkColorButtonOpacityMaskView *_opacityMaskView;
 }
 
 + (id)strokeColorForStrokeShapeLayerWithColor:(id)arg1 isUsedOnDarkBackground:(_Bool)arg2;
@@ -26,7 +25,6 @@
 + (double)innerColorCircleInset:(_Bool)arg1;
 + (double)transparentSelectionRingInset:(_Bool)arg1;
 + (id)buttonWithColor:(id)arg1 isCompact:(_Bool)arg2;
-@property(retain, nonatomic) _PKInkColorButtonOpacityMaskView *opacityMaskView; // @synthesize opacityMaskView=_opacityMaskView;
 @property(nonatomic) _Bool isUsedOnDarkBackground; // @synthesize isUsedOnDarkBackground=_isUsedOnDarkBackground;
 @property(nonatomic) _Bool isCompact; // @synthesize isCompact=_isCompact;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
@@ -34,7 +32,6 @@
 - (double)_swatchInset;
 - (struct CGRect)_swatchRect;
 - (_Bool)pointMostlyInside:(struct CGPoint)arg1 withEvent:(id)arg2;
-- (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)initWithColor:(id)arg1 isCompact:(_Bool)arg2;
 

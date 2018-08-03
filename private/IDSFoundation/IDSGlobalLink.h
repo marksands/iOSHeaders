@@ -112,7 +112,7 @@
 - (void)_notifySessionInfoReceived:(id)arg1 relayGroupID:(id)arg2 relaySessionID:(id)arg3 success:(_Bool)arg4;
 - (void)_convergeSharedSessions:(id)arg1;
 - (void)_setupNewQRLinkIfNecessary:(id)arg1;
-- (_Bool)link:(id)arg1 didReceivePacket:(CDStruct_f4928324 *)arg2 fromDeviceUniqueID:(id)arg3 cbuuid:(id)arg4;
+- (_Bool)link:(id)arg1 didReceivePacket:(CDStruct_c4cff10b *)arg2 fromDeviceUniqueID:(id)arg3 cbuuid:(id)arg4;
 - (void)link:(id)arg1 didDisconnectForDeviceUniqueID:(id)arg2 cbuuid:(id)arg3;
 - (void)link:(id)arg1 didConnectForDeviceUniqueID:(id)arg2 cbuuid:(id)arg3;
 - (void)getSessionInfo:(id)arg1 relaySessionID:(id)arg2 requestType:(long long)arg3 options:(id)arg4;
@@ -130,9 +130,9 @@
 - (void)_sendSKEDataWithSelectedCandidatePair;
 - (id)generateLinkReport:(double)arg1 isCurrentLink:(_Bool)arg2;
 - (unsigned long long)sendPacketBufferArray:(CDStruct_183601bc **)arg1 arraySize:(int)arg2 toDeviceUniqueID:(id)arg3 cbuuid:(id)arg4;
-- (unsigned long long)sendPacketBuffer:(CDStruct_f4928324 *)arg1 toDeviceUniqueID:(id)arg2 cbuuid:(id)arg3;
+- (unsigned long long)sendPacketBuffer:(CDStruct_c4cff10b *)arg1 toDeviceUniqueID:(id)arg2 cbuuid:(id)arg3;
 - (void)_updateSendStatsWithResult:(unsigned long long)arg1 bytesSent:(long long)arg2 packetsSent:(int)arg3 linkID:(BOOL)arg4 token:(id)arg5 useRelay:(_Bool)arg6 isClientData:(_Bool)arg7 sendTime:(double)arg8;
-- (_Bool)_getPacketBufferSendInfo:(CDStruct_f4928324 *)arg1 channelNumber:(unsigned short *)arg2 transport:(long long *)arg3;
+- (_Bool)_getPacketBufferSendInfo:(CDStruct_c4cff10b *)arg1 channelNumber:(unsigned short *)arg2 transport:(long long *)arg3;
 - (void)_reportSessionSetupTime;
 - (_Bool)remoteHostAwake;
 - (id)copyLinkStatsDict;
@@ -191,9 +191,9 @@
 - (double)_startTimeForStunRequest:(id)arg1;
 - (void)_removeStunRequest:(id)arg1;
 - (void)_saveStunRequest:(id)arg1 startTime:(double)arg2 token:(id)arg3;
-- (void)_processReallocChannelData:(CDStruct_f4928324 *)arg1 channelNumber:(unsigned short)arg2 fromDeviceUniqueID:(id)arg3 cbuuid:(id)arg4 arrivalTime:(double)arg5;
+- (void)_processReallocChannelData:(CDStruct_c4cff10b *)arg1 channelNumber:(unsigned short)arg2 fromDeviceUniqueID:(id)arg3 cbuuid:(id)arg4 arrivalTime:(double)arg5;
 - (void)_processDataOnReallocChannel:(unsigned short)arg1 localAddress:(struct sockaddr *)arg2 remoteAddress:(struct sockaddr *)arg3;
-- (_Bool)_processStunPacket:(CDStruct_f4928324 *)arg1 fromDeviceUniqueID:(id)arg2 cbuuid:(id)arg3 arrivalTime:(double)arg4 headerOverhead:(unsigned long long)arg5;
+- (_Bool)_processStunPacket:(CDStruct_c4cff10b *)arg1 fromDeviceUniqueID:(id)arg2 cbuuid:(id)arg3 arrivalTime:(double)arg4 headerOverhead:(unsigned long long)arg5;
 - (_Bool)_processGoAwayIndication:(id)arg1 fromDevice:(id)arg2 localIfIndex:(unsigned int)arg3 localAddress:(struct sockaddr *)arg4 remoteAddress:(struct sockaddr *)arg5 candidatePairToken:(id)arg6 arrivalTime:(double)arg7;
 - (_Bool)_processDataIndication:(id)arg1 fromDevice:(id)arg2 localIfIndex:(unsigned int)arg3 localAddress:(struct sockaddr *)arg4 remoteAddress:(struct sockaddr *)arg5 candidatePairToken:(id)arg6 arrivalTime:(double)arg7;
 - (_Bool)_processReallocIndication:(id)arg1 fromDevice:(id)arg2 localIfIndex:(unsigned int)arg3 localAddress:(struct sockaddr *)arg4 remoteAddress:(struct sockaddr *)arg5 candidatePairToken:(id)arg6 arrivalTime:(double)arg7;
@@ -220,7 +220,7 @@
 - (void)_updateDefaultCandidatePair:(id)arg1;
 - (void)disconnectWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)connectWithSessionInfo:(id)arg1 interfaceAddress:(id)arg2 joinSession:(_Bool)arg3 completionHandler:(CDUnknownBlockType)arg4;
-- (void)_addQRAAWDBlock:(id)arg1 allocateRequestTime:(double)arg2 inferredExternalIP:(unsigned int)arg3 stunTransport:(long long)arg4 relayProviderType:(long long)arg5 idsSessionID:(id)arg6 sessionToken:(id)arg7;
+- (void)_addQRAAWDBlock:(id)arg1 allocateRequestTime:(double)arg2 inferredExternalIP:(unsigned int)arg3 stunTransport:(long long)arg4 relayProviderType:(long long)arg5 idsSessionID:(id)arg6;
 - (_Bool)hasReachableInterface:(unsigned long long)arg1;
 - (unsigned long long)defaultLinkType;
 - (void)startWithOptions:(id)arg1;

@@ -21,6 +21,7 @@ __attribute__((visibility("hidden")))
 
 @property(nonatomic) unsigned int destinationFramerate; // @synthesize destinationFramerate=_destinationFramerate;
 @property(nonatomic) unsigned int sourceFramerate; // @synthesize sourceFramerate=_sourceFramerate;
+- (void)sourceFrameRateDidChange:(unsigned int)arg1;
 - (void)thermalLevelDidChange:(int)arg1;
 - (id)clientCaptureRule;
 - (void)avConferencePreviewError:(id)arg1;

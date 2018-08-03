@@ -8,6 +8,7 @@
 
 @interface PUImportSettings : PXSettings
 {
+    _Bool _simulateEmptyImportSource;
     _Bool _showImportItemFilenames;
     _Bool _disableAssetDeletion;
     _Bool _loadActualThumbnails;
@@ -45,6 +46,7 @@
 @property(nonatomic) _Bool loadActualThumbnails; // @synthesize loadActualThumbnails=_loadActualThumbnails;
 @property(nonatomic) _Bool disableAssetDeletion; // @synthesize disableAssetDeletion=_disableAssetDeletion;
 @property(nonatomic) _Bool showImportItemFilenames; // @synthesize showImportItemFilenames=_showImportItemFilenames;
+@property(nonatomic) _Bool simulateEmptyImportSource; // @synthesize simulateEmptyImportSource=_simulateEmptyImportSource;
 @property(nonatomic) long long simulatedBatteryLevel; // @synthesize simulatedBatteryLevel=_simulatedBatteryLevel;
 - (void)setDefaultValues;
 - (id)parentSettings;

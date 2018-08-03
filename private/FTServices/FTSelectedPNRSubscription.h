@@ -10,19 +10,33 @@
 {
 }
 
-+ (id)subscriptionFromAvailableSubscriptions:(id)arg1 matchingSelectedSubscription:(id)arg2;
++ (id)sharedInstance;
 + (_Bool)isPhoneNumber:(id)arg1 equivalentToExistingPhoneNumber:(id)arg2;
+- (_Bool)_legacy_isPhoneNumberEmergencyNumber:(id)arg1;
+- (_Bool)isPhoneNumberEmergencyNumber:(id)arg1;
 - (id)_legacy_carrierBundleValueForKey:(id)arg1 ofType:(Class)arg2;
 - (id)selectedPhoneNumberRegistrationRegistrationCarrierBundleValueForKey:(id)arg1 ofType:(Class)arg2 withFallbackValue:(id)arg3;
+- (id)_reevaluateCachedSelectedPhoneNumberWithContext:(id)arg1 error:(id *)arg2;
+- (id)_reevaluateCachedSelectedPhoneNumberRegistrationWithSubscription:(id)arg1 activeContexts:(id)arg2 fallbackProhibited:(_Bool)arg3 persistUpdate:(_Bool)arg4 error:(id *)arg5;
+- (id)_firstPresentSubscriptionFromAvailableSubscriptions:(id)arg1;
+- (id)_subscriptionFromAvailableSubscriptions:(id)arg1 matchingSelectedLabel:(id)arg2;
+- (id)_reevaluateCachedActiveSubscriptionWithError:(id *)arg1;
+- (id)_reevaluateCachedSubscriptionWithError:(id *)arg1;
+- (id)setSelectedPhoneNumberRegistrationSubscriptionNumber:(id)arg1;
 - (id)selectedRegistrationPhoneNumberWithError:(id *)arg1;
 - (_Bool)isSelectedPhoneNumberRegistrationSubscriptionContext:(id)arg1;
-- (id)selectedPhoneNumberRegistrationSubscriptionWithError:(id *)arg1 persistUpdateIfNeeded:(_Bool)arg2;
-- (void)reevaluateAndPersistSelectedPhoneNumberRegistrationSubscription;
+- (void)persistSelectedPhoneNumberRegistrationSubscriptionIfNeeded;
 - (id)selectedPhoneNumberRegistrationSubscriptionWithError:(id *)arg1;
-- (id)_PNRSubscriptionFromCTSubscriptionContext:(id)arg1;
-- (void)_makeSubscriptionChoiceStickyBasedOnPreviousReference:(id)arg1 newSelection:(id)arg2;
-- (id)_userSelectedReferencePNRSubscription;
-- (_Bool)_PNRSubscription:(id)arg1 doesMatchSubscriptionNumber:(long long)arg2;
+- (void)invalidateCache;
+- (void)_protected_invalidateCache;
+- (void)_distributed_invalidateCache;
+- (id)_protected_reevaluateCacheIfNeededAndPersistUpdate:(_Bool)arg1;
+- (void)activeSubscriptionsDidChange;
+- (void)phoneNumberAvailable:(id)arg1;
+- (void)phoneNumberChanged:(id)arg1;
+- (void)subscriptionInfoDidChange;
+- (void)dealloc;
+- (id)init;
 
 @end
 

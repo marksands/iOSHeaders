@@ -71,7 +71,7 @@
 + (id)_dumpNodeTree:(id)arg1 tab:(id)arg2;
 + (id)nodeWithGeometry:(id)arg1;
 + (id)node;
-+ (id)nodeWithMDLObject:(id)arg1 masterObjects:(id)arg2 sceneNodes:(id)arg3 skinnedMeshes:(id)arg4 options:(id)arg5;
++ (id)nodeWithMDLObject:(id)arg1 masterObjects:(id)arg2 sceneNodes:(id)arg3 skinnedMeshes:(id)arg4 skelNodesMap:(struct SkelNodesMap *)arg5 options:(id)arg6;
 + (id)nodeWithMDLObject:(id)arg1;
 + (id)nodeWithMDLAsset:(id)arg1;
 + (struct SCNVector3)localFront;

@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class NSDecimalNumber, NSNumberFormatter, NSString, UIActivityIndicatorView, UIColor, UILabel, UITapGestureRecognizer;
+@class NSDecimalNumber, NSNumberFormatter, NSString, UIActivityIndicatorView, UILabel, UITapGestureRecognizer;
 
 @interface PKEnterValueNewBalanceView : UIView <UIGestureRecognizerDelegate>
 {
@@ -17,7 +17,6 @@
     _Bool _showSpinner;
     NSNumberFormatter *_currentAmountFormatter;
     UILabel *_label;
-    UIColor *_overrideTextColor;
     UIActivityIndicatorView *_spinner;
     UITapGestureRecognizer *_tapRecognizer;
     NSString *_promptText;
@@ -49,7 +48,6 @@
 - (void)_updateBalanceText;
 - (id)_textForPrompt:(id)arg1 amount:(id)arg2;
 - (id)_minimalFormattedStringForAmount:(id)arg1;
-@property(retain, nonatomic) UIColor *labelTextColor;
 - (void)_updateAdditionalAmount:(id)arg1 subtractAdditionalAmountFromCurrentAmount:(_Bool)arg2;
 - (void)subtractAmountFromBalance:(id)arg1;
 - (void)addAmountToBalance:(id)arg1;

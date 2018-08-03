@@ -12,6 +12,7 @@
 #import "CPSApplicationStateObserving.h"
 #import "CPSButtonDelegate.h"
 #import "CPSEventObserverDelegate.h"
+#import "CPSLinearFocusProviding.h"
 #import "CPSNavigationAlertQueueDelegate.h"
 #import "CPSNavigationDisplaying.h"
 #import "CPSPanEventDelegate.h"
@@ -20,7 +21,7 @@
 
 @class CARSessionStatus, CPMapTemplate, CPSApplicationStateMonitor, CPSEventObserver, CPSNavigationAlertQueue, CPSNavigationCardView, CPSNavigationETAView, CPSNavigator, CPSPanViewController, CPSTripPreviewsCardView, CPTripPreviewTextConfiguration, NSArray, NSLayoutConstraint, NSMutableArray, NSMutableDictionary, NSMutableSet, NSString, NSTimer, UIColor, UIPanGestureRecognizer, UIStackView, UITapGestureRecognizer, UIView;
 
-@interface CPSMapTemplateViewController : CPSBaseTemplateViewController <CARSessionObserving, CPSButtonDelegate, CPSTripInitiating, UIGestureRecognizerDelegate, CPSPanEventDelegate, CPSNavigationAlertQueueDelegate, CPSNavigationDisplaying, CARNavigationOwnershipManagerDelegate, CPSEventObserverDelegate, CPSApplicationStateObserving, CPMapTemplateProviding>
+@interface CPSMapTemplateViewController : CPSBaseTemplateViewController <CARSessionObserving, CPSButtonDelegate, CPSTripInitiating, UIGestureRecognizerDelegate, CPSPanEventDelegate, CPSNavigationAlertQueueDelegate, CPSNavigationDisplaying, CARNavigationOwnershipManagerDelegate, CPSEventObserverDelegate, CPSApplicationStateObserving, CPMapTemplateProviding, CPSLinearFocusProviding>
 {
     _Bool _previewOnlyRouteChoices;
     _Bool _autoHidesNavigationBar;
@@ -34,6 +35,7 @@
     CPSNavigationCardView *_navigationCardView;
     NSLayoutConstraint *_cardViewBottomConstraint;
     NSLayoutConstraint *_cardViewTopConstraint;
+    NSLayoutConstraint *_cardViewHeightConstraint;
     CPSTripPreviewsCardView *_previewsView;
     CARSessionStatus *_sessionStatus;
     CPSNavigator *_navigator;
@@ -58,6 +60,7 @@
     id <CPSSafeAreaDelegate> _safeAreaDelegate;
     CPSEventObserver *_eventObserver;
     id <UIFocusItem> _lastFocusedItem;
+    id <UIFocusItem> _itemFocusedBeforeNavAlert;
     UIColor *_guidanceBackgroundColor;
     unsigned long long _tripEstimateStyle;
     struct CGPoint _lastPanGesturePoint;
@@ -66,6 +69,7 @@
 @property(nonatomic) unsigned long long tripEstimateStyle; // @synthesize tripEstimateStyle=_tripEstimateStyle;
 @property(retain, nonatomic) UIColor *guidanceBackgroundColor; // @synthesize guidanceBackgroundColor=_guidanceBackgroundColor;
 @property(nonatomic) struct CGPoint lastPanGesturePoint; // @synthesize lastPanGesturePoint=_lastPanGesturePoint;
+@property(nonatomic) __weak id <UIFocusItem> itemFocusedBeforeNavAlert; // @synthesize itemFocusedBeforeNavAlert=_itemFocusedBeforeNavAlert;
 @property(nonatomic) __weak id <UIFocusItem> lastFocusedItem; // @synthesize lastFocusedItem=_lastFocusedItem;
 @property(retain, nonatomic) CPSEventObserver *eventObserver; // @synthesize eventObserver=_eventObserver;
 @property(nonatomic) __weak id <CPSSafeAreaDelegate> safeAreaDelegate; // @synthesize safeAreaDelegate=_safeAreaDelegate;
@@ -96,6 +100,7 @@
 @property(retain, nonatomic) CARSessionStatus *sessionStatus; // @synthesize sessionStatus=_sessionStatus;
 @property(nonatomic) _Bool previewOnlyRouteChoices; // @synthesize previewOnlyRouteChoices=_previewOnlyRouteChoices;
 @property(retain, nonatomic) CPSTripPreviewsCardView *previewsView; // @synthesize previewsView=_previewsView;
+@property(retain, nonatomic) NSLayoutConstraint *cardViewHeightConstraint; // @synthesize cardViewHeightConstraint=_cardViewHeightConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *cardViewTopConstraint; // @synthesize cardViewTopConstraint=_cardViewTopConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *cardViewBottomConstraint; // @synthesize cardViewBottomConstraint=_cardViewBottomConstraint;
 @property(retain, nonatomic) CPSNavigationCardView *navigationCardView; // @synthesize navigationCardView=_navigationCardView;
@@ -105,6 +110,7 @@
 - (void).cxx_destruct;
 - (void)applicationStateMonitor:(id)arg1 didBecomeActive:(_Bool)arg2;
 - (void)eventObserver:(id)arg1 observedEvent:(unsigned long long)arg2;
+- (id)_linearFocusItems;
 - (id)preferredFocusEnvironments;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
@@ -153,6 +159,7 @@
 - (id)_buttonForIdentifier:(id)arg1;
 - (id)_buttons;
 - (void)didSelectButton:(id)arg1;
+- (void)navigator:(id)arg1 pausedTripForReason:(unsigned long long)arg2 description:(id)arg3;
 - (void)showManeuvers:(id)arg1 usingDisplayStyles:(id)arg2;
 - (void)navigator:(id)arg1 didEndTrip:(_Bool)arg2;
 - (id)_tripDidBegin:(id)arg1 withEstimates:(id)arg2 forIdentifier:(id)arg3;
@@ -161,6 +168,7 @@
 - (void)navigationAlertQueue:(id)arg1 shouldDisplayAlertView:(id)arg2 animated:(_Bool)arg3;
 - (void)_setNavigationAlertView:(id)arg1 visible:(_Bool)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)updateNavigationAlert:(id)arg1;
+- (void)_performAlertSizingForAlert:(id)arg1 animated:(_Bool)arg2;
 - (void)dismissNavigationAlertAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)showNavigationAlert:(id)arg1 animated:(_Bool)arg2;
 - (void)_reloadPreviewsView;

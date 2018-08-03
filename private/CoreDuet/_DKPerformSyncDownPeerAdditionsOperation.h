@@ -17,6 +17,7 @@
     _DKSyncType *_type;
     _CDMutablePerfMetric *_perfMetric;
     struct _CDPerfEvent _perfEvent;
+    NSDate *_startDate;
     NSArray *_streamNames;
     _Bool _highPriority;
     _DKSyncHistory *_history;
@@ -31,6 +32,7 @@
 + (void)_updateEventStatsWithTotal:(unsigned long long)arg1 streamNameCounts:(id)arg2 transportType:(long long)arg3;
 + (void)_updateEventStatsWithSyncLatencyOfEvent:(id)arg1 ingressDate:(id)arg2 transportType:(long long)arg3;
 + (void)_updateEventStatsWithPreviousSyncDate:(id)arg1 transportType:(long long)arg2;
++ (void)_updateEventStatsWithIsNewestMissingWindow:(_Bool)arg1;
 - (void).cxx_destruct;
 - (void)endPerfMetrics;
 - (void)startPerfMetrics;

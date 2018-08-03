@@ -8,7 +8,7 @@
 
 #import "PKInkToolButton.h"
 
-@class NSString, UIColor, UIImageView;
+@class NSString, UIColor, UIImageView, _PKInkToolOpacityLabel;
 
 @interface _PKEmbossedInkToolButton : UIButton <PKInkToolButton>
 {
@@ -21,6 +21,7 @@
     UIImageView *_toolBaseImageView;
     UIImageView *_nibImageView;
     UIImageView *_nibEmbossImageView;
+    _PKInkToolOpacityLabel *_opacityLabel;
 }
 
 + (id)imageNameForIdentifier:(id)arg1;
@@ -28,6 +29,7 @@
 + (id)_dockColor;
 + (struct CGSize)_toolBaseImageSizeForIdentifier:(id)arg1 sizeState:(unsigned long long)arg2;
 + (id)buttonWithIdentifier:(id)arg1 color:(id)arg2 sizeState:(unsigned long long)arg3;
+@property(retain, nonatomic) _PKInkToolOpacityLabel *opacityLabel; // @synthesize opacityLabel=_opacityLabel;
 @property(retain, nonatomic) UIImageView *nibEmbossImageView; // @synthesize nibEmbossImageView=_nibEmbossImageView;
 @property(retain, nonatomic) UIImageView *nibImageView; // @synthesize nibImageView=_nibImageView;
 @property(retain, nonatomic) UIImageView *toolBaseImageView; // @synthesize toolBaseImageView=_toolBaseImageView;
@@ -38,6 +40,7 @@
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (double)embossAlphaForColor:(id)arg1;
 - (id)nibEmbossImageName;
 - (id)nibImageName;
 - (id)toolDockMaskImageName;

@@ -12,6 +12,7 @@
 {
     struct __SFBrowser *_browser;
     NSMutableDictionary *_nodes;
+    _Bool _shouldDeliverEmptyUpdates;
     NSString *_sessionID;
     NSArray *_people;
     id <SFAirDropBrowserDelegate> _delegate;
@@ -27,6 +28,8 @@
 - (void)updateDiscoveredPeople;
 - (void)handleBrowserCallBack;
 - (void)stop;
+- (void)resume;
+- (void)pause;
 - (void)start;
 - (void)dealloc;
 - (id)init;

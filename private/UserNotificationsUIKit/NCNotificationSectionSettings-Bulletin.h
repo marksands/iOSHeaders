@@ -17,6 +17,7 @@
 @property(readonly, nonatomic) long long subSectionPriority;
 @property(readonly, nonatomic) _Bool showsInLockScreen;
 @property(readonly, nonatomic) _Bool showsInNotificationCenter;
+@property(readonly, nonatomic) _Bool criticalAlertsEnabled;
 @property(readonly, nonatomic) _Bool notificationsEnabled;
 @end
 

@@ -45,6 +45,7 @@
 - (void)removeFromKeychain;
 - (struct __SecIdentity *)copyIdentity;
 @property(readonly, nonatomic) _Bool needsRenewal;
+@property(readonly, nonatomic) _Bool isInvalid;
 @property(readonly, nonatomic) _Bool certificateExpired;
 -     // Error parsing type: ^{__SecKey={__CFRuntimeBase=QAQ}^{__SecKeyDescriptor}^v}16@0:8, name: copyPrivateKey
 - (struct __SecCertificate *)copyIntermediateCertificate;

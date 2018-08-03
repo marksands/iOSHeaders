@@ -15,5 +15,6 @@
 
 // Remaining properties
 @property(copy, nonatomic) INObject *alarmID; // @dynamic alarmID;
+@property(copy, nonatomic) INObject *time; // @dynamic time;
 @end
 

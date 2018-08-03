@@ -105,6 +105,7 @@
 - (struct EKPersistentObject *)frozenObject;
 - (id)existingMeltedObject;
 - (id)changeSet;
+@property(readonly, nonatomic) NSString *semanticIdentifier;
 @property(readonly, nonatomic) NSString *uniqueIdentifier;
 - (id)initWithObject:(id)arg1;
 - (_Bool)isPropertyUnavailable:(id)arg1;

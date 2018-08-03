@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 - (id)imageForUpdate:(id)arg1;
 - (struct CGSize)_pillSizeAndBaselineOffset:(double *)arg1;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
-- (void)setupDisplayItem:(id)arg1;
+- (id)createDisplayItemForIdentifier:(id)arg1;
 - (id)indicatorEntryKey;
 
 @end

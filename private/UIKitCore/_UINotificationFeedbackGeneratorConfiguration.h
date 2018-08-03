@@ -23,7 +23,6 @@
 - (_Bool)defaultEnabled;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (long long)requiredSupportLevel;
 
 @end
 

@@ -35,6 +35,7 @@
 - (void)connectionInvalidated;
 - (id)remoteInterface;
 - (id)exportedInterface;
+- (void)workoutDataDestination:(id)arg1 requestsFinalDataFrom:(id)arg2 to:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)workoutDataDestination:(id)arg1 didChangeFromState:(unsigned long long)arg2 toState:(unsigned long long)arg3;
 - (void)workoutDataDestination:(id)arg1 requestsDataFrom:(id)arg2 to:(id)arg3;
 @property(readonly, copy) NSUUID *workoutDataProcessorUUID;
@@ -52,6 +53,7 @@
 - (void)remote_setTargetState:(long long)arg1 date:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setWorkoutDataAccumulator:(id)arg1;
 - (void)setAssociatedWorkoutBuilderEntity:(id)arg1;
+@property(readonly, nonatomic) _Bool supportsAppRelaunchForRecovery;
 @property(readonly, nonatomic) _Bool requiresCoreLocationAssertion;
 - (id)initWithUUID:(id)arg1 configuration:(id)arg2 client:(id)arg3 profile:(id)arg4 delegate:(id)arg5 sessionServer:(id)arg6;
 - (id)initWithUUID:(id)arg1 configuration:(id)arg2 client:(id)arg3 profile:(id)arg4 delegate:(id)arg5;

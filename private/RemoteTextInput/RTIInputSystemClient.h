@@ -13,8 +13,9 @@
 
 @interface RTIInputSystemClient : NSObject <RTIInputSystemSessionResponseProtocol, RTIInputSystemSessionProtocol>
 {
+    unsigned long long _environmentOptions;
     _Bool _isInDealloc;
-    _Bool _environmentEnabled;
+    unsigned long long _currentEnvironmentOptions;
     id <RTIInputSystemClientDelegate> _delegate;
     NSMutableDictionary *_activeSessions;
     NSMutableSet *_begunSessionIDs;
@@ -31,7 +32,7 @@
 @property(retain, nonatomic) NSMutableSet *begunSessionIDs; // @synthesize begunSessionIDs=_begunSessionIDs;
 @property(retain, nonatomic) NSMutableDictionary *activeSessions; // @synthesize activeSessions=_activeSessions;
 @property(nonatomic) __weak id <RTIInputSystemClientDelegate> delegate; // @synthesize delegate=_delegate;
-@property(readonly, nonatomic, getter=isEnvironmentEnabled) _Bool environmentEnabled; // @synthesize environmentEnabled=_environmentEnabled;
+@property(readonly, nonatomic) unsigned long long currentEnvironmentOptions; // @synthesize currentEnvironmentOptions=_currentEnvironmentOptions;
 - (void).cxx_destruct;
 - (oneway void)performTextOperations:(id)arg1 resultHandler:(CDUnknownBlockType)arg2;
 - (oneway void)performTextOperations:(id)arg1;
@@ -42,7 +43,9 @@
 - (void)notifyServiceOfPause:(_Bool)arg1 withReason:(id)arg2;
 - (void)_modifyTextEditingAllowedForReason:(id)arg1 notify:(_Bool)arg2 block:(CDUnknownBlockType)arg3;
 - (_Bool)_remoteTextEditingIsAllowed;
+- (void)setEnvironmentOptions:(unsigned long long)arg1 withReason:(id)arg2;
 - (void)setEnvironmentEnabled:(_Bool)arg1 withReason:(id)arg2;
+@property(readonly, nonatomic, getter=isEnvironmentEnabled) _Bool environmentEnabled;
 - (void)_endAllActiveSessionsForServices:(id)arg1;
 - (void)_beginAllActiveSessionsForServices:(id)arg1;
 - (void)_endAllActiveSessions;

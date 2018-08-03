@@ -12,7 +12,7 @@
 {
     NSObject<OS_dispatch_queue> *_queue;
     REUpNextScheduler *_scheduler;
-    NSMutableArray *_trainingIdentifiers;
+    NSMutableArray *_trainingElements;
     NSMutableArray *_trainingEvents;
     NSMutableArray *_trainingInteractions;
     RERemoteTrainingServer *_trainingServer;
@@ -33,6 +33,7 @@
 - (void)_willSetAttributeForRemoteTraining;
 - (void)_didPerformRemoteTraining;
 - (void)_willPerformRemoteTraining;
+- (void)trainWithPredictionElement:(id)arg1 isPositiveEvent:(_Bool)arg2 interaction:(id)arg3;
 
 @end
 

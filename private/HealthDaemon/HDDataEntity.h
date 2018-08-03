@@ -39,7 +39,9 @@
 + (id)predicateMatchingPreferredEntityTypeIfRequiredWithPredicate:(id)arg1;
 + (Class)_deletedEntityClass;
 + (Class)baseDataEntityClass;
-+ (id)columnsDefinition;
++ (id)defaultForeignKey;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (id)propertyForSyncProvenance;
 + (long long)protectionClass;

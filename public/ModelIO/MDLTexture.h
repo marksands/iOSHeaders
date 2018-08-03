@@ -30,6 +30,7 @@
 + (id)textureNamed:(id)arg1 bundle:(id)arg2;
 + (id)textureFromResource:(id)arg1;
 + (id)textureNamed:(id)arg1 assetResolver:(id)arg2;
++ (id)textureResourceNamed:(id)arg1 assetResolver:(id)arg2;
 + (id)textureWithURL:(id)arg1 offset:(unsigned long long)arg2 size:(unsigned long long)arg3;
 + (id)textureWithURL:(id)arg1;
 + (id)_textureCubeWithSingleImageNamed:(id)arg1 bundle:(id)arg2;

@@ -82,7 +82,6 @@
 - (CDStruct_79c71658)sensorCropDimensions;
 - (id)depthCompanionFormat;
 - (id)option4;
-- (id)option3;
 - (id)frontEndScalerCompanionFormats;
 - (_Bool)isMultiStreamFormat;
 @property(readonly) int autoFocusSystem;

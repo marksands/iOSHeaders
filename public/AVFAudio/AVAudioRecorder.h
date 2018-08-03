@@ -15,6 +15,7 @@
     void *_impl;
 }
 
+- (void)handleInterruption:(id)arg1;
 @property(nonatomic) _Bool instantaneousMetering;
 @property(retain) AVAudioSession *audioSession;
 @property(nonatomic) int processToTap;

@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class DNDSState;
+@class DNDState;
 
 @protocol DNDSStateProvider <NSObject>
 - (void)removeUpdateListener:(id <DNDSStateProviderUpdateListener>)arg1;
 - (void)addUpdateListener:(id <DNDSStateProviderUpdateListener>)arg1;
-- (DNDSState *)currentStateWithError:(id *)arg1;
+- (DNDState *)currentStateWithError:(id *)arg1;
 @end
 

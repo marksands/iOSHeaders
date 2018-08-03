@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
     _Bool _valid;
     CDUnknownFunctionPointerType _scenePrintsFromPixelBuffersImpl;
+    CDUnknownFunctionPointerType _scenePrintsFromPixelBuffersUsesCPUOnlyImpl;
     CDUnknownFunctionPointerType _scenePrintElementCountImpl;
     CDUnknownFunctionPointerType _scenePrintLengthImpl;
 }
@@ -18,11 +19,12 @@ __attribute__((visibility("hidden")))
 + (id)sharedHandle;
 @property(readonly, nonatomic) CDUnknownFunctionPointerType scenePrintLengthImpl; // @synthesize scenePrintLengthImpl=_scenePrintLengthImpl;
 @property(readonly, nonatomic) CDUnknownFunctionPointerType scenePrintElementCountImpl; // @synthesize scenePrintElementCountImpl=_scenePrintElementCountImpl;
+@property(readonly, nonatomic) CDUnknownFunctionPointerType scenePrintsFromPixelBuffersUsesCPUOnlyImpl; // @synthesize scenePrintsFromPixelBuffersUsesCPUOnlyImpl=_scenePrintsFromPixelBuffersUsesCPUOnlyImpl;
 @property(readonly, nonatomic) CDUnknownFunctionPointerType scenePrintsFromPixelBuffersImpl; // @synthesize scenePrintsFromPixelBuffersImpl=_scenePrintsFromPixelBuffersImpl;
 @property(readonly, nonatomic, getter=isValid) _Bool valid; // @synthesize valid=_valid;
 - (unsigned long long)lengthInBytesForScenePrintRequestRevision:(long long)arg1;
 - (unsigned long long)elementCountForScenePrintRequestRevision:(long long)arg1;
-- (id)scenePrintsFromPixelBuffers:(struct __CVBuffer *)arg1 version:(long long)arg2 augmentationOptions:(id)arg3 error:(id *)arg4;
+- (id)scenePrintsFromPixelBuffers:(struct __CVBuffer *)arg1 version:(long long)arg2 augmentationOptions:(id)arg3 useCPUOnly:(_Bool)arg4 error:(id *)arg5;
 - (id)init;
 
 @end

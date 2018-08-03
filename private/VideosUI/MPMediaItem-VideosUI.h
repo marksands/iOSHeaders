@@ -11,6 +11,8 @@
 @interface MPMediaItem (VideosUI)
 + (_Bool)_vui_isNetworkPlayableWithPropertyValues:(id)arg1;
 + (_Bool)_vui_isLocalWithPropertyValues:(id)arg1;
++ (unsigned long long)vui_VUIMediaEntityAudioCapabilityFromMPMediaItemAudioCapability:(long long)arg1;
++ (long long)vui_MPMediaItemAudioCapabilityFromVUIMediaEntityAudioCapability:(unsigned long long)arg1;
 + (unsigned long long)vui_VUIMediaEntityColorCapabilityFromMPMediaItemColorCapability:(long long)arg1;
 + (long long)vui_MPMediaItemColorCapabilityFromVUIMediaEntityColorCapability:(unsigned long long)arg1;
 + (unsigned long long)vui_VUIMediaEntityResolutionFromMPMediaItemVideoQuality:(long long)arg1;
@@ -35,8 +37,10 @@
 @property(readonly, nonatomic) NSObject<VUIMediaEntityIdentifier> *vui_showIdentifier;
 @property(readonly, nonatomic) NSString *vui_previewFrameImageIdentifier;
 @property(readonly, nonatomic) NSString *vui_coverArtImageIdentifier;
+@property(readonly, nonatomic) NSNumber *vui_HLSAudioCapability;
 @property(readonly, nonatomic) NSNumber *vui_HLSColorCapability;
 @property(readonly, nonatomic) NSNumber *vui_HLSResolution;
+@property(readonly, nonatomic) NSNumber *vui_audioCapability;
 @property(readonly, nonatomic) NSNumber *vui_colorCapability;
 @property(readonly, nonatomic) NSNumber *vui_resolution;
 @property(readonly, nonatomic) VUIMediaEntityType *vui_mediaEntityType;

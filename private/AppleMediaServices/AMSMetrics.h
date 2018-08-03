@@ -28,13 +28,12 @@
 }
 
 + (id)_sharedTimerQueue;
-+ (void)setLastKnownBagContract:(id)arg1;
 + (double)timeIntervalFromServerTime:(id)arg1;
 + (id)serverTimeFromTimeInterval:(double)arg1;
 + (id)serverTimeFromDate:(id)arg1;
 + (void)setFlushTimerEnabled:(_Bool)arg1;
 + (_Bool)flushTimerEnabled;
-+ (id)_sharedInstance;
++ (id)_sharedInstanceUsingContract:(id)arg1;
 @property(retain, nonatomic) AMSURLSession *URLSession; // @synthesize URLSession=_URLSession;
 @property(retain, nonatomic) NSMutableSet *requestPromises; // @synthesize requestPromises=_requestPromises;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue; // @synthesize propertyQueue=_propertyQueue;

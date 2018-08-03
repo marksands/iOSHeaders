@@ -14,7 +14,8 @@
 + (id)_snapshotKeyForValue:(unsigned long long)arg1 forDevice:(id)arg2;
 + (id)__orderedValuesForDevice:(id)arg1;
 + (id)_orderedValuesForDevice:(id)arg1;
-+ (id)_orderedValuesRestrictedByDevice:(id)arg1;
++ (id)_orderedEndingValuesRestrictedByDevice:(id)arg1;
++ (id)_orderedBeginningValuesRestrictedByDevice:(id)arg1;
 + (id)optionWithColor:(unsigned long long)arg1 forDevice:(id)arg2;
 - (id)_valueToFaceBundleStringDict;
 - (_Bool)optionExistsInOSVersion:(unsigned int)arg1;

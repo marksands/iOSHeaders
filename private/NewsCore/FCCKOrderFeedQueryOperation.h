@@ -6,7 +6,7 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class FCCKContentDatabase, FCEdgeCacheHint, NSArray, NSError;
+@class FCCKContentDatabase, FCEdgeCacheHint, NSArray, NSDictionary, NSError;
 
 @interface FCCKOrderFeedQueryOperation : FCOperation
 {
@@ -16,6 +16,7 @@
     unsigned long long _resultsLimit;
     long long _queryPriority;
     NSArray *_articleKeysMappingToTag;
+    NSDictionary *_additionalRequestHTTPHeaders;
     FCEdgeCacheHint *_edgeCacheHint;
     NSArray *_networkEvents;
     CDUnknownBlockType _queryCompletionHandler;
@@ -32,6 +33,7 @@
 @property(copy, nonatomic) CDUnknownBlockType queryCompletionHandler; // @synthesize queryCompletionHandler=_queryCompletionHandler;
 @property(copy, nonatomic) NSArray *networkEvents; // @synthesize networkEvents=_networkEvents;
 @property(copy, nonatomic) FCEdgeCacheHint *edgeCacheHint; // @synthesize edgeCacheHint=_edgeCacheHint;
+@property(copy, nonatomic) NSDictionary *additionalRequestHTTPHeaders; // @synthesize additionalRequestHTTPHeaders=_additionalRequestHTTPHeaders;
 @property(copy, nonatomic) NSArray *articleKeysMappingToTag; // @synthesize articleKeysMappingToTag=_articleKeysMappingToTag;
 @property(nonatomic) long long queryPriority; // @synthesize queryPriority=_queryPriority;
 @property(nonatomic) unsigned long long resultsLimit; // @synthesize resultsLimit=_resultsLimit;

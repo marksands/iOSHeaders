@@ -23,7 +23,7 @@
 - (void).cxx_destruct;
 - (void)_finalizePublishWithSuccess:(_Bool)arg1 error:(id)arg2;
 - (void)_acceptSuggestion:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_publishingMomentShareDidCompleteWithShareURL:(id)arg1 error:(id)arg2;
+- (void)_publishingMomentShare:(id)arg1 didCompleteWithShareURL:(id)arg2 error:(id)arg3;
 - (void)_publishMomentShare:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)_publishMomentShare:(id)arg1;
 - (void)_handleSharingProgressCancellation;

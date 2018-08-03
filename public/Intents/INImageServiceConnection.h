@@ -24,7 +24,6 @@
 - (void)storeImage:(id)arg1 scaled:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)canStoreImage:(id)arg1;
 - (id)loadSchemasForBundleIdentifiers:(id)arg1 error:(id *)arg2;
-- (id)loadImageData:(id)arg1 usingPortableImageLoader:(id)arg2 error:(id *)arg3;
 - (void)loadImageData:(id)arg1 usingPortableImageLoader:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (_Bool)canLoadImageDataForImage:(id)arg1;
 @property(readonly, nonatomic) unsigned long long servicePriority;
@@ -32,6 +31,7 @@
 - (id)_localStorageCache;
 - (id)serviceProxyWithErrorHandler:(CDUnknownBlockType)arg1;
 - (id)synchronousServiceProxyWithErrorHandler:(CDUnknownBlockType)arg1;
+- (id)loadDataImageFromImage:(id)arg1 scaledSize:(CDStruct_8caa76fc)arg2 error:(id *)arg3;
 - (void)loadImageDataFromImage:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)loadImageDataAndSizeForImage:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)dealloc;

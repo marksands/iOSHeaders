@@ -7,24 +7,25 @@
 #import "PXGadgetProvider.h"
 
 #import "PUAlbumGadgetDelegate.h"
+#import "PUHorizontalAlbumListGadgetLayoutDelegate.h"
 #import "PXChangeObserver.h"
 #import "PXCollectionsDataSourceManagerObserver.h"
 
 @class NSString, PUAlbumListCellContentViewHelper, PXExtendedTraitCollection, PXPhotoKitCollectionsDataSourceManager;
 
-@interface PUAlbumsGadgetProvider : PXGadgetProvider <PXCollectionsDataSourceManagerObserver, PUAlbumGadgetDelegate, PXChangeObserver>
+@interface PUAlbumsGadgetProvider : PXGadgetProvider <PXCollectionsDataSourceManagerObserver, PXChangeObserver, PUAlbumGadgetDelegate, PUHorizontalAlbumListGadgetLayoutDelegate>
 {
     _Bool _hasGeneratedGadgets;
     PXPhotoKitCollectionsDataSourceManager *_dataSourceManager;
     PUAlbumListCellContentViewHelper *_contentViewHelper;
     unsigned long long _albumListType;
-    unsigned long long _currentDataSourceIdentifier;
     PXExtendedTraitCollection *_extendedTraitCollection;
+    unsigned long long _currentDataSourceIdentifier;
 }
 
 @property(nonatomic) _Bool hasGeneratedGadgets; // @synthesize hasGeneratedGadgets=_hasGeneratedGadgets;
-@property(readonly, nonatomic) PXExtendedTraitCollection *extendedTraitCollection; // @synthesize extendedTraitCollection=_extendedTraitCollection;
 @property(nonatomic) unsigned long long currentDataSourceIdentifier; // @synthesize currentDataSourceIdentifier=_currentDataSourceIdentifier;
+@property(readonly, nonatomic) PXExtendedTraitCollection *extendedTraitCollection; // @synthesize extendedTraitCollection=_extendedTraitCollection;
 @property(readonly, nonatomic) unsigned long long albumListType; // @synthesize albumListType=_albumListType;
 @property(retain, nonatomic) PUAlbumListCellContentViewHelper *contentViewHelper; // @synthesize contentViewHelper=_contentViewHelper;
 @property(readonly, nonatomic) PXPhotoKitCollectionsDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
@@ -34,6 +35,7 @@
 - (id)_newGadgetForCollection:(id)arg1;
 - (void)_reconfigureGadgets;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
+- (id)albumListCellContentViewHelperForLayout:(id)arg1;
 - (id)albumListCellContentViewHelperForAlbum:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)generateGadgets;
@@ -42,6 +44,8 @@
 - (id)gadgetForCollection:(id)arg1;
 - (id)gadgetForIndexPath:(id)arg1;
 - (void)initiateBackgroundFetchingIfNeeded;
+@property(readonly, nonatomic) const struct __CFString *seeAllAccessoryButtonEventTrackerKey;
+@property(readonly, nonatomic) NSString *seeAllAccessoryButtonTitle;
 @property(readonly, nonatomic) _Bool shouldShowSeeAllAccessoryButton;
 - (id)initWithAlbumListType:(unsigned long long)arg1 dataSourceManager:(id)arg2 extendedTraitCollection:(id)arg3;
 - (id)init;

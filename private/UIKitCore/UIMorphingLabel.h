@@ -8,7 +8,6 @@
 
 @class NSMutableArray, NSString, UIColor, UIFont, UIMorphingLabelGlyphSet, _UIViewAnimationAttributes;
 
-__attribute__((visibility("hidden")))
 @interface UIMorphingLabel : UIView
 {
     UIMorphingLabelGlyphSet *_srcGlyphSet;
@@ -35,9 +34,15 @@ __attribute__((visibility("hidden")))
     UIFont *_font;
     UIColor *_textColor;
     long long _textAlignment;
+    double _initialScale;
+    double _glyphScaleAnimationSpeed;
+    double _rippleDuration;
     struct CGRect _visibleRect;
 }
 
+@property(nonatomic) double rippleDuration; // @synthesize rippleDuration=_rippleDuration;
+@property(nonatomic) double glyphScaleAnimationSpeed; // @synthesize glyphScaleAnimationSpeed=_glyphScaleAnimationSpeed;
+@property(nonatomic) double initialScale; // @synthesize initialScale=_initialScale;
 @property(nonatomic) _Bool enableAnimation; // @synthesize enableAnimation=_enableAnimation;
 @property(nonatomic) _Bool suppressLayoutSubviews; // @synthesize suppressLayoutSubviews=_suppressLayoutSubviews;
 @property(nonatomic) struct CGRect visibleRect; // @synthesize visibleRect=_visibleRect;
@@ -83,6 +88,7 @@ __attribute__((visibility("hidden")))
 - (struct _NSRange)srcRangeOfAlignmentHunkAtIndex:(unsigned long long)arg1;
 - (void)calculateGlyphAlignment;
 - (unsigned long long)calculateHardAlignmentAtIndex:(unsigned long long)arg1 fromGlyphsInRange:(struct _NSRange)arg2 toGlyphsInRange:(struct _NSRange)arg3;
+- (double)_rippleDurationForEndInsertion:(_Bool)arg1;
 - (double)alphaForFrame:(struct CGRect)arg1;
 - (void)dealloc;
 - (id)initWithCoder:(id)arg1;

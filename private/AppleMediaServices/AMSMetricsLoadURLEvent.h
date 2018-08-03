@@ -41,6 +41,7 @@
 @property(nonatomic) double redirectStartTime;
 @property(nonatomic) double redirectEndTime;
 @property(nonatomic) unsigned long long redirectCount;
+@property(retain, nonatomic) NSString *radioType;
 @property(retain, nonatomic) NSString *radioTechnology;
 @property(retain, nonatomic) NSString *originalApp;
 @property(retain, nonatomic) NSArray *networkQualityReports;

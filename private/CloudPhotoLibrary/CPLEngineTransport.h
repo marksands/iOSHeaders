@@ -35,6 +35,7 @@
 - (id)createGroupForLibraryStateCheck;
 - (id)createGroupForFeedback;
 - (id)createGroupForFetchScopeListChanges;
+- (id)createGroupForTransportScopeUpdate;
 - (id)createGroupForTransportScopeDelete;
 - (id)createGroupForSetup;
 - (id)createGroupForThumbnailPrefetch;
@@ -72,6 +73,7 @@
 - (id)resourcePublishTaskForResource:(id)arg1 transportScope:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)fetchTransportScopeForScope:(id)arg1 transportScope:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)getLibraryInfoAndStateWithTransportScope:(id)arg1 scope:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+- (id)updateTransportScope:(id)arg1 scope:(id)arg2 libraryInfo:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (id)deleteTransportScope:(id)arg1 scope:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)fetchScopeListChangesForScopeListSyncAnchor:(struct NSData *)arg1 progressHandler:(CDUnknownBlockType)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (id)downloadBatchTaskForSyncAnchor:(struct NSData *)arg1 transportScope:(id)arg2 scope:(id)arg3 currentLibraryInfo:(id)arg4 progressHandler:(CDUnknownBlockType)arg5 completionHandler:(CDUnknownBlockType)arg6;

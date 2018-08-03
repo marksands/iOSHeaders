@@ -10,8 +10,12 @@
 {
 }
 
-+ (id)dateFilterForCMMWithAttributes:(id)arg1;
-+ (id)dateIntervalsFromString:(id)arg1;
++ (_Bool)nlpSearchSupportsLocale:(id)arg1;
++ (id)_frenchStopWords;
++ (id)_englishStopWords;
++ (id)stopWordsForLanguageCode:(id)arg1;
++ (id)dateFilterForCMMWithAttributes:(id)arg1 withReferenceDate:(id)arg2;
++ (id)dateIntervalsFromMessage:(id)arg1 onDate:(id)arg2;
 + (id)ngramsFromTokens:(id)arg1 ofSize:(unsigned long long)arg2 usingSeparator:(id)arg3;
 + (id)stringWithoutDiacriticsFromString:(id)arg1;
 + (id)tokensFromString:(id)arg1 options:(long long)arg2;

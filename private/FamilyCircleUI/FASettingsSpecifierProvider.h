@@ -84,7 +84,6 @@
 - (_Bool)_isEnabled;
 - (id)_requestConfigurator;
 - (id)_grandSlamSigner;
-- (_Bool)isAccountInGrayMode;
 - (id)_appleAccount;
 - (id)_accountStore;
 - (id)initWithAccountManager:(id)arg1 presenter:(id)arg2;

@@ -6,9 +6,11 @@
 
 #import "UIViewController.h"
 
-@class ACAccount, NSURL, SKInvocationQueueProxy<SKUIServiceAccountPageViewController>, SKRemoteAccountPageViewController, _UIAsyncInvocation;
+#import "SKUIRedeemViewCameraOverrideDelegate.h"
 
-@interface SKAccountPageViewController : UIViewController
+@class ACAccount, NSString, NSURL, SKInvocationQueueProxy<SKUIServiceAccountPageViewController>, SKRemoteAccountPageViewController, _UIAsyncInvocation;
+
+@interface SKAccountPageViewController : UIViewController <SKUIRedeemViewCameraOverrideDelegate>
 {
     NSURL *_accountURL;
     _UIAsyncInvocation *_cancelRequest;
@@ -60,6 +62,12 @@
 - (void)loadWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)dealloc;
 - (id)initWithAccountURL:(id)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

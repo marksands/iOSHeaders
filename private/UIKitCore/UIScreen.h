@@ -37,7 +37,8 @@
         unsigned int bitsPerComponent:4;
         unsigned int initialized:1;
         unsigned int connected:1;
-        unsigned int initialOverscanCompensation:2;
+        unsigned int hasSetOverscanCompensation:1;
+        unsigned int overscanCompensation:2;
         unsigned int wantsWideContentMargins:1;
         unsigned int queriedDeviceContentMargins:1;
         unsigned int hasCalculatedPointsPerInch:1;
@@ -268,7 +269,6 @@
 - (struct CGRect)_applicationFrameForInterfaceOrientation:(long long)arg1 usingStatusbarHeight:(double)arg2 ignoreStatusBar:(_Bool)arg3;
 - (void)_setInterfaceOrientation:(long long)arg1;
 - (long long)_interfaceOrientation;
-- (void)_updateInitialOverscanCompensation;
 - (_Bool)_isOverscanned;
 - (_Bool)_hasWindows;
 - (void)_updateDisplayConfiguration:(id)arg1;

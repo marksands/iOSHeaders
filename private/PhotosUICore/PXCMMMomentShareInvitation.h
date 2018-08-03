@@ -38,7 +38,6 @@
 @property(readonly, nonatomic) long long shareType; // @synthesize shareType=_shareType;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)notifyUserWhenReadyToViewIfNeeded;
 - (void)acceptWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)contextForActivityType:(unsigned long long)arg1;
 @property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;

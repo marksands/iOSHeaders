@@ -23,7 +23,6 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (id)viewForLastBaselineLayout;
 @property(readonly, nonatomic) struct UIEdgeInsets atomInsets;
-- (void)setMaskBounds:(struct CGRect)arg1;
 - (id)forwardingTargetForSelector:(SEL)arg1;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (_Bool)respondsToSelector:(SEL)arg1;

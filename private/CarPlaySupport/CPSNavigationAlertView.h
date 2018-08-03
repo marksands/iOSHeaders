@@ -6,9 +6,11 @@
 
 #import "UIView.h"
 
-@class CPNavigationAlert, CPSAbridgableLabel, CPSNavigationAlertButtonView, CPSNavigationAlertProgressView, UIImageView;
+#import "CPSLinearFocusProviding.h"
 
-@interface CPSNavigationAlertView : UIView
+@class CPNavigationAlert, CPSAbridgableLabel, CPSNavigationAlertButtonView, CPSNavigationAlertProgressView, NSString, UIImageView;
+
+@interface CPSNavigationAlertView : UIView <CPSLinearFocusProviding>
 {
     CPNavigationAlert *_navigationAlert;
     CPSAbridgableLabel *_titleLabel;
@@ -29,6 +31,14 @@
 - (void)updateNavigationAlert:(id)arg1;
 - (void)startAnimating;
 - (id)initWithFrame:(struct CGRect)arg1 navigationAlert:(id)arg2 templateDelegate:(id)arg3 buttonDelegate:(id)arg4;
+- (id)preferredFocusEnvironments;
+- (id)_linearFocusItems;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -85,7 +85,7 @@
 - (long long)_primaryHidingState;
 - (long long)_displayModeForState:(id)arg1;
 - (id)_childContainingSender:(id)arg1;
-- (void)_displayModeBarButtonItemWasAddedForFirstTime:(id)arg1;
+- (void)_displayModeBarButtonItemWasUsedForFirstTime:(id)arg1;
 - (void)_triggerDisplayModeAction:(id)arg1;
 - (void)_updateDisplayModeButtonItem;
 - (long long)_effectiveTargetDisplayModeForDisplayMode:(long long)arg1;

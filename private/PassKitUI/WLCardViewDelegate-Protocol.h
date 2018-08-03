@@ -15,9 +15,8 @@
 - (void)passView:(PKPassView *)arg1 willPresentPassDetailsViewController:(UIViewController *)arg2;
 - (void)passViewDidEndAuthenticating:(PKPassView *)arg1;
 - (void)passViewDidBeginAuthenticating:(PKPassView *)arg1;
-- (void)passViewDidResize:(PKPassView *)arg1 animated:(_Bool)arg2;
-- (_Bool)passViewShouldResize:(PKPassView *)arg1;
-- (void)passView:(PKPassView *)arg1 resizeButtonPressedForPass:(PKPass *)arg2 withBarcode:(_Bool)arg3;
+- (void)passViewUpdateBarcodeVisibility:(PKPassView *)arg1 animated:(_Bool)arg2;
+- (_Bool)passViewCanShowBarcode:(PKPassView *)arg1;
 - (_Bool)passView:(PKPassView *)arg1 deleteButtonEnabledForPass:(PKPass *)arg2;
 - (void)passView:(PKPassView *)arg1 deleteButtonPressedForPass:(PKPass *)arg2;
 - (void)passViewTapped:(PKPassView *)arg1;

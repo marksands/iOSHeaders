@@ -266,6 +266,7 @@ __attribute__((visibility("hidden")))
 - (struct CGSize)_itemSizeForHorizontalLayout:(_Bool)arg1 visualStyleRequiresActionRepresentationToFitItemSize:(_Bool *)arg2;
 - (double)_idealLayoutWidth;
 - (double)_layoutWidthForHorizontalLayout:(_Bool)arg1;
+- (struct UIEdgeInsets)_contentInsets;
 - (double)_availableWidthForHorizontalLayout:(_Bool)arg1;
 - (_Bool)_horizontalLayoutCanUseFullWidth;
 - (double)_verticalLayoutWidth;

@@ -46,8 +46,6 @@ __attribute__((visibility("hidden")))
     UIView *_trailingView;
     long long _trailingViewMode;
     long long _clearButtonMode;
-    struct NSDirectionalEdgeInsets _textInsets;
-    struct NSDirectionalEdgeInsets _placeholderInsets;
     struct NSDirectionalEdgeInsets _leadingViewInsets;
     struct NSDirectionalEdgeInsets _trailingViewInsets;
     struct NSDirectionalEdgeInsets _clearButtonInsets;
@@ -67,10 +65,8 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct NSDirectionalEdgeInsets leadingViewInsets; // @synthesize leadingViewInsets=_leadingViewInsets;
 @property(nonatomic) long long leadingViewMode; // @synthesize leadingViewMode=_leadingViewMode;
 @property(retain, nonatomic) UIView *leadingView; // @synthesize leadingView=_leadingView;
-@property(nonatomic) struct NSDirectionalEdgeInsets placeholderInsets; // @synthesize placeholderInsets=_placeholderInsets;
 @property(retain, nonatomic) UIColor *placeholderColor; // @synthesize placeholderColor=_placeholderColor;
 @property(copy, nonatomic) NSString *placeholder; // @synthesize placeholder=_placeholder;
-@property(nonatomic) struct NSDirectionalEdgeInsets textInsets; // @synthesize textInsets=_textInsets;
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
 @property(retain, nonatomic) UIFont *font; // @synthesize font=_font;
 @property(nonatomic) __weak id <_UIAtomTextViewDelegate> delegate; // @synthesize delegate=_delegate;
@@ -129,14 +125,12 @@ __attribute__((visibility("hidden")))
 - (void)textViewDidEndEditing:(id)arg1;
 - (void)textViewDidBeginEditing:(id)arg1;
 - (void)_scrollToSelectionIfNeeded;
-- (void)scrollViewDidScroll:(id)arg1;
 - (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(_Bool)arg3;
 - (_Bool)layoutManager:(id)arg1 shouldSetLineFragmentRect:(inout struct CGRect *)arg2 lineFragmentUsedRect:(inout struct CGRect *)arg3 baselineOffset:(inout double *)arg4 inTextContainer:(id)arg5 forGlyphRange:(struct _NSRange)arg6;
 - (struct CGRect)_usedRectWithLayoutManager:(id)arg1 textContainer:(id)arg2;
 - (void)escKeyPressed:(id)arg1;
 - (void)_clearButtonTapped:(id)arg1;
 - (void)_tapRecognized:(id)arg1;
-- (void)_updateAtomMasksInRect:(struct CGRect)arg1;
 - (struct _NSRange)_characterRangeForAtomView:(id)arg1;
 - (id)_attachmentAtCharacterIndex:(unsigned long long)arg1;
 - (id)viewForLastBaselineLayout;
@@ -155,10 +149,11 @@ __attribute__((visibility("hidden")))
 - (_Bool)_showsClearButton;
 - (_Bool)_showViewWithMode:(long long)arg1 alwaysDefinition:(_Bool)arg2;
 - (struct CGRect)trailingViewFrameForBounds:(struct CGRect)arg1;
+- (struct CGRect)_paddedLeadingViewFrameForBounds:(struct CGRect)arg1;
 - (struct CGRect)leadingViewFrameForBounds:(struct CGRect)arg1;
 - (struct CGRect)_rectForBounds:(struct CGRect)arg1 sizingView:(id)arg2 isLeft:(_Bool)arg3;
+- (struct CGRect)_paddedClearButtonFrameForBounds:(struct CGRect)arg1;
 - (struct CGRect)clearButtonFrameForBounds:(struct CGRect)arg1;
-- (struct CGSize)_clearButtonSize;
 @property(readonly, nonatomic) UIButton *clearButton;
 - (id)_clearButtonImageForState:(unsigned long long)arg1;
 - (struct CGRect)_visibleAtomsRect;

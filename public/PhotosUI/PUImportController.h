@@ -18,11 +18,15 @@
 {
     NSArray *_lastSelectedModels;
     _Bool _loadingContent;
+    _Bool _hasLoadedInitialBatchOfAssets;
+    _Bool _loadingInitialBatchOfAssets;
     _Bool _userRequiredToTrustHostOnSourceDevice;
     _Bool _importingAssets;
     _Bool _deletingAssets;
     _Bool _alreadyImportedItemsSelectable;
     _Bool _hasLoadedAssets;
+    _Bool _hasReceivedImportSourceAssetChanges;
+    _Bool _isLoadingInitialBatchOfAssets;
     unsigned int _importAssetsPowerAssertionIdentifier;
     unsigned int _deleteAssetsPowerAssertionIdentifier;
     unsigned int _loadAssetsPowerAssertionIdentifier;
@@ -36,9 +40,11 @@
     PHAssetCollection *_importDestinationAlbum;
     PUImportDeleteAction *_deleteAction;
     PXSectionedSelectionManager *_selectionManager;
+    NSTimer *_initialBatchOfAssetsTimer;
     NSMutableDictionary *_sharedViewModelsById;
     NSObject<OS_dispatch_queue> *_sharedViewModelsUpdateQueue;
     NSMutableSet *_otherDataSourceManagers;
+    NSObject<OS_dispatch_queue> *_otherDataSourceManagersQueue;
     PUImportPowerController *_powerController;
     NSTimer *_assetLoadingPowerAssertionTimer;
     CDUnknownBlockType _importCompletionHandler;
@@ -61,9 +67,14 @@
 @property(nonatomic) unsigned int deleteAssetsPowerAssertionIdentifier; // @synthesize deleteAssetsPowerAssertionIdentifier=_deleteAssetsPowerAssertionIdentifier;
 @property(nonatomic) unsigned int importAssetsPowerAssertionIdentifier; // @synthesize importAssetsPowerAssertionIdentifier=_importAssetsPowerAssertionIdentifier;
 @property(retain, nonatomic) PUImportPowerController *powerController; // @synthesize powerController=_powerController;
+@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *otherDataSourceManagersQueue; // @synthesize otherDataSourceManagersQueue=_otherDataSourceManagersQueue;
 @property(readonly, nonatomic) NSMutableSet *otherDataSourceManagers; // @synthesize otherDataSourceManagers=_otherDataSourceManagers;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *sharedViewModelsUpdateQueue; // @synthesize sharedViewModelsUpdateQueue=_sharedViewModelsUpdateQueue;
 @property(readonly, nonatomic) NSMutableDictionary *sharedViewModelsById; // @synthesize sharedViewModelsById=_sharedViewModelsById;
+@property(retain, nonatomic) NSTimer *initialBatchOfAssetsTimer; // @synthesize initialBatchOfAssetsTimer=_initialBatchOfAssetsTimer;
+@property(nonatomic) _Bool isLoadingInitialBatchOfAssets; // @synthesize isLoadingInitialBatchOfAssets=_isLoadingInitialBatchOfAssets;
+@property(readonly, nonatomic, getter=isLoadingInitialBatchOfAssets) _Bool loadingInitialBatchOfAssets; // @synthesize loadingInitialBatchOfAssets=_loadingInitialBatchOfAssets;
+@property(nonatomic) _Bool hasReceivedImportSourceAssetChanges; // @synthesize hasReceivedImportSourceAssetChanges=_hasReceivedImportSourceAssetChanges;
 @property(nonatomic) _Bool hasLoadedAssets; // @synthesize hasLoadedAssets=_hasLoadedAssets;
 @property(nonatomic) _Bool alreadyImportedItemsSelectable; // @synthesize alreadyImportedItemsSelectable=_alreadyImportedItemsSelectable;
 @property(readonly, nonatomic) PXSectionedSelectionManager *selectionManager; // @synthesize selectionManager=_selectionManager;
@@ -74,6 +85,7 @@
 @property(retain, nonatomic) PUImportSessionInfo *importSessionInfo; // @synthesize importSessionInfo=_importSessionInfo;
 @property(readonly, nonatomic, getter=isImportingAssets) _Bool importingAssets; // @synthesize importingAssets=_importingAssets;
 @property(nonatomic, getter=isUserRequiredToTrustHostOnSourceDevice) _Bool userRequiredToTrustHostOnSourceDevice; // @synthesize userRequiredToTrustHostOnSourceDevice=_userRequiredToTrustHostOnSourceDevice;
+@property(nonatomic) _Bool hasLoadedInitialBatchOfAssets; // @synthesize hasLoadedInitialBatchOfAssets=_hasLoadedInitialBatchOfAssets;
 @property(readonly, nonatomic, getter=isLoadingContent) _Bool loadingContent; // @synthesize loadingContent=_loadingContent;
 @property(readonly, nonatomic) PUImportAssetsDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 @property(nonatomic) __weak NSObject<PUImportControllerImportCompletionDelegate> *importCompletionDelegate; // @synthesize importCompletionDelegate=_importCompletionDelegate;
@@ -111,7 +123,10 @@
 - (void)importSource:(id)arg1 didUpdateAsset:(id)arg2 propertyMask:(unsigned short)arg3;
 - (void)importSource:(id)arg1 didRemoveAssets:(id)arg2;
 - (void)importSource:(id)arg1 didAddAssets:(id)arg2;
+- (void)startInitialBatchOfAssetsTimerWithTimeout:(double)arg1;
+- (void)handleImportSourceModifiedAssets;
 - (void)loadAssets;
+- (void)setLoadingInitialBatchOfAssets:(_Bool)arg1;
 - (void)setLoadingContent:(_Bool)arg1;
 - (id)mutableChangeObject;
 - (void)performChanges:(CDUnknownBlockType)arg1;

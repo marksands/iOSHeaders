@@ -10,6 +10,7 @@
 
 @interface ROCKSessionManager : NSObject
 {
+    _Bool _useMainThreadChecker;
     NSObject<OS_xpc_object> *_serviceConnection;
     NSObject<OS_dispatch_queue> *_eventQueue;
     CDUnknownBlockType _eventHandler;
@@ -18,7 +19,7 @@
     NSObject<OS_dispatch_queue> *_instancesQueue;
     ROCKConnectionManager *_connectionManager;
     NSObject<OS_dispatch_queue> *_stateQueue;
-    NSMapTable *_remoteImpersonators;
+    NSMapTable *_impersonatableProxies;
     NSMapTable *_impersonatedObjects;
     NSHashTable *_pendingForwardingProxies;
     NSMapTable *_checkedInForwardingProxies;
@@ -44,6 +45,7 @@
 + (id)forwardingProxyWithBlock:(id)arg1 xpcAnonymousConnection:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
 + (id)forwardingProxyWithInstance:(id)arg1 xpcAnonymousConnection:(id)arg2 eventQueue:(id)arg3 eventHandler:(CDUnknownBlockType)arg4;
 + (void)forwardingProxyWithInstance:(id)arg1 eventQueue:(id)arg2 eventHandler:(CDUnknownBlockType)arg3;
+@property(nonatomic) _Bool useMainThreadChecker; // @synthesize useMainThreadChecker=_useMainThreadChecker;
 @property(retain, nonatomic) NSMapTable *objCTypesToMethodSignatures; // @synthesize objCTypesToMethodSignatures=_objCTypesToMethodSignatures;
 @property(retain, nonatomic) NSMapTable *xpcProtocolsToClasses; // @synthesize xpcProtocolsToClasses=_xpcProtocolsToClasses;
 @property(retain, nonatomic) NSMapTable *protocolsToMethodSignatures; // @synthesize protocolsToMethodSignatures=_protocolsToMethodSignatures;
@@ -52,7 +54,7 @@
 @property(retain, nonatomic) NSMapTable *checkedInForwardingProxies; // @synthesize checkedInForwardingProxies=_checkedInForwardingProxies;
 @property(retain, nonatomic) NSHashTable *pendingForwardingProxies; // @synthesize pendingForwardingProxies=_pendingForwardingProxies;
 @property(retain, nonatomic) NSMapTable *impersonatedObjects; // @synthesize impersonatedObjects=_impersonatedObjects;
-@property(retain, nonatomic) NSMapTable *remoteImpersonators; // @synthesize remoteImpersonators=_remoteImpersonators;
+@property(retain, nonatomic) NSMapTable *impersonatableProxies; // @synthesize impersonatableProxies=_impersonatableProxies;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *stateQueue; // @synthesize stateQueue=_stateQueue;
 @property(retain, nonatomic) ROCKConnectionManager *connectionManager; // @synthesize connectionManager=_connectionManager;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *instancesQueue; // @synthesize instancesQueue=_instancesQueue;

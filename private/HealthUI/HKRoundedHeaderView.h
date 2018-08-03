@@ -6,13 +6,14 @@
 
 #import "UIView.h"
 
-@class HKGradient, HKGradientView, NSLayoutConstraint, NSString, UIColor, UIImage, UIImageView, UILabel;
+@class HKGradient, HKGradientView, NSArray, NSLayoutConstraint, NSString, UIColor, UIImage, UIImageView, UILabel;
 
 @interface HKRoundedHeaderView : UIView
 {
     HKGradient *_gradient;
     UIColor *_color;
     UIImage *_image;
+    NSString *_text;
     UIColor *_textColor;
     UIColor *_detailTextColor;
     NSString *_detailTextCompositingFilter;
@@ -22,13 +23,31 @@
     UILabel *_detailTextLabel;
     NSLayoutConstraint *_textLeadingConstraintToView;
     NSLayoutConstraint *_textLeadingConstraintToImageView;
+    NSLayoutConstraint *_textLabelFirstBaselineConstraint;
+    NSLayoutConstraint *_textLabelWidthConstraint;
+    NSLayoutConstraint *_textLabelBottomConstraint;
+    NSLayoutConstraint *_detailTextLabelFirstBaselineConstraint;
+    NSLayoutConstraint *_detailTextLabelWidthConstraint;
+    NSLayoutConstraint *_detailTextLabelBottomConstraint;
+    NSArray *_regularConstraints;
+    NSArray *_largeTextConstraints;
 }
 
++ (double)_detailTextLastBaselineToBottom;
 + (id)_detailTextFont;
 + (double)_textLastBaselineToBottom;
 + (double)_topToTextFirstBaseline;
 + (id)_textFont;
++ (id)_accessibilityContentSizeCategory;
 + (double)estimatedHeight;
+@property(retain, nonatomic) NSArray *largeTextConstraints; // @synthesize largeTextConstraints=_largeTextConstraints;
+@property(retain, nonatomic) NSArray *regularConstraints; // @synthesize regularConstraints=_regularConstraints;
+@property(retain, nonatomic) NSLayoutConstraint *detailTextLabelBottomConstraint; // @synthesize detailTextLabelBottomConstraint=_detailTextLabelBottomConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *detailTextLabelWidthConstraint; // @synthesize detailTextLabelWidthConstraint=_detailTextLabelWidthConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *detailTextLabelFirstBaselineConstraint; // @synthesize detailTextLabelFirstBaselineConstraint=_detailTextLabelFirstBaselineConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *textLabelBottomConstraint; // @synthesize textLabelBottomConstraint=_textLabelBottomConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *textLabelWidthConstraint; // @synthesize textLabelWidthConstraint=_textLabelWidthConstraint;
+@property(retain, nonatomic) NSLayoutConstraint *textLabelFirstBaselineConstraint; // @synthesize textLabelFirstBaselineConstraint=_textLabelFirstBaselineConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *textLeadingConstraintToImageView; // @synthesize textLeadingConstraintToImageView=_textLeadingConstraintToImageView;
 @property(retain, nonatomic) NSLayoutConstraint *textLeadingConstraintToView; // @synthesize textLeadingConstraintToView=_textLeadingConstraintToView;
 @property(retain, nonatomic) UILabel *detailTextLabel; // @synthesize detailTextLabel=_detailTextLabel;
@@ -38,16 +57,21 @@
 @property(nonatomic) NSString *detailTextCompositingFilter; // @synthesize detailTextCompositingFilter=_detailTextCompositingFilter;
 @property(retain, nonatomic) UIColor *detailTextColor; // @synthesize detailTextColor=_detailTextColor;
 @property(retain, nonatomic) UIColor *textColor; // @synthesize textColor=_textColor;
+@property(copy, nonatomic) NSString *text; // @synthesize text=_text;
 @property(retain, nonatomic) UIImage *image; // @synthesize image=_image;
 @property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(retain, nonatomic) HKGradient *gradient; // @synthesize gradient=_gradient;
 - (void).cxx_destruct;
-@property(copy, nonatomic) NSString *detailText;
-@property(copy, nonatomic) NSString *text;
+- (_Bool)_isLayingOutForAccessibility;
+- (void)_updateForCurrentSizeCategory;
 - (void)_updateTextConstraints;
+- (void)_updateTextLabel;
+- (void)_updateUI;
 - (void)_setupConstraints;
 - (void)_setupUI;
+- (void)traitCollectionDidChange:(id)arg1;
 @property(readonly, nonatomic) double textHorizontalInset;
+@property(copy, nonatomic) NSString *detailText;
 - (id)initWithFrame:(struct CGRect)arg1;
 - (id)initWithGradient:(id)arg1;
 - (id)initWithColor:(id)arg1;

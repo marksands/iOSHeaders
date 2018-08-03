@@ -75,6 +75,7 @@
 - (id)commentsForItemAtIndex:(long long)arg1;
 - (id)commentTextForItemAtIndex:(long long)arg1;
 - (id)commentForItemAtIndex:(long long)arg1;
+- (long long)indexOfFirstItemFromLastBatch;
 - (id)batchIDForItemAtIndex:(long long)arg1;
 - (id)captionForItemAtIndex:(long long)arg1;
 - (id)assetsForItemAtIndex:(long long)arg1 maximumCount:(long long)arg2;

@@ -30,6 +30,7 @@
 - (unsigned long long)hash;
 - (_Bool)isEqual:(id)arg1;
 - (_Bool)_isMatchingOnlyLocalDate:(id)arg1;
+@property(readonly, nonatomic) _Bool allowSceneClassificationBasedEvaluation;
 @property(readonly, nonatomic) unsigned long long category; // @synthesize category=_category;
 @property(readonly, nonatomic) _Bool isCelebration;
 - (_Bool)evaluateOnlyTraits:(id)arg1;

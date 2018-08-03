@@ -71,13 +71,16 @@
 - (_Bool)isDataSourceEnabled:(id)arg1;
 @property(readonly, nonatomic) NSSet *disabledDataSources;
 - (id)metadataForElementWithIdentifier:(id)arg1;
-- (id)indexPathForElementWithIdentifier:(id)arg1;
+- (id)_indexPathForElementWithIdentifier:(id)arg1;
 - (id)elementIdentifierAtIndexPath:(id)arg1;
 - (id)predictionForElementAtIndexPath:(id)arg1;
 - (id)identifierForElementAtIndexPath:(id)arg1;
 - (id)actionAtIndexPath:(id)arg1;
+- (id)_contentAtIndexPath:(id)arg1;
+- (id)indexPathForElementWithIdentifier:(id)arg1;
 - (id)contentAtIndexPath:(id)arg1;
 - (id)_elementAtIndexPath:(id)arg1;
+- (unsigned long long)_numberOfItemsInSectionAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfItemsInSectionAtIndex:(unsigned long long)arg1;
 - (unsigned long long)numberOfSections;
 - (id)_engineIndexPathForControllerIndexPath:(id)arg1;

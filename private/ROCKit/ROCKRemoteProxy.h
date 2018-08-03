@@ -4,14 +4,14 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ROCKit/ROCKRemoteImpersonator.h>
+#import <ROCKit/ROCKImpersonatableProxy.h>
 
 #import "NSRemoteInvocationInterface.h"
 
 @class NSMapTable, NSObject<OS_xpc_object>, NSSet;
 
 __attribute__((visibility("hidden")))
-@interface ROCKRemoteProxy : ROCKRemoteImpersonator <NSRemoteInvocationInterface>
+@interface ROCKRemoteProxy : ROCKImpersonatableProxy <NSRemoteInvocationInterface>
 {
     NSSet *_protocols;
     NSObject<OS_xpc_object> *_connectionUUID;

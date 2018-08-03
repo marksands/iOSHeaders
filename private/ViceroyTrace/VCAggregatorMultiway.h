@@ -35,6 +35,7 @@ __attribute__((visibility("hidden")))
     unsigned long long _sessionTotalReceivedSum;
     unsigned long long _sessionTotalLostSum;
     unsigned int _sessionEndReason;
+    unsigned int _sessionDetailedEndReason;
     unsigned int _lastReportedDownlinkPacketsReceived;
     unsigned int _lastReportedDownlinkBytesReceived;
     unsigned int _lastReportedUplinkPacketsReceived;
@@ -47,8 +48,9 @@ __attribute__((visibility("hidden")))
 - (unsigned int)audioErasureCount;
 - (double)significantVideoStallTotalTime;
 - (unsigned int)significantVideoStallCount;
+- (int)initialSettledBitrate;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
-- (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
+- (void)updateSegment:(id)arg1 TBR:(int)arg2 ISBTR:(int)arg3 SATXBR:(int)arg4 SARBR:(int)arg5 BWE:(int)arg6;
 - (int)adaptiveLearningState;
 - (void)processEventWithCategory:(unsigned short)arg1 type:(unsigned short)arg2 payload:(id)arg3;
 - (void)processParticipantTimingInfo:(id)arg1;

@@ -45,6 +45,7 @@
 + (id)newAssetNamed:(id)arg1 fromBundle:(id)arg2;
 + (id)assetManagerForBundle:(id)arg1;
 + (void)_saveAssetManager:(id)arg1 forBundle:(id)arg2 lock:(_Bool)arg3;
++ (void)_executeUnitTestWithAssetManagerCache:(CDUnknownBlockType)arg1;
 + (id)_assetManagerCache;
 @property(readonly, nonatomic, getter=_managingUIKitAssets) _Bool managingUIKitAssets; // @synthesize managingUIKitAssets=_managingUIKitAssets;
 @property(retain, nonatomic) UITraitCollection *preferredTraitCollection; // @synthesize preferredTraitCollection=_preferredTraitCollection;

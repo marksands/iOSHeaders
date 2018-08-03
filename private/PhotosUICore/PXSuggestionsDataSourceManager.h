@@ -15,6 +15,9 @@
     unsigned short _dataSourceType;
 }
 
++ (id)mostRecentCreationDateForPXSuggestionDataSourceType:(unsigned short)arg1;
++ (id)typePredicateForDataSourceType:(unsigned short)arg1;
++ (id)baseFetchPredicate;
 @property(readonly, nonatomic) unsigned short dataSourceType; // @synthesize dataSourceType=_dataSourceType;
 - (void)_handleChangeWithDetails:(id)arg1;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1;

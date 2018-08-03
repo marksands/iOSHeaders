@@ -19,7 +19,7 @@
 
 - (void).cxx_destruct;
 - (_Bool)writeAllRecords:(id)arg1 withError:(id *)arg2;
-- (id)readAllRecordsWithError:(id *)arg1;
+- (id)readAllRecordsWithError:(id *)arg1 lastUpdateDate:(out id *)arg2;
 - (id)initWithRecordClass:(Class)arg1 fileURL:(id)arg2 versionNumber:(unsigned long long)arg3;
 
 // Remaining properties

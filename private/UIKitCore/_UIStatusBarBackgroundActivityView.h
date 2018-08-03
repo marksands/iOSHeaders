@@ -6,10 +6,12 @@
 
 #import <UIKitCore/_UIStatusBarRoundedCornerView.h>
 
-@class CALayer;
+#import "_UIStatusBarPersistentAnimation.h"
+
+@class CALayer, NSString;
 
 __attribute__((visibility("hidden")))
-@interface _UIStatusBarBackgroundActivityView : _UIStatusBarRoundedCornerView
+@interface _UIStatusBarBackgroundActivityView : _UIStatusBarRoundedCornerView <_UIStatusBarPersistentAnimation>
 {
     CALayer *_pulseLayer;
     struct UIEdgeInsets _alignmentRectInsets;
@@ -19,8 +21,14 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) struct UIEdgeInsets alignmentRectInsets; // @synthesize alignmentRectInsets=_alignmentRectInsets;
 - (void).cxx_destruct;
 - (void)layoutSubviews;
-- (void)didMoveToWindow;
+- (void)resumePersistentAnimation;
 - (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

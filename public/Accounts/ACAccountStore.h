@@ -24,6 +24,9 @@
 @property(readonly) NSString *effectiveBundleID; // @synthesize effectiveBundleID=_clientBundleID;
 - (void).cxx_destruct;
 - (void)reportTelemetryForLandmarkEvent:(CDUnknownBlockType)arg1;
+- (id)_createSMTPAccountForServerAccount:(id)arg1;
+- (void)_removeObsoleteOSXServerAccountForiOS:(id)arg1;
+- (id)_removeObsoleteOSXServerAccountForMacOS:(id)arg1;
 - (void)_removeObsoleteAccountsInternal:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)removeObsoleteAccounts:(CDUnknownBlockType)arg1;
 - (void)triggerKeychainMigrationIfNecessary:(CDUnknownBlockType)arg1;

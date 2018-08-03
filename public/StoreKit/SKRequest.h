@@ -21,7 +21,7 @@
 - (void)_start;
 @property(copy, nonatomic) SKPaymentQueueClient *paymentQueueClient;
 - (void)start;
-@property(nonatomic) id <SKRequestDelegate> delegate;
+@property(nonatomic) __weak id <SKRequestDelegate> delegate;
 - (void)cancel;
 - (id)init;
 

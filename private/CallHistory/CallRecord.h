@@ -6,7 +6,7 @@
 
 #import "NSManagedObject.h"
 
-@class CHHandle, CHManagedHandle, NSDate, NSNumber, NSSet, NSString;
+@class NSDate, NSNumber, NSSet, NSString, NSUUID;
 
 @interface CallRecord : NSManagedObject
 {
@@ -15,20 +15,21 @@
 + (id)fetchRequest;
 @property(readonly, nonatomic) _Bool supportsServiceProvider;
 @property(readonly, nonatomic) _Bool supportsRemoteParticipantHandles;
-@property(readonly, nonatomic) _Bool supportsLocalParticipantHandle;
+@property(readonly, nonatomic) _Bool supportsOutgoingLocalParticipantUUID;
+@property(readonly, nonatomic) _Bool supportsLocalParticipantUUID;
 @property(readonly, nonatomic) _Bool supportsHandleType;
 @property(readonly, nonatomic) _Bool supportsCallCategory;
 - (id)compositeServiceProviderForContext:(id)arg1;
 - (id)compositeRemoteParticipantHandlesForContext:(id)arg1;
-- (id)compositeLocalParticipantHandleForContext:(id)arg1;
+- (id)compositeOutgoingLocalParticipantUUIDForContext:(id)arg1;
+- (id)compositeLocalParticipantUUIDForContext:(id)arg1;
 - (id)compositeHandleTypeForContext:(id)arg1;
 - (id)compositeCallCategoryForContext:(id)arg1;
 @property(readonly, copy, nonatomic) NSSet *chRemoteParticipantHandles;
-@property(readonly, nonatomic) CHHandle *chLocalParticipantHandle;
 @property(readonly, nonatomic) long long chHandleType;
 
 // Remaining properties
-@property(copy, nonatomic) NSString *address; // @dynamic address;
+@property(retain, nonatomic) NSString *address; // @dynamic address;
 @property(copy, nonatomic) NSNumber *answered; // @dynamic answered;
 @property(copy, nonatomic) NSNumber *call_category; // @dynamic call_category;
 @property(copy, nonatomic) NSNumber *calltype; // @dynamic calltype;
@@ -38,12 +39,13 @@
 @property(copy, nonatomic) NSNumber *face_time_data; // @dynamic face_time_data;
 @property(copy, nonatomic) NSNumber *handle_type; // @dynamic handle_type;
 @property(copy, nonatomic) NSString *iso_country_code; // @dynamic iso_country_code;
-@property(retain, nonatomic) CHManagedHandle *localParticipantHandle; // @dynamic localParticipantHandle;
-@property(copy, nonatomic) NSString *local_address; // @dynamic local_address;
+@property(copy, nonatomic) NSUUID *localParticipantUUID; // @dynamic localParticipantUUID;
+@property(retain, nonatomic) NSString *local_address; // @dynamic local_address;
 @property(copy, nonatomic) NSString *location; // @dynamic location;
 @property(copy, nonatomic) NSString *name; // @dynamic name;
 @property(copy, nonatomic) NSNumber *number_availability; // @dynamic number_availability;
 @property(copy, nonatomic) NSNumber *originated; // @dynamic originated;
+@property(copy, nonatomic) NSUUID *outgoingLocalParticipantUUID; // @dynamic outgoingLocalParticipantUUID;
 @property(copy, nonatomic) NSNumber *read; // @dynamic read;
 @property(retain, nonatomic) NSSet *remoteParticipantHandles; // @dynamic remoteParticipantHandles;
 @property(copy, nonatomic) NSString *service_provider; // @dynamic service_provider;

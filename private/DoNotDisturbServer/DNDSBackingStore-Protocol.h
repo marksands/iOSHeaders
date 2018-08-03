@@ -10,6 +10,6 @@
 
 @protocol DNDSBackingStore <NSObject>
 - (_Bool)writeAllRecords:(NSArray *)arg1 withError:(id *)arg2;
-- (NSArray *)readAllRecordsWithError:(id *)arg1;
+- (NSArray *)readAllRecordsWithError:(id *)arg1 lastUpdateDate:(out id *)arg2;
 @end
 

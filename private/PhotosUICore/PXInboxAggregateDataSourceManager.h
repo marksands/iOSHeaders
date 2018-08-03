@@ -16,8 +16,6 @@
     NSArray *_dataSourceManagers;
 }
 
-+ (id)inboxLastSeenDate;
-+ (void)setInboxLastSeenDate:(id)arg1;
 @property(readonly, nonatomic) NSArray *dataSourceManagers; // @synthesize dataSourceManagers=_dataSourceManagers;
 - (void).cxx_destruct;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;

@@ -6,11 +6,9 @@
 
 #import "NSObject.h"
 
-@class NSString;
-
 @protocol PLCloudChangeTrackerDelegate <NSObject>
-- (void)saveTokenObject:(id)arg1 forKey:(NSString *)arg2;
-- (id)readTokenObjectWithKey:(NSString *)arg1;
+- (void)saveTokenObject:(id)arg1;
+- (id)readTokenObject;
 - (void)changeTrackerDidReceiveChanges;
 @end
 

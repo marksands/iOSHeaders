@@ -7,15 +7,17 @@
 #import "NSManagedObject.h"
 
 #import "RMSerializableManagedObject.h"
+#import "RMSyncableSubObject.h"
 
-@class NSDate, NSString;
+@class NSDate, NSNumber, NSString, RMBlueprint;
 
-@interface RMBlueprintSchedule : NSManagedObject <RMSerializableManagedObject>
+@interface RMBlueprintSchedule : NSManagedObject <RMSerializableManagedObject, RMSyncableSubObject>
 {
 }
 
 + (id)endDateKeyPaths;
 + (id)startDateKeyPaths;
+- (id)syncableRootObject;
 - (id)dictionaryRepresentation;
 - (void)updateWithDictionaryRepresentation:(id)arg1;
 - (void)setStartTime:(id)arg1 endTime:(id)arg2 forDay:(unsigned long long)arg3;
@@ -23,6 +25,7 @@
 - (id)scheduleRepresentation;
 
 // Remaining properties
+@property(readonly, nonatomic) RMBlueprint *blueprint; // @dynamic blueprint;
 @property(copy, nonatomic) NSString *calendarIdentifier; // @dynamic calendarIdentifier;
 @property(retain, nonatomic) NSDate *day0End; // @dynamic day0End;
 @property(retain, nonatomic) NSDate *day0Start; // @dynamic day0Start;
@@ -41,6 +44,7 @@
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
+@property(retain, nonatomic) NSNumber *notificationTimeInterval; // @dynamic notificationTimeInterval;
 @property(readonly) Class superclass;
 
 @end

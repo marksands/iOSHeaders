@@ -12,29 +12,17 @@ __attribute__((visibility("hidden")))
 @interface UIStatusBarCarPlayTimeItemView : UIStatusBarButtonActionItemView
 {
     NSString *_timeString;
-    _Bool _isInternalInstall;
-    _Bool _radarItemEnabled;
-    _Bool _currentlyGatheringLogs;
 }
 
 - (void).cxx_destruct;
+- (id)_timeImageSetForColor:(id)arg1;
+- (id)_timeImageSet;
 - (double)extraRightPadding;
 - (double)extraLeftPadding;
 - (long long)textStyle;
-- (_Bool)usesAdvancedActions;
-- (_Bool)allowsUserInteraction;
-- (_Bool)canBecomeFocused;
-- (_Bool)showsTouchWhenHighlighted;
-- (long long)buttonType;
-- (id)highlightImage;
 - (double)neededSizeForImageSet:(id)arg1;
 - (id)contentsImage;
 - (_Bool)updateForNewData:(id)arg1 actions:(int)arg2;
-- (id)_timeImageSet;
-- (_Bool)_showRadarButtonForInternalInstalls;
-- (void)_gatheringLogsDidChangeStatusNotification:(id)arg1;
-- (void)dealloc;
-- (id)initWithFrame:(struct CGRect)arg1;
 
 @end
 

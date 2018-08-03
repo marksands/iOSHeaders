@@ -31,7 +31,8 @@
 @property(readonly, nonatomic) __weak UIView *view; // @synthesize view=_view;
 - (void).cxx_destruct;
 - (void)clickProgressProviderDidEnd:(id)arg1;
-- (void)clickProgressProvider:(id)arg1 didUpdateWithOverallProgress:(double)arg2 currentState:(long long)arg3 ended:(_Bool)arg4;
+- (void)_playFeedbackForTransitionFromState:(long long)arg1 toState:(long long)arg2;
+- (void)clickProgressProvider:(id)arg1 didUpdateWithOverallProgress:(double)arg2 currentState:(long long)arg3;
 - (void)clickProgressProviderDidBegin:(id)arg1;
 - (void)_endInteractionIfNeeded;
 - (void)_createFeedbackGenerator;

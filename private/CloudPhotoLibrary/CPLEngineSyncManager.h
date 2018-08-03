@@ -123,6 +123,7 @@
 - (void)setBoostPriority:(_Bool)arg1;
 - (void)_overrideBudgetsIfNeeded;
 - (void)setSyncSessionShouldBeForeground:(_Bool)arg1;
+- (void)requestDisabledFeaturesUpdate;
 - (void)discardTransportUserIdentifier;
 - (void)resetTransportUserIdentifierAndRestartSync:(_Bool)arg1;
 - (void)cancelCurrentSyncSession;

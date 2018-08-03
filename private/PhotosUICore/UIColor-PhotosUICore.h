@@ -7,6 +7,7 @@
 #import "UIColor.h"
 
 @interface UIColor (PhotosUICore)
++ (id)px_barHairlineShadowColor;
 + (id)px_assetExplorerBackgroundColor;
 + (id)px_assetPlaceholderGray;
 + (id)px_messagesBubbleGray;

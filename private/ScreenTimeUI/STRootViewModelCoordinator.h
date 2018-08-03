@@ -6,11 +6,12 @@
 
 #import "NSObject.h"
 
+#import "RMGroupFetchedResultsControllerDelegate.h"
 #import "STRootViewModelCoordinator.h"
 
-@class NSArray, NSMutableDictionary, NSNumber, NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STAppInfoCache, STRootViewModel;
+@class NSArray, NSMutableDictionary, NSNumber, NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, RMGroupFetchedResultsController, STRootViewModel;
 
-@interface STRootViewModelCoordinator : NSObject <STRootViewModelCoordinator>
+@interface STRootViewModelCoordinator : NSObject <RMGroupFetchedResultsControllerDelegate, STRootViewModelCoordinator>
 {
     _Bool _hasAlreadyEnteredPINForSession;
     _Bool _isLocalUser;
@@ -19,7 +20,7 @@
     NSObject<STContentPrivacyViewModelCoordinator> *_contentPrivacyCoordinator;
     id <RMPersistenceControllerProtocol> _persistenceController;
     STRootViewModel *_viewModel;
-    STAppInfoCache *_appCache;
+    RMGroupFetchedResultsController *_fetchedResultsController;
     NSMutableDictionary *_coordinatorsByChildDSID;
     NSNumber *_userDSID;
     NSArray *_selectedDeviceIdentifiers;
@@ -34,7 +35,7 @@
 @property(copy, nonatomic) NSArray *selectedDeviceIdentifiers; // @synthesize selectedDeviceIdentifiers=_selectedDeviceIdentifiers;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;
 @property(retain, nonatomic) NSMutableDictionary *coordinatorsByChildDSID; // @synthesize coordinatorsByChildDSID=_coordinatorsByChildDSID;
-@property(retain, nonatomic) STAppInfoCache *appCache; // @synthesize appCache=_appCache;
+@property(retain, nonatomic) RMGroupFetchedResultsController *fetchedResultsController; // @synthesize fetchedResultsController=_fetchedResultsController;
 @property(retain, nonatomic) STRootViewModel *viewModel; // @synthesize viewModel=_viewModel;
 @property(retain, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
 @property(nonatomic) _Bool hasAlreadyEnteredPINForSession; // @synthesize hasAlreadyEnteredPINForSession=_hasAlreadyEnteredPINForSession;
@@ -46,6 +47,7 @@
 - (void)saveViewModel:(id)arg1;
 - (void)setPIN:(id)arg1 screenTimeEnabled:(_Bool)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (void)setShareWebUsageEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
+- (void)setScreenTimeSyncingEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (void)setPIN:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (_Bool)validatePIN:(id)arg1;
@@ -57,6 +59,7 @@
 - (id)coordinatorForChild:(id)arg1;
 - (void)_passcodeSessionHasEnded:(id)arg1;
 - (void)_registerForWillResignActiveNotifications;
+- (void)groupResultsController:(id)arg1 didChangeResultsForRequest:(id)arg2 objectID:(id)arg3 changeType:(unsigned long long)arg4;
 - (void)_persistenceStoreDidChange:(id)arg1;
 - (void)_registerForPersistenceStoreNotifications;
 - (id)initWithPersistenceController:(id)arg1 userDSID:(id)arg2 selectedDevices:(id)arg3;

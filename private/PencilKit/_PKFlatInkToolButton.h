@@ -8,7 +8,7 @@
 
 #import "PKInkToolButton.h"
 
-@class NSString, UIColor, UIImageView;
+@class NSString, UIColor, UIImageView, _PKInkToolOpacityLabel;
 
 @interface _PKFlatInkToolButton : UIButton <PKInkToolButton>
 {
@@ -20,10 +20,12 @@
     UIImageView *_toolBaseImageView;
     UIImageView *_nibImageView;
     UIImageView *_nibOutlineImageView;
+    _PKInkToolOpacityLabel *_opacityLabel;
 }
 
 + (struct CGSize)_toolBaseImageSizeForIdentifier:(id)arg1 sizeState:(unsigned long long)arg2;
 + (id)buttonWithIdentifier:(id)arg1 color:(id)arg2 sizeState:(unsigned long long)arg3;
+@property(retain, nonatomic) _PKInkToolOpacityLabel *opacityLabel; // @synthesize opacityLabel=_opacityLabel;
 @property(retain, nonatomic) UIImageView *nibOutlineImageView; // @synthesize nibOutlineImageView=_nibOutlineImageView;
 @property(retain, nonatomic) UIImageView *nibImageView; // @synthesize nibImageView=_nibImageView;
 @property(retain, nonatomic) UIImageView *toolBaseImageView; // @synthesize toolBaseImageView=_toolBaseImageView;

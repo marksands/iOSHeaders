@@ -17,6 +17,7 @@
     NSCache *_recentlyUsedItems;
 }
 
++ (void)setMaximumThumbnailCount:(unsigned long long)arg1;
 + (void)clearCache;
 + (id)iconForContentType:(id)arg1 size:(struct CGSize)arg2 scale:(double)arg3 style:(unsigned long long)arg4 folded:(_Bool)arg5 isInteractive:(_Bool)arg6;
 + (id)thumbnailForItem:(id)arg1 size:(struct CGSize)arg2 minimumSize:(double)arg3 scale:(double)arg4 style:(unsigned long long)arg5 folded:(_Bool)arg6 isInteractive:(_Bool)arg7;

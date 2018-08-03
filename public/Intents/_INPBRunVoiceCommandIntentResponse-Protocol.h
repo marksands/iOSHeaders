@@ -23,10 +23,14 @@
 @property(retain, nonatomic) _INPBDictionary *parameters;
 @property(readonly, nonatomic) _Bool hasLocalizedAppName;
 @property(copy, nonatomic) NSString *localizedAppName;
+@property(nonatomic) _Bool hasInterstitialDisabled;
+@property(nonatomic) _Bool interstitialDisabled;
 @property(nonatomic) _Bool hasIntentCategory;
 @property(nonatomic) int intentCategory;
 @property(nonatomic) _Bool hasCustomResponsesDisabled;
 @property(nonatomic) _Bool customResponsesDisabled;
+@property(nonatomic) _Bool hasContinueRunning;
+@property(nonatomic) _Bool continueRunning;
 @property(readonly, nonatomic) _Bool hasAppBundleId;
 @property(copy, nonatomic) NSString *appBundleId;
 - (int)StringAsToggleState:(NSString *)arg1;

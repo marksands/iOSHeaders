@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<OS_dispatch_queue>, XCAccessibilityElement, XCElementSnapshot, XCUIApplicationImpl, XCUIApplicationMonitor;
+@class NSObject<OS_dispatch_queue>, NSString, XCAccessibilityElement, XCElementSnapshot, XCUIApplicationMonitor;
 
 @interface XCUIApplicationProcess : NSObject
 {
@@ -20,9 +20,12 @@
     _Bool _animationsHaveFinished;
     _Bool _hasExitCode;
     _Bool _hasCrashReport;
-    XCUIApplicationImpl *_applicationImplementation;
+    _Bool _bridged;
+    unsigned long long _alertCount;
+    NSString *_bundleID;
     id <XCTRunnerAutomationSession> _automationSession;
     XCElementSnapshot *_lastSnapshot;
+    XCUIApplicationProcess *_bridgedProcess;
     XCUIApplicationMonitor *_applicationMonitor;
     id <XCUIAccessibilityInterface> _axInterface;
 }
@@ -32,21 +35,31 @@
 + (id)keyPathsForValuesAffectingBackground;
 + (id)keyPathsForValuesAffectingSuspended;
 + (id)keyPathsForValuesAffectingRunning;
-@property(retain) id <XCUIAccessibilityInterface> axInterface; // @synthesize axInterface=_axInterface;
-@property(retain) XCUIApplicationMonitor *applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
+@property(readonly) id <XCUIAccessibilityInterface> axInterface; // @synthesize axInterface=_axInterface;
+@property(readonly) XCUIApplicationMonitor *applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
+@property(retain, nonatomic) XCUIApplicationProcess *bridgedProcess; // @synthesize bridgedProcess=_bridgedProcess;
 @property(retain) XCElementSnapshot *lastSnapshot; // @synthesize lastSnapshot=_lastSnapshot;
 @property(retain) id <XCTRunnerAutomationSession> automationSession; // @synthesize automationSession=_automationSession;
+@property(getter=isBridged) _Bool bridged; // @synthesize bridged=_bridged;
 @property _Bool hasCrashReport; // @synthesize hasCrashReport=_hasCrashReport;
 @property _Bool hasExitCode; // @synthesize hasExitCode=_hasExitCode;
+@property(readonly, copy, nonatomic) NSString *bundleID; // @synthesize bundleID=_bundleID;
 - (void).cxx_destruct;
 - (void)terminate;
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)acquireBackgroundAssertion;
+- (void)waitForFutureAutomationSession:(id)arg1;
+- (id)futureAutomationSession;
 - (void)waitForAutomationSession;
+@property(readonly, getter=isQuiescent) _Bool quiescent;
+- (void)_initiateQuiescenceChecksIncludingAnimationsIdle:(_Bool)arg1;
 - (void)waitForQuiescenceIncludingAnimationsIdle:(_Bool)arg1;
 - (void)_notifyWhenAnimationsAreIdle:(CDUnknownBlockType)arg1;
 - (_Bool)_supportsAnimationsIdleNotifications;
 - (void)_notifyWhenMainRunLoopIsIdle:(CDUnknownBlockType)arg1;
+- (void)resetAlertCount;
+- (void)incrementAlertCount;
+@property(readonly) unsigned long long alertCount; // @synthesize alertCount=_alertCount;
 @property _Bool animationsHaveFinished;
 @property _Bool eventLoopHasIdled;
 @property int exitCode;
@@ -58,14 +71,13 @@
 @property(readonly) _Bool running;
 - (void)_awaitKnownApplicationState;
 @property(nonatomic) unsigned long long applicationState;
-@property XCUIApplicationImpl *applicationImplementation; // @synthesize applicationImplementation=_applicationImplementation;
 @property(nonatomic) _Bool accessibilityActive;
 @property(readonly, copy) XCAccessibilityElement *accessibilityElement;
 - (id)shortDescription;
 - (id)_queue_description;
 - (id)description;
-- (id)init;
-- (id)initWithApplicationMonitor:(id)arg1 axInterface:(id)arg2;
+- (id)initWithBundleID:(id)arg1;
+- (id)initWithBundleID:(id)arg1 applicationMonitor:(id)arg2 axInterface:(id)arg3;
 
 @end
 

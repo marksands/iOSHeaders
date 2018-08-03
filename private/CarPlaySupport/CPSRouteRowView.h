@@ -6,7 +6,7 @@
 
 #import "UIView.h"
 
-@class CPRouteChoice, CPSAbridgableLabel, UIButton, UIImageView, UIStackView;
+@class CPRouteChoice, CPSAbridgableLabel, CPSInvisibleButton, UIImageView, UIStackView;
 
 @interface CPSRouteRowView : UIView
 {
@@ -16,14 +16,14 @@
     CPSAbridgableLabel *_title;
     CPSAbridgableLabel *_detail;
     UIView *_focusBackground;
-    UIButton *_rowButton;
+    CPSInvisibleButton *_rowButton;
     id <CPSRouteRowInteracting> _interactionDelegate;
     UIStackView *_labelStackView;
 }
 
 @property(retain, nonatomic) UIStackView *labelStackView; // @synthesize labelStackView=_labelStackView;
 @property(nonatomic) __weak id <CPSRouteRowInteracting> interactionDelegate; // @synthesize interactionDelegate=_interactionDelegate;
-@property(retain, nonatomic) UIButton *rowButton; // @synthesize rowButton=_rowButton;
+@property(retain, nonatomic) CPSInvisibleButton *rowButton; // @synthesize rowButton=_rowButton;
 @property(retain, nonatomic) UIView *focusBackground; // @synthesize focusBackground=_focusBackground;
 @property(readonly, nonatomic) CPSAbridgableLabel *detail; // @synthesize detail=_detail;
 @property(readonly, nonatomic) CPSAbridgableLabel *title; // @synthesize title=_title;

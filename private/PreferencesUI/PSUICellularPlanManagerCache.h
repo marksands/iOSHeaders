@@ -21,10 +21,11 @@
     _Bool _isWebUIFlowSupported;
     _Bool _isActivationCodeFlowSupported;
     _Bool _isCarrierItemFlowSupported;
-    NSArray *_carrierItems;
+    NSArray *_cachedCarrierItems;
 }
 
 + (id)sharedInstance;
+@property(retain) NSArray *cachedCarrierItems; // @synthesize cachedCarrierItems=_cachedCarrierItems;
 - (void).cxx_destruct;
 - (id)subscriptionContextForPlanItem:(id)arg1 cachedSubscriptionContexts:(id)arg2;
 @property(readonly, nonatomic) NSArray *carrierItems;

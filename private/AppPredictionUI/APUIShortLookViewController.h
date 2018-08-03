@@ -15,7 +15,7 @@
 #import "PLPreviewInteractionPresenting.h"
 #import "SearchUIResultShortLook.h"
 
-@class APUIIntentHandlingViewController, APUILongLookViewController<PLPreviewInteractionPresentable>, ATXAction, CRKCardPresentation, INIntent, INInteraction, NSString, NSUserActivity, PLPreviewInteractionManager, SFSearchResult, UIView, UIViewController<CRKCardViewControlling>;
+@class APUIIntentHandlingViewController, APUILongLookViewController<PLPreviewInteractionPresentable>, ATXAction, CRKCardPresentation, INIntent, INInteraction, NSString, NSUserActivity, NSUserDefaults, PLPreviewInteractionManager, SFSearchResult, UIView, UIViewController<CRKCardViewControlling>;
 
 @interface APUIShortLookViewController : UIViewController <APUIIntentHandlingViewControllerDelegate, CRKCardPresentationDelegate, CRKCardViewControllerDelegate, PLPreviewInteractionPresenting, PLPreviewInteractionManagerDelegate, APUILongLookViewControllerDataSource, APUILongLookViewControllerDelegate, SearchUIResultShortLook>
 {
@@ -27,6 +27,7 @@
     _Bool _hasShownLongLook;
     _Bool _wasPresentedImmediately;
     _Bool _representsVoiceShortcut;
+    NSUserDefaults *_userDefaults;
     INIntent *_intent;
     NSUserActivity *_userActivity;
     PLPreviewInteractionManager *_previewInteractionManager;
@@ -51,12 +52,15 @@
 @property(readonly, nonatomic) PLPreviewInteractionManager *previewInteractionManager; // @synthesize previewInteractionManager=_previewInteractionManager;
 - (void).cxx_destruct;
 - (void)intentHandlingViewController:(id)arg1 didComplete:(_Bool)arg2;
+- (void)intentHandlingViewControllerDidFailAuthorizationCheck:(id)arg1;
 - (void)intentHandlingViewController:(id)arg1 willContinueInAppForIntent:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)intentHandlingViewController:(id)arg1 requiresConfirmationWithResponse:(id)arg2 confirmationActionTitle:(id)arg3;
 - (void)intentHandlingViewController:(id)arg1 wantsPreferredSize:(struct CGSize)arg2;
 @property(readonly, nonatomic) id <CRKCardViewControllerDelegate> cardViewControllerDelegate;
 - (void)cardViewControllerBoundsDidChange:(id)arg1;
 - (void)cardViewControllerDidLoad:(id)arg1;
+- (void)longLookPlatterDidTapUtilityButton:(id)arg1;
+- (_Bool)longLookPlatterShouldShowUtilityButton:(id)arg1;
 - (void)longLookPlatterDidReceiveTap:(id)arg1;
 - (double)preferredContentHeightForLongLook:(id)arg1;
 - (_Bool)fetchViewControllerForContentViewInLongLook:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -71,6 +75,7 @@
 - (_Bool)previewInteractionManagerShouldAutomaticallyTransitionToPreviewAfterDelay:(id)arg1;
 - (id)containerViewForPreviewInteractionManager:(id)arg1;
 - (id)presentedViewControllerForPreviewInteractionManager:(id)arg1;
+- (id)_debugStringForNSUA;
 - (_Bool)_isDoNotDisturbIntent;
 - (_Bool)_shouldAcceptPlatterTaps;
 - (long long)_actionTypeForMetrics;
@@ -82,6 +87,7 @@
 @property(retain, nonatomic) NSUserActivity *userActivity; // @synthesize userActivity=_userActivity;
 @property(retain, nonatomic) INIntent *intent; // @synthesize intent=_intent;
 - (void)_resetRepresentedObjectState;
+- (id)_defaults;
 @property(readonly, nonatomic) UIView *viewForPreview;
 - (_Bool)presentImmediately:(CDUnknownBlockType)arg1;
 - (void)setView:(id)arg1;
@@ -91,9 +97,10 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, nonatomic) struct CGRect finalFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect finalDismissedFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect finalPresentedFrameOfViewForPreview;
 @property(readonly) unsigned long long hash;
-@property(readonly, nonatomic) struct CGRect initialFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect initialPresentedFrameOfViewForPreview;
 @property(readonly) Class superclass;
 
 @end

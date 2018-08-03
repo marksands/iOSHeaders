@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) NSString *queryString; // @synthesize queryString=_queryString;
 - (void).cxx_destruct;
 - (unsigned long long)evaluateAttribute:(id)arg1 ignoreSubtokens:(_Bool)arg2 skipTranscriptions:(_Bool)arg3 withFuzzyHandler:(CDUnknownBlockType)arg4;
+- (unsigned long long)evaluateAttribute:(id)arg1 ignoreSubtokens:(_Bool)arg2 skipTranscriptions:(_Bool)arg3 withHandler:(CDUnknownBlockType)arg4;
 - (unsigned long long)evaluateAttribute:(id)arg1 ignoreSubtokens:(_Bool)arg2 withHandler:(CDUnknownBlockType)arg3;
 @property(readonly, nonatomic) NSArray *queryTerms;
 - (void)dealloc;

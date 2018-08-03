@@ -42,6 +42,7 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) UIImage *notLikedImage;
 @property(readonly, nonatomic) UIImage *likedImage;
 @property(nonatomic) _Bool isLiked; // @dynamic isLiked;
+- (void)prepareForReuse;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

@@ -48,8 +48,6 @@
 - (double)sectionedGridLayout:(id)arg1 aspectRatioForItemAtIndexPath:(id)arg2;
 - (double)sectionedGridLayout:(id)arg1 accessibilitySectionHeaderHeightForVisualSection:(long long)arg2;
 - (double)sectionedGridLayout:(id)arg1 sectionHeaderHeightForVisualSection:(long long)arg2;
-- (_Bool)_navigateToBottomIfNeededAnimated:(_Bool)arg1;
-- (_Bool)pu_handleSecondTabTap;
 - (void)handleTransitionFade:(_Bool)arg1 animate:(_Bool)arg2;
 - (_Bool)prepareForDismissingForced:(_Bool)arg1;
 - (void)handleAddFromAction;

@@ -127,6 +127,7 @@
 @property(copy, nonatomic) NSString *_DKSearchFeedbackMetadataKey__contactID; // @dynamic _DKSearchFeedbackMetadataKey__contactID;
 @property(nonatomic) long long _DKSearchFeedbackMetadataKey__interactionType; // @dynamic _DKSearchFeedbackMetadataKey__interactionType;
 @property(nonatomic) long long _DKSearchFeedbackMetadataKey__suggestionType; // @dynamic _DKSearchFeedbackMetadataKey__suggestionType;
+@property(copy, nonatomic) NSString *_DKTombstoneMetadataKey__eventSourceDeviceID; // @dynamic _DKTombstoneMetadataKey__eventSourceDeviceID;
 @property(copy, nonatomic) NSString *_DKTombstoneMetadataKey__eventStreamName; // @dynamic _DKTombstoneMetadataKey__eventStreamName;
 @property(retain, nonatomic) NSData *_QPMetricsMetadataKey__CandidateList; // @dynamic _QPMetricsMetadataKey__CandidateList;
 @property(copy, nonatomic) NSString *_QPMetricsMetadataKey__Query; // @dynamic _QPMetricsMetadataKey__Query;

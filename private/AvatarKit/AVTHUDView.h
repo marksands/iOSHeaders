@@ -18,7 +18,8 @@
     UILabel *_audioTimeLabel;
     UILabel *_timeBetweenARFrameLabel;
     UILabel *_droppedFrameLabel;
-    CDStruct_9aafc617 _lastFrameData;
+    UILabel *_shaderCompilationLabel;
+    CDStruct_53ba08a1 _lastFrameData;
     CALayer *_arKitLatencyBar;
     CALayer *_updateLatencyBar;
     CALayer *_metalLatencyBar;
@@ -30,10 +31,10 @@
 - (void)_tapAction:(id)arg1;
 - (void)_loadSubviews;
 - (id)_label;
-- (void)_updateLatencyGraph:(CDStruct_9aafc617 *)arg1;
-- (void)_updateLatencyBar:(CDStruct_9aafc617 *)arg1;
+- (void)_updateLatencyGraph:(CDStruct_53ba08a1 *)arg1;
+- (void)_updateLatencyBar:(CDStruct_53ba08a1 *)arg1;
 - (void)layoutSubviews;
-- (void)updateWithData:(CDStruct_9aafc617)arg1;
+- (void)updateWithData:(CDStruct_53ba08a1)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

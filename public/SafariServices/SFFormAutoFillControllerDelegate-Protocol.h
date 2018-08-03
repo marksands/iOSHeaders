@@ -9,7 +9,6 @@
 @class NSURL, WBSOneTimeCodeMonitor, _SFFormAutoFillController;
 
 @protocol SFFormAutoFillControllerDelegate <NSObject>
-- (_Bool)formAutoFillControllerShouldDisableAutoFill:(_SFFormAutoFillController *)arg1;
 - (NSURL *)formAutoFillControllerURLForFormAutoFill:(_SFFormAutoFillController *)arg1;
 - (_Bool)formAutoFillControllerCanPrefillForm:(_SFFormAutoFillController *)arg1;
 
@@ -20,6 +19,7 @@
 - (_Bool)formAutoFillControllerShouldShowIconsInPasswordPicker:(_SFFormAutoFillController *)arg1;
 - (void)formAutoFillControllerGetAuthenticationForAutoFill:(_SFFormAutoFillController *)arg1 onPageLoad:(_Bool)arg2 completion:(void (^)(_Bool))arg3;
 - (void)formAutoFillControllerGetAuthenticationForAutoFillOnPageLoad:(_SFFormAutoFillController *)arg1 completion:(void (^)(_Bool))arg2;
+- (_Bool)formAutoFillControllerShouldDisableStreamlinedLogin:(_SFFormAutoFillController *)arg1;
 - (void)formAutoFillControllerDidFocusSensitiveFormField:(_SFFormAutoFillController *)arg1;
 @end
 

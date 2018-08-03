@@ -20,6 +20,7 @@
     _Bool _turnsOnDisplay;
     _Bool _wantsFullscreenPresentation;
     _Bool _ignoresQuietMode;
+    _Bool _ignoresDowntime;
     _Bool _expiresOnPublisherDeath;
     _Bool _usesExternalSync;
     _Bool _loading;
@@ -103,6 +104,7 @@
 @property(copy, nonatomic) NSArray *buttons; // @synthesize buttons=_buttons;
 @property(retain, nonatomic) NSMutableDictionary *supplementaryActionsByLayout; // @synthesize supplementaryActionsByLayout=_supplementaryActionsByLayout;
 @property(retain, nonatomic) NSMutableDictionary *actions; // @synthesize actions=_actions;
+@property(nonatomic) _Bool ignoresDowntime; // @synthesize ignoresDowntime=_ignoresDowntime;
 @property(nonatomic) _Bool ignoresQuietMode; // @synthesize ignoresQuietMode=_ignoresQuietMode;
 @property(nonatomic) _Bool wantsFullscreenPresentation; // @synthesize wantsFullscreenPresentation=_wantsFullscreenPresentation;
 @property(copy, nonatomic) NSString *unlockActionLabelOverride; // @synthesize unlockActionLabelOverride=_unlockActionLabelOverride;

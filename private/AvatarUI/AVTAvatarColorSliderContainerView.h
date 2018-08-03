@@ -25,9 +25,10 @@
 - (void).cxx_destruct;
 - (void)colorSlider:(id)arg1 didFinishSelectingValue:(double)arg2;
 - (void)colorSlider:(id)arg1 valueChanged:(double)arg2;
-- (void)updateSliderWithColorPreset:(id)arg1;
-- (void)updateSliderTrackLayer;
+- (void)updateSliderWithColorPreset:(id)arg1 animated:(_Bool)arg2;
+- (void)updateSliderTrackLayerAnimated:(_Bool)arg1;
 - (void)layoutSubviews;
+- (void)setSectionItem:(id)arg1 animated:(_Bool)arg2;
 - (id)initWithFrame:(struct CGRect)arg1 userInterfaceLayoutDirection:(long long)arg2;
 
 @end

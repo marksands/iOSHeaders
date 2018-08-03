@@ -37,6 +37,7 @@
 @property(nonatomic) unsigned long long lockScreenPersistence; // @dynamic lockScreenPersistence;
 @property(nonatomic) _Bool addToLockScreenWhenUnlocked; // @dynamic addToLockScreenWhenUnlocked;
 @property(nonatomic) _Bool alertsWhenLocked; // @dynamic alertsWhenLocked;
+@property(nonatomic) _Bool overridesDowntime; // @dynamic overridesDowntime;
 @property(nonatomic) _Bool overridesQuietMode; // @dynamic overridesQuietMode;
 @property(nonatomic) _Bool dismissAutomatically; // @dynamic dismissAutomatically;
 @property(copy, nonatomic) NSString *alternateActionLabel; // @dynamic alternateActionLabel;

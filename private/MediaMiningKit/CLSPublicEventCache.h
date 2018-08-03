@@ -6,22 +6,16 @@
 
 #import <MediaMiningKit/CLSDBCache.h>
 
-@class NSPredicate;
-
 @interface CLSPublicEventCache : CLSDBCache
 {
-    NSPredicate *_publicEventUpdateTimestamPredicate;
 }
 
-@property(readonly, nonatomic) NSPredicate *publicEventUpdateTimestamPredicate; // @synthesize publicEventUpdateTimestamPredicate=_publicEventUpdateTimestamPredicate;
-- (void).cxx_destruct;
 - (unsigned long long)numberOftimeLocationTuplesForTimeLocationTuple:(id)arg1;
 - (_Bool)hasTimeLocationTuple:(id)arg1;
 - (id)publicEventFromManagedObject:(id)arg1;
 - (id)publicEventsForTimeLocationTuple:(id)arg1;
 - (id)publicEventsForMuid:(unsigned long long)arg1;
 - (void)_updateManagedEvent:(id)arg1 withEvent:(id)arg2 inContext:(id)arg3;
-- (void)updatePublicEvents:(id)arg1;
 - (_Bool)insertBatchesOfPublicEventsByTimeLocationIdentifier:(id)arg1 forTimeLocationTuples:(id)arg2;
 - (id)predicateForTimeLocationTuple:(id)arg1;
 - (void)invalidateCacheItemsBeforeDateWithTimestamp:(double)arg1;

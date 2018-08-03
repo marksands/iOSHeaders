@@ -20,7 +20,6 @@
     CDUnknownBlockType _intentProceedHandler;
 }
 
-+ (void)continueInApp:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) CDUnknownBlockType intentProceedHandler; // @synthesize intentProceedHandler=_intentProceedHandler;
 @property(retain, nonatomic) WFLWorkflowController *workflowController; // @synthesize workflowController=_workflowController;
 @property(nonatomic) __weak id <APUIWFLIntentControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -37,6 +36,7 @@
 - (void)workflowControllerDidFinishRunning:(id)arg1 withOutput:(id)arg2;
 - (void)workflowControllerWillRun:(id)arg1;
 - (void)_setWorkflowControllerExecutionContext;
+- (void)launchAppWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)confirmationGranted:(_Bool)arg1;
 - (void)stop;
 - (void)begin;

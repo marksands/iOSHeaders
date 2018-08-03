@@ -17,7 +17,7 @@
 @optional
 - (void)vcMediaStream:(id <VCMediaStreamProtocol>)arg1 requestKeyFrameGenerationWithStreamID:(unsigned short)arg2;
 - (void)vcMediaStream:(id <VCMediaStreamProtocol>)arg1 didSwitchFromStreamID:(unsigned short)arg2 toStreamID:(unsigned short)arg3;
-- (void)vcMediaStream:(id <VCMediaStreamProtocol>)arg1 didReceiveVideoFrameWithTime:(CDStruct_1b6d18a9)arg2;
+- (void)vcMediaStream:(id <VCMediaStreamProtocol>)arg1 didReceiveFirstVideoFrameWithTime:(CDStruct_1b6d18a9)arg2;
 - (void)vcMediaStream:(id <VCMediaStreamProtocol>)arg1 priorityDidChange:(unsigned char)arg2;
 - (void)vcMediaStream:(id <VCMediaStreamProtocol>)arg1 didUpdateVideoConfiguration:(_Bool)arg2 error:(NSError *)arg3 dictionary:(NSDictionary *)arg4;
 - (void)vcMediaStream:(id <VCMediaStreamProtocol>)arg1 uplinkQualityDidChange:(NSDictionary *)arg2;

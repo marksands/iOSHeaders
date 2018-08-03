@@ -13,6 +13,7 @@
 }
 
 - (id)copyWithZone:(struct _NSZone *)arg1;
+@property(nonatomic, getter=isCriticalAlert) _Bool criticalAlert; // @dynamic criticalAlert;
 @property(copy, nonatomic) NSDictionary *sourceInfo; // @dynamic sourceInfo;
 @property(nonatomic) unsigned long long collapsedNotificationsCount; // @dynamic collapsedNotificationsCount;
 @property(nonatomic) _Bool isCollapsedNotification; // @dynamic isCollapsedNotification;

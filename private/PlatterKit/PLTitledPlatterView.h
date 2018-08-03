@@ -49,7 +49,6 @@
 @property(copy, nonatomic) NSArray *icons;
 @property(nonatomic) long long dateFormatStyle;
 - (void)setBackgroundView:(id)arg1;
-- (void)_layoutMainOverlay;
 - (void)_configureMainOverlayView;
 - (void)_configureHeaderContentView;
 

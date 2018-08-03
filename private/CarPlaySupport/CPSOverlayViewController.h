@@ -6,10 +6,20 @@
 
 #import "UINavigationController.h"
 
-@interface CPSOverlayViewController : UINavigationController
+#import "CPSPreferredFocusManaging.h"
+
+@interface CPSOverlayViewController : UINavigationController <CPSPreferredFocusManaging>
 {
+    _Bool usePreferredItemOnNextUpdate;
+    id <UIFocusItem> preferredFocusItem;
 }
 
+@property(nonatomic) _Bool usePreferredItemOnNextUpdate; // @synthesize usePreferredItemOnNextUpdate;
+@property(nonatomic) __weak id <UIFocusItem> preferredFocusItem; // @synthesize preferredFocusItem;
+- (void).cxx_destruct;
+- (id)_linearFocusMovementSequences;
+- (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (id)preferredFocusEnvironments;
 - (id)templates;
 - (id)topTemplate;
 - (void)dismissTemplateAnimated:(_Bool)arg1;

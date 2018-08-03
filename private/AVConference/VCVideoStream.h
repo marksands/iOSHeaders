@@ -37,12 +37,14 @@ __attribute__((visibility("hidden")))
     NSNumber *_sendingStreamID;
     _Bool _isCompoundStreamIDsIncreased;
     _Bool _shouldEnableFaceZoom;
+    _Bool _didReceiveFirstFrame;
     double _fecRatio;
 }
 
 + (id)capabilities;
 + (id)supportedVideoPayloads;
 @property(nonatomic) double fecRatio; // @synthesize fecRatio=_fecRatio;
+@property(nonatomic) _Bool didReceiveFirstFrame; // @synthesize didReceiveFirstFrame=_didReceiveFirstFrame;
 @property(nonatomic) _Bool shouldEnableFaceZoom; // @synthesize shouldEnableFaceZoom=_shouldEnableFaceZoom;
 @property(readonly, nonatomic) _Bool isCompoundStreamIDsIncreased; // @synthesize isCompoundStreamIDsIncreased=_isCompoundStreamIDsIncreased;
 @property(readonly, nonatomic) NSNumber *sendingStreamID; // @synthesize sendingStreamID=_sendingStreamID;
@@ -55,6 +57,7 @@ __attribute__((visibility("hidden")))
 - (void)collectRxChannelMetrics:(CDStruct_1c8e0384 *)arg1;
 - (void)collectRxChannelMetrics:(CDStruct_1c8e0384 *)arg1 interval:(float)arg2;
 - (void)converter:(id)arg1 didConvertFrame:(struct opaqueCMSampleBuffer *)arg2 frameTime:(CDStruct_1b6d18a9)arg3 droppedFrames:(int)arg4 cameraStatusBits:(unsigned char)arg5;
+- (void)sourceFrameRateDidChange:(unsigned int)arg1;
 - (void)thermalLevelDidChange:(int)arg1;
 - (id)clientCaptureRule;
 - (void)avConferencePreviewError:(id)arg1;

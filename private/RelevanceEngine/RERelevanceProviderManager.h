@@ -31,6 +31,7 @@
 + (id)_features;
 + (Class)_relevanceProviderClass;
 + (id)providerManagerClasses;
++ (void)setProviderManagerClassesLoadingBlock:(CDUnknownBlockType)arg1;
 + (id)_sharedProviderQueue;
 @property(retain, nonatomic) REFeatureSet *supportedFeatures; // @synthesize supportedFeatures=_supportedFeatures;
 - (void).cxx_destruct;

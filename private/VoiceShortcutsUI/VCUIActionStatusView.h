@@ -25,6 +25,7 @@
 - (void)_setUpViews;
 - (void)progressStateMachine:(id)arg1 ignoredEvent:(unsigned long long)arg2;
 - (void)progressStateMachine:(id)arg1 didTransitionToState:(unsigned long long)arg2 fromState:(unsigned long long)arg3 forEvent:(unsigned long long)arg4;
+- (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)resetState;
 - (id)initWithCoder:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

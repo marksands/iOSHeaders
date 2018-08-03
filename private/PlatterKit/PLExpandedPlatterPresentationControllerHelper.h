@@ -14,8 +14,9 @@
 {
     UIView *_sourceView;
     UIView<PLExpandedPlatter> *_presentedExpandedPlatter;
-    struct CGRect _sourceViewInitialFrame;
-    struct CGRect _sourceViewFinalFrame;
+    struct CGRect _sourceViewInitialPresentationFrame;
+    struct CGRect _sourceViewFinalPresentationFrame;
+    struct CGRect _sourceViewFinalDismissalFrame;
     struct CGAffineTransform _sourceViewInitialTransform;
     id <UIViewControllerTransitionCoordinator> _activeTransitionCoordinator;
     UIView *_dismissLabelContainerView;
@@ -27,8 +28,9 @@
     MTLumaDodgePillView *_homeAffordanceView;
     struct {
         unsigned int didPerformPresentedExpandedPlatterCheck:1;
-        unsigned int didSetSourceViewInitialFrame:1;
-        unsigned int didSetSourceViewFinalFrame:1;
+        unsigned int didSetSourceViewInitialPresentationFrame:1;
+        unsigned int didSetSourceViewFinalPresentationFrame:1;
+        unsigned int didSetSourceViewFinalDismissalFrame:1;
     } _expandedPlatterPresentationControllerHelperFlags;
     _Bool _listenToKeyboardEvents;
     _Bool _homeAffordanceVisible;
@@ -63,11 +65,13 @@
 - (void)containerViewWillLayoutSubviews;
 - (void)dismissalTransitionWillBegin;
 - (void)presentationTransitionWillBegin;
-- (struct CGRect)finalFrameOfPresentingViewInContainerView;
+- (struct CGRect)finalDismissalFrameOfPresentingViewInContainerView;
+- (struct CGRect)finalPresentationFrameOfPresentingViewInContainerView;
 - (struct CGRect)initialFrameOfPresentedViewInContainerView;
-- (struct CGRect)initialFrameOfPresentingViewInContainerView;
-- (struct CGRect)_sourceViewFinalFrame;
-- (struct CGRect)_sourceViewInitialFrame;
+- (struct CGRect)initialPresentationFrameOfPresentingViewInContainerView;
+- (struct CGRect)_sourceViewFinalDismissalFrame;
+- (struct CGRect)_sourceViewFinalPresentationFrame;
+- (struct CGRect)_sourceViewInitialPresentationFrame;
 @property(readonly, nonatomic) struct CGRect frameOfPresentedViewInContainerView;
 - (id)presentedViewController;
 - (id)presentingViewController;

@@ -31,6 +31,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) VUILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(readonly, nonatomic) long long headerViewStyle; // @synthesize headerViewStyle=_headerViewStyle;
 - (void).cxx_destruct;
+- (struct CGSize)_layoutWithSize:(struct CGSize)arg1 metricsOnly:(_Bool)arg2;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 

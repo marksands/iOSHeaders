@@ -24,8 +24,5 @@ __attribute__((visibility("hidden")))
 @property(readonly, nonatomic) long long count;
 - (id)initWithBatch:(id)arg1 startIndex:(long long)arg2 windowLength:(long long)arg3 error:(id *)arg4;
 
-// Remaining properties
-@property(readonly, nonatomic) long long featureProviderCount;
-
 @end
 

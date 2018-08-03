@@ -97,7 +97,6 @@
 + (id)keyPathsForValuesAffectingProminentPlayButtonCanShowPauseGlyph;
 + (id)keyPathsForValuesAffectingShowsProminentPlayButton;
 + (id)keyPathsForValuesAffectingShowsRoutePickerView;
-+ (id)keyPathsForValuesAffectingIncludesTapAnywhereToEnterFullScreenButton;
 + (id)keyPathsForValuesAffectingIncludesFullScreenButton;
 + (id)keyPathsForValuesAffectingIncludesDoneButton;
 + (id)keyPathsForValuesAffectingFullScreen;
@@ -239,7 +238,7 @@
 @property(readonly, nonatomic) _Bool prominentPlayButtonCanShowPauseGlyph;
 @property(readonly, nonatomic) _Bool showsProminentPlayButton;
 @property(readonly, nonatomic) _Bool showsRoutePickerView;
-@property(readonly, nonatomic) _Bool includesTapAnywhereToEnterFullScreenButton;
+@property(readonly, nonatomic) _Bool entersFullScreenWhenTapped;
 @property(readonly, nonatomic) _Bool includesFullScreenButton;
 @property(readonly, nonatomic) _Bool includesDoneButton;
 @property(readonly, nonatomic, getter=isFullScreen) _Bool fullScreen;

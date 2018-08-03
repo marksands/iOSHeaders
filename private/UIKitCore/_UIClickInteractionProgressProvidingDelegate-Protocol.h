@@ -8,7 +8,7 @@
 
 @protocol _UIClickInteractionProgressProvidingDelegate <NSObject>
 - (void)clickProgressProviderDidEnd:(id <_UIClickInteractionProgressProviding>)arg1;
-- (void)clickProgressProvider:(id <_UIClickInteractionProgressProviding>)arg1 didUpdateWithOverallProgress:(double)arg2 currentState:(long long)arg3 ended:(_Bool)arg4;
+- (void)clickProgressProvider:(id <_UIClickInteractionProgressProviding>)arg1 didUpdateWithOverallProgress:(double)arg2 currentState:(long long)arg3;
 - (void)clickProgressProviderDidBegin:(id <_UIClickInteractionProgressProviding>)arg1;
 @end
 

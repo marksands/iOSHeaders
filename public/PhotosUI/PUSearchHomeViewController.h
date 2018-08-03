@@ -34,10 +34,12 @@
 - (void)performRecentSearch:(id)arg1;
 - (void)selectZeroKeyword:(id)arg1 fromSectionWithType:(long long)arg2;
 - (void)_clearSearchField;
+- (void)_activateSearchField;
 - (void)_configureSearchNavigationBar;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (_Bool)shouldPreventPlaceholder;
 - (void)viewDidLoad;
 - (id)init;
 - (id)px_gridPresentation;

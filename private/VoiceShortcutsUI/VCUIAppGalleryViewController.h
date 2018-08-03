@@ -15,7 +15,8 @@
     id <VCUIAppGalleryViewControllerDelegate> _delegate;
     NSString *_applicationBundleIdentifier;
     NSString *_query;
-    NSArray *_actionDonations;
+    NSArray *_suggestedDonations;
+    NSArray *_recentDonations;
     VCUIActionDonationCell *_prototypeCell;
     double _donationCellHeight;
     double _donationWithSubtitleCellHeight;
@@ -25,7 +26,8 @@
 @property(readonly, nonatomic) double donationWithSubtitleCellHeight; // @synthesize donationWithSubtitleCellHeight=_donationWithSubtitleCellHeight;
 @property(readonly, nonatomic) double donationCellHeight; // @synthesize donationCellHeight=_donationCellHeight;
 @property(retain, nonatomic) VCUIActionDonationCell *prototypeCell; // @synthesize prototypeCell=_prototypeCell;
-@property(copy, nonatomic) NSArray *actionDonations; // @synthesize actionDonations=_actionDonations;
+@property(copy, nonatomic) NSArray *recentDonations; // @synthesize recentDonations=_recentDonations;
+@property(copy, nonatomic) NSArray *suggestedDonations; // @synthesize suggestedDonations=_suggestedDonations;
 @property(readonly, copy, nonatomic) NSString *query; // @synthesize query=_query;
 @property(copy, nonatomic) NSString *applicationBundleIdentifier; // @synthesize applicationBundleIdentifier=_applicationBundleIdentifier;
 @property(nonatomic) __weak id <VCUIAppGalleryViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
@@ -40,9 +42,13 @@
 - (double)cellHeightForDonation:(id)arg1;
 - (void)updateRecommendedShortcuts;
 - (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
+- (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
+- (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (double)tableView:(id)arg1 heightForRowAtIndexPath:(id)arg2;
+- (id)donationAtIndexPath:(id)arg1;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (long long)tableView:(id)arg1 numberOfRowsInSection:(long long)arg2;
+- (long long)numberOfSectionsInTableView:(id)arg1;
 - (void)viewDidLoad;
 - (id)initWithApplicationBundleIdentifier:(id)arg1 query:(id)arg2;
 

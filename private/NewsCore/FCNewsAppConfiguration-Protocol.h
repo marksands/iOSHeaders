@@ -59,6 +59,9 @@
 @property(readonly, nonatomic) long long minimumFollowCountToRemovePersonalizePlacardInFollowingAndForYou;
 
 @optional
+@property(readonly, nonatomic) _Bool enableBadgeInSpotlightTabBar;
+@property(readonly, nonatomic) NSString *description;
+@property(readonly, nonatomic) NSString *webEmbedContentBlockers;
 @property(readonly, nonatomic) long long showCardNavHintMaxCount;
 @property(readonly, nonatomic) NSString *feedNavigationConfigJSON;
 @property(readonly, nonatomic) _Bool disableThumbnailsForArticleRecirculation;

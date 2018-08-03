@@ -283,7 +283,7 @@ typedef struct {
 } CDStruct_a7a14e3b;
 
 typedef struct {
-    _Bool itemIsEnabled[36];
+    _Bool itemIsEnabled[37];
     char timeString[64];
     char shortTimeString[64];
     char dateString[256];
@@ -323,7 +323,7 @@ typedef struct {
     unsigned int wifiSearching:1;
     double backgroundActivityDisplayStartDate;
     unsigned int shouldShowEmergencyOnlyStatus:1;
-} CDStruct_c6256135;
+} CDStruct_1f606803;
 
 typedef struct {
     unsigned int val[8];
@@ -434,7 +434,7 @@ typedef struct {
 } CDStruct_0ba2c6ed;
 
 typedef struct {
-    _Bool overrideItemIsEnabled[36];
+    _Bool overrideItemIsEnabled[37];
     unsigned int overrideTimeString:1;
     unsigned int overrideDateString:1;
     unsigned int overrideGsmSignalStrengthRaw:1;
@@ -461,8 +461,8 @@ typedef struct {
     unsigned int overrideDisplayRawWifiSignal:1;
     unsigned int overridePersonName:1;
     unsigned int overrideWifiLinkWarning:1;
-    CDStruct_c6256135 values;
-} CDStruct_f18e9e0a;
+    CDStruct_1f606803 values;
+} CDStruct_e70f95cb;
 
 typedef struct {
     CDStruct_73524d89 _field1[4];

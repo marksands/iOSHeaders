@@ -21,11 +21,10 @@
 - (void).cxx_destruct;
 - (id)totalRoamingBytesUsed;
 - (id)totalBytesUsed;
-- (_Bool)shouldUseBillingCycleData;
 - (id)getBillingCycle:(id)arg1;
 - (void)setBillingCycle:(id)arg1 specifier:(id)arg2;
 - (void)updateTotalUsage:(id)arg1;
-- (id)getAppSpecifiersForVisibleApps:(id)arg1 hiddenApps:(id)arg2 unknownApps:(id)arg3 internalProcesses:(id)arg4 wifiAssist:(id)arg5;
+- (id)groupedStatisticsToSpecifiers:(id)arg1;
 - (id)specifiers;
 
 @end

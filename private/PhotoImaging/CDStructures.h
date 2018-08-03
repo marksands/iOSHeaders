@@ -43,6 +43,11 @@ typedef struct {
 } CDStruct_c3b9c2ee;
 
 typedef struct {
+    int major;
+    int minor;
+} CDStruct_6ed351db;
+
+typedef struct {
     CDStruct_145c54d4 _field1;
     CDStruct_145c54d4 _field2;
     double _field3;

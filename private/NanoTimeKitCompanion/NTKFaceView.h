@@ -169,6 +169,7 @@
 - (void)_layoutComplicationViews;
 - (id)_layoutRuleForComplicationSlot:(id)arg1 withOverride:(long long)arg2 inEditMode:(long long)arg3;
 - (void)_getKeylineFrame:(struct CGRect *)arg1 padding:(struct UIEdgeInsets *)arg2 forComplicationSlot:(id)arg3 selected:(_Bool)arg4;
+- (struct UIEdgeInsets)_keylineLabelActiveAreaInsetsForComplicationAtSlot:(id)arg1;
 - (struct CGSize)_maxSizeForComplicationSlot:(id)arg1 layoutOverride:(long long)arg2;
 - (void)_updateMaxSizeForDisplayWrapper:(id)arg1 slot:(id)arg2;
 - (void)_updateComplicationMaxSize;
@@ -280,6 +281,7 @@
 - (void)applyBreathingFraction:(double)arg1 forComplicationSlot:(id)arg2;
 - (unsigned long long)keylineLabelAlignmentForComplicationSlot:(id)arg1;
 - (id)keylineViewForComplicationSlot:(id)arg1;
+- (struct UIEdgeInsets)keylineLabelActiveAreaInsetsForComplicationAtSlot:(id)arg1;
 - (struct CGRect)keylineFrameForComplicationSlot:(id)arg1 selected:(_Bool)arg2;
 - (id)layoutRuleForComplicationSlot:(id)arg1 inState:(long long)arg2 layoutOverride:(long long)arg3;
 - (struct CGRect)frameForComplicationPickerViewForSlot:(id)arg1;

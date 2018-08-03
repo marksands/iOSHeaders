@@ -15,10 +15,12 @@
     NSString *_identifier;
     NSString *_bundleIdentifier;
     NSArray *_webDomains;
+    NSString *_primaryWebDomain;
     NSString *_secondaryIdentifier;
     NSString *_resourceString;
 }
 
++ (id)_getAssociatedDomainsForHostName:(id)arg1;
 + (void)_identifierUsingContextKit:(id)arg1 response:(CDUnknownBlockType)arg2;
 + (id)_lookupDHIDInInfoPlist:(id)arg1 key:(unsigned long long)arg2;
 + (void)_lookupAppStoreUsing:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -26,6 +28,7 @@
 + (id)_AppStoreToDHIDCategoriesMap;
 + (id)_DHToAppStoreCategoriesMap;
 + (id)_DHIDtoPrimaryCategoriesMap;
++ (void)_getCategoryTypeForDomainName:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 + (void)categoryForDomainName:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 + (void)categoryForDomainURL:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 + (void)categoryForBundleID:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
@@ -37,6 +40,7 @@
 + (void)initialize;
 @property(copy, nonatomic) NSString *resourceString; // @synthesize resourceString=_resourceString;
 @property(copy, nonatomic) NSString *secondaryIdentifier; // @synthesize secondaryIdentifier=_secondaryIdentifier;
+@property(copy, nonatomic) NSString *primaryWebDomain; // @synthesize primaryWebDomain=_primaryWebDomain;
 @property(copy, nonatomic) NSArray *webDomains; // @synthesize webDomains=_webDomains;
 @property(copy, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
@@ -51,7 +55,8 @@
 @property(readonly, copy, nonatomic) NSString *primaryIdentifier;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
-- (void)_ctCategoryCommonInitWithIdentifier:(id)arg1 webDomains:(id)arg2 bundleIdentifier:(id)arg3;
+- (void)_ctCategoryCommonInitWithIdentifier:(id)arg1 webDomains:(id)arg2 bundleIdentifier:(id)arg3 primaryWebDomain:(id)arg4;
+- (id)initWithIdentifier:(id)arg1 webDomains:(id)arg2 bundleIdentifier:(id)arg3 primaryWebDomain:(id)arg4;
 - (id)initWithIdentifier:(id)arg1 webDomains:(id)arg2 bundleIdentifier:(id)arg3;
 
 @end

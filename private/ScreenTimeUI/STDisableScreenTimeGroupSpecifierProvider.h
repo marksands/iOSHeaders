@@ -11,16 +11,12 @@
 @interface STDisableScreenTimeGroupSpecifierProvider : STRootGroupSpecifierProvider
 {
     PSSpecifier *_disableScreenTimeSpecifier;
-    PSSpecifier *_stopSharingScreenTimeSpecifier;
 }
 
-@property(retain, nonatomic) PSSpecifier *stopSharingScreenTimeSpecifier; // @synthesize stopSharingScreenTimeSpecifier=_stopSharingScreenTimeSpecifier;
 @property(retain, nonatomic) PSSpecifier *disableScreenTimeSpecifier; // @synthesize disableScreenTimeSpecifier=_disableScreenTimeSpecifier;
 - (void).cxx_destruct;
 - (void)disableScreenTime:(id)arg1;
-- (void)confirmStopSharingScreenTime:(id)arg1;
 - (void)confirmDisableScreenTime:(id)arg1;
-- (void)updateSpecifiers;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)setCoordinator:(id)arg1;
 - (id)init;

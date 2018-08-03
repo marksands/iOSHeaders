@@ -13,8 +13,7 @@
     void *_impl;
 }
 
-+ (id)privateCreateOrConfigure:(id)arg1 withRawDescription:(id)arg2 owningSession:(id)arg3;
-- (_Bool)matchesRawDescription:(id)arg1;
+- (id)initWithRawDescription:(id)arg1 owningSession:(id)arg2;
 - (id)initWithCategory:(id)arg1;
 - (struct RouteDescriptionImpl *)privateGetImplementation;
 - (id)description;

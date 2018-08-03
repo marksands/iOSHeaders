@@ -99,6 +99,7 @@
 - (_Bool)inDictationMode;
 - (_Bool)inSiriMode;
 - (void)_tearDownDisplayLink;
+- (_Bool)_deviceNeeds2xFlamesWithCurrentScale:(double)arg1;
 - (double)_currentDisplayScale;
 - (void)layoutSubviews;
 - (void)_updateOrthoProjection;

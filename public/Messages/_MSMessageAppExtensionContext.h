@@ -39,6 +39,7 @@
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)_hostDidBeginDeferredTeardown;
 - (void)dismissToKeyboard:(_Bool)arg1;
+- (void)dismissAndPresentPhotosApp;
 - (void)dismiss;
 - (void)requestPresentationStyle:(unsigned long long)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;

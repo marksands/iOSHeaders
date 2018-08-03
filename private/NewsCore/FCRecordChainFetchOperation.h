@@ -11,6 +11,7 @@
 @interface FCRecordChainFetchOperation : FCOperation
 {
     _Bool _shouldReturnErrorWhenSomeRecordsMissing;
+    _Bool _shouldBypassRecordSourcePersistence;
     id <FCContentContext> _context;
     NSArray *_topLevelRecordIDs;
     NSDictionary *_linkKeysByRecordType;
@@ -38,6 +39,7 @@
 @property(retain, nonatomic) NSDictionary *recordSourcesByRecordType; // @synthesize recordSourcesByRecordType=_recordSourcesByRecordType;
 @property(retain, nonatomic) NSArray *recordSources; // @synthesize recordSources=_recordSources;
 @property(copy, nonatomic) CDUnknownBlockType recordChainCompletionHandler; // @synthesize recordChainCompletionHandler=_recordChainCompletionHandler;
+@property(nonatomic) _Bool shouldBypassRecordSourcePersistence; // @synthesize shouldBypassRecordSourcePersistence=_shouldBypassRecordSourcePersistence;
 @property(retain, nonatomic) NSArray *additionalRecordSources; // @synthesize additionalRecordSources=_additionalRecordSources;
 @property(copy, nonatomic) FCEdgeCacheHint *edgeCacheHint; // @synthesize edgeCacheHint=_edgeCacheHint;
 @property(nonatomic) _Bool shouldReturnErrorWhenSomeRecordsMissing; // @synthesize shouldReturnErrorWhenSomeRecordsMissing=_shouldReturnErrorWhenSomeRecordsMissing;

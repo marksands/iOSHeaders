@@ -17,6 +17,7 @@
     PXFeedInvitationSectionInfo *_invitationSectionInfo;
     double _cornerRadius;
     PXRoundedCornerOverlayView *_roundedCornerOverlayView;
+    unsigned long long _avatarImageTag;
     UIImageView *_avatarView;
     UILabel *_infoLabel;
     UILabel *_albumTitleLabel;
@@ -35,6 +36,7 @@
 @property(retain, nonatomic) UILabel *albumTitleLabel; // @synthesize albumTitleLabel=_albumTitleLabel;
 @property(retain, nonatomic) UILabel *infoLabel; // @synthesize infoLabel=_infoLabel;
 @property(retain, nonatomic) UIImageView *avatarView; // @synthesize avatarView=_avatarView;
+@property(nonatomic) unsigned long long avatarImageTag; // @synthesize avatarImageTag=_avatarImageTag;
 @property(retain, nonatomic) PXRoundedCornerOverlayView *roundedCornerOverlayView; // @synthesize roundedCornerOverlayView=_roundedCornerOverlayView;
 @property(nonatomic) _Bool useInPopover; // @synthesize useInPopover=_useInPopover;
 @property(nonatomic) double cornerRadius; // @synthesize cornerRadius=_cornerRadius;
@@ -54,7 +56,8 @@
 - (void)_updateReportJunkLabel;
 - (void)_updateAlbumTitleLabel;
 - (void)_updateInfoLabel;
-- (void)_updateAvatarImage;
+- (void)_handlePersonImage:(id)arg1 imageTag:(unsigned long long)arg2;
+- (void)_updateAvatarImage:(unsigned long long)arg1;
 - (void)_updateRoundedCornerOverlayView;
 - (void)_updateColors;
 - (id)_roundedCornerViewBackgroundColor;

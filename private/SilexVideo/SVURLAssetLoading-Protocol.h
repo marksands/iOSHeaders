@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @protocol SVURLAssetLoading <NSObject>
-- (void (^)(void))URLAssetWithCompletionBlock:(id <SVVideoMetadataProviding> (^)(AVURLAsset *))arg1;
+- (void (^)(void))URLAssetWithCompletionBlock:(id <SVVideoMetadata> (^)(AVURLAsset *))arg1;
 @end
 

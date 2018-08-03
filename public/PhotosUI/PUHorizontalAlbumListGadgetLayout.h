@@ -6,12 +6,17 @@
 
 #import "PXGadgetCollectionViewLayout.h"
 
-__attribute__((visibility("hidden")))
 @interface PUHorizontalAlbumListGadgetLayout : PXGadgetCollectionViewLayout
 {
+    id <PUHorizontalAlbumListGadgetLayoutDelegate> _horizontalLayoutDelegate;
 }
 
-- (struct CGSize)_sizeForItemAtIndex:(unsigned long long)arg1;
+@property(nonatomic) __weak id <PUHorizontalAlbumListGadgetLayoutDelegate> horizontalLayoutDelegate; // @synthesize horizontalLayoutDelegate=_horizontalLayoutDelegate;
+- (void).cxx_destruct;
+- (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 sizeForItemAtIndexPath:(id)arg3;
+@property(readonly, nonatomic) struct CGSize albumCellSize;
+- (id)initWithHorizontalLayoutDelegate:(id)arg1;
+- (id)init;
 
 @end
 

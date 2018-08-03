@@ -14,7 +14,7 @@
 {
     NSURL *_URL;
     id <SXAnalyticsReporting> _analyticsReporter;
-    id <SVVideoMetadataProviding> _metadata;
+    id <SVVideoMetadata> _metadata;
     SVTimeline *_timeline;
     double _pausedAtTime;
     NSString *_mediaIdentifier;
@@ -23,7 +23,7 @@
 @property(readonly, nonatomic) NSString *mediaIdentifier; // @synthesize mediaIdentifier=_mediaIdentifier;
 @property(nonatomic) double pausedAtTime; // @synthesize pausedAtTime=_pausedAtTime;
 @property(readonly, nonatomic) SVTimeline *timeline; // @synthesize timeline=_timeline;
-@property(nonatomic) __weak id <SVVideoMetadataProviding> metadata; // @synthesize metadata=_metadata;
+@property(nonatomic) __weak id <SVVideoMetadata> metadata; // @synthesize metadata=_metadata;
 @property(retain, nonatomic) id <SXAnalyticsReporting> analyticsReporter; // @synthesize analyticsReporter=_analyticsReporter;
 @property(readonly, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 - (void).cxx_destruct;

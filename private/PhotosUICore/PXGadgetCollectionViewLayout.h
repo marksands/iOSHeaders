@@ -29,12 +29,11 @@
 @property(nonatomic) __weak id <PXGadgetCollectionViewLayoutDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) PXGadgetLayoutSpec *spec; // @synthesize spec=_spec;
 - (void).cxx_destruct;
-- (unsigned long long)_sectionHeaderStyleForSection:(long long)arg1;
-- (_Bool)_shouldShowSectionHeaderForSection:(long long)arg1;
-- (_Bool)_hasButtonForSection:(long long)arg1;
-- (unsigned long long)_buttonTypeForSection:(long long)arg1;
-- (_Bool)_hasTitleForSection:(long long)arg1;
-- (id)_titleForSection:(long long)arg1;
+- (unsigned long long)_sectionHeaderStyleForGadget:(id)arg1;
+- (_Bool)_shouldShowSectionHeaderForGadget:(id)arg1;
+- (_Bool)_hasButtonForGadget:(id)arg1;
+- (unsigned long long)_buttonTypeForGadget:(id)arg1;
+- (id)_titleForGadget:(id)arg1;
 - (id)_gadgetForSection:(long long)arg1;
 - (id)invalidationContextForBoundsChange:(struct CGRect)arg1;
 - (struct CGSize)collectionView:(id)arg1 layout:(id)arg2 referenceSizeForHeaderInSection:(long long)arg3;

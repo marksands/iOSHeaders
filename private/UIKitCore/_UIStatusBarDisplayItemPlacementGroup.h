@@ -19,7 +19,7 @@ __attribute__((visibility("hidden")))
 + (id)groupWithPriority:(long long)arg1 placements:(id)arg2;
 @property(readonly, nonatomic) long long maximumPriority; // @synthesize maximumPriority=_maximumPriority;
 @property(readonly, nonatomic) long long minimumPriority; // @synthesize minimumPriority=_minimumPriority;
-@property(readonly, copy, nonatomic) NSArray *placements; // @synthesize placements=_placements;
+@property(copy, nonatomic) NSArray *placements; // @synthesize placements=_placements;
 - (void).cxx_destruct;
 @property(nonatomic) _Bool enabled;
 

@@ -10,6 +10,7 @@
 {
 }
 
+- (id)UUID;
 - (void)enumeratePersonHomeOrWorkNodesUsingBlock:(CDUnknownBlockType)arg1;
 - (_Bool)isPersonHomeOrWorkAddress;
 - (id)location;

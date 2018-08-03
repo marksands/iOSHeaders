@@ -32,11 +32,11 @@
     NCNotificationListCell *_cellWithRevealedActions;
     NCAnimationCoordinator *_childPreferredContentSizeChangeCoordinatorForCurrentTransaction;
     NSMutableArray *_childPreferredContentSizeChangeCoordinators;
-    CDStruct_021c1d70 _destinationDelegateFlags;
+    CDStruct_ef5db9df _destinationDelegateFlags;
     struct UIEdgeInsets _insetMargins;
 }
 
-@property(nonatomic) CDStruct_021c1d70 destinationDelegateFlags; // @synthesize destinationDelegateFlags=_destinationDelegateFlags;
+@property(nonatomic) CDStruct_ef5db9df destinationDelegateFlags; // @synthesize destinationDelegateFlags=_destinationDelegateFlags;
 @property(nonatomic) CDStruct_27a46a9e userInteractionDelegateFlags; // @synthesize userInteractionDelegateFlags=_userInteractionDelegateFlags;
 @property(retain, nonatomic) NSMutableArray *childPreferredContentSizeChangeCoordinators; // @synthesize childPreferredContentSizeChangeCoordinators=_childPreferredContentSizeChangeCoordinators;
 @property(retain, nonatomic) NCAnimationCoordinator *childPreferredContentSizeChangeCoordinatorForCurrentTransaction; // @synthesize childPreferredContentSizeChangeCoordinatorForCurrentTransaction=_childPreferredContentSizeChangeCoordinatorForCurrentTransaction;
@@ -98,6 +98,7 @@
 - (id)hideHomeAffordanceAnimationSettingsForNotificationViewController:(id)arg1;
 - (id)notificationViewController:(id)arg1 keyboardAssertionForGestureWindow:(id)arg2;
 - (_Bool)showAdditionalMessageLinesForNotificationViewController:(id)arg1;
+- (struct CGRect)notificationViewController:(id)arg1 finalFrameForDismissingLongLookFromView:(id)arg2;
 - (struct CGRect)notificationViewController:(id)arg1 initialFrameForPresentingLongLookFromView:(id)arg2;
 - (_Bool)notificationViewControllerShouldAllowInteractionGesture:(id)arg1;
 - (id)notificationViewController:(id)arg1 auxiliaryOptionsContentProviderForNotificationRequest:(id)arg2 withLongLook:(_Bool)arg3;

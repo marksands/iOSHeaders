@@ -23,6 +23,7 @@
 @property(retain, nonatomic) NSSet *peopleNodes; // @synthesize peopleNodes=_peopleNodes;
 @property(retain, nonatomic) NSString *peopleUUID; // @synthesize peopleUUID=_peopleUUID;
 - (void).cxx_destruct;
+- (_Bool)canFallbackToDejunkAndDedupeForShowMore;
 - (_Bool)_upcomingBirthdayWillCollideWithPotentialMemory:(id)arg1;
 - (id)_potentialMemoriesForDryTesting;
 - (void)_generateExtendedCuratedSetForMemory:(id)arg1 withPotentialMemory:(id)arg2;

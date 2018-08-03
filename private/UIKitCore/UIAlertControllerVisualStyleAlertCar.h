@@ -12,7 +12,7 @@ __attribute__((visibility("hidden")))
 }
 
 - (_Bool)placementAvoidsKeyboard;
-- (struct UIEdgeInsets)contentInsets;
+- (struct UIEdgeInsets)contentInsetsForContainerView:(id)arg1;
 - (double)maximumWidth;
 - (long long)maximumNumberOfLinesInMessageLabel;
 - (id)messageLabelColor;

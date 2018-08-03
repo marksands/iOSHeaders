@@ -53,7 +53,6 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
 - (void)vibrantStylingDidChangeForProvider:(id)arg1;
-- (void)nc_performDeferredActionsIfNeeded;
 - (void)layoutSubviews;
 - (struct CGRect)_frameForThumbnailInRect:(struct CGRect)arg1;
 @property(retain, nonatomic) UIImage *thumbnail;

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class HKCharacteristicType, HKDocumentType, HKObjectType, HKQuantityType, HKTaskConfiguration, HKUnit, NSArray, NSDate, NSDictionary, NSError, NSNumber, NSSet, NSString, NSUUID, _HKDeepBreathingSessionConfiguration, _HKFilter;
+@class HKCharacteristicType, HKDocumentType, HKObjectType, HKQuantityType, HKTaskConfiguration, HKUnit, NSArray, NSDate, NSDictionary, NSError, NSNumber, NSSet, NSString, NSURL, NSUUID, _HKDeepBreathingSessionConfiguration, _HKFilter;
 
 @protocol HDHealthStoreServerInterface <NSObject>
 - (void)remote_containerAppExtensionEntitlementsWithCompletion:(void (^)(NSDictionary *, NSError *))arg1;
@@ -21,6 +21,8 @@
 - (void)remote_performMigrationWithCompletion:(void (^)(_Bool, NSError *))arg1;
 - (void)remote_obliterateHealthDataWithOptions:(unsigned long long)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)remote_getHealthDirectorySizeInBytesWithCompletion:(void (^)(NSNumber *, NSError *))arg1;
+- (void)remote_setServerURL:(NSURL *)arg1 forAssetType:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)remote_fetchServerURLForAssetType:(NSString *)arg1 completion:(void (^)(NSURL *, NSError *))arg2;
 - (void)remote_getHealthLiteValueForKey:(NSString *)arg1 completion:(void (^)(NSNumber *, NSError *))arg2;
 - (void)remote_setHealthLiteValue:(NSNumber *)arg1 forKey:(NSString *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)remote_removeDefaultForKey:(NSString *)arg1 withCompletion:(void (^)(_Bool, NSError *))arg2;

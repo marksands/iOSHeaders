@@ -27,6 +27,7 @@
     UIView *_audioAccessoryView;
     NSHashTable *_audioAccessoryViewObservers;
     id <UIViewControllerContextTransitioning> _scrollPresentationTransitionContext;
+    struct CGRect _finalPresentedFrameOfViewForPreview;
     _Bool _didScrollPresentLongLookViewController;
     PLPreviewInteractionManager *_previewInteractionManager;
     UIScrollView *_scrollView;
@@ -50,8 +51,9 @@
 - (void)notificationViewControllerDidPresent:(id)arg1;
 - (void)notificationViewControllerWillPresent:(id)arg1;
 - (void)viewControllerAnimator:(id)arg1 didEndPresentationAnimation:(_Bool)arg2 withTransitionContext:(id)arg3;
-@property(readonly, nonatomic) struct CGRect finalFrameOfViewForPreview;
-@property(readonly, nonatomic) struct CGRect initialFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect finalDismissedFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect finalPresentedFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect initialPresentedFrameOfViewForPreview;
 @property(readonly, nonatomic) PLPreviewInteractionManager *previewInteractionManager; // @synthesize previewInteractionManager=_previewInteractionManager;
 @property(readonly, nonatomic) UIView *viewForPreview;
 - (void)previewInteractionManager:(id)arg1 declinedDismissingPresentedContentWithTrigger:(long long)arg2;
@@ -85,7 +87,7 @@
 - (_Bool)_tryDismissingShortLookInScrollView:(id)arg1;
 - (void)_handleTapOnView:(id)arg1;
 - (void)_notificationViewControllerViewDidLoad;
-- (id)_effectiveGroupName;
+- (id)effectiveGroupName;
 - (void)_loadLookView;
 - (void)_completeScrollPresentation;
 - (void)_updateScrollViewContentSize;

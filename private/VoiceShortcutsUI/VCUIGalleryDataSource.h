@@ -17,17 +17,21 @@
     _Bool _loadedOnce;
     id <VCUIGalleryDataSourceDelegate> _delegate;
     NSString *_query;
+    NSArray *_allAppSuggestionsSections;
     NSArray *_appSuggestionsSections;
 }
 
 + (void)initialize;
 @property(nonatomic) _Bool loadedOnce; // @synthesize loadedOnce=_loadedOnce;
 @property(retain, nonatomic) NSArray *appSuggestionsSections; // @synthesize appSuggestionsSections=_appSuggestionsSections;
+@property(retain, nonatomic) NSArray *allAppSuggestionsSections; // @synthesize allAppSuggestionsSections=_allAppSuggestionsSections;
 @property(copy, nonatomic) NSString *query; // @synthesize query=_query;
 @property(nonatomic) __weak id <VCUIGalleryDataSourceDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)didDismissSearchController:(id)arg1;
 - (void)updateSearchResultsForSearchController:(id)arg1;
+- (void)updateResults;
+- (id)filteredAppSuggestionsSectionsForQuery:(id)arg1;
 - (id)gallerySectionForSection:(unsigned long long)arg1;
 - (void)updateRecommendedShortcuts;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;

@@ -10,7 +10,7 @@
 
 @interface AVTAvatarAssetLibrary : NSObject
 {
-    NSMutableArray *_assetsByType[12];
+    NSMutableArray *_assetsByType[13];
     NSMutableDictionary *_assets;
 }
 

@@ -41,7 +41,6 @@
     NSString *_suggestedCMMUUID;
     NSString *_keyMomentShareUUID;
     NSArray *_momentShareUUIDs;
-    _Bool _deliveredToUNC;
     NSString *_albumUUID;
     NSString *_albumCloudGUID;
     NSDate *_date;
@@ -51,7 +50,8 @@
     NSData *_thumbnailImageData;
 }
 
-@property _Bool deliveredToUNC; // @synthesize deliveredToUNC=_deliveredToUNC;
++ (id)_UNCategoryFromNotificationType:(long long)arg1;
++ (id)requestIdentifierByNotificationType:(long long)arg1 keyObjectUUID:(id)arg2;
 @property(readonly) _Bool offerToReportAsJunk; // @synthesize offerToReportAsJunk=_offerToReportAsJunk;
 @property(retain) NSData *thumbnailImageData; // @synthesize thumbnailImageData=_thumbnailImageData;
 @property(readonly) NSString *interestingMemoryUUID; // @synthesize interestingMemoryUUID=_interestingMemoryUUID;
@@ -68,6 +68,7 @@
 - (void).cxx_destruct;
 - (id)_localizedCountFormatter;
 - (_Bool)assetWithUUID:(id)arg1 didChangePlaceholderKindTo:(short)arg2 fromOldKind:(short)arg3;
+@property(readonly) NSString *requestIdentifier;
 @property(readonly) NSString *keyObjectUUID;
 - (_Bool)isCommentPiggyBackedOnPhotosAddedNotification;
 - (id)description;

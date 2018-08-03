@@ -12,6 +12,7 @@
 {
     float _alpha;
     float _rotation;
+    float _dialRadius;
     CLKUITexture *_primaryTexture;
     CLKUITexture *_secondaryTexture;
     CLKUIShader *_shader;
@@ -20,6 +21,7 @@
 }
 
 + (id)quad2DWithShader:(id)arg1;
+@property(nonatomic) float dialRadius; // @synthesize dialRadius=_dialRadius;
 @property(nonatomic) float rotation; // @synthesize rotation=_rotation;
 // Error parsing type for property sampleRadius:
 // Property attributes: T,N,V_sampleRadius

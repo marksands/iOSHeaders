@@ -136,6 +136,7 @@
 - (_Bool)isNarrowBand;
 - (_Bool)isClientRecording;
 - (id)recordSettings;
+- (id)recordDeviceInfo;
 - (id)recordRoute;
 - (void)prewarmAudioSession;
 - (_Bool)_prepareListenWithSettings:(id)arg1 error:(id *)arg2;

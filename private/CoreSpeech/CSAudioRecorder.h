@@ -80,6 +80,7 @@
 - (_Bool)_shouldRunZeroFilter;
 - (id)voiceTriggerInfo;
 - (id)playbackRoute;
+- (id)recordDeviceInfo;
 - (id)recordRoute;
 - (_Bool)isNarrowBand;
 - (float)_recordingSampleRate;

@@ -8,13 +8,14 @@
 
 #import "ATXActionPredictionInterface.h"
 
-@class ATXCacheReader, NSString, NSXPCConnection;
+@class ATXCacheReader, NSObject<OS_dispatch_queue>, NSString, NSXPCConnection;
 
 @interface ATXActionPredictionClient : NSObject <ATXActionPredictionInterface>
 {
     NSXPCConnection *_xpcConnection;
     NSString *_cacheBasePath;
     ATXCacheReader *_cacheReader;
+    NSObject<OS_dispatch_queue> *_serialQueue;
 }
 
 + (id)sharedInstance;

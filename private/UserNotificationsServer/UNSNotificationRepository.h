@@ -20,7 +20,10 @@
 @property(nonatomic) id <UNSNotificationRepositoryDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_queue_performValidation;
+- (void)_queue_performMigrationForBundleIdentifier:(id)arg1;
 - (void)_queue_performMigrationForPushStoreAtPath:(id)arg1;
+- (void)_queue_performMigrationForPushStore;
+- (void)_queue_performMigrationForUserNotificationsStore;
 - (void)_queue_performMigration;
 - (void)_logNotification:(id)arg1 forBundleIdentifier:(id)arg2;
 - (void)_queue_setBadgeValue:(id)arg1 forBundleIdentifier:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;

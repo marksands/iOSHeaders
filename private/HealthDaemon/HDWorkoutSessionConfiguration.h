@@ -11,6 +11,7 @@
 @interface HDWorkoutSessionConfiguration : NSObject
 {
     _Bool _requiresCoreLocationAssertion;
+    _Bool _supportsAppRelaunchForRecovery;
     NSUUID *_sessionIdentifier;
     HKWorkoutConfiguration *_workoutConfiguration;
     HDXPCClient *_client;
@@ -18,6 +19,7 @@
     NSString *_clientApplicationIdentifier;
 }
 
+@property(readonly, nonatomic) _Bool supportsAppRelaunchForRecovery; // @synthesize supportsAppRelaunchForRecovery=_supportsAppRelaunchForRecovery;
 @property(readonly, nonatomic) _Bool requiresCoreLocationAssertion; // @synthesize requiresCoreLocationAssertion=_requiresCoreLocationAssertion;
 @property(readonly, copy, nonatomic) NSString *clientApplicationIdentifier; // @synthesize clientApplicationIdentifier=_clientApplicationIdentifier;
 @property(readonly, copy, nonatomic) NSString *clientProcessBundleIdentifier; // @synthesize clientProcessBundleIdentifier=_clientProcessBundleIdentifier;
@@ -25,7 +27,7 @@
 @property(readonly, copy, nonatomic) HKWorkoutConfiguration *workoutConfiguration; // @synthesize workoutConfiguration=_workoutConfiguration;
 @property(readonly, copy, nonatomic) NSUUID *sessionIdentifier; // @synthesize sessionIdentifier=_sessionIdentifier;
 - (void).cxx_destruct;
-- (id)initWithSessionIdentifier:(id)arg1 workoutConfiguration:(id)arg2 client:(id)arg3 processBundleIdentifier:(id)arg4 applicationIdentifier:(id)arg5 requiresCoreLocationAssertion:(_Bool)arg6;
+- (id)initWithSessionIdentifier:(id)arg1 workoutConfiguration:(id)arg2 client:(id)arg3 processBundleIdentifier:(id)arg4 applicationIdentifier:(id)arg5 requiresCoreLocationAssertion:(_Bool)arg6 supportsAppRelaunchForRecovery:(_Bool)arg7;
 
 @end
 

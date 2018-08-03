@@ -23,6 +23,7 @@
 - (void)_layoutTitleLabelWithScale:(double)arg1;
 - (void)_layoutIconButtonsWithScale:(double)arg1;
 - (void)_configureUtilityButton;
+- (id)_ellipsisHighlightedBackgroundImage;
 - (void)_updateUtilityButtonVibrantStyling;
 - (void)_updateUtilityButtonFont;
 - (void)setDateFormatStyle:(long long)arg1;

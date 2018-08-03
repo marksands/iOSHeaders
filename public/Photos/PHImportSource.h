@@ -10,11 +10,11 @@
 
 @interface PHImportSource : PHImportExceptionRecorder
 {
+    unsigned char _sourceAccessState;
     _Bool _rampBatchInterval;
     _Bool _open;
     _Bool _canShowProgress;
     _Bool _deleteContentAllowed;
-    unsigned char _sourceAccessState;
     NSString *_uuid;
     unsigned long long _batchSize;
     double _batchInterval;
@@ -49,7 +49,6 @@
 }
 
 + (id)baseFileNameByRemovingRenderMarkerInFileName:(id)arg1;
-@property(nonatomic) unsigned char sourceAccessState; // @synthesize sourceAccessState=_sourceAccessState;
 @property(nonatomic) long long assetLoadOrder; // @synthesize assetLoadOrder=_assetLoadOrder;
 @property(retain, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(retain, nonatomic) NSMutableArray *assets; // @synthesize assets=_assets;
@@ -81,6 +80,7 @@
 @property(nonatomic) unsigned long long inFlight; // @synthesize inFlight=_inFlight;
 @property(nonatomic) unsigned long long nextItemIndex; // @synthesize nextItemIndex=_nextItemIndex;
 @property(nonatomic) unsigned long long currentItemIndex; // @synthesize currentItemIndex=_currentItemIndex;
+@property(nonatomic) unsigned char sourceAccessState; // @synthesize sourceAccessState=_sourceAccessState;
 @property(nonatomic) __weak id <PHImportSourceDelegate> delegate; // @synthesize delegate=_delegate;
 @property(readonly, nonatomic) NSString *uuid; // @synthesize uuid=_uuid;
 - (void).cxx_destruct;

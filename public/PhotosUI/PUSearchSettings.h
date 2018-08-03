@@ -8,14 +8,20 @@
 
 @interface PUSearchSettings : PXSettings
 {
+    _Bool _showAssetCountForSuggestions;
     _Bool _showKeyboardForZeroKeywords;
+    _Bool _shouldWaitForZeroKeywords;
     _Bool _alwaysTrySiriSearch;
+    double _maximumZeroKeywordsWaitDuration;
 }
 
 + (id)settingsControllerModule;
 + (id)sharedInstance;
 @property(nonatomic) _Bool alwaysTrySiriSearch; // @synthesize alwaysTrySiriSearch=_alwaysTrySiriSearch;
+@property(nonatomic) double maximumZeroKeywordsWaitDuration; // @synthesize maximumZeroKeywordsWaitDuration=_maximumZeroKeywordsWaitDuration;
+@property(nonatomic) _Bool shouldWaitForZeroKeywords; // @synthesize shouldWaitForZeroKeywords=_shouldWaitForZeroKeywords;
 @property(nonatomic) _Bool showKeyboardForZeroKeywords; // @synthesize showKeyboardForZeroKeywords=_showKeyboardForZeroKeywords;
+@property(nonatomic) _Bool showAssetCountForSuggestions; // @synthesize showAssetCountForSuggestions=_showAssetCountForSuggestions;
 - (void)setDefaultValues;
 - (id)parentSettings;
 

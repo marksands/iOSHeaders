@@ -7,6 +7,7 @@
 @class CTXPCServiceSubscriptionContext, NSData, NSDictionary, NSString;
 
 @protocol CTXPCServiceSubscriberInterface
+- (void)setAllowedToLaunchSimUnlockDuringBuddy:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
 - (void)SIMUnlockProcedureDidComplete;
 - (void)setActiveUserDataSelection:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)setDefaultVoice:(CTXPCServiceSubscriptionContext *)arg1 completion:(void (^)(NSError *))arg2;

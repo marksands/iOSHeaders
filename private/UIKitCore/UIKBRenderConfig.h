@@ -8,7 +8,6 @@
 
 #import "NSCopying.h"
 
-__attribute__((visibility("hidden")))
 @interface UIKBRenderConfig : NSObject <NSCopying>
 {
     _Bool _useEmojiStyles;

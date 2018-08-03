@@ -21,7 +21,7 @@
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updateLastSeenDateOfCurrentGadgets;
 - (void)_updateDataSourceRangesOfCurrentGadgets;
-- (void)_inboxLastSeenDateDidChange:(id)arg1;
+- (void)_lastExitedForYouDateDidChange:(id)arg1;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_updateGadgets;
 - (void)loadDataForGadgets;

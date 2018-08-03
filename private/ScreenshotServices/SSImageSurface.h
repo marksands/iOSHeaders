@@ -13,8 +13,12 @@
 @interface SSImageSurface : NSObject <BSXPCCoding>
 {
     UIImage *_backingSurface;
+    double _scale;
+    long long _orientation;
 }
 
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
+@property(nonatomic) double scale; // @synthesize scale=_scale;
 @property(retain, nonatomic) UIImage *backingSurface; // @synthesize backingSurface=_backingSurface;
 - (void).cxx_destruct;
 - (id)initWithXPCDictionary:(id)arg1;

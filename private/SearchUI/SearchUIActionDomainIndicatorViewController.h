@@ -6,7 +6,7 @@
 
 #import <SearchUI/SearchUIAccessoryViewController.h>
 
-@class UIImageView;
+@class SearchUIImageView;
 
 @interface SearchUIActionDomainIndicatorViewController : SearchUIAccessoryViewController
 {
@@ -19,7 +19,7 @@
 - (id)setupViewWithStyle:(unsigned long long)arg1;
 
 // Remaining properties
-@property(retain) UIImageView *view; // @dynamic view;
+@property(retain) SearchUIImageView *view; // @dynamic view;
 
 @end
 

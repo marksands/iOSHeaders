@@ -6,16 +6,31 @@
 
 #import "UINavigationBar.h"
 
-@interface CPSNavigationBar : UINavigationBar
+#import "CPSLinearFocusProviding.h"
+
+@class NSMapTable, NSString;
+
+@interface CPSNavigationBar : UINavigationBar <CPSLinearFocusProviding>
 {
+    NSMapTable *_lastFocusedItems;
     id <UIFocusItem> _lastFocusedItem;
 }
 
 @property(nonatomic) __weak id <UIFocusItem> lastFocusedItem; // @synthesize lastFocusedItem=_lastFocusedItem;
+@property(retain, nonatomic) NSMapTable *lastFocusedItems; // @synthesize lastFocusedItems=_lastFocusedItems;
 - (void).cxx_destruct;
-- (void)didMoveToSuperview;
+- (id)_linearFocusItems;
 - (id)preferredFocusEnvironments;
+- (id)popNavigationItemAnimated:(_Bool)arg1;
 - (void)didUpdateFocusInContext:(id)arg1 withAnimationCoordinator:(id)arg2;
+- (void)didMoveToSuperview;
+- (id)initWithFrame:(struct CGRect)arg1;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

@@ -75,6 +75,7 @@
 + (id)_imageForBarColor:(id)arg1 backgroundColor:(id)arg2 stripeColor:(id)arg3 stripedImageAlpha:(double)arg4 colorBarStyle:(long long)arg5;
 + (id)_imageForBarColor:(id)arg1 backgroundColor:(id)arg2 colorBarStyle:(long long)arg3;
 + (id)_cachedLocationForEventID:(id)arg1;
++ (void)_clearCacheForEventID:(id)arg1;
 + (void)_cacheLocation:(id)arg1 forEventID:(id)arg2;
 + (id)_recentlyDisplayedLocations;
 + (id)imageForExternalDragOperationFromEvent:(id)arg1;

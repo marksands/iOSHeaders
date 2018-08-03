@@ -16,6 +16,7 @@
 
 + (id)cloudUUIDKeyForDeletion;
 + (long long)cloudDeletionTypeForTombstone:(id)arg1;
++ (unsigned long long)deleteAllMomentShareSuggestionsInManagedObjectContext:(id)arg1;
 + (unsigned long long)deletePendingSuggestionsCreatedBefore:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)_suggestionsMatchingPredicate:(id)arg1 sortDescriptors:(id)arg2 limit:(long long)arg3 inManagedObjectContext:(id)arg4;
 + (id)suggestionsToPrefetchInManagedObjectContext:(id)arg1;
@@ -41,9 +42,11 @@
 - (_Bool)isEmpty;
 - (void)removeRepresentativeAsset:(id)arg1;
 - (void)replaceKeyAsset:(id)arg1;
-- (void)updateCachedCount:(id)arg1;
+- (void)updateCachedCounts:(id)arg1;
 - (void)updateStartAndEndDate;
 - (_Bool)isPending;
+- (void)delete;
+- (void)willSave;
 - (void)prepareForDeletion;
 - (id)mutableRepresentativeAssets;
 - (id)mutableKeyAssets;
@@ -52,6 +55,8 @@
 @property(retain, nonatomic) NSData *actionData; // @dynamic actionData;
 @property(retain, nonatomic) NSDate *activationDate; // @dynamic activationDate;
 @property(nonatomic) int cachedCount; // @dynamic cachedCount;
+@property(nonatomic) int cachedPhotosCount; // @dynamic cachedPhotosCount;
+@property(nonatomic) int cachedVideosCount; // @dynamic cachedVideosCount;
 @property(nonatomic) short cloudDeleteState; // @dynamic cloudDeleteState;
 @property(nonatomic) short cloudLocalState; // @dynamic cloudLocalState;
 @property(retain, nonatomic) NSDate *creationDate; // @dynamic creationDate;

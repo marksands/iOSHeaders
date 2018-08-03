@@ -7,5 +7,8 @@
 #import "NSObject.h"
 
 @protocol HKHealthPrivacyServicePromptController <NSObject>
+
+@optional
+- (_Bool)shouldPresent;
 @end
 

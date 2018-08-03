@@ -20,6 +20,7 @@
 - (_Bool)_isPassCatalogItemFromRecordType:(id)arg1;
 - (_Bool)_isPassItemFromRecordType:(id)arg1;
 - (_Bool)_canInitializeContainer;
+- (void)cloudStoreAccountChanged:(id)arg1;
 - (void)readCachedContainerValues;
 - (void)saveCachedContainerValues;
 - (void)updateCloudStoreWithLocalItems:(id)arg1 recordSpecificKeys:(id)arg2 completion:(CDUnknownBlockType)arg3;

@@ -6,26 +6,24 @@
 
 #import <NewsCore/FCOperation.h>
 
-@class NSArray, NSData, NSObject, NTPBTodayConfig;
+@class NSArray, NSData, NTPBTodayConfig;
 
 @interface FCTodayConfigConversionOperation : FCOperation
 {
     NSData *_widgetConfigData;
     id <FCCoreConfiguration> _configuration;
     id <FCContentContext> _context;
-    CDUnknownBlockType _todayConfigCompletionHandlerWithInterest;
+    CDUnknownBlockType _todayConfigCompletionHandler;
     NTPBTodayConfig *_resultTodayConfig;
-    NSObject *_resultInterestToken;
     NSArray *_networkEvents;
 }
 
 @property(copy, nonatomic) NSArray *networkEvents; // @synthesize networkEvents=_networkEvents;
-@property(copy, nonatomic) NSObject *resultInterestToken; // @synthesize resultInterestToken=_resultInterestToken;
 @property(copy, nonatomic) NTPBTodayConfig *resultTodayConfig; // @synthesize resultTodayConfig=_resultTodayConfig;
-@property(copy, nonatomic) CDUnknownBlockType todayConfigCompletionHandlerWithInterest; // @synthesize todayConfigCompletionHandlerWithInterest=_todayConfigCompletionHandlerWithInterest;
+@property(copy, nonatomic) CDUnknownBlockType todayConfigCompletionHandler; // @synthesize todayConfigCompletionHandler=_todayConfigCompletionHandler;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
-@property(copy) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
-@property(copy) NSData *widgetConfigData; // @synthesize widgetConfigData=_widgetConfigData;
+@property(copy, nonatomic) id <FCCoreConfiguration> configuration; // @synthesize configuration=_configuration;
+@property(retain, nonatomic) NSData *widgetConfigData; // @synthesize widgetConfigData=_widgetConfigData;
 - (void).cxx_destruct;
 - (void)_collectRecordIDsReferencedBySectionConfig:(id)arg1 withArticleListIDs:(id)arg2 articleIDs:(id)arg3;
 - (void)operationWillFinishWithError:(id)arg1;

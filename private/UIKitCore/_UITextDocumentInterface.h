@@ -26,6 +26,7 @@ __attribute__((visibility("hidden")))
 - (void)_setInputModeList:(long long)arg1 touchBegan:(double)arg2 fromLocation:(struct CGPoint)arg3 updatePoint:(struct CGPoint)arg4;
 - (void)_setHasDictation:(_Bool)arg1;
 - (void)_setShouldAdvanceInputMode;
+- (void)_setProceedShouldReturnIfPossibleForASP;
 - (void)_setShouldDismiss;
 - (void)_setPrimaryLanguage:(id)arg1;
 - (void)_didPerformOutputOperation;

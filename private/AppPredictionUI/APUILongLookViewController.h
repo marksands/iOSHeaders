@@ -30,6 +30,7 @@
 @property(nonatomic) __weak id <PLPreviewInteractionPresenting> presenter; // @synthesize presenter=_presenter;
 - (void).cxx_destruct;
 - (id)expandedPlatterViewForPresentationView:(id)arg1;
+- (void)_platterUtilityButtonTapped:(id)arg1;
 - (void)_platterDidReceiveTap:(id)arg1;
 - (void)setExpandedPlatterSize:(struct CGSize)arg1;
 - (void)_setActions:(id)arg1;

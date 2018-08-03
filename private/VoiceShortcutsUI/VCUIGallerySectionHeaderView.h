@@ -6,7 +6,7 @@
 
 #import "UITableViewHeaderFooterView.h"
 
-@class NSString, UIButton, UILabel;
+@class NSLayoutConstraint, NSString, UIButton, UILabel;
 
 @interface VCUIGallerySectionHeaderView : UITableViewHeaderFooterView
 {
@@ -14,8 +14,10 @@
     UIButton *_seeAllButton;
     UILabel *_titleLabel;
     NSString *_applicationBundleIdentifier;
+    NSLayoutConstraint *_seeAllButtonHeightConstraint;
 }
 
+@property(retain, nonatomic) NSLayoutConstraint *seeAllButtonHeightConstraint; // @synthesize seeAllButtonHeightConstraint=_seeAllButtonHeightConstraint;
 @property(copy, nonatomic) NSString *applicationBundleIdentifier; // @synthesize applicationBundleIdentifier=_applicationBundleIdentifier;
 @property(copy, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(nonatomic) __weak UIButton *seeAllButton; // @synthesize seeAllButton=_seeAllButton;

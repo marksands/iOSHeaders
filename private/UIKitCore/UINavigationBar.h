@@ -224,6 +224,7 @@
 - (_Bool)_contentHuggingDefault_isUsuallyFixedHeight;
 - (void)layoutMarginsDidChange;
 - (struct NSDirectionalEdgeInsets)_resolvedLayoutMargins;
+- (_Bool)_heightDependentOnOrientation;
 - (CDStruct_c3b9c2ee)_heightRangeForNavigationItem:(id)arg1 fittingWidth:(double)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) long long currentContentSize;

@@ -18,6 +18,7 @@
     _Bool _shouldHideDate;
     _Bool _shouldHideTime;
     _Bool _shouldIgnoreDoNotDisturb;
+    _Bool _shouldIgnoreDowntime;
     _Bool _shouldIgnoreRingerSwitch;
     _Bool _shouldSuppressScreenLightUp;
     _Bool _shouldPlaySound;
@@ -30,7 +31,8 @@
     _Bool _shouldUseRequestIdentifierForDismissalSync;
     _Bool _allowsDefaultDestinations;
     _Bool _allowsAlertDestination;
-    _Bool _allowsListDestination;
+    _Bool _allowsLockScreenDestination;
+    _Bool _allowsNotificationCenterDestination;
     _Bool _allowsCarPlayDestination;
     _Bool _triggerRepeats;
     NSArray *_attachments;
@@ -100,7 +102,8 @@
 @property(copy, nonatomic) NSDateComponents *triggerDateComponents; // @synthesize triggerDateComponents=_triggerDateComponents;
 @property(copy, nonatomic) NSDate *triggerDate; // @synthesize triggerDate=_triggerDate;
 @property(nonatomic) _Bool allowsCarPlayDestination; // @synthesize allowsCarPlayDestination=_allowsCarPlayDestination;
-@property(nonatomic) _Bool allowsListDestination; // @synthesize allowsListDestination=_allowsListDestination;
+@property(nonatomic) _Bool allowsNotificationCenterDestination; // @synthesize allowsNotificationCenterDestination=_allowsNotificationCenterDestination;
+@property(nonatomic) _Bool allowsLockScreenDestination; // @synthesize allowsLockScreenDestination=_allowsLockScreenDestination;
 @property(nonatomic) _Bool allowsAlertDestination; // @synthesize allowsAlertDestination=_allowsAlertDestination;
 @property(nonatomic) _Bool allowsDefaultDestinations; // @synthesize allowsDefaultDestinations=_allowsDefaultDestinations;
 @property(copy, nonatomic) NSSet *topicIdentifiers; // @synthesize topicIdentifiers=_topicIdentifiers;
@@ -130,6 +133,7 @@
 @property(nonatomic) _Bool shouldPlaySound; // @synthesize shouldPlaySound=_shouldPlaySound;
 @property(nonatomic) _Bool shouldSuppressScreenLightUp; // @synthesize shouldSuppressScreenLightUp=_shouldSuppressScreenLightUp;
 @property(nonatomic) _Bool shouldIgnoreRingerSwitch; // @synthesize shouldIgnoreRingerSwitch=_shouldIgnoreRingerSwitch;
+@property(nonatomic) _Bool shouldIgnoreDowntime; // @synthesize shouldIgnoreDowntime=_shouldIgnoreDowntime;
 @property(nonatomic) _Bool shouldIgnoreDoNotDisturb; // @synthesize shouldIgnoreDoNotDisturb=_shouldIgnoreDoNotDisturb;
 @property(nonatomic) _Bool shouldHideTime; // @synthesize shouldHideTime=_shouldHideTime;
 @property(nonatomic) _Bool shouldHideDate; // @synthesize shouldHideDate=_shouldHideDate;

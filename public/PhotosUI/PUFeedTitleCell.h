@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
 - (void)_handleTap:(id)arg1;
 - (struct CGSize)_performLayoutInRect:(struct CGRect)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)_updateHeaderTextColorStyle;
+- (void)prepareForReuse;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;

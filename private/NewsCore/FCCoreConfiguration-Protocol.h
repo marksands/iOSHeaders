@@ -64,6 +64,8 @@
 - (FCPersonalizationTreatment *)personalizationTreatmentForFeldsparID:(NSString *)arg1;
 
 @optional
+@property(readonly, nonatomic) double delayBeforeRetryingDroppedFeeds;
+@property(readonly, nonatomic) long long maxRetriesForDroppedFeeds;
 @property(readonly, nonatomic) _Bool isSpecialEventsMicaAnimationDisabled;
 @property(readonly, nonatomic) long long singleChannelFeedMinFeedItemsPerRequest;
 @property(readonly, nonatomic) long long singleTopicFeedMinFeedItemsPerRequest;

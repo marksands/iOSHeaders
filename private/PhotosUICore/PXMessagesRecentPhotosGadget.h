@@ -12,7 +12,7 @@
 
 @interface PXMessagesRecentPhotosGadget : NSObject <PXGadget>
 {
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     PXGadgetSpec *_gadgetSpec;
     UIViewController<PXPhotoLibraryPresenting> *_recentPhotosViewController;
@@ -23,7 +23,7 @@
 @property(retain, nonatomic) UIViewController<PXPhotoLibraryPresenting> *recentPhotosViewController; // @synthesize recentPhotosViewController=_recentPhotosViewController;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 - (void)userDidSelectAccessoryButton:(id)arg1;
 - (void)loadContentData;
@@ -39,6 +39,7 @@
 @property(readonly, nonatomic) NSString *localizedTitle;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

@@ -27,6 +27,7 @@
 - (void).cxx_destruct;
 - (id)_sortDescriptors;
 - (id)_calculateUsageFromDate:(id)arg1 endDate:(id)arg2 stats:(id)arg3;
+- (id)_calculateRawUsageFromDate:(id)arg1 endDate:(id)arg2 stats:(id)arg3;
 - (id)_calcluateUsageFromDate:(id)arg1 endDate:(id)arg2 bundleIDs:(id)arg3;
 - (void)_calculateUsageForDurationInDays:(double)arg1 bundleIDs:(id)arg2;
 - (id)calcluateUsageFromDate:(id)arg1 endDate:(id)arg2 bundleIDs:(id)arg3;

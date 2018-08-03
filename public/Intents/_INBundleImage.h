@@ -21,6 +21,12 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
+- (void)_setBundleIdentifier:(id)arg1;
+- (id)_bundleIdentifier;
+- (void)_setBundlePath:(id)arg1;
+- (id)_bundlePath;
+- (void)_setName:(id)arg1;
+- (id)_name;
 - (id)_copyWithSubclass:(Class)arg1;
 - (id)_dictionaryRepresentation;
 - (_Bool)_requiresRetrieval;

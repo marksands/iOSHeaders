@@ -27,6 +27,7 @@
 - (id)sourceDeviceIdentityWithError:(id *)arg1;
 - (id)sourceDeviceIdentityFromObject:(id)arg1 error:(id *)arg2;
 - (_Bool)deleteRemoteState:(id *)arg1;
+- (void)synchronizeWithUrgency:(unsigned long long)arg1 client:(id)arg2 responseQueue:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (_Bool)synchronizeWithUrgency:(unsigned long long)arg1 client:(id)arg2 error:(id *)arg3;
 - (_Bool)synchronizeWithError:(id *)arg1;
 - (id)executeQuery:(id)arg1 error:(id *)arg2;

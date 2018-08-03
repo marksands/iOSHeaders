@@ -16,6 +16,7 @@
     PXRoundedCornerOverlayView *_roundedCornerOverlayView;
     UIFont *_titleFont;
     UIFont *_titleBoldFont;
+    _Bool _containsUnverifiedPersons;
     PXCMMPosterHeaderView *_headerView;
     NSArray *_names;
     NSString *_subtitle;
@@ -25,6 +26,7 @@
 + (double)faceTileImageDiameter;
 @property(copy, nonatomic) UIColor *opaqueAncestorBackgroundColor; // @synthesize opaqueAncestorBackgroundColor=_opaqueAncestorBackgroundColor;
 @property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(nonatomic) _Bool containsUnverifiedPersons; // @synthesize containsUnverifiedPersons=_containsUnverifiedPersons;
 @property(copy, nonatomic) NSArray *names; // @synthesize names=_names;
 @property(readonly, nonatomic) PXCMMPosterHeaderView *headerView; // @synthesize headerView=_headerView;
 - (void).cxx_destruct;

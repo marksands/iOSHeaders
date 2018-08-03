@@ -15,7 +15,7 @@
     PXUpdater *_updater;
     PXCMMPosterHeaderView *_posterHeaderView;
     PXRoundedCornerOverlayView *_roundedOverlayView;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     unsigned long long _accessoryButtonType;
     PXGadgetSpec *_gadgetSpec;
@@ -28,7 +28,7 @@
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType; // @synthesize accessoryButtonType=_accessoryButtonType;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)userDidSelectGadget;
@@ -47,6 +47,7 @@
 - (id)initWithCoder:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

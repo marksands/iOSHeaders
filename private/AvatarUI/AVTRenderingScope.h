@@ -18,6 +18,7 @@
     AVTAvatarPose *_pose;
 }
 
++ (double)extraMagnifyingFactorForFramingMode:(id)arg1;
 + (double)thumbnailHeightRatioForFramingMode:(id)arg1;
 + (double)widthForRenderingType:(long long)arg1 options:(unsigned long long)arg2;
 + (unsigned long long)scopeOptionsForEnvironment:(id)arg1;

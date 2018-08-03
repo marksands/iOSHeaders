@@ -11,6 +11,10 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)variantDeleteIncrement;
++ (void)showVariantsIncrement;
++ (void)letterCaseToggleIncrement;
++ (void)keyboardSupportsTouch:(_Bool)arg1;
 + (void)signupPasswordFromKeyboardIncrement;
 + (void)signupPasswordFromAutofillIncrement;
 + (void)loginPasswordFromKeyboardIncrement;

@@ -15,13 +15,16 @@
     _Bool _contentHidden;
     _Bool _blursDegradedContent;
     _Bool _contentViewVisible;
+    unsigned short _suggestionType;
     PXGadgetSpec *_gadgetSpec;
-    unsigned long long _priority;
+    long long _priority;
     id <PXForYouSuggestionGadgetDelegate> _delegate;
     id <PXDisplaySuggestion> _suggestion;
     PXUIMediaProvider *_mediaProvider;
     id <PXDisplayAsset> _keyAsset;
     PXForYouSuggestionGadgetContentView *_contentView;
+    NSString *_title;
+    NSString *_subtitle;
     struct CGSize _cachedHeightForWidth;
     struct CGRect _visibleContentRect;
 }
@@ -29,6 +32,9 @@
 + (id)fetchQueue;
 + (void)preloadResources;
 + (id)placeholderFilters;
+@property(nonatomic) unsigned short suggestionType; // @synthesize suggestionType=_suggestionType;
+@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) _Bool contentViewVisible; // @synthesize contentViewVisible=_contentViewVisible;
 @property(retain, nonatomic) PXForYouSuggestionGadgetContentView *contentView; // @synthesize contentView=_contentView;
 @property(nonatomic) struct CGSize cachedHeightForWidth; // @synthesize cachedHeightForWidth=_cachedHeightForWidth;
@@ -39,7 +45,7 @@
 @property(retain, nonatomic) id <PXDisplaySuggestion> suggestion; // @synthesize suggestion=_suggestion;
 @property(nonatomic) struct CGRect visibleContentRect; // @synthesize visibleContentRect=_visibleContentRect;
 @property(nonatomic) __weak id <PXForYouSuggestionGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (void)_updateKeyAsset;
@@ -47,6 +53,8 @@
 - (void)_markSuggestionAsActive;
 - (void)_handleDismiss;
 - (void)_handleContentViewTap:(id)arg1;
+- (id)_contentViewIfLoaded;
+- (void)_updateTitleAndSubtitle;
 - (void)_updateContentViewMode;
 - (void)didDismissPreviewViewController:(id)arg1 committing:(_Bool)arg2;
 - (void)commitPreviewViewController:(id)arg1;
@@ -63,11 +71,13 @@
 @property(readonly, nonatomic) UIImage *currentImage;
 @property(readonly, nonatomic) PXRegionOfInterest *regionOfInterestForOneUpTransition;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)dealloc;
 - (id)initWithSuggestion:(id)arg1;
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, copy) NSString *debugDescription;

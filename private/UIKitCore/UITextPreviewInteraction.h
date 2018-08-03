@@ -17,7 +17,7 @@ __attribute__((visibility("hidden")))
 - (void).cxx_destruct;
 - (void)_resetForLink;
 - (_Bool)shouldAllowWithTouchTypes:(id)arg1 atPoint:(struct CGPoint)arg2 toBegin:(_Bool)arg3;
-- (void)willMoveToView:(id)arg1;
+- (void)didMoveToView:(id)arg1;
 - (_Bool)doesControlDelegate;
 
 @end

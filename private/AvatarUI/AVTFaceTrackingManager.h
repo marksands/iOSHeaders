@@ -8,10 +8,11 @@
 
 #import "AVTUIRaiseGestureManagerDelegate.h"
 #import "AVTViewFaceTrackingDelegate.h"
+#import "FBSDisplayLayoutObserver.h"
 
 @class AVTUIEnvironment, AVTUIRaiseGestureManager, AVTUserInfoView, AVTView, NSString, NSTimer;
 
-@interface AVTFaceTrackingManager : NSObject <AVTViewFaceTrackingDelegate, AVTUIRaiseGestureManagerDelegate>
+@interface AVTFaceTrackingManager : NSObject <AVTViewFaceTrackingDelegate, AVTUIRaiseGestureManagerDelegate, FBSDisplayLayoutObserver>
 {
     _Bool _faceTrackingManagementPaused;
     _Bool _shouldRecheckLowLightState;
@@ -22,9 +23,11 @@
     NSTimer *_lowLightLockoutTimer;
     NSTimer *_trackingLostMessageTimer;
     NSTimer *_pauseTrackingTimer;
+    unsigned long long _interruptionType;
 }
 
 + (double)desiredUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1;
+@property(nonatomic) unsigned long long interruptionType; // @synthesize interruptionType=_interruptionType;
 @property(retain, nonatomic) NSTimer *pauseTrackingTimer; // @synthesize pauseTrackingTimer=_pauseTrackingTimer;
 @property(retain, nonatomic) NSTimer *trackingLostMessageTimer; // @synthesize trackingLostMessageTimer=_trackingLostMessageTimer;
 @property(nonatomic) _Bool shouldRecheckLowLightState; // @synthesize shouldRecheckLowLightState=_shouldRecheckLowLightState;
@@ -35,6 +38,7 @@
 @property(readonly, nonatomic) AVTUserInfoView *userInfoView; // @synthesize userInfoView=_userInfoView;
 @property(nonatomic) _Bool faceTrackingManagementPaused; // @synthesize faceTrackingManagementPaused=_faceTrackingManagementPaused;
 - (void).cxx_destruct;
+- (void)layoutMonitor:(id)arg1 didUpdateDisplayLayout:(id)arg2 withContext:(id)arg3;
 - (void)raiseGestureManagerDidRecognizeRaiseGesture:(id)arg1;
 - (void)avatarViewFaceTrackingSessionInterruptionDidEnd:(id)arg1;
 - (void)avatarViewFaceTrackingSessionInterruptionDidBegin:(id)arg1;
@@ -43,6 +47,7 @@
 - (void)cancelLowLightTimer;
 - (void)avatarView:(id)arg1 didUpdateWithFaceTrackingStatus:(_Bool)arg2;
 - (id)userInfoStringForCurrentTrackingState;
+- (void)updateForPausingTrackingWithLabel:(_Bool)arg1;
 - (void)updateForPausingTracking;
 - (void)updateForTrackingLost;
 - (void)startTrackingLostTimers;
@@ -50,8 +55,9 @@
 - (void)updateUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)updateUserInfoLabelAlphaForFaceTrackingState:(_Bool)arg1;
 - (void)resetForResumingTrackingAnimated:(_Bool)arg1;
-- (void)resetForFaceIsTrackedAnimated:(_Bool)arg1;
+- (void)resetForTrackingFoundAFaceAnimated:(_Bool)arg1;
 - (void)updateUserInfoBackdropForCurrentLabel;
+- (void)updateInterruptionTypeIfNeeded:(unsigned long long)arg1;
 - (void)resumeFaceTrackingIfNeededAnimated:(_Bool)arg1;
 - (void)tearDown;
 - (void)dealloc;

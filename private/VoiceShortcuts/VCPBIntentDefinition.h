@@ -33,9 +33,6 @@
 - (unsigned long long)filesCount;
 - (void)addFiles:(id)arg1;
 - (void)clearFiles;
-- (id)checksum;
-- (id)syncStateObject;
-- (double)associatedAppRegistrationDate;
 
 @end
 

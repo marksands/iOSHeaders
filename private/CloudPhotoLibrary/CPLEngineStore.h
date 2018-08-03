@@ -31,6 +31,7 @@
     _Bool _unschedulePendingUpdateApplyOnWriteSuccess;
     _Bool _schedulePendingUpdateApplyOnWriteSuccess;
     _Bool _scheduleSetupOnWriteSuccess;
+    _Bool _scheduleDisabledFeatureUpdateOnWriteSuccess;
     _Bool _schedulePullFromClient;
     NSObject<OS_dispatch_queue> *_shouldSyncScopeListQueue;
     _Bool _shouldEnableScopeListSyncOnWriteSuccess;
@@ -38,6 +39,7 @@
     _Bool _hasUpdatedDisabledFeatures;
     _Bool _isUpdatingDisabledFeatures;
     _Bool _shouldTriggerCompleteResetSyncAfterDisabledFeaturesUpdate;
+    _Bool _shouldTriggerResetSyncAfterDisabledFeaturesUpdate;
     _Bool _shouldSyncScopeList;
     CPLPlatformObject *_platformObject;
     CPLEngineLibrary *_engineLibrary;
@@ -94,8 +96,9 @@
 @property(readonly, copy) NSString *description;
 - (_Bool)setShouldUpdateDisabledFeaturesWithError:(id *)arg1;
 @property(readonly, nonatomic) _Bool shouldUpdateDisabledFeatures;
+@property(readonly, nonatomic) NSArray *disabledFeatures;
 - (_Bool)isFeatureDisabled:(id)arg1;
-- (_Bool)updateDisabledFeatures:(id)arg1 error:(id *)arg2;
+- (_Bool)updateDisabledFeatures:(id)arg1 didReset:(_Bool *)arg2 error:(id *)arg3;
 - (id)_storedDisabledFeatures;
 - (id)unacknowledgedChangeWithLocalScopedIdentifier:(id)arg1;
 - (void)dropUnacknowledgedBatch;

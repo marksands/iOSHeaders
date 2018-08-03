@@ -15,7 +15,7 @@
 + (id)fiui_supportedGoalTypesForActivityType:(id)arg1;
 + (id)fiui_supportedMetricsForActivityType:(id)arg1;
 + (double)fiui_weightedAverageHeartRateWithSamples:(id)arg1 startDate:(id)arg2 endDate:(id)arg3;
-- (id)fiui_splitsFromDistanceSamples:(id)arg1 distanceInMetersPerSplit:(double)arg2;
+- (id)fiui_splitsFromDistanceSamples:(id)arg1 distanceInMetersPerSplit:(double)arg2 workoutStartDate:(id)arg3;
 - (long long)fiui_strokeStyle;
 - (long long)fiui_swimmingLocationType;
 - (id)fiui_lapLength;

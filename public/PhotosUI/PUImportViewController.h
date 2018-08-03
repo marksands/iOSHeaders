@@ -23,11 +23,10 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPopoverPresentationControllerDelegate.h"
 
-@class NSLayoutConstraint, NSMutableSet, NSNumber, NSProgress, NSString, NSTimer, PHImportSource, PLRoundProgressView, PUImportActionCoordinator, PUImportAddToAlbumsPickerViewController, PUImportAddToAlbumsToolbarView, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSelectionSnapshot, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
+@class NSLayoutConstraint, NSMutableSet, NSNumber, NSProgress, NSString, PHImportSource, PLRoundProgressView, PUImportActionCoordinator, PUImportAddToAlbumsPickerViewController, PUImportAddToAlbumsToolbarView, PUImportAssetsDataSource, PUImportAssetsDataSourceManager, PUImportChangeDetailsCollectionViewHelper, PUImportController, PUImportCustomViewBarButton, PUImportFakePhotosDataSource, PUImportFloatingToolbarView, PUImportHistorySectionHeaderView, PUImportSessionInfo, PUPhotosGridViewControllerSpec, PXNavigationTitleView, PXSelectionSnapshot, PXSwipeSelectionManager, UIBarButtonItem, UILabel, UITapGestureRecognizer;
 
 @interface PUImportViewController : PUPhotosGridViewController <PUSectionedGridLayoutDelegate, PUImportActionCoordinatorDelegate, PUImportAlbumPickerDelegate, PUImportAssetsDataSourceManagerObserver, PUImportControllerImportCompletionDelegate, PUImportControllerNotificationsReceiver, PUImportHistorySectionHeaderViewDelegate, PUImportOneUpTransitioning, PUImportSectionedGridLayoutDelegate, PXSettingsKeyObserver, PUImportDisplayDelegate, PXChangeObserver, PXSwipeSelectionManagerDelegate, PUImportAddToAlbumsToolbarViewDelegate, UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate>
 {
-    _Bool _readingImportItems;
     _Bool _completedAnImport;
     PUImportSessionInfo *_completedImportSessionInfo;
     struct __CFUserNotification *_importCompleteNotification;
@@ -55,15 +54,12 @@
     _Bool _needsDataReloadAfterAnimatingDataSourceChange;
     _Bool _transitioningToNewSize;
     _Bool _viewAppearing;
-    _Bool _hasLoadedInitialBatchOfAssets;
-    _Bool _isLoadingInitialBatchOfAssets;
     _Bool _performingAlbumPickerPresentation;
     _Bool _userWantsAlreadyImportedSectionCollapsedIfPossible;
     _Bool _shouldCollapseAlreadyImportedSection;
     _Bool _userHasScrolled;
     _Bool _shouldStayScrolledToBottom;
     _Bool _animateHeaderActionButtonChanges;
-    _Bool _needsContentInsetUpdateForCompactWidthToolbar;
     _Bool _isPeeking;
     PUPhotosGridViewControllerSpec *__spec;
     double __collectionViewLayoutReferenceWidth;
@@ -76,7 +72,6 @@
     PUImportAssetsDataSourceManager *_unfilteredImportDataSourceManager;
     PUImportAssetsDataSource *_pendingDataSource;
     PUImportChangeDetailsCollectionViewHelper *_changeDetailsHelper;
-    NSTimer *_initialBatchOfAssetsTimer;
     PUImportFakePhotosDataSource *_fakePhotosDataSource;
     PUImportActionCoordinator *_actionCoordinator;
     PXNavigationTitleView *_navigationTitleView;
@@ -109,7 +104,6 @@
 @property(retain, nonatomic) PUImportCustomViewBarButton *compactWidthAlbumPickerButton; // @synthesize compactWidthAlbumPickerButton=_compactWidthAlbumPickerButton;
 @property(retain, nonatomic) PXNavigationTitleView *compactWidthAlbumPickerBarButtonView; // @synthesize compactWidthAlbumPickerBarButtonView=_compactWidthAlbumPickerBarButtonView;
 @property(retain, nonatomic) PXNavigationTitleView *contentInfoBarButtonView; // @synthesize contentInfoBarButtonView=_contentInfoBarButtonView;
-@property(nonatomic) _Bool needsContentInsetUpdateForCompactWidthToolbar; // @synthesize needsContentInsetUpdateForCompactWidthToolbar=_needsContentInsetUpdateForCompactWidthToolbar;
 @property(retain, nonatomic) NSLayoutConstraint *compactWidthToolbarTopConstraint; // @synthesize compactWidthToolbarTopConstraint=_compactWidthToolbarTopConstraint;
 @property(retain, nonatomic) PUImportFloatingToolbarView *compactWidthToolbar; // @synthesize compactWidthToolbar=_compactWidthToolbar;
 @property(nonatomic) _Bool animateHeaderActionButtonChanges; // @synthesize animateHeaderActionButtonChanges=_animateHeaderActionButtonChanges;
@@ -129,9 +123,6 @@
 @property(readonly, nonatomic) PXNavigationTitleView *navigationTitleView; // @synthesize navigationTitleView=_navigationTitleView;
 @property(retain, nonatomic) PUImportActionCoordinator *actionCoordinator; // @synthesize actionCoordinator=_actionCoordinator;
 @property(retain, nonatomic) PUImportFakePhotosDataSource *fakePhotosDataSource; // @synthesize fakePhotosDataSource=_fakePhotosDataSource;
-@property(retain, nonatomic) NSTimer *initialBatchOfAssetsTimer; // @synthesize initialBatchOfAssetsTimer=_initialBatchOfAssetsTimer;
-@property(nonatomic) _Bool isLoadingInitialBatchOfAssets; // @synthesize isLoadingInitialBatchOfAssets=_isLoadingInitialBatchOfAssets;
-@property(nonatomic) _Bool hasLoadedInitialBatchOfAssets; // @synthesize hasLoadedInitialBatchOfAssets=_hasLoadedInitialBatchOfAssets;
 @property(nonatomic, getter=isViewAppearing) _Bool viewAppearing; // @synthesize viewAppearing=_viewAppearing;
 @property(nonatomic, getter=isTransitioningToNewSize) _Bool transitioningToNewSize; // @synthesize transitioningToNewSize=_transitioningToNewSize;
 @property(retain, nonatomic) PUImportChangeDetailsCollectionViewHelper *changeDetailsHelper; // @synthesize changeDetailsHelper=_changeDetailsHelper;
@@ -200,6 +191,7 @@
 - (void)selectAllSelectableItems;
 - (_Bool)areAllItemsSelectedInAssetCollection:(id)arg1;
 - (void)setAllItemsSelected:(_Bool)arg1 inAssetCollection:(id)arg2;
+- (_Bool)sectionHeadersCoverLocation:(struct CGPoint)arg1;
 - (void)updateHeaderView:(id)arg1 forAssetCollection:(id)arg2;
 - (void)updateHeaderView:(id)arg1 forAlreadyImportedAssetCollection:(id)arg2;
 - (void)headerViewDidPressActionButton:(id)arg1;
@@ -210,7 +202,9 @@
 - (void)updateAlreadyImportedHeaderIfVisible;
 - (id)newGridLayout;
 - (void)getEmptyPlaceholderViewTitle:(id *)arg1 message:(id *)arg2 buttonTitle:(id *)arg3 buttonAction:(CDUnknownBlockType *)arg4;
+- (_Bool)importSourceIsAppleDevice;
 - (_Bool)wantsPlaceholderView;
+- (_Bool)isEmpty;
 - (void)updateNavigationBarAnimated:(_Bool)arg1;
 - (_Bool)canDragOut;
 - (long long)thumbnailContentFillMode;
@@ -287,7 +281,6 @@
 - (void)_invalidateCachedViewSizeTransitionContext;
 - (void)viewDidLayoutSubviews;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
@@ -296,10 +289,10 @@
 - (void)dealloc;
 - (id)initWithSpec:(id)arg1;
 - (id)init;
+- (_Bool)compactWidthToolbarCoversLocation:(struct CGPoint)arg1;
 - (void)updateCompactWidthToolbarTopConstraint;
-- (void)updateContentInsetForCompactWidthToolbarIfNeeded;
-- (void)setNeedsContentInsetUpdateForCompactWidthToolbar;
-- (void)updateCompactWidthToolbarVisibilityForTraitCollection:(id)arg1;
+- (void)updateContentInsetForCompactWidthToolbar;
+- (void)updateCompactWidthToolbarVisibility;
 - (void)setUpCompactWidthToolbar;
 - (void)_updateCompactToolbar;
 - (void)updateNavigationTitleViewVisibilityAnimated:(_Bool)arg1;

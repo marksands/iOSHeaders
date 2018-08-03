@@ -56,6 +56,7 @@
 - (_Bool)canDeleteCollection:(id)arg1;
 - (_Bool)canEditAlbums;
 - (_Bool)containsAnyAssets:(id)arg1;
+- (_Bool)_isImportsAssetCollection:(id)arg1;
 - (_Bool)_isPlacesAlbumAssetCollection:(id)arg1;
 - (_Bool)_needsFetchResultForCollection:(id)arg1;
 - (_Bool)_needsKeyAssetsFetchResultForCollection:(id)arg1;
@@ -69,6 +70,7 @@
 - (_Bool)isCachedFetchResultOutdatedForCollection:(id)arg1;
 - (id)uncachedFetchResultForSubCollection:(id)arg1;
 - (id)fetchResultForSubCollection:(id)arg1;
+- (_Bool)hasAssetsFetchResultForCollection:(id)arg1;
 - (id)assetsFetchResultForCollection:(id)arg1;
 - (id)keyAssetsFetchResultForCollection:(id)arg1;
 - (void)_endSignpostForFetchOperation:(id)arg1;

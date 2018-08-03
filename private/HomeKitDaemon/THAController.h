@@ -23,7 +23,7 @@
 @property(retain, nonatomic) NSSet *selectedButtons; // @synthesize selectedButtons=_selectedButtons;
 @property(nonatomic) _Bool selected; // @synthesize selected=_selected;
 @property(nonatomic) _Bool reachable; // @synthesize reachable=_reachable;
-@property(readonly, nonatomic) _Bool supportsSiri; // @synthesize supportsSiri=_supportsSiri;
+@property(nonatomic) _Bool supportsSiri; // @synthesize supportsSiri=_supportsSiri;
 @property(nonatomic) unsigned long long ticksPerSecond; // @synthesize ticksPerSecond=_ticksPerSecond;
 @property(readonly, nonatomic) unsigned int identifier; // @synthesize identifier=_identifier;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;

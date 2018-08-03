@@ -9,6 +9,7 @@
 @class NSArray, NSDictionary, NSNumber, NSString, XCAccessibilityElement;
 
 @protocol XCUIRemoteAXInterface <NSObject>
+@property(readonly) _Bool axNotificationsIncludeElement;
 @property(readonly) _Bool useLegacySnapshotPath;
 - (void)setLocalizableStringsDataGatheringEnabled:(_Bool)arg1 reply:(void (^)(_Bool, NSError *))arg2;
 - (void)enableFauxCollectionViewCells:(void (^)(_Bool, NSError *))arg1;

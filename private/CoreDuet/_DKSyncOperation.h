@@ -14,6 +14,7 @@
 
 - (void)cancelOperation;
 - (void)endOperation;
+- (void)removeAllDependencies;
 - (void)startOperation;
 - (void)start;
 - (void)dealloc;

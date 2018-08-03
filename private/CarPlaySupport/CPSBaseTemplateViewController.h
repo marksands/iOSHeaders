@@ -14,11 +14,13 @@
 
 @interface CPSBaseTemplateViewController : UIViewController <CPSButtonDelegate, CPBaseTemplateProviding, CPSBaseTemplateViewController>
 {
+    _Bool _isPopping;
     CPTemplate *_associatedTemplate;
     id <CPTemplateDelegate> _templateDelegate;
     id <CPSTemplateViewControllerDelegate> _viewControllerDelegate;
 }
 
+@property(nonatomic) _Bool isPopping; // @synthesize isPopping=_isPopping;
 @property(nonatomic) __weak id <CPSTemplateViewControllerDelegate> viewControllerDelegate; // @synthesize viewControllerDelegate=_viewControllerDelegate;
 @property(retain, nonatomic) id <CPTemplateDelegate> templateDelegate; // @synthesize templateDelegate=_templateDelegate;
 @property(retain, nonatomic) CPTemplate *associatedTemplate; // @synthesize associatedTemplate=_associatedTemplate;

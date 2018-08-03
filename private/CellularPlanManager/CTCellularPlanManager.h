@@ -98,6 +98,12 @@
 - (void)didSelectPlanItem:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)willDisplayPlanItems;
 - (void)carrierItemsShouldUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)remapSimLabel:(id)arg1 to:(id)arg2;
+- (void)remapSimLabel:(id)arg1 to:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)resolveSimLabel:(id)arg1;
+- (void)resolveSimLabel:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (id)danglingPlanItemsShouldUpdate:(_Bool)arg1;
+- (void)danglingPlanItemsShouldUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)planItemsShouldUpdate:(_Bool)arg1;
 - (void)planItemsShouldUpdate:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)planItemsWithCompletion:(CDUnknownBlockType)arg1;

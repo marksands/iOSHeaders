@@ -11,6 +11,9 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (void)runBlock:(CDUnknownBlockType)arg1;
+- (void)performBlock:(CDUnknownBlockType)arg1 waitUntilDone:(_Bool)arg2;
+- (void)performBlock:(CDUnknownBlockType)arg1;
 - (void)main;
 
 @end

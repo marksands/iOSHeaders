@@ -28,6 +28,7 @@
     _Bool _exitedBeforeAttemptingFinalizedLaunch;
     _Bool _pendingExit;
     _Bool _beingDebugged;
+    _Bool _waitForDebugger;
     BSMachPortSendRight *_gsEventPort;
     FBProcessWatchdog *_watchdog;
     FBSProcessWatchdogPolicy *_sceneCreateWatchdogPolicy;

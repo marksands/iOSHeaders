@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STAppInfoCache, STRootViewModel, STUser;
+@class NSObject<STContentPrivacyViewModelCoordinator>, NSObject<STTimeAllowancesViewModelCoordinator>, NSObject<STUsageDetailsViewModelCoordinator>, NSString, STRootViewModel, STUser;
 
 @protocol STRootViewModelCoordinator <NSObject>
 @property(readonly, nonatomic, getter=isPasscodeEnabled) _Bool passcodeEnabled;
@@ -15,9 +15,9 @@
 @property(readonly) NSObject<STTimeAllowancesViewModelCoordinator> *timeAllowancesCoordinator;
 @property(readonly) NSObject<STUsageDetailsViewModelCoordinator> *usageDetailsCoordinator;
 @property(readonly) NSObject<STContentPrivacyViewModelCoordinator> *contentPrivacyCoordinator;
-@property(readonly, nonatomic) STAppInfoCache *appCache;
 @property(readonly, nonatomic) STRootViewModel *viewModel;
 - (void)setShareWebUsageEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)setScreenTimeSyncingEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)setPIN:(NSString *)arg1 screenTimeEnabled:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)setPIN:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;

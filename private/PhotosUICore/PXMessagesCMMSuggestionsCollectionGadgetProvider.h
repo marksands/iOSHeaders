@@ -8,15 +8,18 @@
 
 #import "PXSectionedDataSourceManagerObserver.h"
 
-@class NSString, PXCMMSuggestionsDataSourceManager, PXMessagesCMMSuggestionsGadgetProvider;
+@class NSString, PXCMMSuggestionsDataSourceManager, PXMessagesCMMSuggestionsGadgetProvider, PXNoContentGadget;
 
 @interface PXMessagesCMMSuggestionsCollectionGadgetProvider : PXGadgetProvider <PXSectionedDataSourceManagerObserver>
 {
     PXMessagesCMMSuggestionsGadgetProvider *_suggestionsGadgetProvider;
+    PXNoContentGadget *_noContentGadget;
     _Bool _isShowingEmpty;
     _Bool _hasGeneratedGadgets;
+    double _contentHeightAdjustment;
 }
 
+@property(nonatomic) double contentHeightAdjustment; // @synthesize contentHeightAdjustment=_contentHeightAdjustment;
 - (void).cxx_destruct;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_updateGadgets;

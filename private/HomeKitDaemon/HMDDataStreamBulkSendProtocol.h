@@ -32,7 +32,9 @@
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property(nonatomic) __weak id <HMDDataStreamProtocolDelegate> dataStream; // @synthesize dataStream=_dataStream;
 - (void).cxx_destruct;
-- (void)_cancelSessionWithIdentifier:(id)arg1 reason:(unsigned short)arg2;
+- (void)_sendAckMessageWithIdentifier:(id)arg1;
+- (void)_sendCloseMessageWithIdentifier:(id)arg1 reason:(unsigned short)arg2;
+- (void)_cancelSessionWithIdentifier:(id)arg1 reason:(unsigned short)arg2 hadReceivedEof:(_Bool)arg3;
 - (void)_pumpReceiveFailure:(id)arg1 session:(id)arg2;
 - (void)_pumpMessage:(id)arg1 session:(id)arg2;
 - (void)_handleDataMessage:(id)arg1;
@@ -48,7 +50,7 @@
 - (void)_sendOpenResponseWithRequestHeader:(id)arg1 streamIdentifier:(id)arg2;
 - (id)_createSessionFromCandidate:(id)arg1 queue:(id)arg2;
 - (id)_createSessionCandidateWithRequestHeader:(id)arg1;
-- (void)asyncBulkSendSessionDidCancelSessionWithIdentifier:(id)arg1 reason:(unsigned short)arg2;
+- (void)asyncBulkSendSessionDidCancelSessionWithIdentifier:(id)arg1 reason:(unsigned short)arg2 hadReceivedEof:(_Bool)arg3;
 - (void)asyncBulkSendSessionCandidate:(id)arg1 didRejectWithReason:(unsigned short)arg2;
 - (void)asyncBulkSendSessionCandidate:(id)arg1 didAcceptOnQueue:(id)arg2 callback:(CDUnknownBlockType)arg3;
 - (void)dataStream:(id)arg1 didReceiveResponse:(id)arg2 header:(id)arg3 payload:(id)arg4;

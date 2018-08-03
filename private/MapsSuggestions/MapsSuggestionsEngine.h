@@ -18,6 +18,7 @@
     GEOAutomobileOptions *_automobileOptions;
 }
 
++ (void)load;
 + (id)defaultCachePath;
 + (id)defaultEngine;
 @property(retain, nonatomic) GEOAutomobileOptions *automobileOptions; // @synthesize automobileOptions=_automobileOptions;

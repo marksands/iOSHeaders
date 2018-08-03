@@ -7,6 +7,7 @@
 #import "NSObject.h"
 
 @protocol SVVideoTimePlayedTracking <NSObject>
+@property(copy, nonatomic, setter=onChange:) CDUnknownBlockType changeBlock;
 @property(readonly, nonatomic) double timePlayed;
 @end
 

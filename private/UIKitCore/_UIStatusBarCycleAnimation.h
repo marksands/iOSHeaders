@@ -7,11 +7,12 @@
 #import "NSObject.h"
 
 #import "CAAnimationDelegate.h"
+#import "_UIStatusBarPersistentAnimation.h"
 
 @class NSArray, NSMutableArray, NSString, _UIStatusBarCycleLayerAnimation;
 
 __attribute__((visibility("hidden")))
-@interface _UIStatusBarCycleAnimation : NSObject <CAAnimationDelegate>
+@interface _UIStatusBarCycleAnimation : NSObject <CAAnimationDelegate, _UIStatusBarPersistentAnimation>
 {
     _Bool _stopsAfterReversing;
     _Bool _visible;
@@ -22,8 +23,8 @@ __attribute__((visibility("hidden")))
 }
 
 @property(retain, nonatomic) NSMutableArray *completionHandlers; // @synthesize completionHandlers=_completionHandlers;
-@property(retain, nonatomic) NSArray *stoppingLayerAnimations; // @synthesize stoppingLayerAnimations=_stoppingLayerAnimations;
 @property(nonatomic) _Bool visible; // @synthesize visible=_visible;
+@property(retain, nonatomic) NSArray *stoppingLayerAnimations; // @synthesize stoppingLayerAnimations=_stoppingLayerAnimations;
 @property(nonatomic) _Bool stopsAfterReversing; // @synthesize stopsAfterReversing=_stopsAfterReversing;
 @property(readonly, nonatomic) long long state; // @synthesize state=_state;
 @property(readonly, nonatomic) NSArray *layerAnimations; // @synthesize layerAnimations=_layerAnimations;
@@ -34,6 +35,8 @@ __attribute__((visibility("hidden")))
 - (void)_stopAnimations;
 - (void)_startAnimations;
 - (void)animationDidStop:(id)arg1 finished:(_Bool)arg2;
+- (void)resumePersistentAnimation;
+- (void)pausePersistentAnimation;
 - (void)stopWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (void)start;
 @property(readonly, nonatomic) _UIStatusBarCycleLayerAnimation *mainLayerAnimation;

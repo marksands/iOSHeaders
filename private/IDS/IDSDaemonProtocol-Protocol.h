@@ -38,6 +38,7 @@
 - (void)continuityClientInstanceCreated;
 - (void)resetRealTimeEncryptionKeys:(NSString *)arg1 forGroup:(NSString *)arg2;
 - (void)requestRealTimeEncryptionMasterKeyMaterial:(NSString *)arg1 forGroup:(NSString *)arg2;
+- (void)sendRealTimeEncryptionMKMRecoveryRequest:(NSString *)arg1 toGroup:(NSString *)arg2;
 - (void)sendRealTimeEncryptionMasterKeyMaterial:(NSString *)arg1 toGroup:(NSString *)arg2;
 - (void)requestPublicKeysForRealTimeEncryption:(NSString *)arg1 forAccountWithID:(NSString *)arg2;
 - (void)sendRealTimeMediaPrekey:(NSString *)arg1 toGroup:(NSString *)arg2;
@@ -45,6 +46,7 @@
 - (void)requestActiveParticipantsForGroupSession:(NSString *)arg1;
 - (void)leaveGroupSession:(NSString *)arg1 participantInfo:(NSDictionary *)arg2;
 - (void)joinGroupSession:(NSString *)arg1 withOptions:(NSDictionary *)arg2;
+- (void)updateParticipantData:(NSData *)arg1 forGroup:(NSString *)arg2 sessionID:(NSString *)arg3 withContext:(NSData *)arg4;
 - (void)updateMembers:(NSArray *)arg1 forGroup:(NSString *)arg2 sessionID:(NSString *)arg3 withContext:(NSData *)arg4 triggeredLocally:(_Bool)arg5;
 - (void)sendAllocationRequest:(NSString *)arg1 options:(NSDictionary *)arg2;
 - (void)acknowledgeSessionID:(NSString *)arg1 clientID:(NSString *)arg2;

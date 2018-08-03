@@ -13,6 +13,7 @@
 
 @property(nonatomic) unsigned long long skipDuration; // @synthesize skipDuration=_skipDuration;
 - (id)titleForDuration:(unsigned long long)arg1;
+- (void)traitCollectionDidChange:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (id)initWithFrame:(struct CGRect)arg1;
 

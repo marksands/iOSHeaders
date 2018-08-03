@@ -22,6 +22,7 @@
     SafariFetcherServerProxy *_safariFetcherServerProxy;
     _Bool _readonly;
     _Bool _skipExternalNotifications;
+    _Bool _setupFinished;
     long long _mergeMode;
     WBDatabaseLockAcquisitor *_databaseLockAcquisitor;
     long long _lastObservedLocalMigrationState;

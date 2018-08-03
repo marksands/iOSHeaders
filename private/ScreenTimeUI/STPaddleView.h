@@ -6,13 +6,11 @@
 
 #import "UIView.h"
 
-@class NSArray, NSDate, UILabel;
+@class NSArray, UILabel;
 
 @interface STPaddleView : UIView
 {
     NSArray *_usageItems;
-    unsigned long long _timePeriod;
-    NSDate *_startDate;
     UIView *_backgroundView;
     UILabel *_dayLabel;
     UILabel *_dateTimeLabel;
@@ -23,11 +21,9 @@
 @property(readonly, nonatomic) UILabel *dateTimeLabel; // @synthesize dateTimeLabel=_dateTimeLabel;
 @property(readonly, nonatomic) UILabel *dayLabel; // @synthesize dayLabel=_dayLabel;
 @property(readonly, nonatomic) UIView *backgroundView; // @synthesize backgroundView=_backgroundView;
-@property(retain, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(nonatomic) unsigned long long timePeriod; // @synthesize timePeriod=_timePeriod;
 @property(copy, nonatomic) NSArray *usageItems; // @synthesize usageItems=_usageItems;
 - (void).cxx_destruct;
-- (void)setUsageItems:(id)arg1 timePeriod:(unsigned long long)arg2 startDate:(id)arg3;
+- (void)setDataPoint:(id)arg1;
 - (id)init;
 
 @end

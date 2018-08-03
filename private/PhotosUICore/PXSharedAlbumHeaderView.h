@@ -11,11 +11,14 @@
 @interface PXSharedAlbumHeaderView : UIView
 {
     _Bool _useInPopover;
+    _Bool _isNew;
+    _Bool _isObservingLastExitedForYou;
     unsigned long long _textColorStyle;
     unsigned long long _tappableArea;
     unsigned long long _layoutStyle;
     PXFeedSectionInfo *_sectionInfo;
     UIImage *_headerImage;
+    unsigned long long _headerImageTag;
     UIImageView *_headerImageView;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
@@ -23,10 +26,13 @@
 }
 
 + (void)preloadResources;
+@property(nonatomic) _Bool isObservingLastExitedForYou; // @synthesize isObservingLastExitedForYou=_isObservingLastExitedForYou;
+@property(nonatomic) _Bool isNew; // @synthesize isNew=_isNew;
 @property(retain, nonatomic) UIImageView *chevronView; // @synthesize chevronView=_chevronView;
 @property(retain, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(retain, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
 @property(retain, nonatomic) UIImageView *headerImageView; // @synthesize headerImageView=_headerImageView;
+@property(nonatomic) unsigned long long headerImageTag; // @synthesize headerImageTag=_headerImageTag;
 @property(retain, nonatomic) UIImage *headerImage; // @synthesize headerImage=_headerImage;
 @property(retain, nonatomic) PXFeedSectionInfo *sectionInfo; // @synthesize sectionInfo=_sectionInfo;
 @property(nonatomic) unsigned long long layoutStyle; // @synthesize layoutStyle=_layoutStyle;
@@ -38,11 +44,13 @@
 - (void)_updateUI;
 - (_Bool)_showChevron;
 - (_Bool)_showSubtitle;
+- (void)_updateIsNew;
 - (void)_updateSubtitle;
 - (void)_updateTitle;
-- (void)_updateAvatar;
+- (void)_updateAvatar:(unsigned long long)arg1;
 - (void)_updateHeaderImage;
 - (void)_updateBackgroundColor;
+- (void)_lastExitedForYouDateDidChange:(id)arg1;
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;

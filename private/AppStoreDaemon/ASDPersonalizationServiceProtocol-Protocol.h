@@ -16,8 +16,9 @@
 - (void)resetMetricsWithCompletionBlock:(void (^)(_Bool, NSError *))arg1;
 - (void)resetActorIDWithCompletionBlock:(void (^)(_Bool, NSError *))arg1;
 - (void)reportAppEvent:(ASDAppEvent *)arg1 completionBlock:(void (^)(_Bool, NSError *))arg2;
-- (void)reloadClusterMappingsWithCompletionBlock:(void (^)(_Bool, NSError *))arg1;
 - (void)recordMetricsWithCompletionBlock:(void (^)(_Bool, NSError *))arg1;
+- (void)recordLaunchesWithCompletionBlock:(void (^)(_Bool, NSError *))arg1;
+- (void)reloadClusterMappingsWithCompletionBlock:(void (^)(_Bool, NSError *))arg1;
 - (void)getClusterMappingsWithCompletionBlock:(void (^)(NSArray *, NSError *))arg1;
 - (void)getAppEventsWithCompletionBlock:(void (^)(NSArray *, NSError *))arg1;
 - (void)getGroupingToken:(void (^)(NSString *, NSError *))arg1;

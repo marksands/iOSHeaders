@@ -10,7 +10,9 @@
 
 @interface PLSharedAlbumSubscriberInfo : NSObject
 {
+    _Bool _isOwner;
     PLCloudSharedAlbumInvitationRecord *_invitationRecord;
+    NSString *_identifier;
     NSString *_email;
     NSString *_phone;
     NSString *_firstName;
@@ -18,19 +20,20 @@
     NSString *_displayName;
 }
 
-+ (id)_allSubscribersForAlbum:(id)arg1 photoLibrary:(id)arg2;
-+ (id)allSubscribersForAlbumWithObjectID:(id)arg1;
++ (id)_allSubscribersForAlbum:(id)arg1 includeMyself:(_Bool)arg2;
++ (id)allSubscribersForAvatarViewWithAlbumWithObjectID:(id)arg1 managedObjectContext:(id)arg2;
 + (id)allSubscribersForAlbum:(id)arg1;
 @property(readonly, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(readonly, nonatomic) NSString *lastName; // @synthesize lastName=_lastName;
 @property(readonly, nonatomic) NSString *firstName; // @synthesize firstName=_firstName;
 @property(readonly, nonatomic) NSString *phone; // @synthesize phone=_phone;
 @property(readonly, nonatomic) NSString *email; // @synthesize email=_email;
+@property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
+@property(readonly, nonatomic) _Bool isOwner; // @synthesize isOwner=_isOwner;
 @property(readonly, retain, nonatomic) PLCloudSharedAlbumInvitationRecord *invitationRecord; // @synthesize invitationRecord=_invitationRecord;
 - (id)matchingContactWithKeysToFetch:(id)arg1 outMatchingKey:(id *)arg2 outMatchingIdentifier:(id *)arg3;
-@property(readonly, nonatomic) _Bool isOwner;
 - (void)dealloc;
-- (id)initWithInvitationRecord:(id)arg1 email:(id)arg2 phone:(id)arg3 firstName:(id)arg4 lastName:(id)arg5 displayName:(id)arg6;
+- (id)initWithInvitationRecord:(id)arg1 identifier:(id)arg2 email:(id)arg3 phone:(id)arg4 firstName:(id)arg5 lastName:(id)arg6 displayName:(id)arg7 isOwner:(_Bool)arg8;
 - (id)init;
 
 @end

@@ -10,6 +10,11 @@ typedef void (^CDUnknownBlockType)(void); // return type and parameters are unkn
 
 #pragma mark Named Structures
 
+struct ARLabHistogram {
+    float _field1;
+    struct array<std::__1::array<std::__1::array<float, 8>, 8>, 4> _field2;
+};
+
 struct CGAffineTransform {
     double _field1;
     double _field2;
@@ -95,6 +100,18 @@ struct aligned_storage<cva::Matrix<float, 9, 1>> {
 
 struct aligned_storage<float> {
     union dummy_u dummy_;
+};
+
+struct array<float, 8> {
+    float _field1[8];
+};
+
+struct array<std::__1::array<float, 8>, 8> {
+    struct array<float, 8> _field1[8];
+};
+
+struct array<std::__1::array<std::__1::array<float, 8>, 8>, 4> {
+    struct array<std::__1::array<float, 8>, 8> _field1[4];
 };
 
 struct optional<cva::Matrix<float, 9, 1>> {

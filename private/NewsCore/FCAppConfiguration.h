@@ -58,6 +58,10 @@
 @property(readonly, nonatomic) FCForYouGroupsConfiguration *forYouGroupsConfiguration; // @synthesize forYouGroupsConfiguration=_forYouGroupsConfiguration;
 @property(readonly, nonatomic) NSDictionary *endpointConfigsByEnvironment; // @synthesize endpointConfigsByEnvironment=_endpointConfigsByEnvironment;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool enableBadgeInSpotlightTabBar;
+@property(readonly, nonatomic) NSString *description;
+@property(readonly, nonatomic) double delayBeforeRetryingDroppedFeeds;
+@property(readonly, nonatomic) long long maxRetriesForDroppedFeeds;
 @property(readonly, nonatomic) _Bool isSpecialEventsMicaAnimationDisabled;
 @property(readonly, nonatomic) NSString *feedNavigationConfigJSON;
 @property(readonly, nonatomic) long long singleChannelFeedMinFeedItemsPerRequest;
@@ -158,6 +162,7 @@
 // Remaining properties
 @property(readonly, nonatomic) _Bool isExpired;
 @property(readonly, nonatomic) long long showCardNavHintMaxCount;
+@property(readonly, nonatomic) NSString *webEmbedContentBlockers;
 
 @end
 

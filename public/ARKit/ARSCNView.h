@@ -39,6 +39,7 @@
     unsigned long long _warpKernelLensType;
     ARSCNCompositor *_compositor;
     NSMutableArray *_environmentProbeNodes;
+    NSMutableArray *_environmentProbeNodesToRemove;
     _Bool _renderThreadFixed;
     struct os_unfair_lock_s _occlusionLock;
     _Bool _automaticallyUpdatesLighting;

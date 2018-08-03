@@ -38,7 +38,6 @@
 @property(readonly, nonatomic) long long shareType; // @synthesize shareType=_shareType;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)notifyUserWhenReadyToViewIfNeeded;
 - (void)acceptWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)contextForActivityType:(unsigned long long)arg1;
 @property(readonly, nonatomic) PXAssetCollectionActionManager *assetCollectionActionManager;
@@ -47,13 +46,13 @@
 @property(readonly, nonatomic) NSDate *creationDate;
 @property(readonly, nonatomic) NSString *identifier;
 - (id)invitationWithUpdatedPreviewAssetsFetchResult:(id)arg1;
+@property(readonly, copy) NSString *description;
 - (id)initWithAssetCollection:(id)arg1;
 - (id)init;
 @property(readonly, nonatomic) long long aggregateMediaType; // @dynamic aggregateMediaType;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

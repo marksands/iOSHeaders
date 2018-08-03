@@ -10,30 +10,33 @@
 
 @interface XCUIApplicationImpl : NSObject
 {
-    _Bool _supportsAutomationSession;
     _Bool _codeCoverageEnabled;
-    id <XCUIXcodeApplicationManaging> _xcodeInterface;
+    _Bool _hasValidAlertCount;
     XCUIApplicationMonitor *_applicationMonitor;
     id <XCUIAccessibilityInterface> _axInterface;
     NSString *_path;
     NSString *_bundleID;
     XCUIApplicationProcess *_currentProcess;
+    id <XCUIXcodeApplicationManaging> _xcodeApplicationManager;
+    id <XCUIApplicationManaging> _platformApplicationManager;
 }
 
++ (_Bool)shouldWaitForAutomationSessionWhenUsingPlatformLauncher:(_Bool)arg1;
 + (id)keyPathsForValuesAffectingActivated;
 + (id)keyPathsForValuesAffectingForeground;
 + (id)keyPathsForValuesAffectingBackground;
 + (id)keyPathsForValuesAffectingSuspended;
 + (id)keyPathsForValuesAffectingRunning;
 + (id)keyPathsForValuesAffectingState;
+@property _Bool hasValidAlertCount; // @synthesize hasValidAlertCount=_hasValidAlertCount;
 @property _Bool codeCoverageEnabled; // @synthesize codeCoverageEnabled=_codeCoverageEnabled;
-@property _Bool supportsAutomationSession; // @synthesize supportsAutomationSession=_supportsAutomationSession;
+@property(readonly) id <XCUIApplicationManaging> platformApplicationManager; // @synthesize platformApplicationManager=_platformApplicationManager;
+@property(readonly) id <XCUIXcodeApplicationManaging> xcodeApplicationManager; // @synthesize xcodeApplicationManager=_xcodeApplicationManager;
 @property(retain, nonatomic) XCUIApplicationProcess *currentProcess; // @synthesize currentProcess=_currentProcess;
 @property(readonly, copy) NSString *bundleID; // @synthesize bundleID=_bundleID;
 @property(readonly, copy) NSString *path; // @synthesize path=_path;
 @property(readonly) id <XCUIAccessibilityInterface> axInterface; // @synthesize axInterface=_axInterface;
 @property(readonly) XCUIApplicationMonitor *applicationMonitor; // @synthesize applicationMonitor=_applicationMonitor;
-@property(readonly) id <XCUIXcodeApplicationManaging> xcodeInterface; // @synthesize xcodeInterface=_xcodeInterface;
 - (void).cxx_destruct;
 - (void)waitForViewControllerViewDidDisappearWithTimeout:(double)arg1;
 - (void)handleCrashUnderSymbol:(id)arg1;
@@ -43,7 +46,6 @@
 - (void)waitForAccessibilityActive;
 - (void)_waitForValidPID;
 - (void)_launchUsingPlatformWithArguments:(id)arg1 environment:(id)arg2;
-- (_Bool)_shouldRetryForLaunchError:(id)arg1;
 - (void)_launchUsingXcodeWithArguments:(id)arg1 environment:(id)arg2;
 - (void)_waitForLaunchProgressWithToken:(id)arg1;
 - (void)_launchWithRequest:(id)arg1;
@@ -56,14 +58,17 @@
 @property(readonly) _Bool suspended;
 @property(readonly) _Bool running;
 - (void)_awaitValidCurrentProcess;
+- (void)resetAlertCount;
+@property(readonly) unsigned long long alertCount;
 - (_Bool)waitForState:(unsigned long long)arg1 timeout:(double)arg2;
 @property(nonatomic) unsigned long long state;
 @property(nonatomic) int processID;
+@property(readonly) int bridgedProcessID;
+@property(readonly) XCAccessibilityElement *bridgedProcessAccessibilityElement;
 @property(readonly) XCAccessibilityElement *accessibilityElement;
 - (id)description;
-- (void)dealloc;
 - (id)initWithPath:(id)arg1 bundleID:(id)arg2;
-- (id)initWithPath:(id)arg1 bundleID:(id)arg2 xcodeInterface:(id)arg3 applicationMonitor:(id)arg4 axInterface:(id)arg5;
+- (id)initWithPath:(id)arg1 bundleID:(id)arg2 xcodeApplicationManager:(id)arg3 platformApplicationManager:(id)arg4 applicationMonitor:(id)arg5 axInterface:(id)arg6;
 
 @end
 

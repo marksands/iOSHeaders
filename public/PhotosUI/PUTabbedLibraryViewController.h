@@ -15,7 +15,7 @@
 #import "PXSettingsKeyObserver.h"
 #import "UINavigationControllerDelegate.h"
 
-@class NSArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_os_log>, NSString, NSUserActivity, PUImportViewController, PUMomentsZoomLevelManager, PUSessionInfo, PUTabbedLibraryViewControllerSpec, PUTabbedLibraryViewModel, PXForYouBadgeManager, UINavigationController;
+@class NSArray, NSMutableDictionary, NSMutableIndexSet, NSObject<OS_os_log>, NSString, PUImportViewController, PUMomentsZoomLevelManager, PUSessionInfo, PUTabbedLibraryViewControllerSpec, PUTabbedLibraryViewModel, PXForYouBadgeManager, UINavigationController;
 
 @interface PUTabbedLibraryViewController : UITabBarController <PXSettingsKeyObserver, PXChangeObserver, PLAssetContainerListChangeObserver, PLAssetContainerObserver, PLInvitationRecordsObserver, PLDismissableViewController, PLRootLibraryNavigationController, UINavigationControllerDelegate>
 {
@@ -32,13 +32,11 @@
     PUImportViewController *_importViewController;
     id <PUTabbedLibraryViewControllerContainerDelegate> _containerDelegate;
     NSArray *_excludedContentModes;
-    NSUserActivity *_siriActionActivity;
     PXForYouBadgeManager *_badgeManager;
 }
 
 + (_Bool)_shouldForwardViewWillTransitionToSize;
 @property(retain, nonatomic) PXForYouBadgeManager *badgeManager; // @synthesize badgeManager=_badgeManager;
-@property(retain, nonatomic) NSUserActivity *siriActionActivity; // @synthesize siriActionActivity=_siriActionActivity;
 @property(nonatomic) _Bool shouldNavigateToAllPhotosAlbum; // @synthesize shouldNavigateToAllPhotosAlbum=_shouldNavigateToAllPhotosAlbum;
 @property(copy, nonatomic) NSArray *excludedContentModes; // @synthesize excludedContentModes=_excludedContentModes;
 @property(nonatomic) __weak id <PUTabbedLibraryViewControllerContainerDelegate> containerDelegate; // @synthesize containerDelegate=_containerDelegate;
@@ -93,7 +91,7 @@
 - (void)navigateToCloudFeedWithCompletion:(CDUnknownBlockType)arg1;
 - (void)navigateToOneUpForAsset:(id)arg1 inAssetContainer:(id)arg2 animated:(_Bool)arg3;
 - (void)navigateToOneYearAgoSearch;
-- (void)navigateToPhotosContentBottomAnimated:(_Bool)arg1 showMostRecentPhotoInOneUp:(_Bool)arg2;
+- (void)navigateToPhotosContentBottomAnimated:(_Bool)arg1;
 - (void)navigateToAsset:(id)arg1 openOneUp:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)_navigateToContentMode:(int)arg1 defaultLocationIfNeverDisplayed:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)navigateToContentMode:(int)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

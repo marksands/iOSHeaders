@@ -11,7 +11,7 @@
 }
 
 + (long long)protectionClass;
-+ (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (_Bool)discardBuilderWithIdentifier:(id)arg1 profile:(id)arg2 error:(id *)arg3;
 + (id)freezeSeriesWithIdentifier:(id)arg1 metadata:(id)arg2 profile:(id)arg3 error:(id *)arg4;

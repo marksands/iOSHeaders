@@ -42,9 +42,8 @@
 - (void)notifyItemsChanged;
 - (void)flushCacheToPref;
 - (void)_flushCache:(id)arg1;
+- (void)_writeCache;
 - (void)loadCacheFromPref;
-- (id)pathFromURLString:(id)arg1;
-- (id)urlStringFromPath:(id)arg1;
 - (void)dealloc;
 - (id)initWithPrefsKey:(id)arg1;
 

@@ -10,26 +10,29 @@
 
 @interface VCCoreDataStore : NSObject
 {
+    NSPersistentContainer *_container;
     NSManagedObjectContext *_context;
     NSManagedObjectContext *_suggestionsContext;
     NSObject<OS_dispatch_queue> *_callbackQueue;
-    NSPersistentContainer *_container;
 }
 
++ (void)resetSpotlightIndex;
 + (_Bool)persistentStoreExistsInDirectory:(id)arg1;
++ (_Bool)destroyPersistentStoreInDirectory:(id)arg1 error:(id *)arg2;
++ (void)persistentStoreWillNeedRecreation;
 + (void)initialize;
-@property(retain, nonatomic) NSPersistentContainer *container; // @synthesize container=_container;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *callbackQueue; // @synthesize callbackQueue=_callbackQueue;
 @property(retain, nonatomic) NSManagedObjectContext *suggestionsContext; // @synthesize suggestionsContext=_suggestionsContext;
 @property(retain, nonatomic) NSManagedObjectContext *context; // @synthesize context=_context;
+@property(retain, nonatomic) NSPersistentContainer *container; // @synthesize container=_container;
 - (void).cxx_destruct;
-- (void)resetSpotlightIndex;
 - (void)removeSpotlightIndexedItemForVoiceShortcutIdentifier:(id)arg1;
 - (void)addSpotlightIndexedItemForVoiceShortcut:(id)arg1;
 - (void)deleteShortcutSuggestionsOnlyKeepingApps:(id)arg1;
 - (void)getShortcutSuggestionsForAllAppsWithLimit:(unsigned long long)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getShortcutSuggestionsForAppWithBundleIdentifier:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)setShortcutSuggestions:(id)arg1 forAppWithBundleIdentifier:(id)arg2 accessSpecifier:(id)arg3;
+- (void)setShortcutSuggestions:(id)arg1 forAppWithBundleIdentifier:(id)arg2 accessSpecifier:(id)arg3 completion:(CDUnknownBlockType)arg4;
+- (_Bool)deleteAllSyncedData:(id *)arg1;
 - (void)describeSyncStateIncludingDeleted:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)markManagedObject:(id)arg1 asSynced:(_Bool)arg2 withSyncServiceWithIdentifier:(id)arg3 syncMetadata:(id)arg4;
 - (void)markManagedObjectAsUnsynced:(id)arg1;
@@ -62,7 +65,6 @@
 - (void)getNumberOfVoiceShortcutsWithAccessSpecifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (_Bool)loadPersistentStoreWithDescription:(id)arg1 error:(id *)arg2;
 - (_Bool)resetPersistentStore:(id *)arg1;
-- (void)persistentStoreWillNeedRecreation;
 - (id)initWithPersistenceType:(unsigned long long)arg1 databaseFileURL:(id)arg2 error:(id *)arg3;
 - (id)initWithPersistentStoreInDirectory:(id)arg1 error:(id *)arg2;
 - (id)initWithEphemeralStore:(id *)arg1;

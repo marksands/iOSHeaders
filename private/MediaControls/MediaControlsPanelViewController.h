@@ -10,11 +10,12 @@
 #import "MPMediaControlsViewControllerDelegate.h"
 #import "MediaControlsCollectionItemViewController.h"
 #import "MediaControlsEndpointControllerDelegate.h"
+#import "MediaControlsMasterVolumeSliderDelegate.h"
 #import "MediaControlsRatingActionSheet.h"
 
 @class MPAVRoutingViewController, MPArtworkCatalog, MPMediaControlsViewController, MPVolumeGroupSliderCoordinator, MTVibrantStylingProvider, MediaControlsEndpointController, MediaControlsHeaderView, MediaControlsParentContainerView, MediaControlsRoutingCornerView, MediaControlsVolumeContainerView, NSMutableArray, NSString, UIView;
 
-@interface MediaControlsPanelViewController : UIViewController <MediaControlsEndpointControllerDelegate, MediaControlsRatingActionSheet, MPAVRoutingViewControllerThemeDelegate, MPMediaControlsViewControllerDelegate, MediaControlsCollectionItemViewController>
+@interface MediaControlsPanelViewController : UIViewController <MediaControlsEndpointControllerDelegate, MediaControlsRatingActionSheet, MPAVRoutingViewControllerThemeDelegate, MPMediaControlsViewControllerDelegate, MediaControlsMasterVolumeSliderDelegate, MediaControlsCollectionItemViewController>
 {
     struct CGSize _lastKnownSize;
     _Bool _selected;
@@ -75,6 +76,9 @@
 - (void).cxx_destruct;
 - (void)_routingCornerViewReceivedTap:(id)arg1;
 - (void)_updateRoutingCornerView;
+- (_Bool)slider:(id)arg1 shouldCancelSnapWithTouch:(id)arg2;
+- (_Bool)slider:(id)arg1 syncStateWillChangeFromState:(long long)arg2 toState:(long long)arg3;
+- (_Bool)shouldEnableSyncingForSlider:(id)arg1;
 - (void)routingViewController:(id)arg1 willDisplayCell:(id)arg2;
 - (struct UIEdgeInsets)contentInsetsForRoutingViewController:(id)arg1;
 - (void)mediaControlsViewControllerDidReceiveInteraction:(id)arg1;

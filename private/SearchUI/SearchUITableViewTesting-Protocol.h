@@ -15,6 +15,7 @@
 - (UINavigationController *)navigationController;
 - (void)tapAtIndexPath:(NSIndexPath *)arg1;
 - (SearchUITableModel *)currentTableModel;
+- (void)performScrollTestWithHandlerForFirstScrollCompletion:(void (^)(void))arg1 completion:(void (^)(void))arg2;
 - (void)performScrollTestWithCompletion:(void (^)(void))arg1;
 @end
 

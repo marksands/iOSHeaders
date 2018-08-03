@@ -7,9 +7,5 @@
 @protocol MLBatchProvider
 @property(readonly, nonatomic) long long count;
 - (id <MLFeatureProvider>)featuresAtIndex:(long long)arg1;
-
-@optional
-@property(readonly, nonatomic) long long featureProviderCount;
-- (id <MLFeatureProvider>)featureProviderAtIndex:(long long)arg1;
 @end
 

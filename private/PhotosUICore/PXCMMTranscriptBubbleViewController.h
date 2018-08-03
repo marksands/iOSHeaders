@@ -65,7 +65,9 @@
 - (void)_doubleTapGesture:(id)arg1;
 - (void)_panGesture:(id)arg1;
 - (void)_tapGesture:(id)arg1;
+- (_Bool)_shouldRetryOnTap;
 - (_Bool)_shouldNavigateToContent;
+- (void)_retryMomentShareFetch;
 - (void)_acceptMomentShareIfNeeded:(id)arg1;
 - (void)_autoAcceptMomentShareIfNeeded:(id)arg1;
 - (void)_momentShareURL:(id)arg1 fetchDidFailWithError:(id)arg2;
@@ -76,6 +78,7 @@
 - (id)_secondaryDescription;
 - (id)_primaryDescription;
 @property(readonly, nonatomic) PHMomentShare *momentShare;
+- (struct CGSize)workaroundSizeForSize:(struct CGSize)arg1;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 @property(readonly, copy) NSString *description;
 - (void)dealloc;

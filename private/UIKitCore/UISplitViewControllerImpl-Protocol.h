@@ -25,7 +25,7 @@
 @property(nonatomic) _Bool presentsWithGesture;
 @property(nonatomic) __weak id <UISplitViewControllerDelegate> delegate;
 @property(copy, nonatomic) NSArray *viewControllers;
-- (void)_displayModeBarButtonItemWasAddedForFirstTime:(UISplitViewControllerDisplayModeBarButtonItem *)arg1;
+- (void)_displayModeBarButtonItemWasUsedForFirstTime:(UISplitViewControllerDisplayModeBarButtonItem *)arg1;
 - (NSArray *)_additionalViewControllersToCheckForUserActivity;
 - (void)decodeRestorableStateWithCoder:(NSCoder *)arg1;
 - (void)encodeRestorableStateWithCoder:(NSCoder *)arg1;

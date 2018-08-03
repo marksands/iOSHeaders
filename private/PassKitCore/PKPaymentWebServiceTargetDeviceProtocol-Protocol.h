@@ -10,6 +10,7 @@
 
 @protocol PKPaymentWebServiceTargetDeviceProtocol <NSObject>
 - (unsigned long long)secureElementOwnershipStateForCurrentUser;
+- (void)claimSecureElementForCurrentUserWithCompletion:(void (^)(_Bool))arg1;
 - (_Bool)claimSecureElementForCurrentUser;
 - (void)paymentWebService:(PKPaymentWebService *)arg1 validateTransferPreconditionsWithCompletion:(void (^)(_Bool, NSError *))arg2;
 - (void)downloadAllPaymentPassesForPaymentWebService:(PKPaymentWebService *)arg1;

@@ -8,8 +8,12 @@
 
 @protocol PLCloudPersistentHistoryMigratorContext
 - (void)updateTransferCountsWithInsertedPhotoCount:(unsigned long long)arg1 insertedVideoCount:(unsigned long long)arg2;
+- (void)saveTokenObject:(id)arg1;
 - (void)resetSyncDueToMigrationMarker;
-- (void)writeObject:(id)arg1 toCPLPlistWithKey:(NSString *)arg2;
-- (id)readObjectFromCPLPlistWithKey:(NSString *)arg1;
+- (NSString *)readLocalVersion;
+- (void)setLocalVersion:(NSString *)arg1;
+- (void)setMigratedLocalVersion:(NSString *)arg1;
+- (void)setMigrationMarker:(id)arg1;
+- (id)readMigrationMarker;
 @end
 

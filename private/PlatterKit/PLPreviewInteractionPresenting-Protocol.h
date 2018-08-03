@@ -13,7 +13,8 @@
 @property(readonly, nonatomic) PLPreviewInteractionManager *previewInteractionManager;
 
 @optional
-@property(readonly, nonatomic) struct CGRect finalFrameOfViewForPreview;
-@property(readonly, nonatomic) struct CGRect initialFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect finalDismissedFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect finalPresentedFrameOfViewForPreview;
+@property(readonly, nonatomic) struct CGRect initialPresentedFrameOfViewForPreview;
 @end
 

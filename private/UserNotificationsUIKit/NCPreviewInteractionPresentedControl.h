@@ -6,10 +6,13 @@
 
 #import "UIControl.h"
 
+#import "PLContentSizeCategoryAdjusting.h"
+
 @class MTMaterialView, NCPreviewInteractionPresentedContentView, NSString;
 
-@interface NCPreviewInteractionPresentedControl : UIControl
+@interface NCPreviewInteractionPresentedControl : UIControl <PLContentSizeCategoryAdjusting>
 {
+    _Bool _adjustsFontForContentSizeCategory;
     NSString *_title;
     NCPreviewInteractionPresentedContentView *_contentView;
     long long _materialRecipe;
@@ -26,16 +29,24 @@
 @property(readonly, nonatomic, getter=_materialRecipe) long long materialRecipe; // @synthesize materialRecipe=_materialRecipe;
 @property(readonly, nonatomic, getter=_contentView) NCPreviewInteractionPresentedContentView *contentView; // @synthesize contentView=_contentView;
 @property(readonly, copy, nonatomic, getter=_title) NSString *title; // @synthesize title=_title;
+@property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 - (void).cxx_destruct;
 - (void)_configureContentViewIfNecessaryWithTitle:(id)arg1;
 - (void)_configureMaterialViewsIfNecessary;
 - (id)_newMaterialViewWithRecipe:(long long)arg1 options:(unsigned long long)arg2;
+- (_Bool)adjustForContentSizeCategoryChange;
+@property(copy, nonatomic) NSString *preferredContentSizeCategory;
 - (void)setHighlighted:(_Bool)arg1;
-- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)_setContinuousCornerRadius:(double)arg1;
 - (void)_setCornerRadius:(double)arg1;
 - (id)initWithTitle:(id)arg1 materialRecipe:(long long)arg2 backgroundMaterialOptions:(unsigned long long)arg3 overlayMaterialOptions:(unsigned long long)arg4;
+
+// Remaining properties
+@property(readonly, copy) NSString *debugDescription;
+@property(readonly, copy) NSString *description;
+@property(readonly) unsigned long long hash;
+@property(readonly) Class superclass;
 
 @end
 

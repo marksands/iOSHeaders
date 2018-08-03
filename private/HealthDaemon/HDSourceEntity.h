@@ -30,7 +30,7 @@
 + (id)entityEncoderForProfile:(id)arg1 database:(id)arg2 purpose:(long long)arg3 encodingOptions:(id)arg4 authorizationFilter:(CDUnknownBlockType)arg5;
 + (long long)protectionClass;
 + (id)indices;
-+ (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 - (_Bool)deleteSourceWithDatabase:(id)arg1 error:(id *)arg2;
 - (id)sourceBundleIdentifierInDatabase:(id)arg1 error:(id *)arg2;

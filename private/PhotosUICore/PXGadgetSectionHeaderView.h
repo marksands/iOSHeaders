@@ -55,8 +55,10 @@
 - (void)contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_buttonPressed;
 - (void)layoutSubviews;
+- (void)_updateColors;
 - (void)_updateButton;
 - (void)_updateTitle;
+- (void)tintColorDidChange;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

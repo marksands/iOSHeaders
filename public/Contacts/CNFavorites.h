@@ -31,7 +31,7 @@
 - (void).cxx_destruct;
 - (void)recacheIdentitiesSoon;
 - (id)_uniqueRematchedEntries:(id)arg1;
-- (void)rematchEntriesWithContacts;
+- (void)rematchEntriesWithOptions:(unsigned long long)arg1;
 - (void)saveImmediately;
 - (void)save;
 - (_Bool)writeFavoritesToFile:(id)arg1;

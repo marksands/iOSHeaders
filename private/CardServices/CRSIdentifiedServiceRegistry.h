@@ -16,7 +16,7 @@
 + (id)sharedInstance;
 - (void).cxx_destruct;
 - (id)identifiedServices;
-- (void)registerIdentifiedService:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)registerIdentifiedService:(id)arg1;
 - (id)init;
 
 @end

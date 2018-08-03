@@ -22,6 +22,7 @@
     NSObject<OS_dispatch_queue> *_outputSynchronizerQueue;
     _Bool _running;
     _Bool _interrupted;
+    _Bool _runningSingleShotAutoFocus;
     float _defaultLensPosition;
     ARImageSensorSettings *_settings;
     id <ARSensorDelegate> _delegate;
@@ -35,6 +36,7 @@
 }
 
 + (float)defaultLensPosition;
+@property _Bool runningSingleShotAutoFocus; // @synthesize runningSingleShotAutoFocus=_runningSingleShotAutoFocus;
 @property _Bool interrupted; // @synthesize interrupted=_interrupted;
 @property _Bool running; // @synthesize running=_running;
 @property float defaultLensPosition; // @synthesize defaultLensPosition=_defaultLensPosition;

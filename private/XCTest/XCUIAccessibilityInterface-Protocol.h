@@ -26,7 +26,7 @@
 - (void)notifyOnNextOccurrenceOfUserTestingEvent:(NSString *)arg1 handler:(void (^)(NSDictionary *, NSError *))arg2;
 - (_Bool)cachedAccessibilityLoadedValueForPID:(int)arg1;
 - (_Bool)performAction:(int)arg1 onElement:(XCAccessibilityElement *)arg2 value:(id)arg3 error:(id *)arg4;
-- (id)parameterizedAttribute:(NSString *)arg1 forElement:(XCAccessibilityElement *)arg2 parameter:(id)arg3;
+- (id)parameterizedAttribute:(NSString *)arg1 forElement:(XCAccessibilityElement *)arg2 parameter:(id)arg3 error:(id *)arg4;
 - (_Bool)setAttribute:(NSString *)arg1 value:(id)arg2 element:(XCAccessibilityElement *)arg3 outError:(id *)arg4;
 - (XCAccessibilityElement *)hitTestElement:(XCElementSnapshot *)arg1 withPoint:(struct CGPoint)arg2 error:(id *)arg3;
 - (NSArray *)interruptingUIElementsAffectingSnapshot:(XCElementSnapshot *)arg1;

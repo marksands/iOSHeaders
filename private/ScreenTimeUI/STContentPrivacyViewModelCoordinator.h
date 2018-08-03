@@ -12,6 +12,7 @@
 
 @interface STContentPrivacyViewModelCoordinator : NSObject <STContentPrivacyViewModelCoordinator>
 {
+    _Bool _isLocalDevice;
     STContentPrivacyViewModel *_viewModel;
     id <RMPersistenceControllerProtocol> _persistenceController;
     NSString *_organizationIdentifier;
@@ -22,6 +23,7 @@
 }
 
 @property(retain, nonatomic) NSMutableDictionary *configurationPayloadsByType; // @synthesize configurationPayloadsByType=_configurationPayloadsByType;
+@property(nonatomic) _Bool isLocalDevice; // @synthesize isLocalDevice=_isLocalDevice;
 @property(copy, nonatomic) NSManagedObjectID *userObjectID; // @synthesize userObjectID=_userObjectID;
 @property(copy, nonatomic) NSString *userName; // @synthesize userName=_userName;
 @property(copy, nonatomic) NSNumber *userDSID; // @synthesize userDSID=_userDSID;

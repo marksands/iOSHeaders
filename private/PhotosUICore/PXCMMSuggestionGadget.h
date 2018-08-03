@@ -37,6 +37,7 @@
 - (void)_presentSuggestion:(id)arg1 animated:(_Bool)arg2 pptConfigurationBlock:(CDUnknownBlockType)arg3;
 - (void)_setCombinedFaceTileImage:(id)arg1;
 - (void)_updatePeopleSuggestionFaceTileImagesForPersons:(id)arg1;
+- (void)_changeViewConfiguration:(CDUnknownBlockType)arg1;
 - (void)_loadSuggestion:(id)arg1;
 - (id)uniqueGadgetIdentifier;
 @property(readonly, nonatomic) _Bool supportsSelection;
@@ -51,6 +52,7 @@
 - (void)presentDetailViewAnimated:(_Bool)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, copy) NSString *debugDescription;
@@ -58,7 +60,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) unsigned long long headerStyle;
 @property(readonly, nonatomic) NSString *localizedTitle;
-@property(nonatomic) unsigned long long priority;
+@property(nonatomic) long long priority;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) _Bool supportsAssetsDrop;
 @property(nonatomic) struct CGRect visibleContentRect;

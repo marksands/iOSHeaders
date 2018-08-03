@@ -116,6 +116,7 @@
 - (_Bool)setScopeType:(long long)arg1 forScope:(id)arg2 error:(id *)arg3;
 - (_Bool)deleteScopeWithIdentifier:(id)arg1 error:(id *)arg2;
 - (id)createScopeWithIdentifier:(id)arg1 scopeType:(long long)arg2 flags:(long long)arg3 transportScope:(id)arg4 error:(id *)arg5;
+- (_Bool)_handledDisabledFeaturesForScopeIfNecessary:(id)arg1 type:(long long)arg2 error:(id *)arg3;
 - (void)_resetGlobalsForMainScope;
 - (id)allScopeIdentifiersIncludeInactive:(_Bool)arg1;
 - (_Bool)doesScopeNeedToUpdateTransport:(id)arg1;
@@ -124,6 +125,7 @@
 - (_Bool)setScopeNeedsToUpdateTransport:(id)arg1 error:(id *)arg2;
 - (_Bool)hasScopesNeedingToUpdateTransport;
 - (_Bool)updateScopeWithChange:(id)arg1 error:(id *)arg2;
+- (id)_createScopeFromScopeChange:(id)arg1 error:(id *)arg2;
 - (id)enumeratorForScopesNeedingToUpdateTransport;
 - (_Bool)doesScopeNeedToBePulledByClient:(id)arg1;
 - (_Bool)setScopeNeedsToBePulledByClient:(id)arg1 error:(id *)arg2;

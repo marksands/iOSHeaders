@@ -93,6 +93,7 @@
 @property(readonly, copy, nonatomic) NSString *versionIdentifier;
 
 @optional
+@property(readonly, nonatomic) _Bool webEmbedsEnabled;
 @property(copy, nonatomic) FCHeadlineExperimentalTitleMetadata *experimentalTitleMetadata;
 @property(readonly, nonatomic) NSData *backingArticleRecordData;
 @property(readonly, nonatomic) id <FCHeadlineStocksFields> stocksFields;

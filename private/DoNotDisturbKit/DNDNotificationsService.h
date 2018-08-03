@@ -10,7 +10,7 @@
 #import "DNDStateUpdateListener.h"
 #import "UNUserNotificationCenterDelegate.h"
 
-@class DNDBehaviorSettings, DNDModeAssertionService, DNDSettingsService, DNDState, DNDStateService, NSObject<OS_dispatch_queue>, NSString, UNUserNotificationCenter;
+@class DNDBehaviorSettings, DNDBypassSettings, DNDModeAssertionService, DNDSettingsService, DNDState, DNDStateModeAssertionMetadata, DNDStateService, NSObject<OS_dispatch_queue>, NSString, UNUserNotificationCenter;
 
 @interface DNDNotificationsService : NSObject <DNDStateUpdateListener, DNDSettingsUpdateListener, UNUserNotificationCenterDelegate>
 {
@@ -23,8 +23,10 @@
     _Bool _bedtimeActive;
     _Bool _drivingActive;
     _Bool _workoutActive;
+    DNDStateModeAssertionMetadata *_longestAssertionMetadata;
     DNDState *_currentState;
     DNDBehaviorSettings *_currentBehaviorSettings;
+    DNDBypassSettings *_currentPhoneCallBypassSettings;
     UNUserNotificationCenter *_notificationsCenter;
 }
 
@@ -33,6 +35,7 @@
 - (id)_attachmentForIdentifier:(id)arg1;
 - (void)_queue_postOrRemoveNotificationWithUpdatedBehavior:(_Bool)arg1;
 - (void)userNotificationCenter:(id)arg1 didReceiveNotificationResponse:(id)arg2 withCompletionHandler:(CDUnknownBlockType)arg3;
+- (void)settingsService:(id)arg1 didReceiveUpdatedPhoneCallBypassSettings:(id)arg2;
 - (void)settingsService:(id)arg1 didReceiveUpdatedBehaviorSettings:(id)arg2;
 - (void)stateService:(id)arg1 didReceiveDoNotDisturbStateUpdate:(id)arg2;
 - (void)resume;

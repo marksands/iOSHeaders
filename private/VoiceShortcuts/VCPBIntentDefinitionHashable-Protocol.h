@@ -4,12 +4,9 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSString, VCIntentDefinitionSyncState;
+@class NSString;
 
 @protocol VCPBIntentDefinitionHashable
 - (NSString *)associatedBundleID;
-- (NSString *)checksum;
-- (VCIntentDefinitionSyncState *)syncStateObject;
-- (double)associatedAppRegistrationDate;
 @end
 

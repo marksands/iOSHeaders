@@ -143,6 +143,7 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)didReceiveMemoryWarning;
 - (void)loadCachedLocationsForHandles;
+- (void)_enablePreloadedHandles:(id)arg1;
 - (void)enablePreloadedHandles;
 - (void)loadDelegate;
 - (void)destroySession;

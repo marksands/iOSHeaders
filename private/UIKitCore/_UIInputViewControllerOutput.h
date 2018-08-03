@@ -15,6 +15,7 @@ __attribute__((visibility("hidden")))
 @interface _UIInputViewControllerOutput : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _shouldDismiss;
+    _Bool _proceedShouldReturn;
     _Bool _shouldAdvanceInputMode;
     _Bool _hasDictation;
     _Bool _requiresInputManagerSync;
@@ -39,6 +40,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool hasDictation; // @synthesize hasDictation=_hasDictation;
 @property(copy, nonatomic) NSString *primaryLanguage; // @synthesize primaryLanguage=_primaryLanguage;
 @property(nonatomic) _Bool shouldAdvanceInputMode; // @synthesize shouldAdvanceInputMode=_shouldAdvanceInputMode;
+@property(nonatomic) _Bool proceedShouldReturn; // @synthesize proceedShouldReturn=_proceedShouldReturn;
 @property(nonatomic) _Bool shouldDismiss; // @synthesize shouldDismiss=_shouldDismiss;
 @property(retain, nonatomic) NSArray *keyboardOutputs; // @synthesize keyboardOutputs=_keyboardOutputs;
 - (id)description;

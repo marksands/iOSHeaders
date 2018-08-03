@@ -18,7 +18,7 @@
     AVURLAsset *_capturedAsset;
     NSError *_captureError;
     double _storeDemoTimeLimit;
-    double _beginCaptureTime;
+    unsigned long long _beginCapturedHostTime;
     double _capturedDisplayTime;
     unsigned long long _backgroundTaskIdentifier;
     NSObject<OS_dispatch_group> *_endCaptureTaskGroup;
@@ -46,6 +46,7 @@
 - (void).cxx_destruct;
 - (void)_takeSBSecureAppAssertion:(_Bool)arg1;
 - (_Bool)_openAVCaptureSessionAndWaitUntilRunning;
+- (void)handleInterruption:(id)arg1;
 - (_Bool)_attachInputToCaptureSession:(id)arg1 withAudioDevice:(id)arg2;
 - (void)_closeCaptureSession;
 - (void)_deleteCaptureDestinationAndPostDidEndNotification:(id)arg1;
@@ -54,6 +55,7 @@
 - (void)_handleCaptureSessionDidStartWritingToURL:(id)arg1;
 - (void)_handleCaptureSessionDidError:(id)arg1;
 - (void)_beginAVCapturingToDestinationInitiallyPaused:(_Bool)arg1;
+- (void)_installTapIntoCurrentNode;
 - (void)_setPostPrepareRequestedState:(long long)arg1;
 - (void)_postToObserversWithBlock:(CDUnknownBlockType)arg1;
 - (void)_enumerateCaptureSessionObserversWithBlock:(CDUnknownBlockType)arg1;
@@ -72,6 +74,7 @@
 - (void)waveformDataSourceDidFinishLoading:(id)arg1;
 - (void)updateObserversFromDisplayLink:(id)arg1;
 - (_Bool)updateFromDisplayLink;
+- (double)capturedDeltaFromDisplayTime:(double)arg1;
 - (double)capturedTimeFromDisplayTime:(double)arg1;
 - (void)disableCaptureEndSoundEffect;
 - (void)disableCaptureBeginSoundEffect;
@@ -82,6 +85,7 @@
 - (_Bool)isPreparing;
 @property(readonly, nonatomic) double captureDestinationComposedDuration;
 - (void)deleteCapturedOutWhenFinished;
+- (void)finishCapturingWithError:(id)arg1;
 - (void)finishCapturing;
 - (void)resumeCapturing;
 - (_Bool)canResumeCapturingAtCompositionDestinationTime:(double)arg1;
@@ -90,11 +94,10 @@
 - (void)prepareToCaptureWithPreparedHandler:(CDUnknownBlockType)arg1;
 - (void)removeCaptureSessionObserver:(id)arg1;
 - (void)addCaptureSessionObserver:(id)arg1;
-@property(readonly, nonatomic) double captureTime;
 - (double)finalizedFragmentDuration;
 - (_Bool)unsaveableRecordingError;
 @property(nonatomic) double storeDemoTimeLimit;
-- (void)_endWriting;
+- (void)_endWritingWithError:(id)arg1;
 - (void)_resumeWriting;
 - (void)_pauseWriting;
 @property(readonly, nonatomic) long long _writerState;

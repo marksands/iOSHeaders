@@ -34,6 +34,8 @@
 - (void)resetToDefaultDisplayMode;
 - (void)toggleExtendedMode;
 - (void)toggleSliderMode;
+@property(readonly, nonatomic) _Bool canShowSubsection;
+@property(readonly, nonatomic) _Bool isShowingSubsection;
 @property(readonly, nonatomic) _Bool isShowingExtended;
 @property(readonly, nonatomic) _Bool isShowingSlider;
 - (void)updateSelectedIndexesSelectingItem:(id)arg1;

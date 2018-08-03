@@ -63,6 +63,7 @@
 - (_Bool)containerAllowsSelection;
 - (_Bool)containerIsPlainStyleAtom;
 - (_Bool)containerIsAtom;
+- (void)addGestureRecognizersToView:(id)arg1;
 - (_Bool)overrideGestureRecognizerShouldBegin:(id)arg1;
 - (_Bool)overrideGestureRecognizer:(id)arg1 shouldReceiveTouch:(id)arg2;
 - (Class)loupeInteractionClass;

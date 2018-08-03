@@ -19,12 +19,14 @@
     CDUnknownBlockType _preparationBlock;
     Class _clientClass;
     NSString *_usage;
+    long long _requiredSupportLevel;
     long long _activationStyle;
     long long _outputMode;
     NSString *__stats_key;
 }
 
 + (id)_configurationWithKey:(id)arg1 preparationBlock:(CDUnknownBlockType)arg2;
++ (id)_configurationWithKey:(id)arg1 requiredSupportLevel:(long long)arg2 preparationBlock:(CDUnknownBlockType)arg3;
 + (id)_disabledConfiguration;
 + (id)defaultConfiguration;
 @property(copy, nonatomic) NSString *_stats_key; // @synthesize _stats_key=__stats_key;
@@ -33,6 +35,7 @@
 @property(nonatomic) _Bool settingsEnabled; // @synthesize settingsEnabled=_settingsEnabled;
 @property(nonatomic) long long outputMode; // @synthesize outputMode=_outputMode;
 @property(nonatomic) long long activationStyle; // @synthesize activationStyle=_activationStyle;
+@property(nonatomic) long long requiredSupportLevel; // @synthesize requiredSupportLevel=_requiredSupportLevel;
 @property(copy, nonatomic) NSString *usage; // @synthesize usage=_usage;
 @property(copy, nonatomic) Class clientClass; // @synthesize clientClass=_clientClass;
 @property(copy, nonatomic) CDUnknownBlockType preparationBlock; // @synthesize preparationBlock=_preparationBlock;
@@ -47,7 +50,6 @@
 - (id)tweakedConfigurationForClass:(Class)arg1 usage:(id)arg2;
 - (id)tweakedConfigurationForCaller:(id)arg1 usage:(id)arg2;
 @property(readonly, nonatomic) NSString *descriptionKey;
-@property(readonly, nonatomic) long long requiredSupportLevel;
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (void)dealloc;

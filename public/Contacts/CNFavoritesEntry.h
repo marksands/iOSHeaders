@@ -11,7 +11,6 @@
 @interface CNFavoritesEntry : NSObject
 {
     NSString *_name;
-    _Bool _autoUpdating;
     _Bool _dirty;
     int _abUid;
     int _abIdentifier;
@@ -42,7 +41,6 @@
 + (void)initialize;
 @property(nonatomic) _Bool dirty; // @synthesize dirty=_dirty;
 @property(nonatomic) int oldAbUid; // @synthesize oldAbUid=_oldAbUid;
-@property(readonly, nonatomic) _Bool autoUpdating; // @synthesize autoUpdating=_autoUpdating;
 @property(nonatomic) int abIdentifier; // @synthesize abIdentifier=_abIdentifier;
 @property(nonatomic) int abUid; // @synthesize abUid=_abUid;
 @property(retain, nonatomic) NSString *labeledValueIdentifier; // @synthesize labeledValueIdentifier=_labeledValueIdentifier;

@@ -6,11 +6,12 @@
 
 #import <RelevanceEngine/RERelevanceProviderManager.h>
 
-@class NSMutableDictionary;
+@class NSDate, NSMutableDictionary;
 
 @interface RERecentActionRelevanceProviderManager : RERelevanceProviderManager
 {
     NSMutableDictionary *_relevanceProviderMap;
+    NSDate *_lastDateUpdate;
 }
 
 + (_Bool)_supportsHistoricProviders;
@@ -18,6 +19,7 @@
 + (Class)_relevanceProviderClass;
 - (void).cxx_destruct;
 - (void)collectLoggableState:(CDUnknownBlockType)arg1;
+- (void)_prepareForUpdate;
 - (void)_handleSignificantTimeChange;
 - (void)_closeDataStoresAndObserveChanges;
 - (void)_openDataStoresAndObserveChanges;

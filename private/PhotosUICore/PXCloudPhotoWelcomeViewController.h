@@ -8,11 +8,12 @@
 
 #import "AAUIGenericTermsRemoteUIDelegate.h"
 #import "PSCloudStorageOffersManagerDelegate.h"
+#import "PXCloudPhotoWelcomeNavigationControllerDismissDelegate.h"
 #import "PXCloudPhotoWelcomeViewDelegate.h"
 
 @class AAUIGenericTermsRemoteUI, NSString, PSCloudStorageOffersManager, PXCloudPhotoWelcomeView;
 
-@interface PXCloudPhotoWelcomeViewController : UIViewController <PXCloudPhotoWelcomeViewDelegate, PSCloudStorageOffersManagerDelegate, AAUIGenericTermsRemoteUIDelegate>
+@interface PXCloudPhotoWelcomeViewController : UIViewController <PXCloudPhotoWelcomeViewDelegate, PSCloudStorageOffersManagerDelegate, AAUIGenericTermsRemoteUIDelegate, PXCloudPhotoWelcomeNavigationControllerDismissDelegate>
 {
     PSCloudStorageOffersManager *_offersManager;
     AAUIGenericTermsRemoteUI *_termsManager;
@@ -24,6 +25,7 @@
 + (_Bool)shouldPresentCloudPhotoWelcomeViewController:(_Bool *)arg1;
 @property(retain, nonatomic) PXCloudPhotoWelcomeView *welcomeView; // @synthesize welcomeView=_welcomeView;
 - (void).cxx_destruct;
+- (void)navigationControllerDidDismissViewController:(id)arg1;
 - (void)_handleEnableError:(id)arg1;
 - (void)genericTermsRemoteUI:(id)arg1 didFinishWithSuccess:(_Bool)arg2;
 - (void)managerDidCancel:(id)arg1;

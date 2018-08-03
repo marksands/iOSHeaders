@@ -57,6 +57,7 @@
 - (void)_enumerateSectionsUsingBlock:(CDUnknownBlockType)arg1;
 - (id)initWithRelevanceEngine:(id)arg1;
 - (id)elementForElementId:(id)arg1;
+- (id)featureMapForElement:(id)arg1 trainingContext:(id)arg2;
 - (id)featureMapForElementId:(id)arg1 trainingContext:(id)arg2;
 - (id)elementRelevanceEngine;
 

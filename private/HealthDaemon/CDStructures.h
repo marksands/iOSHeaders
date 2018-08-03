@@ -336,6 +336,12 @@ struct vector<long long, std::__1::allocator<long long>> {
 #pragma mark Typedef'd Structures
 
 typedef struct {
+    id _field1;
+    id _field2;
+    unsigned char _field3;
+} CDStruct_4c492439;
+
+typedef struct {
     unsigned int *list;
     unsigned long long count;
     unsigned long long size;

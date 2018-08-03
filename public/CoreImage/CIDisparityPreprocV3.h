@@ -12,12 +12,13 @@ __attribute__((visibility("hidden")))
 @interface CIDisparityPreprocV3 : CIFilter
 {
     CIImage *inputImage;
-    CIImage *inputWeightsImage;
+    CIImage *inputAlphaImage;
 }
 
-@property(retain) CIImage *inputWeightsImage; // @synthesize inputWeightsImage;
+@property(retain) CIImage *inputAlphaImage; // @synthesize inputAlphaImage;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;
 - (id)outputImage;
+- (id)preprocKernelNoAlpha;
 - (id)preprocKernel;
 
 @end

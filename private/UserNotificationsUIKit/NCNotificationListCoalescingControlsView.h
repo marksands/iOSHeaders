@@ -23,6 +23,7 @@
 }
 
 + (id)labelTextStyle;
++ (double)preferredHeight;
 @property(nonatomic, getter=_effectiveVerticalPadding) double effectiveVerticalPadding; // @synthesize effectiveVerticalPadding=_effectiveVerticalPadding;
 @property(nonatomic, getter=_effectiveHorizontalPadding) double effectiveHorizontalPadding; // @synthesize effectiveHorizontalPadding=_effectiveHorizontalPadding;
 @property(nonatomic, getter=_effectiveButtonHeight) double effectiveButtonHeight; // @synthesize effectiveButtonHeight=_effectiveButtonHeight;
@@ -49,6 +50,8 @@
 - (double)_cornerRadius;
 - (double)_imageDimension;
 - (double)_effectiveValue:(double)arg1;
+- (void)toggleControlDidDismssPreviewInteractionPresentedContent:(id)arg1;
+- (void)toggleControlDidPresentPreviewInteractionPresentedContent:(id)arg1;
 - (id)containerViewForToggleControlPreviewInteractionPresentedContent:(id)arg1;
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
@@ -56,6 +59,7 @@
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)layoutSubviews;
 - (_Bool)shouldReceiveTouchAtPointInWindowSpace:(struct CGPoint)arg1;
+- (_Bool)dismissModalFullScreenIfNeeded;
 - (void)resetClearButtonStateAnimated:(_Bool)arg1;
 
 // Remaining properties

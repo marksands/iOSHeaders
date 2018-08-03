@@ -29,10 +29,10 @@
 @property(readonly, copy) NSMutableSet *trackedBundleIDs; // @synthesize trackedBundleIDs=_trackedBundleIDs;
 @property(readonly, copy) XCUIApplicationImplDepot *applicationImplDepot; // @synthesize applicationImplDepot=_applicationImplDepot;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
-@property(readonly) XCUIApplicationRegistry *applicationRegistry; // @synthesize applicationRegistry=_applicationRegistry;
+@property(retain) XCUIApplicationRegistry *applicationRegistry; // @synthesize applicationRegistry=_applicationRegistry;
 - (void).cxx_destruct;
 - (void)acquireBackgroundAssertionForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 preferredBackendPath:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)updatedApplicationStateSnapshot:(id)arg1;
 - (void)_setIsTrackingForBundleID:(id)arg1;
 - (_Bool)_isTrackingBundleID:(id)arg1;

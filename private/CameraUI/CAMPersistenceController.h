@@ -98,10 +98,12 @@
 - (void)stillImageRequestDidCompleteCapture:(id)arg1 error:(id)arg2;
 - (void)stillImageRequest:(id)arg1 didCompleteVideoCaptureWithResult:(id)arg2;
 - (void)stillImageRequest:(id)arg1 didCompleteStillImageCaptureWithResult:(id)arg2;
+- (void)_mainThread_handleApplicationDidEnterBackground:(id)arg1;
 @property(readonly, nonatomic) _Bool resultDelegateRespondsToDidCompleteAllLocalPersistenceForRequest;
 @property(nonatomic) __weak id <CAMPersistenceResultDelegate> resultDelegate; // @synthesize resultDelegate=_resultDelegate;
 @property(readonly, nonatomic) NSMutableArray *_pendingRemotePersistenceWrappers; // @synthesize _pendingRemotePersistenceWrappers;
 @property(readonly, nonatomic) NSMutableArray *_pendingLocalPersistenceWrappers; // @synthesize _pendingLocalPersistenceWrappers;
+- (void)dealloc;
 - (id)init;
 - (id)initWithLocationController:(id)arg1 burstController:(id)arg2 protectionController:(id)arg3 powerController:(id)arg4 irisVideoController:(id)arg5;
 

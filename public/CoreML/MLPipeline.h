@@ -22,7 +22,7 @@
 - (void).cxx_destruct;
 - (id)predictionFromFeatures:(id)arg1 options:(id)arg2 error:(id *)arg3;
 - (id)predictionsFromBatch:(id)arg1 options:(id)arg2 error:(id *)arg3;
-- (id)initModelFromMetadataAndArchive:(struct _MLModelInputArchiver *)arg1 versionInfo:(id)arg2 interface:(id)arg3 metadata:(id)arg4 error:(id *)arg5;
+- (id)initModelFromMetadataAndArchive:(struct _MLModelInputArchiver *)arg1 versionInfo:(id)arg2 interface:(id)arg3 metadata:(id)arg4 configuration:(id)arg5 error:(id *)arg6;
 
 @end
 

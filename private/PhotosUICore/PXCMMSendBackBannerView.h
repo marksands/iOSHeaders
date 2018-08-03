@@ -20,7 +20,8 @@
 }
 
 + (id)_headlineLabelFont;
-+ (id)_captionLabelFont;
++ (id)captionLabelFont;
++ (double)captionLabelTopInset;
 - (void).cxx_destruct;
 - (id)_attributedStringWithString:(id)arg1;
 - (id)_headlineStringAttributes;
@@ -28,6 +29,7 @@
 - (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)_actionButtonTapped:(id)arg1;
 - (void)_updateActionButton;
+- (void)_updateLabels;
 - (struct CGSize)_performLayoutInWidth:(double)arg1 updateSubviewFrames:(_Bool)arg2;
 - (void)willMoveToWindow:(id)arg1;
 - (void)layoutSubviews;

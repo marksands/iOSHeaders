@@ -23,9 +23,7 @@
 - (void).cxx_destruct;
 - (id)accessibilityHUDRepresentation;
 - (struct CGSize)intrinsicContentSize;
-- (void)_updateCycleAnimationVisibility;
 - (void)_iconSizeDidChange;
-- (void)_visibilityDidChange;
 - (void)didMoveToWindow;
 - (void)_updateFromMode:(long long)arg1;
 - (void)_updateActiveBars;

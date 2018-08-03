@@ -6,13 +6,11 @@
 
 #import <FMCoreUI/FMViewController.h>
 
-@class FMFuture, SlidingPaneViewState, UIView, UIViewController, UIVisualEffect;
+@class FMFuture, NSMutableArray, SlidingPaneViewState, UIView, UIViewController, UIVisualEffect;
 
 @interface FMSlidingPaneViewController : FMViewController
 {
     _Bool _didHideToolbar;
-    _Bool _isPresenting;
-    _Bool _isDismissing;
     UIVisualEffect *_paneVisualEffect;
     id <FMSlidingPaneViewControllerDelegate> _delegate;
     double _animationDuration;
@@ -20,16 +18,12 @@
     double _animationInitialVelocity;
     unsigned long long _animationOptions;
     SlidingPaneViewState *_paneState;
-    FMFuture *_presentingFuture;
-    FMFuture *_dismissingFuture;
+    NSMutableArray *_actionFutures;
     struct UIEdgeInsets _paneInsets;
     struct UIEdgeInsets _paneContentInsets;
 }
 
-@property(retain, nonatomic) FMFuture *dismissingFuture; // @synthesize dismissingFuture=_dismissingFuture;
-@property(nonatomic) _Bool isDismissing; // @synthesize isDismissing=_isDismissing;
-@property(retain, nonatomic) FMFuture *presentingFuture; // @synthesize presentingFuture=_presentingFuture;
-@property(nonatomic) _Bool isPresenting; // @synthesize isPresenting=_isPresenting;
+@property(retain, nonatomic) NSMutableArray *actionFutures; // @synthesize actionFutures=_actionFutures;
 @property(nonatomic) _Bool didHideToolbar; // @synthesize didHideToolbar=_didHideToolbar;
 @property(retain, nonatomic) SlidingPaneViewState *paneState; // @synthesize paneState=_paneState;
 @property(nonatomic) unsigned long long animationOptions; // @synthesize animationOptions=_animationOptions;
@@ -40,6 +34,9 @@
 @property(nonatomic) struct UIEdgeInsets paneInsets; // @synthesize paneInsets=_paneInsets;
 @property(nonatomic) __weak id <FMSlidingPaneViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
+- (void)completeFuture:(id)arg1;
+@property(readonly, nonatomic) FMFuture *currentFuture;
+- (id)newActionFuture;
 @property(readonly, nonatomic, getter=isPaneShowing) _Bool paneShowing;
 - (void)_crossDissolveOldPaneState:(id)arg1 newPaneState:(id)arg2 animated:(_Bool)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)_dismissPaneState:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;

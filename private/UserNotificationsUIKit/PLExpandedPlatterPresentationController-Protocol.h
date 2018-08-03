@@ -17,8 +17,9 @@
 - (void)completeDismissal;
 - (void)hintDismissalWithCommitProgress:(double)arg1 overallProgress:(double)arg2;
 - (struct CGRect)initialFrameOfPresentedViewInContainerView;
-- (struct CGRect)finalFrameOfPresentingViewInContainerView;
-- (struct CGRect)initialFrameOfPresentingViewInContainerView;
+- (struct CGRect)finalDismissalFrameOfPresentingViewInContainerView;
+- (struct CGRect)finalPresentationFrameOfPresentingViewInContainerView;
+- (struct CGRect)initialPresentationFrameOfPresentingViewInContainerView;
 - (id)initWithPresentedViewController:(UIViewController *)arg1 presentingViewController:(UIViewController *)arg2 sourceViewController:(UIViewController *)arg3 sourceView:(UIView *)arg4;
 @end
 

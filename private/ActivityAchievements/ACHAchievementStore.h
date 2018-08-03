@@ -62,7 +62,7 @@
 - (void)_notifyObserversOfInitialFetchCompletion;
 - (void)removeObserver:(id)arg1;
 - (void)addObserver:(id)arg1;
-- (void)loadAllAchievementsFromDatabaseIfNecessary;
+- (void)loadAllAchievementsFromDatabaseIfNecessaryWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)initWithTemplateStore:(id)arg1 earnedInstanceStore:(id)arg2 templateAssetRegistry:(id)arg3 progressProvider:(id)arg4;
 
 // Remaining properties

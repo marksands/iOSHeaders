@@ -34,7 +34,6 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 @property(readonly) unsigned long long hash;
 - (_Bool)isEqual:(id)arg1;
-- (id)_fetchQueue_bestTransportForContact:(id)arg1;
 - (void)_prefetchLinkedContactInBackgroundForPerson:(id)arg1;
 - (id)_linkedContactForPerson:(id)arg1;
 @property(readonly, nonatomic) CNContact *linkedContact;

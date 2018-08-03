@@ -13,7 +13,7 @@
 #import "UIScrollViewDelayedTouchesBeganGestureRecognizerClient.h"
 #import "_UIScrollToTopView.h"
 
-@class CADisplayLink, NSArray, NSHashTable, NSISVariable, NSMutableDictionary, NSString, UIGestureRecognizer, UIImageView, UILayoutGuide, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRefreshControl, UIScrollViewDelayedTouchesBeganGestureRecognizer, UIScrollViewDirectionalPressGestureRecognizer, UIScrollViewPanGestureRecognizer, UIScrollViewPinchGestureRecognizer, UISwipeGestureRecognizer, _UIAutoScrollAssistant, _UIDragAutoScrollGestureRecognizer, _UIFocusFastScrollingController, _UIFocusFastScrollingIndexBarView, _UIFocusFastScrollingRequest, _UIStaticScrollBar, _UIWorkIntervalProxy, _UIZoomEdgeFeedbackGenerator;
+@class CADisplayLink, NSArray, NSHashTable, NSISVariable, NSMutableDictionary, NSString, NSTimer, UIGestureRecognizer, UIImageView, UILayoutGuide, UIPanGestureRecognizer, UIPinchGestureRecognizer, UIRefreshControl, UIScrollViewDelayedTouchesBeganGestureRecognizer, UIScrollViewDirectionalPressGestureRecognizer, UIScrollViewPanGestureRecognizer, UIScrollViewPinchGestureRecognizer, UISwipeGestureRecognizer, _UIAutoScrollAssistant, _UIDragAutoScrollGestureRecognizer, _UIFocusFastScrollingController, _UIFocusFastScrollingIndexBarView, _UIFocusFastScrollingRequest, _UIStaticScrollBar, _UIWorkIntervalProxy, _UIZoomEdgeFeedbackGenerator;
 
 @interface UIScrollView : UIView <UIGestureRecognizerDelegate, UIScrollViewDelayedTouchesBeganGestureRecognizerClient, _UIScrollToTopView, UIIndexBarAccessoryViewDelegate, NSCoding, UIFocusItemScrollableContainer>
 {
@@ -197,7 +197,9 @@
         unsigned int observingBoundingPathChanges:1;
         unsigned int resetsBoundingPathForSubtree:1;
         unsigned int scrubbing:3;
+        unsigned int alwaysAppliesKeyboardBottomInsetAdjustment:1;
     } _scrollViewFlags;
+    NSTimer *_trackingWatchdogTimer;
     _Bool _useContentDimensionVariablesForConstraintLowering;
     id _scrollTestParameters;
     long long _keyboardDismissMode;
@@ -302,7 +304,9 @@
 - (void)_registerForSpringBoardBlankedScreenNotification;
 - (void)_prepareToPageWithHorizontalVelocity:(double)arg1 verticalVelocity:(double)arg2;
 - (void)_runLoopModePopped:(id)arg1;
-- (void)_popTrackingRunLoopMode;
+- (void)_popTrackingRunLoopModeIfNecessaryForReason:(id)arg1;
+- (void)_bumpTrackingWatchdogTimer;
+- (void)_pushTrackingRunLoopModeIfNecessaryForReason:(id)arg1;
 - (void)_smoothScrollTimer:(id)arg1;
 - (void)_smoothScrollDisplayLink:(id)arg1;
 - (void)_smoothScrollWithUpdateTime:(double)arg1;
@@ -451,6 +455,7 @@
 - (void)_enableOnlyGestureRecognizersForCurrentTouchLevel;
 - (void)_createGestureRecognizersForCurrentTouchLevel;
 - (void)delayed:(id)arg1;
+- (double)_focusFastScrollingBarZPosition;
 @property(readonly, nonatomic, getter=_scrollHysteresis) double scrollHysteresis; // @dynamic scrollHysteresis;
 - (void)_setAllowedFocusBounceEdges:(unsigned long long)arg1;
 - (unsigned long long)_allowedFocusBounceEdges;
@@ -481,6 +486,8 @@
 - (void)_setTransfersScrollToContainer:(_Bool)arg1;
 - (_Bool)_transfersScrollToContainer;
 @property(nonatomic) _Bool alwaysBounceVertical;
+- (void)_setAlwaysAppliesKeyboardBottomInsetAdjustment:(_Bool)arg1;
+- (_Bool)_alwaysAppliesKeyboardBottomInsetAdjustment;
 - (double)keyboardBottomInsetAdjustmentDelta;
 - (_Bool)updateInsetBottomDuringKeyboardDismiss;
 - (void)setUpdateInsetBottomDuringKeyboardDismiss:(_Bool)arg1;
@@ -632,6 +639,7 @@
 - (_Bool)_pagingUp;
 - (_Bool)_pagingRight;
 - (_Bool)_pagingLeft;
+- (_Bool)_delegateShouldPanGestureTryToBegin;
 - (_Bool)__canScrollWithoutBouncingYIncludingAdditionalContentInsetAmount:(double)arg1;
 - (_Bool)_canScrollWithoutBouncingIncludingRevealableContentPaddingTopY;
 - (_Bool)_canScrollWithoutBouncingY;

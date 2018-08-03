@@ -8,7 +8,7 @@
 
 @interface DNDModeAssertionDateIntervalLifetime (Schedule)
 + (id)dnds_lifetimeForScheduleSettings:(id)arg1 date:(id)arg2 calendar:(id)arg3;
-+ (id)dnds_lifetimeUntilNextToggleForScheduleSettings:(id)arg1 startDate:(id)arg2 calendar:(id)arg3;
++ (id)dnds_lifetimeUntilEndOfScheduleForScheduleSettings:(id)arg1 startDate:(id)arg2 calendar:(id)arg3;
 - (id)dnds_nextLifetimeForScheduleSettings:(id)arg1 calendar:(id)arg2;
 @end
 

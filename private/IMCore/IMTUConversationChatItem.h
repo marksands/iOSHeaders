@@ -6,7 +6,7 @@
 
 #import <IMCore/IMTranscriptChatItem.h>
 
-@class IMHandle, NSUUID, TUConversation;
+@class IMHandle, NSDate, NSUUID, TUConversation;
 
 @interface IMTUConversationChatItem : IMTranscriptChatItem
 {
@@ -16,6 +16,7 @@
 @property(readonly, nonatomic) IMHandle *conversationInitiator; // @synthesize conversationInitiator=_conversationInitiator;
 - (void).cxx_destruct;
 - (_Bool)canDelete;
+@property(readonly, nonatomic) NSDate *time;
 @property(readonly, nonatomic) _Bool isFromMe;
 @property(readonly, nonatomic) __weak TUConversation *tuConversation;
 @property(readonly, nonatomic) NSUUID *tuConversationUUID;

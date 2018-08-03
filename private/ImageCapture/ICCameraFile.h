@@ -22,6 +22,8 @@
 - (id)mediaData;
 - (_Bool)isJPEG;
 - (_Bool)isData;
+- (_Bool)isAudio;
+- (_Bool)isNonRawImage;
 - (_Bool)isImage;
 - (_Bool)isMovie;
 - (id)base;

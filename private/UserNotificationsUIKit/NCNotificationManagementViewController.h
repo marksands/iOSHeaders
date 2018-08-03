@@ -25,12 +25,18 @@
 @property(retain, nonatomic) NSURL *settingsURL; // @synthesize settingsURL=_settingsURL;
 @property(nonatomic) __weak id <NCNotificationManagementControllerSettingsDelegate> settingsDelegate; // @synthesize settingsDelegate=_settingsDelegate;
 - (void).cxx_destruct;
+- (void)notificationManagementController:(id)arg1 setAllowsCriticalAlerts:(_Bool)arg2 forNotificationRequest:(id)arg3 withSectionIdentifier:(id)arg4;
 - (void)notificationManagementController:(id)arg1 setDeliverQuietly:(_Bool)arg2 forNotificationRequest:(id)arg3 withSectionIdentifier:(id)arg4 subSectionIdentifier:(id)arg5;
 - (void)notificationManagementController:(id)arg1 setAllowsNotifications:(_Bool)arg2 forNotificationRequest:(id)arg3 withSectionIdentifier:(id)arg4;
 - (id)notificationManagementController:(id)arg1 sectionSettingsForSectionIdentifier:(id)arg2;
 - (void)_offButtonTapped:(id)arg1;
 - (void)_deliveryButtonTapped:(id)arg1;
 - (struct CGSize)preferredContentSize;
+- (_Bool)canResignFirstResponder;
+- (_Bool)canBecomeFirstResponder;
+- (void)viewDidDisappear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
+- (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;
 - (id)_newManagementView;

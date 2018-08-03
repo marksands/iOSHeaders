@@ -10,14 +10,16 @@
 
 @interface PXGadgetCollectionViewCell : UICollectionViewCell
 {
+    UIView *_gadgetContentView;
     id <PXGadget> _gadget;
 }
 
++ (Class)_contentViewClass;
 @property(retain, nonatomic) id <PXGadget> gadget; // @synthesize gadget=_gadget;
+@property(readonly, nonatomic) UIView *gadgetContentView; // @synthesize gadgetContentView=_gadgetContentView;
 - (void).cxx_destruct;
 - (void)prepareForReuse;
-@property(readonly, nonatomic) UIView *gadgetContentView;
-- (void)layoutSubviews;
+- (void)setGadgetContentView:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 @end

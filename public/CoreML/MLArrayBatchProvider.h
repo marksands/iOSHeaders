@@ -17,8 +17,6 @@
 
 @property(readonly, nonatomic) NSArray *array; // @synthesize array=_array;
 - (void).cxx_destruct;
-- (id)featureProviderAtIndex:(long long)arg1;
-@property(readonly, nonatomic) long long featureProviderCount;
 - (id)featuresAtIndex:(long long)arg1;
 @property(readonly, nonatomic) long long count;
 - (id)initWithDictionary:(id)arg1 error:(id *)arg2;

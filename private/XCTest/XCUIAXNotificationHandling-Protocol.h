@@ -9,6 +9,7 @@
 @class NSData, XCAccessibilityElement;
 
 @protocol XCUIAXNotificationHandling <NSObject>
+@property(readonly) _Bool axNotificationsIncludeElement;
 - (void)handleAccessibilityNotification:(long long)arg1 fromElement:(XCAccessibilityElement *)arg2 payload:(NSData *)arg3;
 @end
 

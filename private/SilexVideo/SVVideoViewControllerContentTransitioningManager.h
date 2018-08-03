@@ -20,7 +20,6 @@
     id <SVVideoSkipLockObserverFactory> _skipLockObserverFactory;
     id <SVVideoTimeProviderFactory> _timeProviderFactory;
     id <SVVideoPlaybackSeekerFactory> _seekerFactory;
-    id <SVScrubbingPolicyHandling> _scrubbingPolicy;
     id <SVVideoSkipLockObserving> _skipLockObserver;
     id <SVVideoTimeProviding> _timeProvider;
     id <SVVideoPlaybackSeeking> _seeker;
@@ -33,7 +32,6 @@
 @property(retain, nonatomic) id <SVVideoPlaybackSeeking> seeker; // @synthesize seeker=_seeker;
 @property(retain, nonatomic) id <SVVideoTimeProviding> timeProvider; // @synthesize timeProvider=_timeProvider;
 @property(retain, nonatomic) id <SVVideoSkipLockObserving> skipLockObserver; // @synthesize skipLockObserver=_skipLockObserver;
-@property(readonly, nonatomic) id <SVScrubbingPolicyHandling> scrubbingPolicy; // @synthesize scrubbingPolicy=_scrubbingPolicy;
 @property(readonly, nonatomic) id <SVVideoPlaybackSeekerFactory> seekerFactory; // @synthesize seekerFactory=_seekerFactory;
 @property(readonly, nonatomic) id <SVVideoTimeProviderFactory> timeProviderFactory; // @synthesize timeProviderFactory=_timeProviderFactory;
 @property(readonly, nonatomic) id <SVVideoSkipLockObserverFactory> skipLockObserverFactory; // @synthesize skipLockObserverFactory=_skipLockObserverFactory;
@@ -51,7 +49,7 @@
 - (void)playerViewControllerWillCancelContentTransition:(id)arg1;
 - (void)playerViewController:(id)arg1 didUpdateContentTransitionProgress:(double)arg2;
 - (void)playerViewControllerWillBeginContentTransition:(id)arg1;
-- (id)initWithVisiblePercentageManager:(id)arg1 visibilityReporter:(id)arg2 queueProvider:(id)arg3 playerProvider:(id)arg4 skipLockObserverFactory:(id)arg5 timeProviderFactory:(id)arg6 seekerFactory:(id)arg7 scrubbingPolicy:(id)arg8;
+- (id)initWithVisiblePercentageManager:(id)arg1 visibilityReporter:(id)arg2 queueProvider:(id)arg3 playerProvider:(id)arg4 skipLockObserverFactory:(id)arg5 timeProviderFactory:(id)arg6 seekerFactory:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

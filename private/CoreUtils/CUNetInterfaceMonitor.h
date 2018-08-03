@@ -19,14 +19,21 @@
     CDUnknownBlockType _invalidationHandler;
     NSString *_label;
     CDUnknownBlockType _flagsChangedHandler;
+    CDUnknownBlockType _primaryIPChangedHandler;
+    CDUnion_fab80606 _primaryIPv4Addr;
+    CDUnion_fab80606 _primaryIPv6Addr;
 }
 
+@property(copy, nonatomic) CDUnknownBlockType primaryIPChangedHandler; // @synthesize primaryIPChangedHandler=_primaryIPChangedHandler;
+@property(readonly, nonatomic) CDUnion_fab80606 primaryIPv6Addr; // @synthesize primaryIPv6Addr=_primaryIPv6Addr;
+@property(readonly, nonatomic) CDUnion_fab80606 primaryIPv4Addr; // @synthesize primaryIPv4Addr=_primaryIPv4Addr;
 @property(copy, nonatomic) CDUnknownBlockType flagsChangedHandler; // @synthesize flagsChangedHandler=_flagsChangedHandler;
 @property(readonly, nonatomic) unsigned int flags; // @synthesize flags=_flags;
 @property(copy, nonatomic) NSString *label; // @synthesize label=_label;
 @property(copy, nonatomic) CDUnknownBlockType invalidationHandler; // @synthesize invalidationHandler=_invalidationHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue; // @synthesize dispatchQueue=_dispatchQueue;
 - (void).cxx_destruct;
+- (void)_primaryIPChanged:(_Bool)arg1;
 - (void)_networkInterfacesChanged:(_Bool)arg1;
 - (void)_ensureStopped;
 - (void)_ensureStarted;

@@ -17,7 +17,6 @@ __attribute__((visibility("hidden")))
     NSNumber *_optedInAudioStreamID;
     unsigned short _activeDownlinkVideoStreamID;
     unsigned short _activeDownlinkAudioStreamID;
-    _Bool _firstFrameReceived;
     _Bool _remoteVideoEnabled;
     _Bool _remoteVideoPaused;
     unsigned char _videoQuality;
@@ -54,7 +53,7 @@ __attribute__((visibility("hidden")))
 - (void)vcMediaStream:(id)arg1 remoteMediaStalled:(_Bool)arg2;
 - (void)vcMediaStream:(id)arg1 didSwitchFromStreamID:(unsigned short)arg2 toStreamID:(unsigned short)arg3;
 - (void)vcMediaStream:(id)arg1 didSwitchToAudioStreamWithID:(unsigned short)arg2;
-- (void)vcMediaStream:(id)arg1 didReceiveVideoFrameWithTime:(CDStruct_1b6d18a9)arg2;
+- (void)vcMediaStream:(id)arg1 didReceiveFirstVideoFrameWithTime:(CDStruct_1b6d18a9)arg2;
 - (void)vcMediaStream:(id)arg1 priorityDidChange:(unsigned char)arg2;
 - (void)updateVideoPriority:(unsigned char)arg1;
 - (void)updateAudioPriority:(unsigned char)arg1;

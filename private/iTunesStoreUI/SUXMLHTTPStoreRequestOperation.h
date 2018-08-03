@@ -15,7 +15,6 @@
 }
 
 - (void).cxx_destruct;
-- (_Bool)_isAllowedURL:(id)arg1 withURLBag:(id)arg2;
 - (void)run;
 @property(copy) CDUnknownBlockType outputBlock;
 - (id)initWithRequestProperties:(id)arg1;

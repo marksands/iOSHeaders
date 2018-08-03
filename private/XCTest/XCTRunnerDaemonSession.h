@@ -21,7 +21,6 @@
     NSMutableDictionary *_invalidationHandlers;
 }
 
-+ (_Bool)isSupported;
 + (id)sharedSession;
 @property(retain) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;
 @property id <XCUIAXNotificationHandling> accessibilityClient; // @synthesize accessibilityClient=_accessibilityClient;
@@ -52,6 +51,7 @@
 - (void)fetchAttributesForElement:(id)arg1 attributes:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestSnapshotForElement:(id)arg1 attributes:(id)arg2 parameters:(id)arg3 reply:(CDUnknownBlockType)arg4;
 - (void)snapshotForElement:(id)arg1 attributes:(id)arg2 parameters:(id)arg3 reply:(CDUnknownBlockType)arg4;
+@property(readonly) _Bool axNotificationsIncludeElement;
 @property(readonly) _Bool useLegacySnapshotPath;
 - (void)terminateApplicationWithBundleID:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performAccessibilityAction:(int)arg1 onElement:(id)arg2 value:(id)arg3 reply:(CDUnknownBlockType)arg4;
@@ -62,7 +62,7 @@
 - (void)requestSpindumpWithSpecification:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)requestScreenshotOfScreenWithID:(unsigned int)arg1 withRect:(struct CGRect)arg2 formatUTI:(id)arg3 compressionQuality:(double)arg4 imageFormatRespected:(_Bool *)arg5 withReply:(CDUnknownBlockType)arg6;
 - (void)requestBackgroundAssertionForPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
-- (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)requestAutomationSessionForTestTargetWithPID:(int)arg1 preferredBackendPath:(id)arg2 reply:(CDUnknownBlockType)arg3;
 - (void)requestIDEConnectionTransportForSessionIdentifier:(id)arg1 reply:(CDUnknownBlockType)arg2;
 - (void)_XCT_receivedAccessibilityNotification:(long long)arg1 fromElement:(id)arg2 payload:(id)arg3;
 - (void)_XCT_receivedAccessibilityNotification:(long long)arg1 withPayload:(id)arg2;

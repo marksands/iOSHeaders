@@ -30,6 +30,7 @@
 - (void).cxx_destruct;
 - (void)contentDidLoad;
 - (void)requestResize;
+- (void)dismissAndPresentPhotosApp;
 - (void)dismiss;
 - (void)requestPresentationStyle:(unsigned long long)arg1;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;

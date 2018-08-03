@@ -55,13 +55,15 @@
 - (void)logForYouSuggestionViewed1UpCount;
 - (void)logForYouSuggestionViewedCount;
 - (void)logForYouSharedAlbumActivityViewed1UpCount;
+- (void)logForYouNavigatedToSharedAlbumActivityViewFromRecentActivityEntry;
+- (void)logForYouNavigatedToSharedAlbumActivityViewFromCollageView;
 - (void)logForYouSharedAlbumInvitationReportedAsJunkCount;
 - (void)logForYouSharedAlbumInvitationDeclinedCount;
 - (void)logForYouSharedAlbumInvitationAcceptedCount;
 - (void)logForYouContextualMemoriesDetailsCount;
 - (void)logForYouMemoriesDetailsCount;
 - (void)logForYouMemoriesFeedCount;
-- (void)logForYouFeedCount;
+- (void)logUserDidSelectGadgetAccessoryButtonWithKey:(struct __CFString *)arg1;
 - (void)logPeopleDetailShowFaces;
 - (void)logPeopleDetailNotThisPerson;
 - (void)logPeopleDetailKeyPhotoChanged;
@@ -87,6 +89,8 @@
 - (void)_logAggdAddValueForScalarKey:(struct __CFString *)arg1 value:(long long)arg2;
 - (void)logCounterValuesForLogState:(unsigned long long)arg1 duration:(double)arg2;
 - (void)logCounterValuesForLogSubState:(unsigned long long)arg1 duration:(double)arg2;
+- (void)logViewCountForLogState:(unsigned long long)arg1;
+- (_Bool)isEventSourceSenderAppearingForTheFirstTime:(id)arg1;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (void)logInterestingMemoryNotificationRespondedCount;

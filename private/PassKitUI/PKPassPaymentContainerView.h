@@ -70,6 +70,7 @@
     _Bool _isVisible;
     _Bool _waitingForPasses;
     _Bool _VASInfoViewHidden;
+    _Bool _VASInfoViewWillShow;
     _Bool _VASInfoViewSuppressedTransactionUpdate;
     double _lastFieldExitTime;
     _Bool _pendingAutomaticAuthorization;

@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-#import "CRKCardSectionViewProviding.h"
+#import "CRKIdentifiedCardSectionViewProviding.h"
 
 @class NSArray, NSString, SUICKPFeedbackDelegateDemultiplexer;
 
-@interface SUICKPCardSectionViewProvider : NSObject <CRKCardSectionViewProviding>
+@interface SUICKPCardSectionViewProvider : NSObject <CRKIdentifiedCardSectionViewProviding>
 {
     SUICKPFeedbackDelegateDemultiplexer *_feedbackDelegateDemux;
     id <CRCard> _card;
@@ -23,6 +23,7 @@
 - (void).cxx_destruct;
 - (unsigned long long)displayPriorityForCardSection:(id)arg1;
 @property(readonly, nonatomic) NSArray *viewConfigurations; // @synthesize viewConfigurations=_viewConfigurations;
+@property(readonly, copy, nonatomic) NSString *providerIdentifier;
 - (id)initWithCard:(id)arg1;
 
 // Remaining properties

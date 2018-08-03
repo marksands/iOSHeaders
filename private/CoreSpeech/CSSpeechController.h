@@ -125,8 +125,10 @@
 - (_Bool)_isSpeakerIdTrainingTriggered;
 - (_Bool)_isAutoPrompted;
 - (_Bool)_isVoiceTriggered;
+- (_Bool)isRTSTriggered;
 - (_Bool)PacketDecodingUsed;
 - (_Bool)isVoiceTriggered;
+- (id)recordDeviceInfo;
 - (id)recordRoute;
 - (_Bool)isRecording;
 - (void)stopRecording;

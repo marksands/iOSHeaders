@@ -21,6 +21,7 @@
     // Error parsing type: AB, name: _invalidated
     NSObject<OS_dispatch_queue> *_hfdQueue;
     shared_ptr_88ae0538 _highFrequencyDataStore;
+    NSLock *_writeLock;
     NSObject<OS_dispatch_queue> *_protectedDataQueue;
     HKObserverSet *_protectedDataObservers;
     long long _protectedDataState;
@@ -52,7 +53,6 @@
     NSObject<OS_dispatch_queue> *_secondaryJournalMergeQueue;
     NSMutableDictionary *_extendedTransactions;
     NSDictionary *_databasePoolForType;
-    NSLock *_writerConnectionLock;
     double _offsetTimeInterval;
     double _protectedDataFlushInterval;
     CDUnknownBlockType _unitTest_didWaitForJournalMergeHandler;
@@ -69,7 +69,6 @@
 @property(nonatomic) _Bool didRunPostMigrationUpdates; // @synthesize didRunPostMigrationUpdates=_didRunPostMigrationUpdates;
 @property(nonatomic) double protectedDataFlushInterval; // @synthesize protectedDataFlushInterval=_protectedDataFlushInterval;
 @property(nonatomic) double offsetTimeInterval; // @synthesize offsetTimeInterval=_offsetTimeInterval;
-@property(retain, nonatomic) NSLock *writerConnectionLock; // @synthesize writerConnectionLock=_writerConnectionLock;
 @property(retain, nonatomic) NSDictionary *databasePoolForType; // @synthesize databasePoolForType=_databasePoolForType;
 @property(retain, nonatomic) NSMutableDictionary *extendedTransactions; // @synthesize extendedTransactions=_extendedTransactions;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *secondaryJournalMergeQueue; // @synthesize secondaryJournalMergeQueue=_secondaryJournalMergeQueue;
@@ -105,7 +104,7 @@
 - (void)_mergeSecondaryJournals;
 - (_Bool)_journalQueue_performJournalMergeAndCleanup;
 - (id)_currentDatabaseJournal;
-- (_Bool)_waitForJournalMergesWithType:(long long)arg1 error:(id *)arg2;
+- (_Bool)_waitForMergesWithCurrentJournal:(id)arg1 error:(id *)arg2;
 - (id)_journalForType:(long long)arg1;
 - (_Bool)addJournalEntries:(id)arg1 error:(id *)arg2;
 - (_Bool)addJournalEntry:(id)arg1 error:(id *)arg2;
@@ -120,7 +119,6 @@
 - (void)addProtectedDataObserver:(id)arg1 queue:(id)arg2;
 - (void)addProtectedDataObserver:(id)arg1;
 - (void)contentProtectionStateChanged:(long long)arg1 previousState:(long long)arg2;
-- (void)_protectedDatabaseDidBecomeAvailable;
 @property(readonly, nonatomic, getter=isProtectedDataAvailable) _Bool protectedDataAvailable;
 @property(readonly, nonatomic, getter=isDataProtectedByFirstUnlockAvailable) _Bool dataProtectedByFirstUnlockAvailable;
 - (long long)_protectedDataState;
@@ -129,8 +127,6 @@
 - (void)beginObservingContentProtection;
 - (void)databasePool:(id)arg1 didFlushDatabases:(id)arg2;
 - (id)newDatabaseForDatabasePool:(id)arg1 error:(id *)arg2;
-- (void)unlockWriteConnectionLock;
-- (void)lockWriteConnectionLock;
 - (void)_checkInDatabase:(id)arg1 type:(long long)arg2 flushImmediately:(_Bool)arg3;
 - (void)checkInDatabase:(id)arg1 type:(long long)arg2;
 - (id)_checkOutDatabaseForTransaction:(id)arg1 databaseType:(long long)arg2 options:(unsigned long long)arg3 error:(id *)arg4;

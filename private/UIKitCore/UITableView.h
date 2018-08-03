@@ -305,6 +305,7 @@
         unsigned int swipeToDeleteRowIsBeingDeleted:1;
         unsigned int swipeToDeleteRowHasBeenDeleted:1;
         unsigned int swipeToDeleteSectionHasBeenDeleted:1;
+        unsigned int swipeToDeleteShadowUpdatesAreBeingInserted:1;
         unsigned int drawsSeparatorAtTopOfSections:1;
         unsigned int separatorBackdropOverlayBlendMode:3;
         unsigned int separatorsDrawInVibrantLightMode:1;
@@ -355,7 +356,7 @@
 }
 
 + (void)initialize;
-+ (void)_setupIdiom:(long long)arg1 forTableViewStyle:(long long)arg2;
++ (void)_setupIdiom:(long long)arg1 forTableViewStyle:(long long)arg2 includingBackground:(_Bool)arg3;
 + (void)_initializeForIdiom:(long long)arg1;
 + (id)_externalTableSeparatorColor;
 + (id)_externalTableBackgroundColor;
@@ -468,6 +469,8 @@
 - (id)itemContainerViewForSwipeActionController:(id)arg1;
 - (id)gestureRecognizerViewForSwipeActionController:(id)arg1;
 - (id)_swipeActionController;
+- (void)_accessibilitySetInterfaceStyleIntent:(unsigned long long)arg1;
+- (void)tintColorDidChange;
 @property(readonly, nonatomic, getter=_constants) id <UITableConstants> constants;
 - (_Bool)_cellsSelfSize;
 - (void)_setCellsSelfSize:(_Bool)arg1;
@@ -925,6 +928,7 @@
 - (void)setSeparatorTopShadowColor:(id)arg1;
 - (id)_defaultSeparatorColor;
 @property(retain, nonatomic) UIColor *separatorColor;
+- (void)_resetDarkenedSeparatorColor;
 - (void)_distributeSeparatorColor:(id)arg1;
 - (void)_darkenedSystemColorsChanged;
 - (void)_updateSeparatorStyleForCell:(id)arg1 atIndexPath:(id)arg2;
@@ -1219,6 +1223,7 @@
 - (void)_adjustCountLabel;
 - (void)_scheduleAdjustExtraSeparators;
 - (void)_updateRowData;
+- (void)_updateRowDataIfNeeded;
 - (void)_ensureRowDataIsLoaded;
 - (float)_animationDuration;
 - (void)_setDisplaysCellContentStringsOnTapAndHold:(_Bool)arg1;

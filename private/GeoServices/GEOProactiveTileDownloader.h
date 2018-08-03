@@ -8,7 +8,7 @@
 
 #import "GEOBatchOpportunisticTileDownloaderDelegate.h"
 
-@class GEOBatchOpportunisticTileDownloader, GEODataSaverTileLoaderManager, GEORequestCounter, GEOResourceManifestManager, GEOStaleTileUpdater, GEOTileDB, GEOTileRegionDownloader, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
+@class GEOBatchOpportunisticTileDownloader, GEODataSaverTileLoaderManager, GEOPowerAssertion, GEORequestCounter, GEOResourceManifestManager, GEOStaleTileUpdater, GEOTileDB, NSObject<OS_dispatch_queue>, NSObject<OS_xpc_object>, NSString;
 
 __attribute__((visibility("hidden")))
 @interface GEOProactiveTileDownloader : NSObject <GEOBatchOpportunisticTileDownloaderDelegate>
@@ -25,13 +25,11 @@ __attribute__((visibility("hidden")))
     GEORequestCounter *_requestCounter;
     struct GEOOnce_s _didStart;
     struct GEOOnce_s _didFinish;
-    GEOTileRegionDownloader *_testRegionDownloader;
     GEOStaleTileUpdater *_testStaleUpdater;
-    GEOTileRegionDownloader *_regionDownloader;
     GEOStaleTileUpdater *_staleUpdater;
     GEOBatchOpportunisticTileDownloader *_currentDownloader;
-    _Bool _shouldDownloadTilesInRegion;
     _Bool _shouldUpdateRecentlyUsedStaleTiles;
+    GEOPowerAssertion *_powerAssertion;
 }
 
 + (_Bool)shouldDownloadTileType:(int)arg1;
@@ -48,7 +46,9 @@ __attribute__((visibility("hidden")))
 - (void)_registerXPCActivity;
 - (void)cancel;
 - (void)start;
-- (id)initWithDelegate:(id)arg1 delegateQueue:(id)arg2 diskCache:(id)arg3 dataSaverManager:(id)arg4 manifestManager:(id)arg5 requestCounter:(id)arg6 regionDownloader:(id)arg7 staleUpdater:(id)arg8;
+- (void)_clearPowerAssertion;
+- (void)_takePowerAssertionIfNecessary;
+- (id)initWithDelegate:(id)arg1 delegateQueue:(id)arg2 diskCache:(id)arg3 dataSaverManager:(id)arg4 manifestManager:(id)arg5 requestCounter:(id)arg6 staleUpdater:(id)arg7;
 - (id)initWithDelegate:(id)arg1 delegateQueue:(id)arg2 diskCache:(id)arg3;
 - (id)init;
 

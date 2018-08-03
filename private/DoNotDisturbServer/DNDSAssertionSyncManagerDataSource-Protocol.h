@@ -9,6 +9,7 @@
 @class NSArray, NSDate;
 
 @protocol DNDSAssertionSyncManagerDataSource <NSObject>
+- (NSDate *)lastModeAssertionsUpdateDateForSyncManager:(id <DNDSAssertionSyncManager>)arg1;
 - (NSDate *)lastModeAssertionsCompleteInvalidationDateForSyncManager:(id <DNDSAssertionSyncManager>)arg1;
 - (NSArray *)activeLocalModeAssertionsForSyncManager:(id <DNDSAssertionSyncManager>)arg1;
 @end

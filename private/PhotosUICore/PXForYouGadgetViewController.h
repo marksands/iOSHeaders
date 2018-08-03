@@ -12,15 +12,23 @@
 #import "PXNavigationRoot.h"
 #import "PXSettingsKeyObserver.h"
 
-@class NSString, PXNavigationListDataSourceManager, UIBarButtonItem, UINavigationController;
+@class NSString, PXForYouBadgeManager, PXForYouGadgetPriorityManager, PXNavigationListDataSourceManager, UIBarButtonItem, UINavigationController;
 
 @interface PXForYouGadgetViewController : PXGadgetViewController <PXGadgetNavigating, PXSettingsKeyObserver, PXNavigationRoot, PXNavigableForYouViewController, PXNavigableSharedAlbumActivityFeedHostViewController>
 {
     _Bool _needsRefresh;
     UIBarButtonItem *_navigationDisplayModeButtonItem;
+    PXForYouBadgeManager *_badgeManager;
+    PXForYouGadgetPriorityManager *_priorityManager;
+    long long _anchorPosition;
 }
 
++ (id)lastExitedForYouDate;
++ (void)setLastExitedForYouDate:(id)arg1;
+@property(nonatomic) long long anchorPosition; // @synthesize anchorPosition=_anchorPosition;
 @property(nonatomic) _Bool needsRefresh; // @synthesize needsRefresh=_needsRefresh;
+@property(retain, nonatomic) PXForYouGadgetPriorityManager *priorityManager; // @synthesize priorityManager=_priorityManager;
+@property(retain, nonatomic) PXForYouBadgeManager *badgeManager; // @synthesize badgeManager=_badgeManager;
 @property(retain, nonatomic) UIBarButtonItem *navigationDisplayModeButtonItem; // @synthesize navigationDisplayModeButtonItem=_navigationDisplayModeButtonItem;
 - (void).cxx_destruct;
 - (void)ppt_navigateToFirstInvitationCMM:(_Bool)arg1 withCompleteHandler:(CDUnknownBlockType)arg2;
@@ -29,7 +37,7 @@
 - (void)navigateToSharedAlbumActivityFeedAnimated:(_Bool)arg1 configuration:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)presentWelcomeCloudPhotosViewController;
 - (void)navigateToGadgetForCMMSuggestions;
-- (void)navigateToGadgetForCMMInvitations;
+- (void)navigateToGadgetForCMMInvitationWithIdentifier:(id)arg1;
 - (void)navigateToInvitationCMMWithUUID:(id)arg1 animated:(_Bool)arg2;
 - (void)navigateToSuggestedCMMWithUUID:(id)arg1 animated:(_Bool)arg2;
 - (id)navigateToShowAllMemoriesFeedAnimated:(_Bool)arg1;
@@ -41,13 +49,16 @@
 @property(readonly, nonatomic) NSString *navigationTitle;
 - (id)_suggestionDumpURL;
 - (void)gadget:(id)arg1 didChange:(unsigned long long)arg2;
-- (void)rootGadgetControllerDidAppear;
+- (void)rootGadgetControllerDidDisappear;
+- (void)rootGadgetControllerWillAppear;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
+- (void)_lastSeenBadgeDateChanged;
 - (void)_calendarDayChanged;
 @property(readonly, nonatomic) NSString *currentDateText;
+- (void)reloadContent;
 - (id)initWithBadgeManager:(id)arg1;
 
 // Remaining properties

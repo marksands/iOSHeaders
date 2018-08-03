@@ -21,7 +21,7 @@
 @property(readonly, nonatomic) UIImageView *imageView; // @synthesize imageView=_imageView;
 @property(readonly, copy, nonatomic) NSLayoutYAxisAnchor *labelLastBaselineAnchor; // @synthesize labelLastBaselineAnchor=_labelLastBaselineAnchor;
 - (void).cxx_destruct;
-- (void)setDeltaFromAverage:(double)arg1 timePeriod:(unsigned long long)arg2;
+- (void)setDeltaFromAverage:(double)arg1 reportType:(unsigned long long)arg2;
 - (id)lastBaselineAnchor;
 - (id)init;
 - (id)initWithVibrancyEnabled:(_Bool)arg1;

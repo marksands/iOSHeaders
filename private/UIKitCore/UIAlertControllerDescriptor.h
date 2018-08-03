@@ -15,8 +15,10 @@ __attribute__((visibility("hidden")))
     _Bool _hasContentViewController;
     _Bool _applicationIsFullscreen;
     long long _numberOfActions;
+    struct UIEdgeInsets _containerViewSafeAreaInsets;
 }
 
+@property struct UIEdgeInsets containerViewSafeAreaInsets; // @synthesize containerViewSafeAreaInsets=_containerViewSafeAreaInsets;
 @property _Bool applicationIsFullscreen; // @synthesize applicationIsFullscreen=_applicationIsFullscreen;
 @property long long numberOfActions; // @synthesize numberOfActions=_numberOfActions;
 @property _Bool hasContentViewController; // @synthesize hasContentViewController=_hasContentViewController;

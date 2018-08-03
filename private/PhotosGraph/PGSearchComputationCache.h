@@ -23,8 +23,8 @@
 @property(readonly, nonatomic) NSMutableDictionary *momentAssetPairsByNodeUUID; // @synthesize momentAssetPairsByNodeUUID=_momentAssetPairsByNodeUUID;
 @property(readonly, nonatomic) NSURL *persistentStoreURL; // @synthesize persistentStoreURL=_persistentStoreURL;
 - (void).cxx_destruct;
-- (id)locationInformationForNode:(id)arg1 locationMask:(unsigned long long)arg2;
-- (void)setLocationInformation:(id)arg1 forNode:(id)arg2 locationMask:(unsigned long long)arg3;
+- (id)locationInformationForLocationNode:(id)arg1 locationMask:(unsigned long long)arg2;
+- (void)setLocationInformation:(id)arg1 forLocationNode:(id)arg2 locationMask:(unsigned long long)arg3;
 - (id)curationInformationForNode:(id)arg1;
 - (void)setCurationInformation:(id)arg1 forNode:(id)arg2;
 - (_Bool)momentAssetPairs:(id)arg1 areValidWithAssociatedMomentUUIDs:(id)arg2;

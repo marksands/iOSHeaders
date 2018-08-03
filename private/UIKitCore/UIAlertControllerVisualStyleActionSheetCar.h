@@ -21,7 +21,7 @@ __attribute__((visibility("hidden")))
 - (double)marginAboveTitleLabelFirstBaseline;
 - (id)titleLabelColor;
 - (id)titleLabelFont;
-- (struct UIEdgeInsets)contentInsets;
+- (struct UIEdgeInsets)contentInsetsForContainerView:(id)arg1;
 
 @end
 

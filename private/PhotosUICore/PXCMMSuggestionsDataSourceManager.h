@@ -29,6 +29,7 @@
 + (id)_fetchResultForMockRecentLargeMomentsDataSourceManager;
 + (id)_fetchResultForEmptyDataSourceManager;
 + (id)new;
++ (id)mostRecentCreationDate;
 @property(readonly, nonatomic) PXCMMSuggestionsDataSourceContext *context; // @synthesize context=_context;
 @property(retain) NSMutableOrderedSet *_remainingAssetCollectionsObjectIDsToFetch; // @synthesize _remainingAssetCollectionsObjectIDsToFetch=__remainingAssetCollectionsObjectIDsToFetch;
 @property(retain, nonatomic) PXCMMSuggestionsDataSourceState *_state; // @synthesize _state=__state;

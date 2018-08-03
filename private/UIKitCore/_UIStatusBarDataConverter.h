@@ -10,8 +10,8 @@
 {
 }
 
-+ (id)convertData:(const CDStruct_c6256135 *)arg1 fromReferenceData:(id)arg2;
-+ (id)_cellularEntryWithData:(const CDStruct_c6256135 *)arg1 signalStrengthEnabled:(_Bool)arg2 serviceEnabled:(_Bool)arg3 dataNetworkEnabled:(_Bool)arg4 serviceString:(const char *)arg5 serviceCrossfadeString:(const char *)arg6 serviceContentType:(unsigned int)arg7 dataNetworkType:(unsigned int)arg8 gsmSignalStrengthRaw:(int)arg9 gsmSignalStrengthBars:(int)arg10 callForwardingType:(int)arg11;
++ (id)convertData:(const CDStruct_1f606803 *)arg1 fromReferenceData:(id)arg2;
++ (id)_cellularEntryWithData:(const CDStruct_1f606803 *)arg1 signalStrengthEnabled:(_Bool)arg2 serviceEnabled:(_Bool)arg3 dataNetworkEnabled:(_Bool)arg4 serviceString:(const char *)arg5 serviceCrossfadeString:(const char *)arg6 serviceContentType:(unsigned int)arg7 dataNetworkType:(unsigned int)arg8 gsmSignalStrengthRaw:(int)arg9 gsmSignalStrengthBars:(int)arg10 callForwardingType:(int)arg11;
 
 @end
 

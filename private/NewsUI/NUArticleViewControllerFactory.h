@@ -17,12 +17,12 @@
     id <NUArticleAdManagerFactory> _articleAdManagerFactory;
     id <NUDynamicTypeProviding> _dynamicTypeProviding;
     id <SXAppStateMonitor> _appStateMonitor;
-    id <NUScrollViewKeyCommandHandler> _keyCommandHandler;
+    id <NUArticleKeyCommandManager> _keyCommandManager;
     id <NFResolver> _resolver;
 }
 
 @property(readonly, nonatomic) id <NFResolver> resolver; // @synthesize resolver=_resolver;
-@property(readonly, nonatomic) id <NUScrollViewKeyCommandHandler> keyCommandHandler; // @synthesize keyCommandHandler=_keyCommandHandler;
+@property(readonly, nonatomic) id <NUArticleKeyCommandManager> keyCommandManager; // @synthesize keyCommandManager=_keyCommandManager;
 @property(readonly, nonatomic) id <SXAppStateMonitor> appStateMonitor; // @synthesize appStateMonitor=_appStateMonitor;
 @property(readonly, nonatomic) id <NUDynamicTypeProviding> dynamicTypeProviding; // @synthesize dynamicTypeProviding=_dynamicTypeProviding;
 @property(readonly, nonatomic) id <NUArticleAdManagerFactory> articleAdManagerFactory; // @synthesize articleAdManagerFactory=_articleAdManagerFactory;
@@ -32,7 +32,7 @@
 - (id)createArticleExcerptViewControllerWithArticle:(id)arg1 traits:(id)arg2;
 - (id)createArticleWebViewControllerWithArticle:(id)arg1;
 - (id)createArticleViewControllerWithArticle:(id)arg1;
-- (id)initWithArticleDataProviderFactory:(id)arg1 articleAdManagerFactory:(id)arg2 dynamicTypeProviding:(id)arg3 appStateMonitor:(id)arg4 resolver:(id)arg5;
+- (id)initWithArticleDataProviderFactory:(id)arg1 articleAdManagerFactory:(id)arg2 dynamicTypeProviding:(id)arg3 appStateMonitor:(id)arg4 keyCommandManager:(id)arg5 resolver:(id)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

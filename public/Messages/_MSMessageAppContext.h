@@ -45,6 +45,7 @@
 - (void)contentDidLoad;
 - (void)requestResize;
 - (void)_remoteViewDidBecomeReadyForDisplay;
+- (void)dismissAndPresentPhotosApp;
 - (void)dismiss;
 - (void)requestPresentationStyleExpanded:(_Bool)arg1;
 - (void)requestPresentationStyle:(unsigned long long)arg1;

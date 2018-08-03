@@ -30,10 +30,15 @@
 + (struct NSDirectionalEdgeInsets)expandedEdgeInsets;
 + (struct NSDirectionalEdgeInsets)trailingEdgeInsets;
 + (struct NSDirectionalEdgeInsets)leadingEdgeInsets;
++ (struct NSDirectionalEdgeInsets)_edgeInsetsFromCenteringEdgeInset:(double)arg1 trailing:(_Bool)arg2;
 + (double)baseIconScale;
 + (double)lowerExpandedBaselineOffset;
 + (double)baselineBottomInset;
-+ (double)centeringEdgeInset;
++ (id)pillFont;
++ (struct CGSize)pillSize;
++ (double)pillCenteringEdgeInset;
++ (double)trailingCenteringEdgeInset;
++ (double)leadingCenteringEdgeInset;
 + (double)notchBottomCornerRadius;
 + (double)notchTopCornerRadius;
 + (struct CGSize)notchSize;

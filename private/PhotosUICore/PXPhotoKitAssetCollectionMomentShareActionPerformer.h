@@ -20,7 +20,7 @@
 + (_Bool)canPerformOnAssetCollection:(id)arg1 people:(id)arg2;
 - (void).cxx_destruct;
 - (void)completeUserInteractionTaskWithSuccess:(_Bool)arg1 error:(id)arg2;
-- (void)workflowCoordinator:(id)arg1 workflowViewController:(id)arg2 didFinishWithActivityState:(unsigned long long)arg3;
+- (void)workflowCoordinator:(id)arg1 workflowViewController:(id)arg2 didFinishSession:(id)arg3 withActivityState:(unsigned long long)arg4;
 - (void)performUserInteractionTask;
 
 // Remaining properties

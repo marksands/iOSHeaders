@@ -41,6 +41,8 @@ __attribute__((visibility("hidden")))
 - (void)setContentsMultiplyColor:(struct CGColor *)arg1;
 - (void)setContentsFormat:(id)arg1;
 - (void)setDrawsAsynchronously:(_Bool)arg1;
+- (void)setRasterizationScale:(double)arg1;
+- (void)setContentsScale:(double)arg1;
 - (id)_preparedTileForFrame:(struct CGRect)arg1 mask:(id)arg2 opacity:(double)arg3 deferred:(_Bool)arg4;
 - (void)setNeedsDisplayInRect:(struct CGRect)arg1;
 @property(nonatomic) _Bool usesTiledLayers;

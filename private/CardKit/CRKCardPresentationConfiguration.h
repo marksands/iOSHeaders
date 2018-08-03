@@ -11,9 +11,11 @@
 @interface CRKCardPresentationConfiguration : NSObject
 {
     _Bool _respectsUserConsent;
+    _Bool _loadsBundleProviders;
     CRSCardRequest *_cardRequest;
 }
 
+@property(nonatomic) _Bool loadsBundleProviders; // @synthesize loadsBundleProviders=_loadsBundleProviders;
 @property(nonatomic) _Bool respectsUserConsent; // @synthesize respectsUserConsent=_respectsUserConsent;
 @property(readonly, nonatomic) CRSCardRequest *cardRequest; // @synthesize cardRequest=_cardRequest;
 - (void).cxx_destruct;

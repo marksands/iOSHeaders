@@ -18,9 +18,8 @@
 + (id)sharedManager;
 + (void)useProxyClass:(Class)arg1;
 - (void).cxx_destruct;
+- (void)_debug_initiateDataSaverPreload;
 @property(readonly, nonatomic, getter=isDataSaverEnabled) _Bool dataSaverEnabled;
-- (void)getMapRegionWithCallbackQueue:(id)arg1 callback:(CDUnknownBlockType)arg2;
-- (void)submitMapRegion:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)init;
 
 // Remaining properties

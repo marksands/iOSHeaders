@@ -21,6 +21,7 @@
     AXUIElement *_systemWideElement;
 }
 
++ (id)_iosParameterFromPlatformParameter:(id)arg1;
 + (id)sharedInstance;
 @property(retain, nonatomic) AXUIElement *systemWideElement; // @synthesize systemWideElement=_systemWideElement;
 @property(retain, nonatomic) AXUIElement *systemAppElement; // @synthesize systemAppElement=_systemAppElement;
@@ -41,7 +42,9 @@
 - (id)_processAttributeSpecialCases:(unsigned long long)arg1 uiElement:(id)arg2 parameter:(id)arg3 error:(unsigned long long *)arg4;
 - (id)_processAttributeSpecialCases:(unsigned long long)arg1 uiElement:(id)arg2 error:(unsigned long long *)arg3;
 - (id)_processSubroleAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
+- (id)_processStringForRangeAttributeRequest:(id)arg1 parameter:(id)arg2 error:(unsigned long long *)arg3;
 - (id)_processRoleAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
+- (id)_processNumberOfCharactersAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
 - (id)_processingSmuggledMarzipanRequest:(id)arg1 parameter:(id)arg2 error:(unsigned long long *)arg3;
 - (id)_processMoveFocusToOpaqueElementAttributeRequest:(id)arg1 parameter:(id)arg2 direction:(long long)arg3 error:(unsigned long long *)arg4;
 - (id)_processChildrenAttributeRequest:(id)arg1 error:(unsigned long long *)arg2;
@@ -57,6 +60,7 @@
 - (id)processActionRequest:(id)arg1;
 - (_Bool)_processScrollToVisibleAction:(id)arg1;
 - (_Bool)_processPressAction:(id)arg1;
+- (_Bool)_processShowContextMenuAction:(id)arg1;
 - (_Bool)_processPerformCustomAction:(id)arg1;
 - (_Bool)_processIncrementAction:(id)arg1;
 - (_Bool)_processDecrementAction:(id)arg1;

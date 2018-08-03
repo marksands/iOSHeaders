@@ -25,6 +25,7 @@ __attribute__((visibility("hidden")))
     NSMutableDictionary *_waveformSlices;
     NSMutableIndexSet *_waveformSliceIndexes;
     _Bool _requiresFullRefresh;
+    struct _RCWaveformRendererState _rendererState;
     _Bool _frequentUpdatesSegmentUpdatesExpectedHint;
     _Bool _isRecordWaveform;
     _Bool _isEditMode;
@@ -56,6 +57,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) _Bool frequentUpdatesSegmentUpdatesExpectedHint; // @synthesize frequentUpdatesSegmentUpdatesExpectedHint=_frequentUpdatesSegmentUpdatesExpectedHint;
 @property(nonatomic) __weak id <RCWaveformRendererDelegate> rendererDelegate; // @synthesize rendererDelegate=_rendererDelegate;
 @property(retain, nonatomic) RCWaveformDataSource *dataSource; // @synthesize dataSource=_dataSource;
+- (id).cxx_construct;
 - (void).cxx_destruct;
 - (void)_performOrDispatchToMainThread:(CDUnknownBlockType)arg1;
 - (double)_timeForPixelOffset:(double)arg1;
@@ -90,6 +92,7 @@ __attribute__((visibility("hidden")))
 - (double)horizontalOffsetAtTime:(double)arg1 withVisibleTimeRange:(CDStruct_73a5d3ca)arg2;
 - (double)horizontalOffsetAtTime:(double)arg1;
 @property(readonly, nonatomic) double contentWidth;
+- (void)waveformDataSourceRequiresUpdate:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)willMoveToParentViewController:(id)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;

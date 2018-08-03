@@ -41,6 +41,7 @@
     CIContext *_defaultContext;
 }
 
++ (id)sharedInstance;
 - (id).cxx_construct;
 - (void).cxx_destruct;
 - (id)blendSeam:(id)arg1;

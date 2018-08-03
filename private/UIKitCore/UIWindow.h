@@ -202,6 +202,7 @@
 - (id)_focusedView;
 - (void)_dismissAccessibilityHUD;
 - (void)_showAccessibilityHUDItem:(id)arg1;
+- (_Bool)_requiresKeyboardPresentationFence;
 - (_Bool)_appearsInLoupe;
 - (_Bool)_shouldCreateContextAsSecure;
 - (_Bool)_isSecure;
@@ -428,6 +429,7 @@
 - (void)sendEvent:(id)arg1;
 - (void)_sendButtonsForEvent:(id)arg1;
 - (void)_sendTouchesForEvent:(id)arg1;
+- (_Bool)_canIgnoreInteractionEvents;
 - (void)_fadeCalloutBarIfNeededForTouchInView:(id)arg1;
 - (_Bool)_touchesInsideShouldHideCalloutBarForViewHierarchy:(id)arg1;
 - (void)_scrollToTopViewsUnderScreenPointIfNecessary:(struct CGPoint)arg1 resultHandler:(CDUnknownBlockType)arg2;

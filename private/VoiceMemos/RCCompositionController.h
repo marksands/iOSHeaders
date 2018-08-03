@@ -59,7 +59,7 @@
 - (void)endAccessSessions;
 - (void)_endAccessSessions:(CDUnknownBlockType)arg1;
 - (void)endPreviewAccessSession;
-- (void)endEditing;
+- (void)endEditingWithCompletionBlock:(CDUnknownBlockType)arg1;
 - (void)prepareToBeginEditingWithReadyBlock:(CDUnknownBlockType)arg1;
 - (void)_setEditingFlag:(_Bool)arg1;
 @property(readonly, nonatomic) NSString *savedRecordingUUID;

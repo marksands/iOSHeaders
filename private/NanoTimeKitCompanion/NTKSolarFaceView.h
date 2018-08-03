@@ -115,6 +115,7 @@
 - (void)_updateColorCurves;
 - (void)_updateWaypointLabelForCrownMovement;
 - (id)_waypointLabelTextForPercentage:(double)arg1;
+- (long long)_waypointBetweenPreviousOffset:(double)arg1 currentOffset:(double)arg2;
 - (long long)_waypointForPercentage:(double)arg1 withSmallThreshold:(double)arg2 largeThreshold:(double)arg3;
 - (double)_percentageForWaypoint:(long long)arg1;
 - (void)_updateWaypoints;

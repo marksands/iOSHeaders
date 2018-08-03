@@ -19,10 +19,8 @@
     UITapGestureRecognizer *_lookViewTapGestureRecognizer;
     _Bool _hidesNotificationContent;
     unsigned long long _customContentLocation;
-    id <NCNotificationLongLookViewDelegate> _delegate;
 }
 
-@property(nonatomic) __weak id <NCNotificationLongLookViewDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) _Bool hidesNotificationContent; // @synthesize hidesNotificationContent=_hidesNotificationContent;
 @property(nonatomic) unsigned long long customContentLocation; // @synthesize customContentLocation=_customContentLocation;
 - (void).cxx_destruct;
@@ -55,12 +53,14 @@
 @property(nonatomic, getter=isActionsHidden) _Bool actionsHidden;
 @property(nonatomic, getter=isBackgroundBlurred) _Bool backgroundBlurred;
 @property(nonatomic) _Bool clipsVisibleContentToBounds;
+@property(nonatomic) double contentBottomInset;
 @property(nonatomic) struct CGSize customContentSize;
 @property(readonly, nonatomic) UIView *customContentView;
 @property(copy, nonatomic) NSDate *date;
 @property(nonatomic, getter=isDateAllDay) _Bool dateAllDay;
 @property(nonatomic) long long dateFormatStyle;
 @property(readonly, copy) NSString *debugDescription;
+@property(nonatomic) __weak id <NCNotificationLongLookViewDelegate> delegate; // @dynamic delegate;
 @property(readonly, copy) NSString *description;
 @property(readonly, nonatomic) UIControl *dismissControl;
 @property(readonly, nonatomic) struct UIEdgeInsets dismissControlInsets;

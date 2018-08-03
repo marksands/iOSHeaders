@@ -18,7 +18,8 @@
     NSMutableDictionary *_dataAggregatorsByType;
     NSMutableArray *_builtinCollectors;
     HDDatabaseCoalescedWritePool *_pendingSavePool;
-    double _pendingSaveCoalescingInterval;
+    double unitTest_pendingSaveCoalescingInterval;
+    _Bool unitTest_hasSetPendingSaveCoalescingInterval;
     CDUnknownBlockType _unitTest_aggregatorConfigurationChangedHandler;
     HDProfile *_profile;
     NSMutableDictionary *_dataCollectorsByType;
@@ -81,7 +82,6 @@
 - (void)removeDataCollectionObserver:(id)arg1 type:(id)arg2;
 - (void)addDataCollectionObserver:(id)arg1 type:(id)arg2 collectionInterval:(double)arg3 state:(id)arg4;
 - (void)performSaveWithMaximumLatency:(double)arg1 block:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
-- (void)performSaveWithBlock:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (id)btleHeartRateDataCollector;
 - (void)_queue_createBuiltinCollectors;
 - (id)_queue_aggregatorForType:(id)arg1;

@@ -43,6 +43,8 @@
 - (_Bool)mergeWithProfile:(id)arg1;
 - (_Bool)performMergeTransactionWithProfile:(id)arg1 transactionContext:(id)arg2 options:(unsigned long long)arg3 error:(id *)arg4 block:(CDUnknownBlockType)arg5;
 - (_Bool)addJournalEntries:(id)arg1 error:(id *)arg2;
+- (void)unlock;
+- (void)lock;
 - (void)dealloc;
 - (id)init;
 - (id)initWithType:(long long)arg1 path:(id)arg2;

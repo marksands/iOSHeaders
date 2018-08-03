@@ -13,15 +13,19 @@
 @interface CRSCardRequest : CRSRequest <CRSCardRequesting>
 {
     NSObject<OS_dispatch_queue> *_queue;
+    _Bool _loadsBundleServices;
     id <CRContent> _content;
     unsigned long long _format;
 }
 
 + (void)initialize;
++ (void)registerService:(id)arg1;
+@property(nonatomic) _Bool loadsBundleServices; // @synthesize loadsBundleServices=_loadsBundleServices;
 @property(nonatomic) unsigned long long format; // @synthesize format=_format;
 @property(retain, nonatomic) id <CRContent> content; // @synthesize content=_content;
 - (void).cxx_destruct;
 - (void)_tryRemainingCardServices:(id)arg1 reply:(CDUnknownBlockType)arg2;
+- (void)_loadAndRegisterBundleServices:(CDUnknownBlockType)arg1;
 - (void)startWithReply:(CDUnknownBlockType)arg1;
 - (id)init;
 - (id)initWithContent:(id)arg1 format:(unsigned long long)arg2;

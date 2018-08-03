@@ -32,6 +32,7 @@
 - (void)requestPresentationStyleExpanded:(_Bool)arg1 forPlugin:(NSString *)arg2;
 - (void)startEditingPayload:(CKBrowserItemPayload *)arg1 dismiss:(_Bool)arg2 forPlugin:(NSString *)arg3 completion:(void (^)(NSError *))arg4;
 - (void)startEditingPayload:(CKBrowserItemPayload *)arg1 dismiss:(_Bool)arg2 forPlugin:(NSString *)arg3;
+- (void)dismissAndPresentPhotosApp;
 - (void)dismissAndReloadInputViews:(_Bool)arg1 forPlugin:(NSString *)arg2;
 - (void)commitSticker:(IMSticker *)arg1 forPlugin:(NSString *)arg2;
 - (void)commitSticker:(IMSticker *)arg1 atScreenCoordinate:(struct CGPoint)arg2 scale:(double)arg3 rotation:(double)arg4;

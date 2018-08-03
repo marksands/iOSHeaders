@@ -8,7 +8,7 @@
 
 #import "UIGestureRecognizerDelegate.h"
 
-@class CALayer, CLKDevice, NSString, REContent, UIImage, UIImageView, UIView;
+@class CALayer, CLKDevice, NSHashTable, NSString, REContent, UIImage, UIImageView, UIView;
 
 @interface NTKUpNextBaseCell : UICollectionViewCell <UIGestureRecognizerDelegate>
 {
@@ -19,6 +19,7 @@
     double _darkeningAmount;
     double _contentBrightness;
     REContent *_content;
+    NSHashTable *_layerProviders;
     _Bool _paused;
     CLKDevice *_device;
     UIImage *_contentImage;
@@ -41,11 +42,14 @@
 - (void)_updateColorOverlay;
 - (void)applyLayoutAttributes:(id)arg1;
 - (void)configureWithContent:(id)arg1;
+- (void)enumerateContentsLayersWithBlock:(CDUnknownBlockType)arg1;
 - (void)setContentImage:(id)arg1 animated:(_Bool)arg2;
 - (void)setContentBrightness:(double)arg1 animated:(_Bool)arg2;
 - (void)layoutSubviews;
 - (void)prepareForReuse;
 - (void)setHighlighted:(_Bool)arg1;
+- (void)removeContentsLayerProvider:(id)arg1;
+- (void)addContentsLayerProvider:(id)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

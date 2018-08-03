@@ -119,7 +119,7 @@
 - (void)setupTapGestureForView:(id)arg1;
 - (void)setupCollapsibleHeaderIfNeededForLayout:(id)arg1 withSession:(id)arg2;
 - (void)configureUserInfoLabel;
-- (void)configureAVTViewFromSession:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
+- (void)configureAVTViewFromSession:(id)arg1;
 - (void)tearDownThrottler;
 - (void)configureThrottlerForAVTView:(id)arg1;
 - (void)beginAVTViewSessionWithDidBeginBlock:(CDUnknownBlockType)arg1;

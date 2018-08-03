@@ -63,6 +63,7 @@
         unsigned int becomeFirstResponderWhenCapable:1;
         unsigned int interceptMouseEvent:1;
         unsigned int deallocating:1;
+        unsigned int isInUIViewDealloc:1;
         unsigned int debugFlash:1;
         unsigned int isAncestorOfFirstResponder:1;
         unsigned int dontAutoresizeSubviews:1;
@@ -955,6 +956,7 @@
 - (id)_uili_existingBaseFrameVariables;
 - (_Bool)nsis_valueOfVariableIsUserObservable:(id)arg1;
 - (_Bool)nsis_shouldIntegralizeVariable:(id)arg1;
+- (int)nsis_orientationHintForVariable:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
 - (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
 - (id)_layoutDescriptionIfDifferentFromDefault;

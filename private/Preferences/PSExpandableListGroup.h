@@ -13,7 +13,7 @@
 @interface PSExpandableListGroup : NSObject <PSSpecifierGroup>
 {
     PSListController *_listController;
-    PSSpecifier *_groupSpecifier;
+    NSString *_groupSpecifierID;
     long long _collaspeAfterCount;
     NSMutableArray *_specifiers;
     _Bool _showAll;
@@ -32,7 +32,7 @@
 - (void)addSpecifiers:(id)arg1;
 - (long long)_groupIndex;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
-- (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2 collapseAfterCount:(long long)arg3;
+- (id)initWithListController:(id)arg1 groupSpecifierID:(id)arg2 collapseAfterCount:(long long)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

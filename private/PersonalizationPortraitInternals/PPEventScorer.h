@@ -16,10 +16,11 @@
     EAEmailAddressSet *_emailVIPEmailAddresses;
     NSSet *_favoritesEmailAddresses;
     int _rankingOptions;
+    long long _pastTitlesCount;
 }
 
 + (void)clearAssetCache;
-+ (id)extraordinaryThresholdConfig;
++ (id)eventScorerConfig;
 + (void)setLocationsOfInterestLocations:(id)arg1 withReferenceDate:(id)arg2;
 + (id)cacheKeyforCoreRoutineCacheForStartDate:(id)arg1 endDate:(id)arg2;
 + (id)participantsInEvent:(id)arg1;
@@ -32,6 +33,7 @@
 - (void)setFavoritesEmailAddresses:(id)arg1;
 - (void)setEmailVIPEmailAddresses:(id)arg1;
 - (id)favoriteEmailAddresses;
+- (id)scorePastEventVolumesWithFeatureSchema:(id)arg1;
 - (id)scoreURL:(id)arg1 withFeatureSchema:(id)arg2;
 - (id)scoreNotes:(id)arg1 withFeatureSchema:(id)arg2;
 - (id)scoreParticipantsInEmailVIPAndFavorites:(id)arg1 withFeatureSchema:(id)arg2;

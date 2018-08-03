@@ -158,6 +158,7 @@
 - (void)_handleEngineChangeNotification;
 - (void)_loadEngineController;
 - (void)dealloc;
+- (void)_showSiriUnavailableAlert:(id)arg1;
 - (id)initWithFaceStyle:(long long)arg1 forDevice:(id)arg2 clientIdentifier:(id)arg3;
 
 // Remaining properties

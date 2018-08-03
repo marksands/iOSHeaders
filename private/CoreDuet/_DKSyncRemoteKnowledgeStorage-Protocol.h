@@ -4,13 +4,13 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-@class NSArray, NSDate, NSString, _DKSyncPeer;
+@class NSArray, NSDate, NSString, _DKSyncDeletedEventIDs, _DKSyncPeer;
 
 @protocol _DKSyncRemoteKnowledgeStorage
 @property(readonly) _Bool isAvailable;
 - (long long)transportType;
 - (NSString *)name;
-- (void)updateStorageWithAddedEvents:(NSArray *)arg1 deletedEventIDs:(NSArray *)arg2 highPriority:(_Bool)arg3 completion:(void (^)(NSError *))arg4;
+- (void)updateStorageWithAddedEvents:(NSArray *)arg1 deletedEventIDs:(_DKSyncDeletedEventIDs *)arg2 highPriority:(_Bool)arg3 completion:(void (^)(NSError *))arg4;
 - (void)setFetchDelegate:(id <_DKSyncRemoteKnowledgeStorageFetchDelegate>)arg1;
 - (void)fetchSourceDeviceIDFromPeer:(_DKSyncPeer *)arg1 highPriority:(_Bool)arg2 completion:(void (^)(NSUUID *, NSError *))arg3;
 - (void)fetchDeletionsHighWaterMarkWithPeer:(_DKSyncPeer *)arg1 highPriority:(_Bool)arg2 completion:(void (^)(NSDate *, NSError *))arg3;

@@ -8,22 +8,17 @@
 
 #import "GEODataSaverTileLoaderProxy.h"
 
-@class GEOCellDataSaverState, NSObject<OS_dispatch_queue>, NSString;
+@class NSObject<OS_dispatch_queue>, NSString;
 
 @interface GEODataSaverTileLoaderLocalProxy : NSObject <GEODataSaverTileLoaderProxy>
 {
     NSObject<OS_dispatch_queue> *_isolationQueue;
-    _Bool _hasLoadedLastStateFromDisk;
-    GEOCellDataSaverState *_lastState;
 }
 
 - (void).cxx_destruct;
+- (void)_debug_initiateDataSaverPreload;
 @property(readonly, nonatomic, getter=isDataSaverEnabled) _Bool dataSaverEnabled;
-- (void)getMapRegionWithCallbackQueue:(id)arg1 callback:(CDUnknownBlockType)arg2;
-- (void)submitMapRegion:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (void)_writeStateToDisk;
-- (void)_removeExistingStateFromDisk;
-- (_Bool)_readStateFromDisk:(id *)arg1;
+- (void)_removeOldRegionStateFromDisk;
 - (id)init;
 
 // Remaining properties

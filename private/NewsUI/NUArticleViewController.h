@@ -28,11 +28,12 @@
     NUArticleAdManager *_adManager;
     id <NUDynamicTypeProviding> _dynamicTypeProviding;
     NFEventManager *_eventManager;
+    id <NUArticleKeyCommandManager> _keyCommandManager;
     NSHashTable *_loadingListeners;
-    struct UIEdgeInsets _contentInsets;
 }
 
 @property(readonly, nonatomic) NSHashTable *loadingListeners; // @synthesize loadingListeners=_loadingListeners;
+@property(readonly, nonatomic) id <NUArticleKeyCommandManager> keyCommandManager; // @synthesize keyCommandManager=_keyCommandManager;
 @property(readonly, nonatomic) NFEventManager *eventManager; // @synthesize eventManager=_eventManager;
 @property(nonatomic) _Bool articleIsPresentingFullscreen; // @synthesize articleIsPresentingFullscreen=_articleIsPresentingFullscreen;
 @property(readonly, nonatomic) id <NUDynamicTypeProviding> dynamicTypeProviding; // @synthesize dynamicTypeProviding=_dynamicTypeProviding;
@@ -40,7 +41,6 @@
 @property(readonly, nonatomic) id <NUEndOfArticleDataProvider> endOfArticleDataProvider; // @synthesize endOfArticleDataProvider=_endOfArticleDataProvider;
 @property(readonly, nonatomic) id <NUArticleDataProvider> articleDataProvider; // @synthesize articleDataProvider=_articleDataProvider;
 @property(readonly, nonatomic) SXScrollViewController *scrollViewController; // @synthesize scrollViewController=_scrollViewController;
-@property(nonatomic) struct UIEdgeInsets contentInsets; // @synthesize contentInsets=_contentInsets;
 @property(copy, nonatomic) NSString *anchorFragment; // @synthesize anchorFragment=_anchorFragment;
 @property(readonly, nonatomic) UIScrollView *scrollView; // @synthesize scrollView=_scrollView;
 @property(readonly, nonatomic) NFMultiDelegate *multiScrollViewDelegate; // @synthesize multiScrollViewDelegate=_multiScrollViewDelegate;
@@ -62,13 +62,12 @@
 - (void)scrollViewControllerDidLayoutContent:(id)arg1;
 - (_Bool)prefersStatusBarHidden;
 - (long long)preferredStatusBarStyle;
-- (void)traitCollectionDidChange:(id)arg1;
 - (void)viewDidLayoutSubviews;
 - (_Bool)canBecomeFirstResponder;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLoad;
-- (id)initWithArticleDataProvider:(id)arg1 scrollViewController:(id)arg2 articleAdManager:(id)arg3 dynamicTypeProviding:(id)arg4 appStateMonitor:(id)arg5 loadingListeners:(id)arg6;
+- (id)initWithArticleDataProvider:(id)arg1 scrollViewController:(id)arg2 articleAdManager:(id)arg3 dynamicTypeProviding:(id)arg4 appStateMonitor:(id)arg5 keyCommandManager:(id)arg6 loadingListeners:(id)arg7;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

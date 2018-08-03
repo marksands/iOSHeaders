@@ -21,6 +21,7 @@
     double _currentAssetPreparationProgress;
     PUProgressIndicatorView *_preparationProgressView;
     _Bool _isDismissed;
+    _Bool _shouldUpdateVisibleItemsWhenReady;
     _Bool _readyForInteraction;
     NSArray *_photosActivities;
     id <PUActivityViewControllerDelegate> _delegate;
@@ -43,6 +44,7 @@
 - (void)_performActivity:(id)arg1;
 - (_Bool)_shouldShowSystemActivityType:(id)arg1;
 - (void)setCompletionWithItemsHandler:(CDUnknownBlockType)arg1;
+- (void)_handlePostReadyToInteractUpdatesIfNeeded;
 - (void)updateVisibileShareActionsIfNeeded;
 - (void)setAssetItems:(id)arg1;
 - (void)removeAssetItem:(id)arg1;
@@ -63,6 +65,7 @@
 - (void)_handleUserCancelWithCompletion:(CDUnknownBlockType)arg1;
 - (void)_activity:(id)arg1 didComplete:(_Bool)arg2;
 - (void)_updateTopBorderView;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)viewDidLayoutSubviews;
 - (void)dealloc;
 - (id)initWithAssetItems:(id)arg1 photosApplicationActivities:(id)arg2;

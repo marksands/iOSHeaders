@@ -6,19 +6,14 @@
 
 #import "CRBundleManager.h"
 
-@class NSMutableSet, NSSet;
-
 @interface _CRSServiceBundleManager : CRBundleManager
 {
-    NSMutableSet *_serviceBundles;
 }
 
 + (Class)bundleClass;
 + (id)bundleDirectoryName;
-- (void).cxx_destruct;
-- (void)registerBundle:(id)arg1;
-@property(readonly, nonatomic) NSSet *serviceBundles;
-- (id)init;
++ (id)sharedInstance;
+- (void)getServiceBundlesWithCompletion:(CDUnknownBlockType)arg1;
 
 @end
 

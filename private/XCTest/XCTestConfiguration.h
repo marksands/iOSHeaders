@@ -38,6 +38,7 @@
     NSArray *_targetApplicationArguments;
     XCTAggregateSuiteRunStatistics *_aggregateStatisticsBeforeCrash;
     NSString *_automationFrameworkPath;
+    NSString *_bridgedProcessAutomationFrameworkPath;
     long long _systemAttachmentLifetime;
     long long _userAttachmentLifetime;
     long long _testExecutionOrdering;
@@ -79,6 +80,7 @@
 @property(copy) NSString *testBundleRelativePath; // @synthesize testBundleRelativePath=_testBundleRelativePath;
 @property(copy) NSString *absolutePath; // @synthesize absolutePath=_absolutePath;
 - (void).cxx_destruct;
+@property(copy) NSString *bridgedProcessAutomationFrameworkPath; // @synthesize bridgedProcessAutomationFrameworkPath=_bridgedProcessAutomationFrameworkPath;
 @property(readonly) long long testMode;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;

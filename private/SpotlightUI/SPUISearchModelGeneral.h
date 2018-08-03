@@ -6,13 +6,15 @@
 
 #import <SpotlightUI/SPUISearchModel.h>
 
-@class SPClientSession;
+@class NSObject<OS_dispatch_queue>, SPClientSession;
 
 @interface SPUISearchModelGeneral : SPUISearchModel
 {
     SPClientSession *_session;
+    NSObject<OS_dispatch_queue> *_workQueue;
 }
 
+@property(retain) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
 @property(retain) SPClientSession *session; // @synthesize session=_session;
 - (void).cxx_destruct;
 - (void)clear;
@@ -20,7 +22,7 @@
 - (void)deactivate;
 - (void)activate;
 - (void)updatesEnabled;
-- (void)updatesDispabled;
+- (void)updatesDisabled;
 - (_Bool)forceStableResults;
 - (void)setForceStableResults:(_Bool)arg1;
 - (_Bool)infinitePatience;

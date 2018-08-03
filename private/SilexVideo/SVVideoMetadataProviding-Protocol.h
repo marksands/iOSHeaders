@@ -7,11 +7,6 @@
 #import "NSObject.h"
 
 @protocol SVVideoMetadataProviding <NSObject>
-@property(readonly, nonatomic) double volume;
-@property(readonly, nonatomic) _Bool muted;
-@property(readonly, nonatomic) double timePlayed;
-@property(readonly, nonatomic) double framerate;
-@property(readonly, nonatomic) double time;
-@property(readonly, nonatomic) double duration;
+- (id <SVVideoMetadata>)metadataForVideo:(id <SVVideo>)arg1;
 @end
 

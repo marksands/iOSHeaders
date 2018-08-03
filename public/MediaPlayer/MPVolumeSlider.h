@@ -24,7 +24,7 @@
     UIView *_volumeWarningView;
     _Bool _volumeWarningBlinking;
     UIImage *_volumeWarningTrackImage;
-    _Bool _userWasBlocked;
+    _Bool _beganTrackingFromEUVolumeLimit;
     double _originalMinTrackViewAlphaOverride;
     double _originalMinValueViewAlphaOverride;
     double _originalMaxValueViewAlphaOverride;

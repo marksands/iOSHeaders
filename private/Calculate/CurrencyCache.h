@@ -25,7 +25,6 @@
 + (id)shared;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *serializer; // @synthesize serializer=_serializer;
 @property(retain, nonatomic) NSDictionary *currencyData; // @synthesize currencyData=_currencyData;
-@property(retain, nonatomic) NSDate *lastRefreshDate; // @synthesize lastRefreshDate=_lastRefreshDate;
 @property(readonly) unsigned long long uuid; // @synthesize uuid=_uuid;
 - (_Bool)updateCurrencyCacheWithData:(id)arg1;
 - (void)_queue_loadPersistedCurrencyCache;
@@ -35,6 +34,7 @@
 - (id)createCredential;
 - (id)_consumerKey;
 - (id)_consumerSecret;
+@property(readonly, nonatomic) NSDate *lastRefreshDate;
 - (_Bool)refreshWithTimeOut:(float)arg1;
 - (_Bool)refresh;
 - (void)dealloc;

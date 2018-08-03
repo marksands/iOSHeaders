@@ -15,6 +15,7 @@
 @interface FCNewsAppConfigManager : NSObject <FCFeldsparIDProviderObserving, FCNewsAppConfigurationManager, FCCoreConfigurationManager>
 {
     _Bool _shouldIgnoreCache;
+    _Bool _attemptedAppConfigFetch;
     RCConfigurationManager *_remoteConfigurationManager;
     FCContextConfiguration *_contextConfiguration;
     id <FCFeldsparIDProvider> _feldsparIDProvider;
@@ -33,6 +34,7 @@
 + (id)overrideAppConfigID;
 + (id)internalOverrideAdditionalSegmentSetIDs;
 + (id)internalOverrideSegmentSetIDs;
+@property(nonatomic) _Bool attemptedAppConfigFetch; // @synthesize attemptedAppConfigFetch=_attemptedAppConfigFetch;
 @property(retain, nonatomic) NSHashTable *coreConfigObservers; // @synthesize coreConfigObservers=_coreConfigObservers;
 @property(retain, nonatomic) NSHashTable *appConfigObservers; // @synthesize appConfigObservers=_appConfigObservers;
 @property(copy, nonatomic) NSArray *widgetChangeTags; // @synthesize widgetChangeTags=_widgetChangeTags;
@@ -62,7 +64,7 @@
 - (void)feldsparIDProviderDidChangeFeldsparID:(id)arg1;
 - (_Bool)_checkIfShouldIgnoreCache;
 - (void)_loadConfigurationFromStore:(id)arg1;
-- (void)_configurationDidChange;
+- (void)_configurationDidChangeSignificantConfigChange:(_Bool)arg1;
 - (id)_storefrontID;
 - (void)_fetchAppWidgetConfigurationIfNeededUseBackgroundRefreshRate:(_Bool)arg1 completionQueue:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_fetchAppConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -79,6 +81,7 @@
 - (void)refreshAppConfigurationIfNeededWithCompletionQueue:(id)arg1 refreshCompletion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, nonatomic) id <FCNewsAppConfiguration> possiblyUnfetchedAppConfiguration;
 @property(readonly, nonatomic) id <FCNewsAppConfiguration> appConfiguration;
 - (id)initWithContextConfiguration:(id)arg1 contentHostDirectoryFileURL:(id)arg2 feldsparIDProvider:(id)arg3;
 - (id)init;

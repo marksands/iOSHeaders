@@ -16,6 +16,9 @@
 @property(nonatomic) _Bool enabled; // @synthesize enabled=_enabled;
 @property(retain, nonatomic) id <PXNavigationListItem> listItem; // @synthesize listItem=_listItem;
 - (void).cxx_destruct;
+- (id)_currentCellColor;
+- (void)layoutSubviews;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)prepareForReuse;
 - (void)_updateCellStyle;
 - (id)initWithStyle:(long long)arg1 reuseIdentifier:(id)arg2;

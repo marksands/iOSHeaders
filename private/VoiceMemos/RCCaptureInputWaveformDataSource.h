@@ -12,6 +12,7 @@
 
 @interface RCCaptureInputWaveformDataSource : RCWaveformDataSource <AVCaptureAudioDataOutputSampleBufferDelegate>
 {
+    double captureDelta;
     _Bool _overdub;
     _Bool _canUpdateCaptureComposition;
     RCMutableComposition *_capturedComposition;
@@ -56,6 +57,7 @@
 - (id)segmentsInCompositionByConvertingFromActiveLoadingFragment:(id)arg1;
 - (CDStruct_73a5d3ca)timeRangeToHighlight;
 - (id)waveformSegmentsInTimeRange:(CDStruct_73a5d3ca)arg1;
+- (void)updateCapturedDelta:(double)arg1;
 - (id)_captureSegmentsInComponentWaveform:(id)arg1 captureTimeRange:(CDStruct_73a5d3ca)arg2 componentWaveformSegmentOffset:(double)arg3;
 - (_Bool)setPaused:(_Bool)arg1;
 - (_Bool)waitUntilFinishedWithFinalizedDestinationFragmentDuration:(double)arg1;

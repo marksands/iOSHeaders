@@ -12,6 +12,8 @@
 {
     UIImageView *_applePayIcon;
     UIImageView *_contactlessIcon;
+    struct CGSize _applePayIconSize;
+    struct CGSize _contactlessIconSize;
 }
 
 - (void).cxx_destruct;

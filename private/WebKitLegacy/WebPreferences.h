@@ -86,6 +86,7 @@
 @property(nonatomic) _Bool accessibilityObjectModelEnabled;
 @property(nonatomic) _Bool inspectorAdditionsEnabled;
 @property(nonatomic) _Bool allowMediaContentTypesRequiringHardwareSupportAsFallback;
+@property(nonatomic) _Bool punchOutWhiteBackgroundsInDarkMode;
 @property(nonatomic) _Bool colorFilterEnabled;
 @property(nonatomic) _Bool constantPropertiesEnabled;
 @property(nonatomic) _Bool viewportFitEnabled;

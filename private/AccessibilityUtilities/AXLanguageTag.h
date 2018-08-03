@@ -13,6 +13,7 @@
 @interface AXLanguageTag : NSObject <NSCopying>
 {
     _Bool _wasPredicted;
+    _Bool _createdFromNewline;
     NSString *_content;
     NSMutableOrderedSet *_unambiguousDialects;
     NSMutableOrderedSet *_ambiguousDialects;
@@ -21,6 +22,7 @@
 }
 
 + (id)tagWithDialects:(id)arg1 range:(struct _NSRange)arg2 content:(id)arg3 predictedByTagger:(_Bool)arg4;
+@property(nonatomic) _Bool createdFromNewline; // @synthesize createdFromNewline=_createdFromNewline;
 @property(retain, nonatomic) NSMutableOrderedSet *predictedSecondaryDialects; // @synthesize predictedSecondaryDialects=_predictedSecondaryDialects;
 @property(nonatomic) _Bool wasPredicted; // @synthesize wasPredicted=_wasPredicted;
 @property(retain, nonatomic) NSMutableOrderedSet *ambiguousDialects; // @synthesize ambiguousDialects=_ambiguousDialects;

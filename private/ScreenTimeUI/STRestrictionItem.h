@@ -13,7 +13,7 @@
 @interface STRestrictionItem : NSObject <NSCopying>
 {
     NSString *_rmConfiguration;
-    NSString *_keyPath;
+    NSString *_payloadKey;
     NSString *_uiLabel;
     unsigned long long _restrictionType;
     id _otherInfo;
@@ -22,7 +22,7 @@
 @property(readonly, copy, nonatomic) id otherInfo; // @synthesize otherInfo=_otherInfo;
 @property(readonly, nonatomic) unsigned long long restrictionType; // @synthesize restrictionType=_restrictionType;
 @property(readonly, copy, nonatomic) NSString *uiLabel; // @synthesize uiLabel=_uiLabel;
-@property(readonly, copy, nonatomic) NSString *keyPath; // @synthesize keyPath=_keyPath;
+@property(readonly, copy, nonatomic) NSString *payloadKey; // @synthesize payloadKey=_payloadKey;
 @property(readonly, copy, nonatomic) NSString *rmConfiguration; // @synthesize rmConfiguration=_rmConfiguration;
 - (void).cxx_destruct;
 - (id)copyWithZone:(struct _NSZone *)arg1;

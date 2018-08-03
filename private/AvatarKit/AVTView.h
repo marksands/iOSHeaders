@@ -61,6 +61,7 @@
 - (void)renderer:(id)arg1 willRenderScene:(id)arg2 atTime:(double)arg3;
 - (void)renderer:(id)arg1 didApplyConstraintsAtTime:(double)arg2;
 - (void)renderer:(id)arg1 didSimulatePhysicsAtTime:(double)arg2;
+- (struct UIImage *)snapshotWithSize:(struct CGSize)arg1 scaleFactor:(float)arg2;
 - (struct UIImage *)snapshotWithSize:(struct CGSize)arg1;
 - (id)transitionTexture;
 - (void)warmupMemoji;

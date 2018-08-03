@@ -14,6 +14,7 @@
 {
     REDonatedActionFilteredCache *_cache;
     REUpNextScheduler *_scheduler;
+    REUpNextScheduler *_applicationScheduler;
     NSObject<OS_dispatch_queue> *_queue;
     NSMutableSet *_applications;
 }
@@ -23,6 +24,7 @@
 - (void)donatedActionFilteredCacheCountDidChange;
 - (void)donatedActionFilteredCacheDidAddDonation:(id)arg1;
 - (void)_queue_loadApplicationsIfNeededWithCompletion:(CDUnknownBlockType)arg1;
+- (void)_notifyApplicationsUpdates;
 - (void)_notify;
 - (void)_sortDonationsByCount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchFirstPerformedActionDate:(CDUnknownBlockType)arg1;

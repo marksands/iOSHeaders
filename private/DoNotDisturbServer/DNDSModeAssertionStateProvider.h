@@ -8,23 +8,23 @@
 
 #import "DNDSStateProvider.h"
 
-@class DNDSState, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
+@class DNDState, NSHashTable, NSObject<OS_dispatch_queue>, NSString;
 
 @interface DNDSModeAssertionStateProvider : NSObject <DNDSStateProvider>
 {
     NSObject<OS_dispatch_queue> *_queue;
     NSHashTable *_stateUpdateListeners;
-    DNDSState *_currentState;
+    DNDState *_currentState;
     id <DNDSModeAssertionStateProviderDataSource> _dataSource;
 }
 
 @property(nonatomic) __weak id <DNDSModeAssertionStateProviderDataSource> dataSource; // @synthesize dataSource=_dataSource;
 - (void).cxx_destruct;
-- (void)_queue_recalculateState;
+- (void)_queue_recalculateStateForReason:(unsigned long long)arg1;
 - (void)removeUpdateListener:(id)arg1;
 - (void)addUpdateListener:(id)arg1;
 - (id)currentStateWithError:(id *)arg1;
-- (void)recalculateState;
+- (void)recalculateStateForReason:(unsigned long long)arg1;
 - (id)init;
 
 // Remaining properties

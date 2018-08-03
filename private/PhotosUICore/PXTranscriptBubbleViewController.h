@@ -31,6 +31,7 @@
 - (void)_scheduleContentViewUpdate;
 - (void)transitionToContentView:(id)arg1;
 - (_Bool)_requiresResizeForCurrentSize:(struct CGSize)arg1;
+- (struct CGSize)workaroundSizeForSize:(struct CGSize)arg1;
 - (struct CGSize)_contentViewSizeThatFits:(struct CGSize)arg1;
 - (struct CGSize)contentSizeThatFits:(struct CGSize)arg1;
 

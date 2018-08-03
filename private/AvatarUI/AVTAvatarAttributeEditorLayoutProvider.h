@@ -10,7 +10,7 @@
 {
 }
 
-+ (id)actionsToEditorTransitionStartingLayoutInContainerOfSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2 avatarViewStartFrame:(struct CGRect)arg3 environment:(id)arg4;
++ (id)actionsToEditorTransitionStartingLayoutInContainerOfSize:(struct CGSize)arg1 attributesContentViewExtraHeight:(double)arg2 insets:(struct UIEdgeInsets)arg3 avatarViewStartFrame:(struct CGRect)arg4 environment:(id)arg5;
 + (id)defaultLayoutInContainerOfSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2 environment:(id)arg3;
 
 @end

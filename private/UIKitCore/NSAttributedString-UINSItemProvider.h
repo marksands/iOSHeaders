@@ -6,12 +6,7 @@
 
 #import "NSAttributedString.h"
 
-#import "NSItemProviderReading.h"
-#import "NSItemProviderWriting.h"
-
-@class NSArray, NSString;
-
-@interface NSAttributedString (UINSItemProvider) <NSItemProviderReading, NSItemProviderWriting>
+@interface NSAttributedString (UINSItemProvider)
 + (long long)_preferredRepresentationForItemProviderWritableTypeIdentifier:(id)arg1;
 + (id)writableTypeIdentifiersForItemProvider;
 + (id)_objectWithItemProviderFileURL:(id)arg1 typeIdentifier:(id)arg2 isInPlace:(_Bool)arg3 error:(id *)arg4;
@@ -22,13 +17,7 @@
 - (id)_loadFileRepresentationOfTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 - (id)loadDataWithTypeIdentifier:(id)arg1 forItemProviderCompletionHandler:(CDUnknownBlockType)arg2;
 - (long long)_preferredRepresentationForItemProviderWritableTypeIdentifier:(id)arg1;
-@property(readonly, copy, nonatomic) NSArray *writableTypeIdentifiersForItemProvider;
+- (id)writableTypeIdentifiersForItemProvider;
 - (id)initWithItemProviderData:(id)arg1 typeIdentifier:(id)arg2 error:(id *)arg3;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 @end
 

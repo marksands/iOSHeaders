@@ -80,11 +80,12 @@
 @property(readonly, nonatomic) NSUUID *UUID;
 - (id)initWithActivitySnapshots:(id)arg1 friendAchievements:(id)arg2 friendWorkouts:(id)arg3 contact:(id)arg4 competitions:(id)arg5;
 - (id)codableFriendIncludingCloudKitFields:(_Bool)arg1;
-- (id)as_competitionLearnMoreReceivedNotificationMessage;
-- (id)as_competitionLearnMoreSendConfirmationMessage;
-- (id)as_competitionLearnMoreAction;
 - (id)as_competitionLearnMoreReceivedNotificationMessageWithWheelchairUse:(long long)arg1;
 - (id)as_competitionLearnMoreSendConfirmationMessageWithWheelchairUse:(long long)arg1;
+- (id)as_competitionLearnMoreFullDescription;
+- (id)as_competitionLearnMoreDetailMessage;
+- (id)as_competitionLearnMoreIntroduction;
+- (id)as_competitionLearnMoreAction;
 - (id)as_competitionLearnMoreTitle;
 - (id)_competitionStartMessage:(id)arg1 replacingNameAndDatePlaceholdersForCompetitionStartDate:(id)arg2;
 - (id)as_competitionAcceptConfirmationMessageForCompetition:(id)arg1;
@@ -105,7 +106,7 @@
 - (id)as_myCompetitionScoreStringWithContext:(id)arg1 color:(id)arg2;
 - (id)as_competitionStageString;
 - (id)as_competitionRequestDurationRemainingString;
-- (id)as_competitionSentBreadcrumbString;
+- (id)as_competitionStatusBreadcrumbString;
 - (id)as_invitedDurationString;
 - (id)as_simpleHiddenFromString;
 - (id)as_simpleSharingDurationString;

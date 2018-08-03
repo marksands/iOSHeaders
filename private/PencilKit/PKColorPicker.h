@@ -22,6 +22,9 @@
 - (void).cxx_destruct;
 - (void)_colorPickerViewUserDidTouchUpInside:(id)arg1;
 - (void)_colorPickerViewDidChangeSelectedColor:(id)arg1;
+- (id)_colorPickerView;
+- (void)_setInitialColorForSpringLoading:(id)arg1;
+- (void)_setSelectedColorForPoint:(struct CGPoint)arg1;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (struct CGSize)preferredContentSize;
 @property(retain, nonatomic) UIColor *selectedColor;

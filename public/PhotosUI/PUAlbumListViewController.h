@@ -6,6 +6,7 @@
 
 #import "UIViewController.h"
 
+#import "PLDismissableViewController.h"
 #import "PLNavigableCollectionContainer.h"
 #import "PUAlbumListTableViewCellDelegate.h"
 #import "PUAlbumStreamActivityDelegate.h"
@@ -28,9 +29,9 @@
 #import "UITableViewDataSource.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, NSMutableSet, NSString, NSUserActivity, PHCachingImageManager, PHCollection, PHImageRequestOptions, PUAlbumDropSessionController, PUAlbumListSectionHeaderView, PUAlbumListTransitionContext, PUAlbumListViewControllerSpec, PUAlbumStreamActivity, PUCollageView, PUCollectionView, PUFeedViewController, PUFontManager, PUPhotoPinchGestureRecognizer, PUSectionedGridLayout, PUSessionInfo, PXAssetBadgeManager, PXCollectionTileLayoutTemplate, PXEditableNavigationTitleView, PXFeatureSpec, PXFeatureSpecManager, PXPeopleAlbumProvider, PXPhotoKitCollectionsDataSource, PXPhotoKitCollectionsDataSourceManager, PXPhotoKitCollectionsDataSourceManagerConfiguration, PXPhotosGlobalFooterView, PXPlacesAlbumCoverProvider, UIAlertAction, UIAlertController, UIBarButtonItem, UICollectionViewLayout, UITableView, UIView, _UIContentUnavailableView;
+@class NSArray, NSMutableSet, NSString, NSUserActivity, PHCachingImageManager, PHCollection, PHImageRequestOptions, PUAlbumDropSessionController, PUAlbumListSectionHeaderView, PUAlbumListTransitionContext, PUAlbumListViewControllerSpec, PUAlbumStreamActivity, PUCollageView, PUCollectionView, PUFeedViewController, PUFontManager, PUPhotoPinchGestureRecognizer, PUPhotosPickerViewController, PUSectionedGridLayout, PUSessionInfo, PXAssetBadgeManager, PXCollectionTileLayoutTemplate, PXEditableNavigationTitleView, PXFeatureSpec, PXFeatureSpecManager, PXPeopleAlbumProvider, PXPhotoKitCollectionsDataSource, PXPhotoKitCollectionsDataSourceManager, PXPhotoKitCollectionsDataSourceManagerConfiguration, PXPhotosGlobalFooterView, PXPlacesAlbumCoverProvider, UIAlertAction, UIAlertController, UIBarButtonItem, UICollectionViewLayout, UITableView, UIView, _UIContentUnavailableView;
 
-@interface PUAlbumListViewController : UIViewController <UICollectionViewDropDelegate, UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, PXPhotoLibraryUIChangeObserver, PXSettingsKeyObserver, PXCollectionsDataSourceManagerObserver, PXPlacesSnapshotFactoryDelegate, PXEditableNavigationTitleViewDelegate, PLNavigableCollectionContainer, PXCloudFeedNavigating, PXNavigableSharedAlbumActivityFeedHostViewController, PUStackedAlbumControllerTransition>
+@interface PUAlbumListViewController : UIViewController <UICollectionViewDropDelegate, UIGestureRecognizerDelegate, PUStackedAlbumTransitionDelegate, PUAlbumStreamActivityDelegate, UICollectionViewDataSource, UICollectionViewDelegate, PUCollectionViewReorderDelegate, PUSectionedGridLayoutDelegate, UITableViewDataSource, UITableViewDelegate, PUAlbumListTableViewCellDelegate, UIPopoverPresentationControllerDelegate, PXPhotoLibraryUIChangeObserver, PXSettingsKeyObserver, PXCollectionsDataSourceManagerObserver, PXPlacesSnapshotFactoryDelegate, PXEditableNavigationTitleViewDelegate, PLNavigableCollectionContainer, PLDismissableViewController, PXCloudFeedNavigating, PXNavigableSharedAlbumActivityFeedHostViewController, PUStackedAlbumControllerTransition>
 {
     PUAlbumListViewControllerSpec *_spec;
     UIBarButtonItem *_doneButtonItem;
@@ -83,6 +84,7 @@
     UITableView *__mainTableView;
     long long __ignoredReorderNotificationCount;
     UIAlertAction *__createAlbumAlertAction;
+    PUPhotosPickerViewController *_photosPickerViewController;
     PXPhotoKitCollectionsDataSourceManager *_dataSourceManager;
     PXPhotoKitCollectionsDataSource *_dataSource;
     PUAlbumDropSessionController *_dropSessionController;
@@ -116,6 +118,7 @@
 @property(retain, nonatomic) PUAlbumDropSessionController *dropSessionController; // @synthesize dropSessionController=_dropSessionController;
 @property(retain, nonatomic) PXPhotoKitCollectionsDataSource *dataSource; // @synthesize dataSource=_dataSource;
 @property(retain, nonatomic) PXPhotoKitCollectionsDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
+@property(nonatomic) __weak PUPhotosPickerViewController *photosPickerViewController; // @synthesize photosPickerViewController=_photosPickerViewController;
 @property(nonatomic, setter=_setCreateAlbumAlertAction:) __weak UIAlertAction *_createAlbumAlertAction; // @synthesize _createAlbumAlertAction=__createAlbumAlertAction;
 @property(nonatomic, setter=_setIgnoredReorderNotificationCount:) long long _ignoredReorderNotificationCount; // @synthesize _ignoredReorderNotificationCount=__ignoredReorderNotificationCount;
 @property(retain, nonatomic, setter=_setMainTableView:) UITableView *_mainTableView; // @synthesize _mainTableView=__mainTableView;
@@ -217,6 +220,7 @@
 - (id)stackedAlbumTransition:(id)arg1 layoutForCollection:(id)arg2 forCollectionView:(id)arg3;
 - (void)stackedAlbumTransition:(id)arg1 setVisibility:(_Bool)arg2 forCollection:(id)arg3;
 - (_Bool)pu_handleSecondTabTap;
+- (_Bool)prepareForDismissingForced:(_Bool)arg1;
 - (void)navigateToSharedAlbumActivityFeedAnimated:(_Bool)arg1 configuration:(CDUnknownBlockType)arg2 completion:(CDUnknownBlockType)arg3;
 - (id)_nextCloudFeedNavigatingObject;
 - (_Bool)cloudFeedInvitationForAlbumIsAvailableForNavigation:(id)arg1;
@@ -292,6 +296,7 @@
 - (void)_allChildAssetCollections:(id)arg1 andCollectionLists:(id)arg2 ofFolder:(id)arg3;
 - (id)_validateNewCollectionTitle:(id)arg1;
 - (void)_updateCreateAlbumTextField:(id)arg1;
+- (void)_dismissPhotosPickerControllerAnimated:(_Bool)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)handleCreateAlbumOrFolder:(_Bool)arg1 helper:(id)arg2;
 - (void)_handleCreateAlbumOrFolder:(_Bool)arg1;
 - (long long)_unfilteredFirstReorderableCollectionIndex;

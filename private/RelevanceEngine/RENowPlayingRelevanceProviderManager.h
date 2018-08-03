@@ -13,6 +13,7 @@
 
 + (Class)_relevanceProviderClass;
 + (id)_features;
+- (void)collectLoggableState:(CDUnknownBlockType)arg1;
 - (void)_updatePlaybackState;
 - (void)pause;
 - (void)resume;

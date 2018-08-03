@@ -15,7 +15,7 @@
 
 @property(readonly, nonatomic) PHMomentShareParticipant *momentShareParticipant; // @synthesize momentShareParticipant=_momentShareParticipant;
 - (void).cxx_destruct;
-- (id)initWithContact:(id)arg1 selectedAddress:(id)arg2 recipientKind:(long long)arg3;
+- (id)initWithContact:(id)arg1 address:(id)arg2 recipientKind:(long long)arg3;
 - (id)initWithMomentShareParticipant:(id)arg1;
 
 @end

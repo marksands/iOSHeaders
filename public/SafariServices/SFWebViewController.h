@@ -67,6 +67,7 @@ __attribute__((visibility("hidden")))
 - (void)_webView:(id)arg1 insertTextSuggestion:(id)arg2 inInputSession:(id)arg3;
 - (void)_webView:(id)arg1 accessoryViewCustomButtonTappedInFormInputSession:(id)arg2;
 - (void)_webView:(id)arg1 willSubmitFormValues:(id)arg2 userObject:(id)arg3 submissionHandler:(CDUnknownBlockType)arg4;
+- (void)_webView:(id)arg1 didResignInputElementStrongPasswordAppearanceWithUserInfo:(id)arg2;
 - (_Bool)_webView:(id)arg1 focusRequiresStrongPasswordAssistance:(id)arg2;
 - (long long)_webView:(id)arg1 decidePolicyForFocusedElement:(id)arg2;
 - (void)_webView:(id)arg1 didStartInputSession:(id)arg2;
@@ -80,7 +81,7 @@ __attribute__((visibility("hidden")))
 - (void)_beginOneTimeCodeMonitoringIfNecessary;
 - (void)formAutoFillControllerUserChoseToUseGeneratedPassword:(id)arg1;
 - (_Bool)formAutoFillControllerDidUserDeclineAutomaticStrongPasswordForCurrentDomain:(id)arg1;
-- (_Bool)formAutoFillControllerShouldDisableAutoFill:(id)arg1;
+- (_Bool)formAutoFillControllerShouldDisableStreamlinedLogin:(id)arg1;
 - (id)formAutoFillControllerURLForFormAutoFill:(id)arg1;
 - (_Bool)formAutoFillControllerCanPrefillForm:(id)arg1;
 @property(readonly, nonatomic) _SFAuthenticationContext *autoFillAuthenticationContext;

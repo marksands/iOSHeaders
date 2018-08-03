@@ -10,6 +10,7 @@
 {
 }
 
++ (id)icons;
 + (id)usage;
 + (id)persistence;
 + (id)contentPrivacy;

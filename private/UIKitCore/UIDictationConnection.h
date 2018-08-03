@@ -50,13 +50,14 @@ __attribute__((visibility("hidden")))
 - (void)logDidSelectAlternative:(id)arg1 correctionIdentifier:(id)arg2;
 - (void)logDidShowAlternatives:(id)arg1 correctionIdentifier:(id)arg2;
 - (void)cancelSpeech;
-- (void)stopSpeech:(id)arg1 result:(id)arg2 suppressAlert:(_Bool)arg3;
+- (void)stopSpeech:(id)arg1 activationType:(unsigned long long)arg2 result:(id)arg3 suppressAlert:(_Bool)arg4;
 - (void)_startWithOptions:(id)arg1;
 - (id)_initializeWithOptions:(id)arg1;
 - (void)startForFileAtURL:(id)arg1 forLanguage:(id)arg2;
 - (void)start;
 - (id)_createConnectionOptions;
 - (id)_speechOptions:(id)arg1;
+- (long long)speechEventTypeForDictationActivationType:(unsigned long long)arg1;
 - (id)_dictationOptions:(id)arg1;
 - (void)endSession;
 - (float)averagePower;

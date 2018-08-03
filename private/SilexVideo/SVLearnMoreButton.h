@@ -13,6 +13,7 @@
 - (id)accessibilityLabel;
 - (id)accessibilityElements;
 - (_Bool)isAccessibilityElement;
+- (void)traitCollectionDidChange:(id)arg1;
 - (struct CGSize)intrinsicContentSize;
 - (void)setHighlighted:(_Bool)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;

@@ -119,6 +119,7 @@
 - (_Bool)handleDeletePassRequestWithPass:(id)arg1 forViewController:(id)arg2;
 - (void)deleteAnimationController:(id)arg1 didComplete:(_Bool)arg2;
 - (void)deleteAnimationControllerWillBeginDeleteAnimation:(id)arg1;
+- (unsigned long long)suppressedContentForPassFooter:(id)arg1;
 - (_Bool)isPassFooterViewInGroup:(id)arg1;
 - (void)passFooterViewDidChangeUserIntentRequirement:(id)arg1 withContext:(id)arg2;
 - (void)passFooterViewDidChangeUserIntentRequirement:(id)arg1;
@@ -126,14 +127,12 @@
 - (_Bool)groupView:(id)arg1 deleteButtonEnabledForPass:(id)arg2;
 - (void)groupView:(id)arg1 deleteButtonPressedForPass:(id)arg2;
 - (void)groupView:(id)arg1 frontmostPassViewDidChange:(id)arg2 withContext:(id)arg3;
-- (void)groupView:(id)arg1 resizeButtonPressedForPass:(id)arg2 withBarcode:(_Bool)arg3;
-- (struct CGRect)groupView:(id)arg1 targetPageControlFrameForProposedFrame:(struct CGRect)arg2;
 - (long long)groupViewContentModeForFrontmostPassWhenPiled:(id)arg1 withDefaultContentMode:(long long)arg2;
 - (long long)groupViewContentModeForFrontmostPassWhenStacked:(id)arg1;
 - (id)groupViewReusablePassViewQueue:(id)arg1;
 - (unsigned long long)groupViewPassesSuppressedContent:(id)arg1;
-- (void)groupViewFrontPassDidResize:(id)arg1 animated:(_Bool)arg2;
-- (_Bool)groupViewShouldAllowPassResize:(id)arg1;
+- (void)groupViewFrontPassDidUpdateBarcodeVisibility:(id)arg1 animated:(_Bool)arg2;
+- (_Bool)groupViewCanShowBarcode:(id)arg1;
 - (void)groupView:(id)arg1 panned:(struct CGPoint)arg2 withVelocity:(struct CGPoint)arg3;
 - (_Bool)groupViewShouldAllowPanning:(id)arg1;
 - (void)groupViewPanDidEnd:(id)arg1;
@@ -162,9 +161,7 @@
 - (id)_groupViewAtIndex:(unsigned long long)arg1;
 - (void)_reverseEnumerateLoadedGroupViews:(CDUnknownBlockType)arg1;
 - (void)_enumerateLoadedGroupViews:(CDUnknownBlockType)arg1;
-- (id)_sortedDescendingGroupViewIndexes;
-- (id)_sortedAscendingGroupViewIndexes;
-- (id)_groupBeforeSeparatorGroup;
+- (id)_sortedGroupViewIndexes;
 - (id)_separatorGroup;
 - (id)_firstHeaderContext;
 - (_Bool)_isModalPresentationAllowedForSingleGroup;
@@ -178,7 +175,7 @@
 - (void)_animateGroupViewForUndo:(id)arg1 toIndex:(unsigned long long)arg2;
 - (void)_reorderPositionChangedForReorderedGroupViewWithVelocity:(struct CGPoint)arg1;
 - (unsigned long long)_indexOfReorderedGroupView;
-- (void)_adjustSeparationGroupAndPassViewsForReordering;
+- (void)_adjustGroupViewsForReordering;
 - (void)_stopAutoscrollTimer;
 - (void)_autoscrollForReordering:(id)arg1;
 - (void)_autoscrollIfNecessary;

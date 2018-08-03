@@ -59,6 +59,7 @@
 - (void)reconciledStateUnrecognized:(id)arg1;
 - (void)syncStateChangeProcessed:(id)arg1;
 - (void)syncStateChanged:(id)arg1;
+- (id)catalogToSend;
 - (void)handleIncomingCatalog:(id)arg1;
 - (void)handleIncomingPassSettings:(unsigned long long)arg1 forPassWithUniqueID:(id)arg2;
 - (unsigned long long)settingsForPassWithUniqueID:(id)arg1;

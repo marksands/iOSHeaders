@@ -26,6 +26,7 @@
     _Bool _performingBatchedSectionListOperations;
     _Bool _shouldPerformReloadForBatchedOperations;
     _Bool _shouldAllowNotificationsHistoryReveal;
+    _Bool _preventRevealHintingForListAnimation;
     int _revealListTriggerState;
     unsigned long long _doNotDisturbReason;
     NCNotificationPriorityList *_notificationPriorityList;
@@ -36,6 +37,7 @@
     NCNotificationListSectionHeaderView *_headerViewInClearState;
     NCNotificationListSectionHeaderView *_headerViewInForceTouchState;
     id <NCNotificationListCoalescingControlsHandler> _coalescingControlsHandlerInClearState;
+    id <NCNotificationListCoalescingControlsHandler> _coalescingControlsHandlerInForceTouchState;
     NCNotificationListSectionRevealHintView *_revealHintView;
     double _prioritySectionLowestPosition;
     _UIStatesFeedbackGenerator *_revealFeedbackGenerator;
@@ -44,6 +46,7 @@
     double _revealPercentage;
     NSMutableDictionary *_notificationListCoalescingItems;
     CDUnknownBlockType _coalescingAnimationBlock;
+    double _coalescingCollapseAnimationThresholdContentOffsetY;
     NCNotificationViewController *_coalescedCellsSizingViewController;
     NSMutableDictionary *_coalescedCellsSizesCaches;
     NSMutableDictionary *_storedExpandedNotificationRequests;
@@ -52,8 +55,10 @@
 @property(retain, nonatomic) NSMutableDictionary *storedExpandedNotificationRequests; // @synthesize storedExpandedNotificationRequests=_storedExpandedNotificationRequests;
 @property(retain, nonatomic) NSMutableDictionary *coalescedCellsSizesCaches; // @synthesize coalescedCellsSizesCaches=_coalescedCellsSizesCaches;
 @property(retain, nonatomic) NCNotificationViewController *coalescedCellsSizingViewController; // @synthesize coalescedCellsSizingViewController=_coalescedCellsSizingViewController;
+@property(nonatomic) double coalescingCollapseAnimationThresholdContentOffsetY; // @synthesize coalescingCollapseAnimationThresholdContentOffsetY=_coalescingCollapseAnimationThresholdContentOffsetY;
 @property(copy, nonatomic) CDUnknownBlockType coalescingAnimationBlock; // @synthesize coalescingAnimationBlock=_coalescingAnimationBlock;
 @property(retain, nonatomic) NSMutableDictionary *notificationListCoalescingItems; // @synthesize notificationListCoalescingItems=_notificationListCoalescingItems;
+@property(nonatomic) _Bool preventRevealHintingForListAnimation; // @synthesize preventRevealHintingForListAnimation=_preventRevealHintingForListAnimation;
 @property(nonatomic) double revealPercentage; // @synthesize revealPercentage=_revealPercentage;
 @property(nonatomic) _Bool shouldAllowNotificationsHistoryReveal; // @synthesize shouldAllowNotificationsHistoryReveal=_shouldAllowNotificationsHistoryReveal;
 @property(nonatomic) _Bool shouldPerformReloadForBatchedOperations; // @synthesize shouldPerformReloadForBatchedOperations=_shouldPerformReloadForBatchedOperations;
@@ -70,6 +75,7 @@
 @property(nonatomic) int revealListTriggerState; // @synthesize revealListTriggerState=_revealListTriggerState;
 @property(retain, nonatomic) NCNotificationListSectionRevealHintView *revealHintView; // @synthesize revealHintView=_revealHintView;
 @property(nonatomic, getter=isShowingNotificationsHistory) _Bool showingNotificationsHistory; // @synthesize showingNotificationsHistory=_showingNotificationsHistory;
+@property(nonatomic) __weak id <NCNotificationListCoalescingControlsHandler> coalescingControlsHandlerInForceTouchState; // @synthesize coalescingControlsHandlerInForceTouchState=_coalescingControlsHandlerInForceTouchState;
 @property(nonatomic) __weak id <NCNotificationListCoalescingControlsHandler> coalescingControlsHandlerInClearState; // @synthesize coalescingControlsHandlerInClearState=_coalescingControlsHandlerInClearState;
 @property(nonatomic) __weak NCNotificationListSectionHeaderView *headerViewInForceTouchState; // @synthesize headerViewInForceTouchState=_headerViewInForceTouchState;
 @property(nonatomic) __weak NCNotificationListSectionHeaderView *headerViewInClearState; // @synthesize headerViewInClearState=_headerViewInClearState;
@@ -189,6 +195,8 @@
 - (unsigned long long)_groupingSectionForIndexPath:(id)arg1;
 - (void)notificationListCoalescingControlsHandler:(id)arg1 didTransitionToClearState:(_Bool)arg2;
 - (void)notificationListCoalescingControlsHandlerRequestsClearingAllNotifications:(id)arg1;
+- (void)notificationListCoalescingControlsHandlerDidDismissPreviewInteractionPresentedContent:(id)arg1;
+- (void)notificationListCoalescingControlsHandlerDidPresentPreviewInteractionPresentedContent:(id)arg1;
 - (id)containerViewForCoalescingControlsHandlerPreviewInteractionPresentedContent:(id)arg1;
 - (void)notificationListCoalescingControlsHandler:(id)arg1 requestsClearingNotificationsWithCoalescingIdentifier:(id)arg2 inSection:(unsigned long long)arg3;
 - (void)notificationListCoalescingControlsHandler:(id)arg1 requestsRestackingNotificationsWithCoalescingIdentifier:(id)arg2 inSection:(unsigned long long)arg3;

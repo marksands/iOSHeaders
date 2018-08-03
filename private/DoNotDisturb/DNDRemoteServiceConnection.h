@@ -13,7 +13,6 @@
 
 @interface DNDRemoteServiceConnection : NSObject <DNDRemoteServiceClientProtocol, DNDRemoteServiceServerProtocol>
 {
-    struct os_unfair_lock_s _connectionLock;
     NSXPCConnection *_connection;
     NSHashTable *_eventListeners;
 }
@@ -23,7 +22,6 @@
 - (void).cxx_destruct;
 - (void)_handleRemoteConnectionInvalidated;
 - (void)_handleRemoteConnectionInterrupted;
-- (id)_guaranteedXPCConnection;
 - (void)deliverUpdatedScheduleSettings:(id)arg1;
 - (void)deliverUpdatedPhoneCallBypassSettings:(id)arg1;
 - (void)deliverUpdatedBehaviorSettings:(id)arg1;

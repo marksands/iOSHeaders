@@ -23,6 +23,7 @@
 @property(retain, nonatomic) EKPredictedLocationOfInterest *predictedLOI; // @synthesize predictedLOI=_predictedLOI;
 @property(nonatomic, getter=isImprecise) _Bool imprecise; // @synthesize imprecise=_imprecise;
 - (void).cxx_destruct;
+- (id)semanticIdentifier;
 @property(copy, nonatomic) NSString *derivedFrom;
 @property(readonly, nonatomic, getter=isPrediction) _Bool prediction;
 - (void)updateFromMapItem:(id)arg1;
@@ -35,6 +36,8 @@
 @property(copy, nonatomic) NSData *mapKitHandle;
 @property(copy, nonatomic) NSString *addressBookEntityID;
 @property(nonatomic) double radius;
+- (void)setRadiusRaw:(id)arg1;
+- (id)radiusRaw;
 - (id)cacheKey;
 @property(retain, nonatomic) CLLocation *geoLocation;
 - (void)_clearGeoLocationCache;

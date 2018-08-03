@@ -20,7 +20,6 @@
     _Bool _clientEntitled;
     _Bool _didSetVisibilityState;
     NSString *_clientName;
-    NSString *_clientBundleID;
     _Bool _didSetSceneClassifications;
     NSSet *_sceneClassifications;
     short _sceneAnalysisVersion;
@@ -69,6 +68,7 @@
     unsigned long long _originalResourceChoice;
     PHContentEditingOutput *_contentEditingOutput;
     NSString *_editorBundleID;
+    NSString *_clientBundleID;
     NSIndexSet *_supportedEditOperations;
     NSURL *_videoURLForUpdate;
     NSString *_pairingIdentifier;
@@ -114,6 +114,7 @@
 @property(retain, nonatomic) NSString *pairingIdentifier; // @synthesize pairingIdentifier=_pairingIdentifier;
 @property(retain, nonatomic) NSURL *videoURLForUpdate; // @synthesize videoURLForUpdate=_videoURLForUpdate;
 @property(retain, nonatomic) NSIndexSet *supportedEditOperations; // @synthesize supportedEditOperations=_supportedEditOperations;
+@property(readonly, copy, nonatomic) NSString *clientBundleID; // @synthesize clientBundleID=_clientBundleID;
 @property(readonly, copy, nonatomic) NSString *editorBundleID; // @synthesize editorBundleID=_editorBundleID;
 @property(readonly, nonatomic) _Bool didChangeAdjustments; // @synthesize didChangeAdjustments=_didChangeAdjustments;
 @property(retain, nonatomic) PHContentEditingOutput *contentEditingOutput; // @synthesize contentEditingOutput=_contentEditingOutput;

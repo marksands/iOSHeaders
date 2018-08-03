@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "APSConnectionDelegate.h"
+#import "_DKSyncRemoteKnowledgeStorageFetchDelegate.h"
 
-@class APSConnection, NSMutableArray, NSMutableSet, NSString, _CDMutablePerfMetric, _CDPeriodicSchedulerJob, _DKDataProtectionStateMonitor, _DKKnowledgeStorage, _DKSync2State, _DKSyncToggle, _DKThrottledActivity;
+@class APSConnection, NSMutableArray, NSMutableSet, NSString, NSUUID, _CDMutablePerfMetric, _CDPeriodicSchedulerJob, _DKDataProtectionStateMonitor, _DKKnowledgeStorage, _DKSync2State, _DKSyncToggle, _DKThrottledActivity;
 
-@interface _DKSync2Coordinator : NSObject <APSConnectionDelegate>
+@interface _DKSync2Coordinator : NSObject <APSConnectionDelegate, _DKSyncRemoteKnowledgeStorageFetchDelegate>
 {
     id <_DKKeyValueStore> _keyValueStore;
     _DKThrottledActivity *_activityThrottler;
@@ -22,7 +23,6 @@
     _DKDataProtectionStateMonitor *_dataProtectionMonitor;
     _Bool _hasRegisteredOptionalObservers;
     _Bool _isEnabled;
-    _Bool _hasSyncedUpHistoryToCloud;
     NSString *_triggeredSyncDelayActivityName;
     NSString *_syncActivityName;
     _DKSync2State *_syncState;
@@ -43,6 +43,7 @@
     _DKSyncToggle *_rapportIsAvailableToggler;
     _CDPeriodicSchedulerJob *_periodicJob;
     _Bool _isBusy;
+    _Bool _hasSyncedUpHistoryToCloud;
     _DKKnowledgeStorage *_storage;
     id <_DKSyncLocalKnowledgeStorage> _localStorage;
     id <_DKSyncRemoteKnowledgeStorage> _transportCloudDown;
@@ -53,6 +54,7 @@
 + (_Bool)isOnPower;
 + (id)streamNamesToTombstone;
 + (void)_updateEventStatsWithSyncElapsedTimeStartDate:(id)arg1 endDate:(id)arg2;
++ (void)_updateEventStatsWithSyncType:(id)arg1;
 + (_Bool)canPerformSyncOperationWithClass:(Class)arg1 syncType:(id)arg2 history:(id)arg3 transport:(id)arg4 peer:(id)arg5 policy:(id)arg6;
 + (_Bool)shouldDeferSyncOperationWithClass:(Class)arg1 syncType:(id)arg2 transport:(id)arg3 peer:(id)arg4 policy:(id)arg5;
 + (id)keyValueStoreForDomain:(id)arg1;
@@ -61,6 +63,7 @@
 @property(retain, nonatomic) id <_DKSyncRemoteKnowledgeStorage> transportCloudUp; // @synthesize transportCloudUp=_transportCloudUp;
 @property(retain, nonatomic) id <_DKSyncRemoteKnowledgeStorage> transportCloudDown; // @synthesize transportCloudDown=_transportCloudDown;
 @property(retain, nonatomic) id <_DKSyncLocalKnowledgeStorage> localStorage; // @synthesize localStorage=_localStorage;
+@property(nonatomic) _Bool hasSyncedUpHistoryToCloud; // @synthesize hasSyncedUpHistoryToCloud=_hasSyncedUpHistoryToCloud;
 @property _Bool isBusy; // @synthesize isBusy=_isBusy;
 @property(readonly, nonatomic) _DKKnowledgeStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
@@ -112,8 +115,6 @@
 - (void)syncWithReply:(CDUnknownBlockType)arg1;
 - (void)handleFetchedSourceDeviceID:(id)arg1 fromPeer:(id)arg2 error:(id)arg3;
 - (void)fetchSourceDeviceIDFromPeer:(id)arg1;
-- (id)deletedEventIDsSinceDate:(id)arg1 streamNames:(id)arg2 limit:(unsigned long long)arg3 endDate:(id *)arg4 error:(id *)arg5;
-- (id)sortedEventsWithCreationDateBetweenDate:(id)arg1 andDate:(id)arg2 streamNames:(id)arg3 limit:(unsigned long long)arg4 fetchOrder:(long long)arg5 error:(id *)arg6;
 - (void)possiblyUpdateIsBusyProperty;
 - (void)handleStatusChangeForPeer:(id)arg1 previousTransports:(long long)arg2;
 - (id)policyForSyncTransportType:(long long)arg1;
@@ -130,11 +131,13 @@
 - (void)_syncDisabledToggle;
 - (void)_syncEnabledToggle;
 - (void)_performSyncTogglesChangedActions;
-- (id)deviceUUID;
+@property(readonly, nonatomic) NSUUID *deviceUUID;
 - (void)dealloc;
 - (id)initWithStorage:(id)arg1;
 - (void)connection:(id)arg1 didReceiveIncomingMessage:(id)arg2;
 - (void)connection:(id)arg1 didReceivePublicToken:(id)arg2;
+- (id)deletedEventIDsSinceDate:(id)arg1 streamNames:(id)arg2 limit:(unsigned long long)arg3 endDate:(id *)arg4 error:(id *)arg5;
+- (id)sortedEventsWithCreationDateBetweenDate:(id)arg1 andDate:(id)arg2 streamNames:(id)arg3 limit:(unsigned long long)arg4 fetchOrder:(long long)arg5 error:(id *)arg6;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

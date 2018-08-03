@@ -15,6 +15,7 @@
 {
     _Bool _changesScope;
     _Bool _stopsOnFirstMatch;
+    _Bool _useRootElementSnapshot;
     XCUIElementQuery *_inputQuery;
     unsigned long long _expressedType;
     NSArray *_expressedIdentifiers;
@@ -27,6 +28,7 @@
 
 @property(retain) id <XCTElementSetTransformer> transformer; // @synthesize transformer=_transformer;
 @property(readonly, copy) NSString *queryDescription; // @synthesize queryDescription=_queryDescription;
+@property _Bool useRootElementSnapshot; // @synthesize useRootElementSnapshot=_useRootElementSnapshot;
 @property(retain) XCElementSnapshot *rootElementSnapshot; // @synthesize rootElementSnapshot=_rootElementSnapshot;
 @property(copy) NSOrderedSet *lastOutput; // @synthesize lastOutput=_lastOutput;
 @property(copy) NSOrderedSet *lastInput; // @synthesize lastInput=_lastInput;
@@ -118,11 +120,12 @@
 @property(readonly, copy) XCUIElementQuery *groups;
 @property(readonly, copy) XCUIElementQuery *touchBars;
 - (id)snapshotForElement:(id)arg1 attributes:(id)arg2 parameters:(id)arg3 error:(id *)arg4;
-- (_Bool)_resolveRemoteElements:(id)arg1 inSnapshot:(id)arg2 error:(id *)arg3;
+- (_Bool)_resolveRemoteElements:(id)arg1 inSnapshot:(id)arg2 application:(id)arg3 containsBridgedElements:(_Bool *)arg4 error:(id *)arg5;
 @property(readonly, copy) XCElementSnapshot *elementSnapshotForDebugDescription;
 - (id)matchingSnapshotsForLocallyEvaluatedQuery:(id)arg1 error:(id *)arg2;
 - (id)matchingSnapshotsWithError:(id *)arg1;
 @property(readonly, copy) XCTElementQuery *backingQuery;
+- (id)backingQueryWithRootElement:(id)arg1;
 - (id)matchingSnapshotsHandleUIInterruption:(_Bool)arg1 withError:(id *)arg2;
 @property(readonly, copy) NSArray *allElementsBoundByIndex;
 @property(readonly, copy) NSArray *allElementsBoundByAccessibilityElement;

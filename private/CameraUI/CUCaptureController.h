@@ -124,10 +124,7 @@
 - (void)_setupSystemPressureStateMonitoring;
 - (_Bool)_shouldMonitorSystemPressureState;
 - (id)_systemPressureStateMonitoringKeyPaths;
-- (void)_shallowDepthOfFieldMonitoringChangedForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3;
-- (void)_teardownShallowDepthOfFieldMonitoring;
-- (void)_setupShallowDepthOfFieldMonitoring;
-- (id)_shallowDepthOfFieldMonitoringKeyPaths;
+- (void)_handleShallowDepthOfFieldStatusChangedNotification:(id)arg1;
 - (void)_zoomResultChangedForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3;
 - (void)_teardownZoomMonitoring;
 - (void)_setupZoomMonitoring;
@@ -203,6 +200,7 @@
 - (void)_resetFocusAndExposureIfAppropriateForReason:(long long)arg1;
 - (_Bool)_useSmoothFocus;
 @property(readonly, nonatomic) _Bool shouldAllowUserToChangeFocusAndExposure;
+- (void)changeToVideoHDRSuspended:(_Bool)arg1;
 - (void)changeToPreviewFilters:(id)arg1;
 - (void)changeToPreviewConfiguration:(unsigned long long)arg1;
 - (void)changeToPreviewEnabledWithConfiguration:(unsigned long long)arg1;

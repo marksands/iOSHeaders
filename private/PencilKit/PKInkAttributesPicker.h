@@ -14,16 +14,16 @@
 {
     id <PKInkAttributesPickerDelegate> _delegate;
     _PKInkAttributesPickerView *_pickerView;
+    unsigned long long _displayMode;
 }
 
 + (double)representableOpacityForOpacity:(double)arg1;
+@property(nonatomic) unsigned long long displayMode; // @synthesize displayMode=_displayMode;
 @property(retain, nonatomic) _PKInkAttributesPickerView *pickerView; // @synthesize pickerView=_pickerView;
 @property(retain, nonatomic) id <PKInkAttributesPickerDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
-- (void)_showOpacityLabel:(_Bool)arg1 animated:(_Bool)arg2;
 - (void)selectedInkDidChange:(id)arg1;
 @property(retain, nonatomic) PKInk *selectedInk;
-- (struct CGSize)preferredContentSize;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithInk:(id)arg1;

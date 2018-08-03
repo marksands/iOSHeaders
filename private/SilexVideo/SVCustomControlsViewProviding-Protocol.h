@@ -6,9 +6,10 @@
 
 #import "NSObject.h"
 
-@class AVPlayerViewControllerCustomControlsView;
+@class UIView;
 
 @protocol SVCustomControlsViewProviding <NSObject>
-@property(readonly, nonatomic) AVPlayerViewControllerCustomControlsView *controlsView;
+@property(readonly, nonatomic) id <SVCustomControlsLayoutGuideProviding> layoutGuideProvider;
+@property(readonly, nonatomic) UIView *controlsView;
 @end
 

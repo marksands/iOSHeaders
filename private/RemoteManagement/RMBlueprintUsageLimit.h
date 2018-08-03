@@ -7,14 +7,16 @@
 #import "NSManagedObject.h"
 
 #import "RMSerializableManagedObject.h"
+#import "RMSyncableSubObject.h"
 
-@class NSArray, NSString;
+@class NSArray, NSNumber, NSString, RMBlueprint;
 
-@interface RMBlueprintUsageLimit : NSManagedObject <RMSerializableManagedObject>
+@interface RMBlueprintUsageLimit : NSManagedObject <RMSerializableManagedObject, RMSyncableSubObject>
 {
 }
 
 + (id)limitKeyPaths;
+- (id)syncableRootObject;
 - (id)dictionaryRepresentation;
 - (void)updateWithDictionaryRepresentation:(id)arg1;
 - (void)setBudgetLimit:(double)arg1 forDay:(unsigned long long)arg2;
@@ -22,6 +24,7 @@
 - (id)budgetLimitScheduleRepresentation;
 
 // Remaining properties
+@property(readonly, nonatomic) RMBlueprint *blueprint; // @dynamic blueprint;
 @property(nonatomic) double day0Limit; // @dynamic day0Limit;
 @property(nonatomic) double day1Limit; // @dynamic day1Limit;
 @property(nonatomic) double day2Limit; // @dynamic day2Limit;
@@ -33,6 +36,7 @@
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;
 @property(copy, nonatomic) NSArray *itemIdentifiers; // @dynamic itemIdentifiers;
+@property(retain, nonatomic) NSNumber *notificationTimeInterval; // @dynamic notificationTimeInterval;
 @property(readonly) Class superclass;
 @property(copy, nonatomic) NSString *usageItemType; // @dynamic usageItemType;
 

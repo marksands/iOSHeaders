@@ -17,6 +17,7 @@
     NCNotificationContentView *_notificationContentView;
     NCNotificationGrabberView *_grabberView;
     NCAuxiliaryOptionsView *_auxiliaryOptionsView;
+    _Bool _mainOverlayLayoutValid;
     _Bool _defersAnimatedUpdates;
     _Bool _banner;
 }

@@ -52,6 +52,7 @@ __attribute__((visibility("hidden")))
 + (double)predictionViewWidthForOrientation:(long long)arg1;
 + (double)predictionViewHeightPaddingForOrientation:(long long)arg1;
 + (double)predictionViewHeightForState:(int)arg1 orientation:(long long)arg2;
++ (double)predictionCellHeightForOrientation:(long long)arg1;
 + (unsigned long long)numberOfCandidates;
 @property(nonatomic) long long lastTextSuggestionUpdateOrientation; // @synthesize lastTextSuggestionUpdateOrientation=_lastTextSuggestionUpdateOrientation;
 @property(retain, nonatomic) NSDate *lastTextSuggestionUpdateDate; // @synthesize lastTextSuggestionUpdateDate=_lastTextSuggestionUpdateDate;

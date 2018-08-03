@@ -74,7 +74,9 @@
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (id)_barControlsForModelControls:(id)arg1 transitioning:(_Bool)arg2;
 - (void)_updateBars;
+- (void)_updateLayout;
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
+- (void)viewDidMoveToWindow:(id)arg1 shouldAppearOrDisappear:(_Bool)arg2;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
 - (id)initWithReviewAsset:(id)arg1 mediaProvider:(id)arg2;

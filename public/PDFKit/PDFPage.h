@@ -124,6 +124,7 @@
 - (void)drawWithBox:(long long)arg1 inContext:(struct CGContext *)arg2 isThumbnail:(_Bool)arg3;
 - (void)drawWithBox:(long long)arg1 inContext:(struct CGContext *)arg2;
 - (void)drawWithBox:(long long)arg1 toContext:(struct CGContext *)arg2;
+- (_Bool)hasPopups;
 - (id)annotationAtRect:(struct CGRect)arg1;
 - (id)annotationAtPoint:(struct CGPoint)arg1;
 - (void)removeAnnotation:(id)arg1 atIndex:(long long)arg2;

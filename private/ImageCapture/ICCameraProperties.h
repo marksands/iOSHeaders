@@ -94,7 +94,8 @@ __attribute__((visibility("hidden")))
 @property _Bool locked; // @synthesize locked=_locked;
 @property _Bool beingEjected; // @synthesize beingEjected=_beingEjected;
 @property _Bool ejectable; // @synthesize ejectable=_ejectable;
-@property(retain) NSString *volumePath; // @synthesize volumePath=_volumePath;
+@property(copy) NSString *volumePath; // @synthesize volumePath=_volumePath;
+- (void)resetFailureCount;
 - (unsigned int)incrementDeviceFailureCount;
 - (void)dealloc;
 - (void)unlockContents;

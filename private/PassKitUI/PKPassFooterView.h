@@ -55,6 +55,7 @@
 - (void)_configureForState:(long long)arg1 context:(id)arg2 passView:(id)arg3;
 - (void)_updateForNonForegroundActivePresentationAnimated:(_Bool)arg1;
 - (void)_updateForForegroundActivePresentationIfNecessaryAnimated:(_Bool)arg1;
+- (unsigned long long)suppressedContentForContentView:(id)arg1;
 - (_Bool)isPassFooterContentViewInGroup:(id)arg1;
 - (void)foregroundActiveArbiter:(id)arg1 didUpdateDeactivationReasons:(unsigned int)arg2;
 - (void)foregroundActiveArbiter:(id)arg1 didUpdateForegroundActiveState:(CDStruct_973bafd3)arg2;

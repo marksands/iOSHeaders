@@ -8,7 +8,7 @@
 
 @interface UIColor (ActivitySharing)
 + (id)as_colorForParticipant:(long long)arg1 competition:(id)arg2;
-+ (id)as_competitionGraphBackgroundIndicatorGold;
++ (id)as_competitionGraphBackgroundGold;
 + (id)as_competitionButtonGold;
 + (id)as_competitionNotificationAccentGold;
 + (id)as_competitionNotificationPlatterGold;

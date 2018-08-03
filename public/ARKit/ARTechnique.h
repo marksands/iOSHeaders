@@ -6,14 +6,18 @@
 
 #import "NSObject.h"
 
+@class NSNumber;
+
 @interface ARTechnique : NSObject
 {
     id <ARTechniqueDelegate> _delegate;
     unsigned long long _powerUsage;
     double _bonusLatency;
+    NSNumber *_traceKey;
 }
 
 + (id)techniqueOfClass:(Class)arg1 inArray:(id)arg2;
+@property(readonly) NSNumber *traceKey; // @synthesize traceKey=_traceKey;
 @property double bonusLatency; // @synthesize bonusLatency=_bonusLatency;
 @property unsigned long long powerUsage; // @synthesize powerUsage=_powerUsage;
 @property __weak id <ARTechniqueDelegate> delegate; // @synthesize delegate=_delegate;
@@ -40,6 +44,7 @@
 - (long long)captureBehavior;
 - (double)requiredTimeInterval;
 - (unsigned long long)requiredSensorDataTypes;
+- (id)init;
 
 @end
 

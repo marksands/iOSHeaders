@@ -10,7 +10,7 @@
 #import "UIGestureRecognizerDelegate.h"
 #import "UIPreviewInteractionDelegatePrivate.h"
 
-@class CCUIContentModuleBackgroundView, CCUIContentModuleContentContainerView, NSArray, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView, UIViewController<CCUIContentModuleContentViewController>;
+@class CCUIContentModuleBackgroundView, CCUIContentModuleContentContainerView, NSArray, NSString, UIPreviewInteraction, UITapGestureRecognizer, UIView, UIViewController<CCUIContentModuleBackgroundViewController>, UIViewController<CCUIContentModuleContentViewController>;
 
 @interface CCUIContentModuleContainerViewController : UIViewController <UIPreviewInteractionDelegatePrivate, UIGestureRecognizerDelegate, CCUISafeAppearancePropagationProvider>
 {
@@ -22,7 +22,7 @@
     NSArray *_topLevelBlockingGestureRecognizers;
     id <CCUIContentModule> _contentModule;
     UIViewController<CCUIContentModuleContentViewController> *_contentViewController;
-    UIViewController *_backgroundViewController;
+    UIViewController<CCUIContentModuleBackgroundViewController> *_backgroundViewController;
     UIView *_highlightWrapperView;
     CCUIContentModuleBackgroundView *_backgroundView;
     CCUIContentModuleContentContainerView *_contentContainerView;
@@ -41,7 +41,7 @@
 @property(retain, nonatomic) CCUIContentModuleBackgroundView *backgroundView; // @synthesize backgroundView=_backgroundView;
 @property(retain, nonatomic) UIView *highlightWrapperView; // @synthesize highlightWrapperView=_highlightWrapperView;
 @property(nonatomic) _Bool contentModuleProvidesOwnPlatter; // @synthesize contentModuleProvidesOwnPlatter=_contentModuleProvidesOwnPlatter;
-@property(retain, nonatomic) UIViewController *backgroundViewController; // @synthesize backgroundViewController=_backgroundViewController;
+@property(retain, nonatomic) UIViewController<CCUIContentModuleBackgroundViewController> *backgroundViewController; // @synthesize backgroundViewController=_backgroundViewController;
 @property(retain, nonatomic) UIViewController<CCUIContentModuleContentViewController> *contentViewController; // @synthesize contentViewController=_contentViewController;
 @property(retain, nonatomic) id <CCUIContentModule> contentModule; // @synthesize contentModule=_contentModule;
 @property(readonly, nonatomic) NSArray *topLevelBlockingGestureRecognizers; // @synthesize topLevelBlockingGestureRecognizers=_topLevelBlockingGestureRecognizers;
@@ -56,6 +56,8 @@
 - (void)_configureMaskViewIfNecessary;
 - (struct CGRect)_contentBoundsForTransitionProgress:(double)arg1;
 - (struct CGRect)_presentationFrameForExpandedState;
+- (struct CGRect)_contentFrameInPresentationFrame:(struct CGRect)arg1;
+- (struct CGRect)_containerFrameForExpandedState;
 - (struct CGRect)_backgroundFrameForExpandedState;
 - (struct CGRect)_backgroundFrameForRestState;
 - (struct CGRect)_contentFrameForExpandedState;

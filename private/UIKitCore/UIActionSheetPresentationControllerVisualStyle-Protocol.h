@@ -6,14 +6,13 @@
 
 #import "NSObject.h"
 
-@class UIColor, UITraitCollection, UIView<UIActionSheetPresentationControllerDismissActionView>;
+@class UIColor, UIView, UIView<UIActionSheetPresentationControllerDismissActionView>;
 
 @protocol UIActionSheetPresentationControllerVisualStyle <NSObject>
 @property(readonly) UIView<UIActionSheetPresentationControllerDismissActionView> *dismissActionView;
 @property(readonly) double cornerRadius;
 @property(readonly) UIColor *dimmingViewColor;
 @property(readonly) double dismissToContentSpacing;
-@property(readonly) struct UIEdgeInsets contentInsets;
-@property(retain) UITraitCollection *traitCollection;
+- (struct UIEdgeInsets)contentInsetsForContainerView:(UIView *)arg1;
 @end
 

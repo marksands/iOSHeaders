@@ -28,6 +28,7 @@
 @property(nonatomic) _Bool shouldPreventNotificationDismissalAfterDefaultAction; // @dynamic shouldPreventNotificationDismissalAfterDefaultAction;
 @property(nonatomic) _Bool shouldBackgroundDefaultAction; // @dynamic shouldBackgroundDefaultAction;
 @property(nonatomic) _Bool shouldAuthenticateDefaultAction; // @dynamic shouldAuthenticateDefaultAction;
+@property(nonatomic) _Bool shouldIgnoreDowntime; // @dynamic shouldIgnoreDowntime;
 @property(nonatomic) _Bool shouldIgnoreDoNotDisturb; // @dynamic shouldIgnoreDoNotDisturb;
 @property(nonatomic) _Bool shouldHideTime; // @dynamic shouldHideTime;
 @property(nonatomic) _Bool shouldHideDate; // @dynamic shouldHideDate;

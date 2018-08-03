@@ -42,6 +42,7 @@
 - (void).cxx_destruct;
 - (_Bool)shouldReportDevice:(id)arg1;
 - (void)_lostAllDevices;
+- (void)remoteDisplayUpdateErrorFlags:(unsigned long long)arg1;
 - (void)remoteDisplayChangedDevice:(id)arg1 changes:(unsigned int)arg2;
 - (void)remoteDisplayLostDevice:(id)arg1;
 - (void)remoteDisplayFoundDevice:(id)arg1;

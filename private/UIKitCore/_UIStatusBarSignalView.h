@@ -4,16 +4,15 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <UIKitCore/UIView.h>
+#import <UIKitCore/_UIStatusBarPersistentAnimationView.h>
 
 #import "_UIStatusBarDisplayable.h"
 
 @class NSString, UIAccessibilityHUDItem, UIColor;
 
-@interface _UIStatusBarSignalView : UIView <_UIStatusBarDisplayable>
+@interface _UIStatusBarSignalView : _UIStatusBarPersistentAnimationView <_UIStatusBarDisplayable>
 {
     _Bool _smallSize;
-    _Bool _visible;
     long long _numberOfBars;
     long long _numberOfActiveBars;
     long long _signalMode;
@@ -24,7 +23,6 @@
 
 + (struct CGSize)_intrinsicContentSizeForNumberOfBars:(long long)arg1 iconSize:(long long)arg2;
 @property(nonatomic) long long iconSize; // @synthesize iconSize=_iconSize;
-@property(nonatomic) _Bool visible; // @synthesize visible=_visible;
 @property(nonatomic) _Bool smallSize; // @synthesize smallSize=_smallSize;
 @property(copy, nonatomic) UIColor *activeColor; // @synthesize activeColor=_activeColor;
 @property(copy, nonatomic) UIColor *inactiveColor; // @synthesize inactiveColor=_inactiveColor;
@@ -37,11 +35,7 @@
 - (void)_updateActiveBars;
 - (void)_updateBars;
 - (void)_iconSizeDidChange;
-- (void)_visibilityDidChange;
 - (void)_colorsDidChange;
-- (id)initWithCoder:(id)arg1;
-- (id)initWithFrame:(struct CGRect)arg1;
-- (void)_commonInit;
 
 // Remaining properties
 @property(readonly, nonatomic) UIAccessibilityHUDItem *accessibilityHUDRepresentation;

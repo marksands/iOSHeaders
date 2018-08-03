@@ -11,6 +11,6 @@
 - (oneway void)purgeImageWithIdentifier:(NSString *)arg1 completion:(void (^)(NSError *))arg2;
 - (oneway void)retrieveImageWithIdentifier:(NSString *)arg1 completion:(void (^)(INImage *, NSError *))arg2;
 - (oneway void)storeImage:(INImage *)arg1 scaled:(_Bool)arg2 completion:(void (^)(NSString *, NSError *))arg3;
-- (oneway void)loadImageData:(INImage *)arg1 usingPortableImageLoader:(INPortableImageLoader *)arg2 completion:(void (^)(INImage *, NSError *))arg3;
+- (oneway void)loadDataImageForImage:(INImage *)arg1 scaledWidth:(double)arg2 scaledHeight:(double)arg3 usingPortableImageLoader:(INPortableImageLoader *)arg4 completion:(void (^)(INImage *, NSError *))arg5;
 @end
 

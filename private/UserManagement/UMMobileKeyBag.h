@@ -34,6 +34,7 @@
 + (id)currentUserSwitchContext;
 + (id)allUsers;
 + (id)lastLoggedInUser;
++ (id)loginUser;
 + (id)currentUser;
 + (unsigned int)lastLoggedInUID;
 + (unsigned long long)maxNumberOfUsers;

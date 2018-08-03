@@ -13,20 +13,18 @@
 #import "UISearchControllerDelegate.h"
 #import "UISearchResultsUpdating.h"
 
-@class CPSearchTemplate, CPTemplate, NSArray, NSString;
+@class CPSearchTemplate, CPTemplate, NSString;
 
 @interface CPSSearchTemplateViewController : UISearchContainerViewController <UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate, CPListTemplateDelegate, CPSBaseTemplateViewController, CPSearchTemplateProviding>
 {
+    id <CPSTemplateViewControllerDelegate> _viewControllerDelegate;
     CPTemplate *_associatedTemplate;
     id <CPTemplateDelegate> _templateDelegate;
-    id <CPSTemplateViewControllerDelegate> _viewControllerDelegate;
-    NSArray *_searchResults;
 }
 
-@property(retain, nonatomic) NSArray *searchResults; // @synthesize searchResults=_searchResults;
-@property(nonatomic) __weak id <CPSTemplateViewControllerDelegate> viewControllerDelegate; // @synthesize viewControllerDelegate=_viewControllerDelegate;
 @property(retain, nonatomic) id <CPTemplateDelegate> templateDelegate; // @synthesize templateDelegate=_templateDelegate;
 @property(retain, nonatomic) CPTemplate *associatedTemplate; // @synthesize associatedTemplate=_associatedTemplate;
+@property(nonatomic) __weak id <CPSTemplateViewControllerDelegate> viewControllerDelegate; // @synthesize viewControllerDelegate=_viewControllerDelegate;
 - (void).cxx_destruct;
 - (void)updateSearchResultsForSearchController:(id)arg1;
 - (void)didDismissSearchController:(id)arg1;
@@ -35,6 +33,8 @@
 - (void)_cps_viewControllerWasPopped;
 @property(readonly, nonatomic) __weak id <CPSearchClientTemplateDelegate> searchTemplateDelegate;
 @property(readonly, nonatomic) CPSearchTemplate *searchTemplate;
+- (void)viewDidAppear:(_Bool)arg1;
+- (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (id)initWithSearchController:(id)arg1 searchTemplate:(id)arg2 templateDelegate:(id)arg3;
 

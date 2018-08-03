@@ -10,7 +10,7 @@
 #import "RCWaveformSelectionOverlayDelegate.h"
 #import "UIScrollViewDelegate.h"
 
-@class NSMutableArray, NSString, NSTimer, RCLayoutMetrics, RCUIConfiguration, RCWaveformDataSource, RCWaveformRenderer, RCWaveformScrollView, RCWaveformSelectionOverlay, UIView;
+@class NSLayoutConstraint, NSMutableArray, NSString, NSTimer, RCLayoutMetrics, RCUIConfiguration, RCWaveformDataSource, RCWaveformRenderer, RCWaveformScrollView, RCWaveformSelectionOverlay, UIView;
 
 @interface RCWaveformViewController : UIViewController <UIScrollViewDelegate, RCWaveformRendererDelegate, RCWaveformSelectionOverlayDelegate>
 {
@@ -31,12 +31,17 @@
     float _resumingToForegroundAutoscrollRate;
     _Bool _isCompactView;
     double _layoutWidth;
+    double _layoutHeight;
+    double _desiredTimeDeltaForVisibleTimeRange;
     double _timeBeganAutoscrolling;
     _Bool _isScrollViewAutoScrolling;
     _Bool _isScrollViewAutoScrollingPaused;
     _Bool _isScrollViewAutoScrollingBeginning;
     double _overlayAutoscrollRateForSelectionTracking;
     double _overlayAutoscrollBaseDuration;
+    NSLayoutConstraint *_backgroundWaveFormHighlightViewLeftAlignment;
+    NSLayoutConstraint *_backgroundWaveFormHighlightViewRightAlignment;
+    NSLayoutConstraint *_renderViewBottomInsetConstraint;
     _Bool _isPlayback;
     _Bool _scrubbingEnabled;
     _Bool _playing;
@@ -89,7 +94,6 @@
 - (void)_setTimeMarkerViewsNeedInitialLayout:(_Bool)arg1;
 - (struct CGRect)_frameForTimeMarkerView:(id)arg1;
 - (void)_updateCurrentTimeDisplay;
-- (_Bool)_shouldCenterTimeIndicator;
 - (void)_updateSelectionOverlayWithAnimationDuration:(double)arg1;
 - (void)_updateVisibleAreaWithAnimationDuration:(double)arg1;
 - (void)fixupScrollPositionToMatchIndicatorPositionTime;
@@ -100,11 +104,11 @@
 - (void)_updateBackgroundWaveformHighlight;
 - (void)_setTimeMarkerViewUpdatesDisabled:(_Bool)arg1;
 - (void)_autoscrollOverlayIfNecessary;
-- (void)_setSelectedTimeRange:(CDStruct_73a5d3ca)arg1 updateVisibleTimeRange:(_Bool)arg2 notifyDelegate:(_Bool)arg3 animationDuration:(double)arg4;
+- (void)_setSelectedTimeRange:(CDStruct_73a5d3ca)arg1 updateVisibleTimeRange:(_Bool)arg2 updateWaveformViewContentSizeAndOffset:(_Bool)arg3 notifyDelegate:(_Bool)arg4 animationDuration:(double)arg5;
 - (void)_setVisibleTimeRange:(CDStruct_73a5d3ca)arg1 animationDuration:(double)arg2 completionBlock:(CDUnknownBlockType)arg3;
 - (CDStruct_73a5d3ca)_visibleTimeRangeForCurrentSelectionTimeRange;
-- (double)_desiredTimeDeltaForVisibleTimeRange;
 - (void)updateBackgroundColor;
+- (void)updateColors;
 - (void)waveformRendererDidSynchronizeToDisplayLink:(id)arg1;
 - (void)waveformRendererContentDidFinishLoading:(id)arg1;
 - (void)waveformRenderer:(id)arg1 contentWidthDidChange:(double)arg2;
@@ -142,6 +146,7 @@
 - (CDStruct_73a5d3ca)timeRangeByInsettingVisibleTimeRange:(CDStruct_73a5d3ca)arg1 inset:(double)arg2;
 - (CDStruct_73a5d3ca)setHighlightTimeRange;
 - (void)setVisibleTimeRange:(CDStruct_73a5d3ca)arg1 animationDuration:(double)arg2;
+- (void)updateVisibleTimeRangeToFullDuration;
 - (double)currentTimeIndicatorCoordinate;
 - (struct CGRect)waveformRectForLayoutBounds:(struct CGRect)arg1;
 @property(retain, nonatomic) RCWaveformDataSource *dataSource;

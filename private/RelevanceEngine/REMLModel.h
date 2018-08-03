@@ -12,11 +12,15 @@
 {
     REConcurrentDictionary *_predictionCache;
     _Bool _wantsPredictionCache;
+    _Bool _allowsExploreExploit;
+    float _exploreExploitModulator;
 }
 
 + (unsigned long long)maxFeatureCount;
 + (unsigned long long)featureBitWidth;
 + (id)modelWithFeatureSet:(id)arg1;
+@property(nonatomic) float exploreExploitModulator; // @synthesize exploreExploitModulator=_exploreExploitModulator;
+@property(nonatomic) _Bool allowsExploreExploit; // @synthesize allowsExploreExploit=_allowsExploreExploit;
 - (void).cxx_destruct;
 - (void)collectLoggableState:(CDUnknownBlockType)arg1;
 - (_Bool)requiresDirectory;

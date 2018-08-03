@@ -21,6 +21,7 @@
 @property(retain, nonatomic) NSSet *publicEvents; // @dynamic publicEvents;
 @property(nonatomic) double radius; // @dynamic radius;
 @property(retain, nonatomic) NSDate *startDate; // @dynamic startDate;
+@property(nonatomic) double updateTimestamp; // @dynamic updateTimestamp;
 
 @end
 

@@ -21,7 +21,6 @@
 @property(readonly, nonatomic) NSString *title;
 @property(readonly, nonatomic) NSString *identifier;
 @property(readonly, nonatomic) long long shareType;
-- (void)notifyUserWhenReadyToViewIfNeeded;
 - (void)acceptWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (PXCMMContext *)contextForActivityType:(unsigned long long)arg1;
 @end

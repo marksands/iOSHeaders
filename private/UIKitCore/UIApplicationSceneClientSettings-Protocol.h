@@ -9,6 +9,7 @@
 @class FBSDisplayConfigurationRequest, FBSDisplayMode, NSArray, NSString;
 
 @protocol UIApplicationSceneClientSettings <NSObject>
+@property(readonly, nonatomic) _Bool disablesMirroring;
 @property(readonly, nonatomic) double brightnessLevel;
 @property(readonly, nonatomic) NSArray *audioCategoriesDisablingVolumeHUD;
 @property(readonly, nonatomic) unsigned long long visibleMiniAlertCount;

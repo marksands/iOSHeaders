@@ -8,6 +8,7 @@
 
 #import "HMDBackingStoreModelBackedObjectProtocol.h"
 #import "HMDBackingStoreObjectProtocol.h"
+#import "HMDRemoteAddressable.h"
 #import "HMFLogging.h"
 #import "HMFMerging.h"
 #import "HMFObject.h"
@@ -15,7 +16,7 @@
 
 @class HMDAccount, HMDDeviceCapabilities, HMDHomeKitVersion, HMFProductInfo, HMFUnfairLock, NSArray, NSSet, NSString, NSUUID;
 
-@interface HMDDevice : HMFObject <HMFObject, HMFLogging, HMDBackingStoreObjectProtocol, HMDBackingStoreModelBackedObjectProtocol, HMFMerging, NSSecureCoding>
+@interface HMDDevice : HMFObject <HMFObject, HMFLogging, HMDBackingStoreObjectProtocol, HMDBackingStoreModelBackedObjectProtocol, HMDRemoteAddressable, HMFMerging, NSSecureCoding>
 {
     HMFUnfairLock *_lock;
     NSSet *_handles;
@@ -42,6 +43,7 @@
 @property(readonly, copy) NSUUID *identifier; // @synthesize identifier=_identifier;
 @property(readonly, nonatomic) NSUUID *modelIdentifier; // @synthesize modelIdentifier=_modelIdentifier;
 - (void).cxx_destruct;
+- (_Bool)isBackingStorageEqual:(id)arg1;
 - (id)modelBackedObjects;
 - (id)backingStoreObjectsWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
 - (id)modelObjectWithChangeType:(unsigned long long)arg1 version:(long long)arg2;
@@ -53,10 +55,10 @@
 - (id)initWithCoder:(id)arg1;
 - (_Bool)mergeObject:(id)arg1;
 - (id)logIdentifier;
+- (id)remoteDestinationString;
 @property(copy, setter=setIDSIdentifierHash:) NSUUID *idsIdentifierHash; // @synthesize idsIdentifierHash=_idsIdentifierHash;
 @property(getter=isDirty) _Bool dirty; // @synthesize dirty=_dirty;
-- (void)setCapabilities:(id)arg1;
-@property(readonly, copy) HMDDeviceCapabilities *capabilities; // @synthesize capabilities=_capabilities;
+@property(copy) HMDDeviceCapabilities *capabilities; // @synthesize capabilities=_capabilities;
 - (void)updateWithDevice:(id)arg1;
 - (void)updateVersion:(id)arg1;
 - (void)setVersion:(id)arg1;
@@ -67,11 +69,11 @@
 @property(readonly, copy) NSString *name; // @synthesize name=_name;
 @property(readonly, copy) NSUUID *idsIdentifier;
 - (id)destination;
+- (void)__handleAccountHandleUpdated:(id)arg1;
 - (void)setHandles:(id)arg1;
 - (id)globalHandles;
 - (id)localHandles;
 - (id)handles;
-- (_Bool)isBackingStorageEqual:(id)arg1;
 - (_Bool)isRelatedToDevice:(id)arg1;
 - (_Bool)isEqual:(id)arg1;
 @property(readonly) unsigned long long hash;

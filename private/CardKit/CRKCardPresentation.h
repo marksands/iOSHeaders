@@ -42,7 +42,10 @@
 - (double)boundingWidthForProvider:(id)arg1;
 - (_Bool)cardSectionDisplayRequiresUserConsentForProvider:(id)arg1;
 - (id)defaultFeedbackDelegateForProvider:(id)arg1;
+- (void)_establishParsecSessionIfNeeded:(CDUnknownBlockType)arg1;
 - (void)_configureWithRequestedCard:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_fullyConfigureWithRequestedCard:(id)arg1 animated:(_Bool)arg2 completion:(CDUnknownBlockType)arg3;
+- (void)_loadAndRegisterBundleProviders:(CDUnknownBlockType)arg1;
 - (id)_cardSectionViewControllerForCardSection:(id)arg1;
 - (void)_updateViewConfigurationsDebugMode:(_Bool)arg1;
 - (void)configureWithCardRequest:(id)arg1 completion:(CDUnknownBlockType)arg2;

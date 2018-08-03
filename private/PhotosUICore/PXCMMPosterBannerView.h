@@ -19,6 +19,7 @@
     UILabel *_subheadlineLabel;
     UIVisualEffectView *_visualEffectView;
     PXUpdater *_updater;
+    _Bool _containsUnverifiedPersons;
     _Bool _loadingPeopleSuggestions;
     NSString *_caption;
     NSString *_headline;
@@ -31,6 +32,7 @@
 + (id)_headlineLabelFont;
 + (id)_captionLabelFont;
 @property(nonatomic, getter=isLoadingPeopleSuggestions) _Bool loadingPeopleSuggestions; // @synthesize loadingPeopleSuggestions=_loadingPeopleSuggestions;
+@property(nonatomic) _Bool containsUnverifiedPersons; // @synthesize containsUnverifiedPersons=_containsUnverifiedPersons;
 @property(copy, nonatomic) NSArray *namesForHeadline; // @synthesize namesForHeadline=_namesForHeadline;
 @property(copy, nonatomic) NSString *subheadline; // @synthesize subheadline=_subheadline;
 @property(copy, nonatomic) NSString *headline; // @synthesize headline=_headline;

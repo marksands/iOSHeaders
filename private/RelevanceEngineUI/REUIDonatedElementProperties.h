@@ -46,7 +46,6 @@
 - (void)_loadContentForUserActivityOnShortcut:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_loadContentForUserActivity:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)_loadContentForIntent:(id)arg1 completion:(CDUnknownBlockType)arg2;
-@property(readonly, nonatomic) unsigned long long trainingActionIdentifier;
 @property(readonly, nonatomic) NSString *localBundleIdentifier;
 @property(readonly, nonatomic) NSString *remoteBundleIdentifier;
 @property(readonly, nonatomic) NSString *bundleIdentifier;
@@ -57,7 +56,10 @@
 @property(readonly, nonatomic) _Bool supportsLocalIntentExecution;
 @property(readonly, nonatomic) _Bool requiresRemoteExecution;
 @property(readonly, nonatomic) _Bool wantsThreeLineLayout;
+- (_Bool)_isPodcastsDonation;
 - (_Bool)_isMusicDonation;
+@property(readonly, nonatomic) _Bool isEndWorkoutDonation;
+@property(readonly, nonatomic) _Bool isBeginWorkoutDonation;
 @property(readonly, nonatomic) _Bool isMediaDonation;
 @property(readonly, nonatomic) unsigned long long donationType;
 - (void)loadWithCompletion:(CDUnknownBlockType)arg1;

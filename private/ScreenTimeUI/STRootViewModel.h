@@ -6,10 +6,13 @@
 
 #import "NSObject.h"
 
-@class NSArray, STUser;
+@class NSArray, NSDictionary, NSSet, STUser;
 
 @interface STRootViewModel : NSObject
 {
+    _Bool _isCloudSyncEnabled;
+    NSSet *_installedBundleIDs;
+    NSDictionary *_installedBundleIDsByCategoryIdentifier;
     STUser *_me;
     NSArray *_children;
     NSArray *_devices;
@@ -19,9 +22,9 @@
 + (id)keyPathsForValuesAffectingForceParentalControls;
 + (id)keyPathsForValuesAffectingCanViewAskForTimeRequests;
 + (id)keyPathsForValuesAffectingCanSetUpFamily;
++ (id)keyPathsForValuesAffectingCanToggleCloudSyncData;
 + (id)keyPathsForValuesAffectingCanSignIn;
-+ (id)keyPathsForValuesAffectingCanTogglePasscode;
-+ (id)keyPathsForValuesAffectingCanRemovePasscode;
++ (id)keyPathsForValuesAffectingIsRemotelyManagedUserWithPasscode;
 + (id)keyPathsForValuesAffectingWebUsageEnabled;
 + (id)keyPathsForValuesAffectingIsSharingUsageData;
 + (id)keyPathsForValuesAffectingCanStopSharingScreenTime;
@@ -31,14 +34,17 @@
 @property(copy, nonatomic) NSArray *devices; // @synthesize devices=_devices;
 @property(copy, nonatomic) NSArray *children; // @synthesize children=_children;
 @property(copy, nonatomic) STUser *me; // @synthesize me=_me;
+@property(copy, nonatomic) NSDictionary *installedBundleIDsByCategoryIdentifier; // @synthesize installedBundleIDsByCategoryIdentifier=_installedBundleIDsByCategoryIdentifier;
+@property(copy, nonatomic) NSSet *installedBundleIDs; // @synthesize installedBundleIDs=_installedBundleIDs;
+@property(nonatomic) _Bool isCloudSyncEnabled; // @synthesize isCloudSyncEnabled=_isCloudSyncEnabled;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) _Bool canToggleWebsiteData;
 @property(readonly, nonatomic) _Bool forceParentalControls;
 @property(readonly, nonatomic) _Bool canViewAskForTimeRequests;
 @property(readonly, nonatomic) _Bool canSetUpFamily;
+@property(readonly, nonatomic) _Bool canToggleCloudSyncData;
 @property(readonly, nonatomic) _Bool canSignIn;
-@property(readonly, nonatomic) _Bool canTogglePasscode;
-@property(readonly, nonatomic) _Bool canRemovePasscode;
+@property(readonly, nonatomic) _Bool isRemotelyManagedUserWithPasscode;
 @property(readonly, nonatomic, getter=isWebUsageEnabled) _Bool webUsageEnabled;
 @property(readonly, nonatomic) _Bool isSharingUsageData;
 @property(readonly, nonatomic) _Bool canStopSharingScreenTime;

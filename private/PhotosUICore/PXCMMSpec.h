@@ -24,7 +24,7 @@
     double _composeTableViewCellInset;
     double _composeCornerRadius;
     double _composePrivacyMessageInset;
-    double _composeHeaderHeight;
+    double _composeHeaderVerticalPadding;
     double _bubbleStatusIconCornerRadius;
     struct CGSize _reviewGridInterItemSpacing;
     struct CGSize _reviewGridItemSize;
@@ -37,10 +37,11 @@
     struct UIEdgeInsets _composeFooterMargins;
 }
 
++ (double)maxBubbleWidthForDisplayScale:(double)arg1;
 @property(readonly, nonatomic) double bubbleStatusIconCornerRadius; // @synthesize bubbleStatusIconCornerRadius=_bubbleStatusIconCornerRadius;
 @property(readonly, nonatomic) struct UIEdgeInsets composeFooterMargins; // @synthesize composeFooterMargins=_composeFooterMargins;
 @property(readonly, nonatomic) struct UIEdgeInsets composeFooterInsets; // @synthesize composeFooterInsets=_composeFooterInsets;
-@property(readonly, nonatomic) double composeHeaderHeight; // @synthesize composeHeaderHeight=_composeHeaderHeight;
+@property(readonly, nonatomic) double composeHeaderVerticalPadding; // @synthesize composeHeaderVerticalPadding=_composeHeaderVerticalPadding;
 @property(readonly, nonatomic) struct UIEdgeInsets composeHeaderLabelMargins; // @synthesize composeHeaderLabelMargins=_composeHeaderLabelMargins;
 @property(readonly, nonatomic) double composePrivacyMessageInset; // @synthesize composePrivacyMessageInset=_composePrivacyMessageInset;
 @property(readonly, nonatomic) double composeCornerRadius; // @synthesize composeCornerRadius=_composeCornerRadius;
@@ -63,6 +64,8 @@
 @property(readonly, nonatomic) UIColor *reviewBackgroundColor; // @synthesize reviewBackgroundColor=_reviewBackgroundColor;
 @property(readonly, nonatomic) unsigned long long activityType; // @synthesize activityType=_activityType;
 - (void).cxx_destruct;
+- (double)_composeTableViewCellHeight;
+- (double)_reviewSectionHeaderHeightForContentSize:(id)arg1;
 @property(readonly, nonatomic) UIColor *bubbleBackgroundColor;
 - (id)initWithExtendedTraitCollection:(id)arg1 options:(unsigned long long)arg2;
 - (id)initWithExtendedTraitCollection:(id)arg1 options:(unsigned long long)arg2 activityType:(unsigned long long)arg3;

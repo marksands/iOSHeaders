@@ -7,6 +7,6 @@
 #import "NSObject.h"
 
 @protocol SVVideoURLProviding <NSObject>
-- (void (^)(void))loadWithCompletionBlock:(id <SVVideoMetadataProviding> (^)(NSURL *))arg1;
+- (void (^)(void))loadWithCompletionBlock:(id <SVVideoMetadata> (^)(NSURL *))arg1;
 @end
 

@@ -240,6 +240,7 @@ struct CLSwimEntry {
     float _field15;
     float _field16;
     int _field17;
+    int _field18;
 };
 
 struct CMAccel100 {

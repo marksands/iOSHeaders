@@ -35,12 +35,11 @@
 + (id)compositionBundleURLForComposedAVURL:(id)arg1;
 + (void)deleteFromFilesystem:(id)arg1;
 + (id)compositionWithComposedAVURL:(id)arg1;
-+ (id)compositionLoadedForSavedRecordingUUID:(id)arg1 createIfNeeded:(_Bool)arg2;
-+ (id)compositionLoadedForSavedRecording:(id)arg1 createIfNeeded:(_Bool)arg2;
++ (id)compositionLoadedForSavedRecordingUUID:(id)arg1;
 + (id)compositionLoadedForSavedRecording:(id)arg1;
 + (id)compositionLoadedForComposedAVURL:(id)arg1 createIfNeeded:(_Bool)arg2;
 + (id)compositionLoadedFromCompositionBundleURL:(id)arg1;
-+ (id)_compositionLoadedFromMetadataURL:(id)arg1 savedRecording:(id)arg2 createIfNeeded:(_Bool)arg3;
++ (id)_compositionLoadedFromMetadataURL:(id)arg1 savedRecording:(id)arg2;
 + (id)_compositionLoadedFromMetadataURL:(id)arg1 composedAVURL:(id)arg2 savedRecordingUUID:(id)arg3 creationDate:(id)arg4 createIfNeeded:(_Bool)arg5;
 + (id)_unitTestingCompositionWithDecomposedFragments:(id)arg1;
 @property(retain, nonatomic) NSObject *composedFragmentsMutex; // @synthesize composedFragmentsMutex=_composedFragmentsMutex;
@@ -78,8 +77,8 @@
 @property(readonly, copy) NSString *description;
 - (id)mutableCopyWithZone:(struct _NSZone *)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
-- (id)initWithComposedAVURL:(id)arg1 savedRecording:(id)arg2 decomposedFragments:(id)arg3 composedFragments:(id)arg4;
-- (id)initWithComposedAVURL:(id)arg1 savedRecordingUUID:(id)arg2 creationDate:(id)arg3 title:(id)arg4 decomposedFragments:(id)arg5 composedFragments:(id)arg6;
+- (id)_initWithSavedRecording:(id)arg1 decomposedFragments:(id)arg2 composedFragments:(id)arg3;
+- (id)_initWithComposedAVURL:(id)arg1 savedRecordingUUID:(id)arg2 creationDate:(id)arg3 title:(id)arg4 decomposedFragments:(id)arg5 composedFragments:(id)arg6;
 - (id)compositionAsset;
 - (id)playableAsset;
 

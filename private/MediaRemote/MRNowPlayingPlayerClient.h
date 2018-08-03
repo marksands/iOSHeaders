@@ -41,7 +41,7 @@
 - (id)description;
 - (void)updatePlaybackQueueWithCachedUpdates:(id)arg1 forPendingRequest:(id)arg2;
 - (void)clearCachedContentItemArtworkForItems:(id)arg1;
-- (void)cacheContentItemUpdates:(id)arg1;
+- (void)cacheContentItemChangesForPendingRequests:(id)arg1;
 - (void)startCachingContentItemUpdatesForItem:(id)arg1 forPendingRequest:(id)arg2;
 - (void)addPendingRequest:(id)arg1;
 - (void)transactionDidEnd:(id)arg1;

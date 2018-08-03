@@ -16,6 +16,7 @@
     NSMapTable *_lock_collectorRegistry;
     HDDataAggregatorConfiguration *_lock_configuration;
     // Error parsing type: AB, name: _hasStartedCollectors
+    _Bool _lock_canStartCollectors;
     HDDataCollectionManager *_dataCollectionManager;
 }
 
@@ -29,7 +30,7 @@
 - (void)dataCollector:(id)arg1 didCollectSensorData:(id)arg2 device:(id)arg3;
 - (id)_keyValueDomain;
 - (void)_startCollector:(id)arg1;
-- (void)_startCollectors;
+- (void)_considerStartingCollectors;
 - (_Bool)didPersistObjects:(id)arg1 lastDatum:(id)arg2 collector:(id)arg3 error:(id *)arg4;
 - (_Bool)persistObjects:(id)arg1 lastDatum:(id)arg2 collector:(id)arg3 source:(id)arg4 device:(id)arg5 error:(id *)arg6;
 - (void)dataCollector:(id)arg1 didCollectSensorDatum:(id)arg2 device:(id)arg3;

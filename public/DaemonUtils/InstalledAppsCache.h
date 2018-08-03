@@ -25,9 +25,10 @@
 - (void)_appRegistrationRemoved:(id)arg1;
 - (void)_appRegistrationAdded:(id)arg1;
 - (_Bool)_isPlaceholder:(id)arg1;
+- (id)appNameForUUID:(id)arg1 bundleId:(id *)arg2;
+- (id)_bundleIDFromUUID:(id)arg1;
 - (void)_rebuildCache;
 - (void)_removeApplicationFromCache:(id)arg1;
-- (id)appNameForUUID:(id)arg1 bundleId:(id *)arg2;
 - (id)_nameForUUID:(id)arg1 fromDict:(id)arg2 bundleId:(id *)arg3;
 - (void)_logStatus;
 - (void)_appRegistrationChanged;

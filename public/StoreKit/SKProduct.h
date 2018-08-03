@@ -13,9 +13,12 @@
     id _internal;
 }
 
++ (id)productsFromXPCEncodingsArray:(id)arg1;
++ (id)productsFromDictionaries:(id)arg1;
 - (void).cxx_destruct;
 - (id)copyXPCEncoding;
 - (id)initWithXPCEncoding:(id)arg1;
+- (id)initMinusLocaleWithXPCEncoding:(id)arg1;
 - (void)_setSubscriptionPeriod:(id)arg1;
 - (void)_setSubscriptionGroupIdentifier:(id)arg1;
 - (void)_setProductIdentifier:(id)arg1;
@@ -44,6 +47,7 @@
 @property(readonly, nonatomic) NSString *contentVersion;
 @property(readonly, nonatomic) NSArray *contentLengths;
 - (id)initWithDictionary:(id)arg1;
+- (id)initMinusLocaleWithDictionary:(id)arg1;
 - (id)init;
 
 @end

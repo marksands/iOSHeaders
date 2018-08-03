@@ -18,6 +18,7 @@
     id <DNDSBackingStore> _backingStore;
     NSMutableDictionary *_assertionsByUUID;
     NSDate *_lastCompleteInvalidationDate;
+    NSDate *_lastUpdateDate;
 }
 
 - (void).cxx_destruct;
@@ -37,6 +38,7 @@
 - (id)allModeAssertionsWithError:(id *)arg1;
 - (id)assertionWithUUID:(id)arg1 error:(id *)arg2;
 - (id)invalidateAllModeAssertionsTakenBeforeDate:(id)arg1 forReason:(unsigned long long)arg2 error:(id *)arg3;
+- (id)lastUpdateDate;
 - (id)lastCompleteInvalidationDate;
 - (id)invalidateModeAssertionWithUUIDs:(id)arg1 reason:(unsigned long long)arg2 error:(id *)arg3;
 - (id)invalidateModeAssertionWithUUID:(id)arg1 reason:(unsigned long long)arg2 error:(id *)arg3;

@@ -8,18 +8,28 @@
 
 @interface RCRecorderStyleProvider : NSObject
 {
+    long long _currentUserInterfaceStyle;
 }
 
 + (id)sharedStyleProvider;
+@property long long currentUserInterfaceStyle; // @synthesize currentUserInterfaceStyle=_currentUserInterfaceStyle;
+- (_Bool)shouldTintNavBar;
+- (_Bool)toolbarButtonsShouldHaveNonDefaultColor;
+- (_Bool)toolbarShouldBeTransparent;
+- (_Bool)allowsInteractiveCardSizing;
 - (_Bool)needsPlaybackSpacerView;
 - (_Bool)hasBeginAndEndTimeLabelAtOverviewWaveform;
 - (_Bool)shouldAskForDeletionConfirmation;
+- (_Bool)usesLargeTitles;
+- (_Bool)pinsSearchBarInLibrary;
 - (_Bool)useDefaultTableViewSeparators;
 - (_Bool)useVibrancyStyleInRecordingsTableView;
+- (_Bool)presentsRecoverConfirmationAsAlert;
 - (_Bool)presentsDeleteConfirmationAsAlert;
 - (_Bool)_usesRemindersUI;
-- (_Bool)_isMarzipan;
-- (_Bool)_isIpadOrMarzipan;
+- (_Bool)_isIOSMac;
+- (_Bool)_isIpadOrIOSMac;
+- (_Bool)recordingViewHidesBlurEffectsWhenInactive;
 - (_Bool)showsEmptyLibraryMessageInLibrary;
 - (_Bool)supportsLockScreenRotation;
 - (_Bool)playbackCardHasInsets;
@@ -33,6 +43,7 @@
 - (_Bool)usesNavBarLargeTitleAndSearchBarHosting;
 - (_Bool)showsBlurThroughEffectInBottomAccessory;
 - (_Bool)showsGradientsInBottomOfCardView;
+- (_Bool)supportsMainViewControllerUndo;
 - (_Bool)hostsUndoButtonInToolbar;
 - (_Bool)hostsTrimButtonInToolbar;
 - (_Bool)hostsCancelButtonInBottomSection;
@@ -41,6 +52,7 @@
 - (_Bool)presentsTitleAndAdditionalEditingControlsInRecordingCard;
 - (_Bool)supportsCompactRecordingCard;
 - (_Bool)shouldShowOverviewWaveform;
+- (_Bool)inhibitsLandscapeDisplayModeButton;
 - (_Bool)supportsRotationButNotOtherResizing;
 - (_Bool)shouldAnimateLibraryToCardTransition;
 - (double)animationDurationBetweenLibraryAndCard;
@@ -48,10 +60,11 @@
 - (_Bool)expandsTableViewRowOnSelection;
 - (_Bool)isAccessibilityLargerTextSizeEnabled;
 - (id)accessibilityLargeSizes;
+- (_Bool)_isIphone;
 - (_Bool)_isIpad;
 - (id)welcomeBulletBlurbTextAttributes;
 - (id)welcomeBulletTitleTextAttributes;
-- (id)welcomeTitleTextAttributes;
+- (id)welcomeTitleTextAttributesForFontSizePhone:(double)arg1 pad:(double)arg2;
 - (id)beginEndLabelsFont;
 - (id)timeLineLabelFont;
 - (id)durationLabelFontForCompactRecordingView;
@@ -67,8 +80,9 @@
 - (id)descriptionViewScalableSecondaryFont;
 - (id)descriptionViewScalableTitleFontForCardView;
 - (id)descriptionViewScalableTitleFontForTableViewCell;
-- (id)marzipan_navBarTintColor;
-- (id)marzipan_recentlyDeleteButtonTextColor;
+- (id)navBarTintColor;
+- (id)recentlyDeleteToolBarDividerColor;
+- (id)recentlyDeleteNonDefaultButtonTextColor;
 - (id)sliderThumbTintColor;
 - (id)maxTrackTintColor;
 - (id)minTrackTintColor;
@@ -106,6 +120,7 @@
 - (id)backgroundColor;
 - (id)waveformCompactBackgroundColor;
 - (id)tableViewDoubleLineSeparatorColor;
+- (id)tableViewToolboxSeparatorColor;
 - (id)tableViewSeparatorColor;
 - (long long)cellEditingSelectionStyle;
 - (long long)cellSelectionStyle;
@@ -117,14 +132,19 @@
 - (id)emptyLibraryBackgroundColor;
 - (id)emptyLibraryMessageTextColor;
 - (id)footerViewBackgroundColor;
+- (id)recordingViewEffectsInactiveBackgroundColor;
+- (id)recordingViewEffectsActiveBackgroundColor;
 - (id)recordingSectionDoneButtonTextColor;
 - (id)recordingSectionCancelButtonInnerColor;
+- (double)recordingSectionDoneButtonDisabledOpacity;
 - (id)recordingSectionDoneButtonInnerColor;
 - (id)recordingControlOuterColorResume;
 - (id)recordingControlInnerColorResume;
 - (id)recordingControlInnerColor;
 - (id)recordingControlFontColorResume;
 - (id)recordingControlFontColor;
+- (id)playbackCardSecondaryLabelFontColor;
+- (id)playbackCardPrimaryLabelFontColor;
 - (id)editingToolbarTitleTextColor;
 - (id)editingToolbarButtonDisabledTextColor;
 - (id)editingToolbarButtonTextColor;
@@ -148,8 +168,17 @@
 - (id)transportControlsColorForLibrary;
 - (id)_roundedThemePrimaryBackgroundColor;
 - (id)navigationBarTintColor;
+- (id)windowHeaderSpacerViewBackgroundColor;
+- (id)playbackViewBackgroundColor;
 - (id)mainViewBackgroundColor;
-- (double)compactStyleTimeBarHeight;
+- (double)recordingControlLockScreenPadding;
+- (double)compactStyleTimeBarHeightInset;
+- (double)compactStyleTimeBarDefaultHeight;
+- (double)compactStylePlayheadMultiplier;
+- (double)overviewKnobWidthMultiplier;
+- (double)overviewPlayheadWidthMultiplier;
+- (double)knobWidthMultiplier;
+- (double)playheadWidthMultiplier;
 - (double)selectionLightOverlayAlpha;
 - (double)selectionDimOverlayAlpha;
 - (double)selectionOverlayAlpha;
@@ -160,17 +189,22 @@
 - (double)selectionTimeBaseLineOffset;
 - (double)selectionMiddleTimeBaselineInset;
 - (double)selectionHighlightToKnobInset;
-- (double)selectionBarWidthAXPX;
-- (double)selectionBarWidthPX;
+- (double)selectionBarWidthAX;
+- (double)selectionBarWidth;
 - (double)selectionKnobRadiusAX;
 - (double)selectionKnobRadius;
 - (double)editTrimToolbarButtonTopInset;
 - (double)editToolbarButtonTopInset;
 - (double)editToolbarTitleTopInset;
+- (double)annotationViewHeight;
 - (double)timeLineMinorTickHeight;
 - (double)timeLineMajorTickHeight;
 - (double)timeLineTickWidth;
+- (double)overviewWaveformMinimumDurationToDisplayWhenRecording;
 - (double)beginEndLabelsTopPadding;
+- (double)compactWaveformWaveVerticalPadding;
+- (double)overviewWaveformWaveVerticalPadding;
+- (double)waveformWaveVerticalPadding;
 - (double)overviewWaveformHorizontalSpacing;
 - (double)overviewWaveformWaveWidth;
 - (double)waveformHorizontalSpacing;
@@ -204,9 +238,11 @@
 - (double)recordingControlDiameter;
 - (double)transportButtonAnimationDuration;
 - (double)transportButtonAnimationShrinkFactor;
-- (id)transportButtonAnimationCircleColor;
+- (id)transportButtonAnimationCircleColorLightBG;
+- (id)transportButtonAnimationCircleColorDarkBG;
 - (double)transportButtonAnimationPlayCircleRadius;
 - (double)transportButtonAnimationJumpCircleRadius;
+- (_Bool)transportButtonsAnimateWithCircle;
 - (struct UIEdgeInsets)playbackViewFullScreenEdgeInsets;
 - (struct UIEdgeInsets)playbackViewEdgeInsets;
 - (_Bool)_isLandscape;
@@ -218,10 +254,14 @@
 - (double)playbackViewWaveformOverviewSidePadding;
 - (double)playbackViewTopPadding;
 - (double)playbackViewControlSectionHeight;
+- (double)playbackViewTimeLabelYOffset;
 - (double)playbackViewTimeSectionHeight;
 - (id)playbackViewTimeLabelFont;
 - (double)jumpBackwardForwardButtonSpacing;
 - (double)trimDeleteButtonSpacing;
+- (double)recentlyDeletedToolbarDivdiderHeight;
+- (double)recentlyDeletedToolbarDivdiderInset;
+- (double)dragToCompactTransitionEpsilon;
 - (double)overviewPlayheadHeightInset;
 - (double)inOutButtonCornerRadius;
 - (id)inOutButtonBackgroundColor;
@@ -234,6 +274,8 @@
 - (double)trimDeleteButtonDisabledOpacity;
 - (id)trimDeleteButtonBackgroundColor;
 - (id)trimDeleteButtonTextColor;
+- (double)virtualNavBarButtonExtraSpaceItemSpacing;
+- (double)virtualNavBarWidthInset;
 - (double)virtualNavBarButtonItemSpacing;
 - (double)dimmingAlphaForCardBackground;
 - (double)recordingViewWaveformOverviewSidePadding;
@@ -243,12 +285,14 @@
 - (double)actionButtonExtraXAxisActiveWidth;
 - (double)cardTransitionToCompactSpringiness;
 - (double)topMarginForCardView;
+- (double)topMarginMinSafeAreaTopInsetForCardView;
 - (double)cornerRadiusForCardView;
 - (double)shuttleBarButtonContainerHeightLibrary;
 - (double)shuttleBarButtonContainerHeightCard;
 - (double)shuttleBarHeight;
 - (double)editToolbarCompactHeight;
 - (double)editToolbarHeight;
+- (double)positionReadoutLabelYOffset;
 - (double)positionReadoutHeight;
 - (double)fullScreenDescriptionHeight;
 - (double)recordingSectionBottomPadding;
@@ -258,11 +302,15 @@
 - (double)overviewWaveformHeight;
 - (double)bottomAccessoryWaveformHeight;
 - (double)recordingControlHorizontalOffset;
+- (double)cancelButtonBottomAlignmentOffset;
+- (double)doneEditingButtonSidePadding;
+- (double)doneButtonSidePadding;
 - (double)recordingControlSidePadding;
 - (double)recordingControlSectionHeight;
 - (double)topScreenSpacerHeight;
 - (double)recordingControlHeight;
 - (struct CGSize)centerClusterControlSize;
+- (double)librarySelectedMoreAndTrashButtonPadding;
 - (double)centerClusterWidthLibrary;
 - (double)centerClusterWidthJumpButton;
 - (double)centerClusterWidthCard;
@@ -275,6 +323,7 @@
 - (double)tableViewAlphaWhenDisabled;
 - (long long)tableViewAnimationCurve;
 - (double)tableViewAnimationDuration;
+- (_Bool)isDarkMode;
 - (unsigned long long)supportedInterfaceOrientations;
 
 @end

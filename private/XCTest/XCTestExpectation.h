@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString, _XCTestExpectationImplementation;
+@class NSArray, NSString, _XCTestExpectationImplementation;
 
 @interface XCTestExpectation : NSObject
 {
@@ -32,11 +32,10 @@
 @property(readonly) unsigned long long on_queue_fulfillmentToken;
 @property(readonly) unsigned long long fulfillmentToken;
 @property(readonly) unsigned long long creationToken;
-- (void)_queue_fulfillWithCallStackReturnAddresses:(id)arg1;
+- (_Bool)_queue_fulfillWithCallStackReturnAddresses:(id)arg1;
 - (void)fulfill;
 @property(copy) NSString *expectationDescription;
 - (id)description;
-@property(readonly, nonatomic) NSObject<OS_dispatch_queue> *delegateQueue;
 - (id)initWithDescription:(id)arg1;
 - (id)init;
 

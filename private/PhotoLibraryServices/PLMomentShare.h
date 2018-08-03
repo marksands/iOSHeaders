@@ -35,6 +35,7 @@
 + (id)insertInPhotoLibrary:(id)arg1;
 - (id)_statusDescription;
 - (id)_modeDescription;
+- (void)forceSync;
 - (unsigned long long)estimateUploadSize;
 - (void)acceptWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)_owner;

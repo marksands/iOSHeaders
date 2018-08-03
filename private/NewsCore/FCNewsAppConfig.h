@@ -47,6 +47,8 @@
 @property(readonly, nonatomic) NSDictionary *languageConfigDictionary; // @synthesize languageConfigDictionary=_languageConfigDictionary;
 @property(readonly, nonatomic) NSDictionary *configDictionary; // @synthesize configDictionary=_configDictionary;
 - (void).cxx_destruct;
+@property(readonly, nonatomic) _Bool enableBadgeInSpotlightTabBar;
+@property(readonly, nonatomic) NSString *description;
 @property(readonly, nonatomic) NSString *feedNavigationConfigJSON;
 @property(readonly, nonatomic) _Bool shouldShowAlternateHeadlines;
 @property(readonly, nonatomic) _Bool disableThumbnailsForArticleRecirculation;
@@ -94,11 +96,14 @@
 @property(readonly, nonatomic) double tileProminenceScoreBalanceValue;
 @property(readonly, nonatomic) double prerollLoadingTimeout;
 @property(readonly, nonatomic) double interstitialAdLoadDelay;
+@property(readonly, nonatomic) NSString *webEmbedContentBlockers;
 @property(readonly, nonatomic) long long showCardNavHintMaxCount;
 @property(readonly, nonatomic) long long autoScrollToTopFeedTimeout;
 @property(readonly, nonatomic) NSArray *onboardingFeedIDs;
 @property(readonly, nonatomic) long long minimumFollowCountToRemovePersonalizePlacardInFollowingAndForYou;
 @property(readonly, nonatomic) _Bool isExpired;
+@property(readonly, nonatomic) double delayBeforeRetryingDroppedFeeds;
+@property(readonly, nonatomic) long long maxRetriesForDroppedFeeds;
 @property(readonly, nonatomic) _Bool isSpecialEventsMicaAnimationDisabled;
 - (id)analyticsEnvelopeContentTypeConfigsForEnvironment:(unsigned long long)arg1;
 - (id)todayConfigWithQueueConfigs:(id)arg1 maxSlotCount:(unsigned long long)arg2;

@@ -132,6 +132,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) id <FCHeadlineStocksFields> stocksFields;
 @property(readonly) Class superclass;
+@property(readonly, nonatomic) _Bool webEmbedsEnabled;
 
 @end
 

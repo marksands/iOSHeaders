@@ -206,6 +206,7 @@
 @property _Bool canDrawConcurrently;
 @property _Bool literalContentsCenter;
 @property _Bool hitTestsAsOpaque;
+@property _Bool hitTestsContentsAlphaChannel;
 @property _Bool allowsHitTesting;
 - (void)setFlipped:(_Bool)arg1;
 - (_Bool)isFlipped;

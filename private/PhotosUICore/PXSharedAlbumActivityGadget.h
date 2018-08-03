@@ -16,7 +16,7 @@
 {
     _Bool _wasAskedToLoadContentData;
     PXGadgetSpec *_gadgetSpec;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     PXFeedAssetsSectionInfo *_assetsSectionInfo;
     _PXSharedAlbumActivityGadgetContentView *_contentView;
@@ -47,7 +47,7 @@
 @property(nonatomic) struct CGRect visibleContentRect; // @synthesize visibleContentRect=_visibleContentRect;
 @property(retain, nonatomic) PXFeedAssetsSectionInfo *assetsSectionInfo; // @synthesize assetsSectionInfo=_assetsSectionInfo;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (void)settings:(id)arg1 changedValueForKey:(id)arg2;
@@ -79,10 +79,12 @@
 @property(readonly, nonatomic) unsigned long long gadgetType;
 - (void)contentViewDidDisappear;
 - (void)contentViewWillAppear;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)dealloc;
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, copy) NSString *debugDescription;

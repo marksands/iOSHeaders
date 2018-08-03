@@ -116,6 +116,7 @@
 - (struct UIView *)_lookView;
 - (struct UIView *)_lookViewIfLoaded;
 - (struct UIView *)_lookViewLoadingIfNecessary:(_Bool)arg1;
+@property(readonly, nonatomic) NSString *effectiveGroupName;
 @property(readonly, nonatomic, getter=isCoalescedNotificationBundle) _Bool coalescedNotificationBundle;
 - (_Bool)shouldRestorePresentingShortLookOnDismiss;
 - (void)removeAudioAccesoryObserver:(id)arg1;

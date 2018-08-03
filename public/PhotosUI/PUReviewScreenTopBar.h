@@ -34,6 +34,7 @@
 - (void)didMoveToWindow;
 - (void)layoutSubviews;
 - (id)initWithFrame:(struct CGRect)arg1;
+- (id)hitTest:(struct CGPoint)arg1 withEvent:(id)arg2;
 
 @end
 

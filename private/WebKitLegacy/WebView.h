@@ -169,10 +169,9 @@
 - (void)showCandidates:(id)arg1 forString:(id)arg2 inRect:(struct CGRect)arg3 forSelectedRange:(struct _NSRange)arg4 view:(id)arg5 completionHandler:(CDUnknownBlockType)arg6;
 - (void)_setFontFallbackPrefersPictographs:(_Bool)arg1;
 @property(copy, nonatomic, getter=_sourceApplicationAuditData, setter=_setSourceApplicationAuditData:) NSData *sourceApplicationAuditData;
-- (void)effectiveAppearanceDidChange;
+- (void)viewDidChangeEffectiveAppearance;
 @property(nonatomic, setter=_setUseSystemAppearance:) _Bool _useSystemAppearance;
-- (void)_updateDefaultAppearance;
-- (_Bool)_defaultAppearance;
+- (_Bool)_effectiveAppearanceIsDark;
 @property(nonatomic, setter=_setUnobscuredSafeAreaInsets:) struct WebEdgeInsets _unobscuredSafeAreaInsets;
 - (void)_setWebGLEnabled:(_Bool)arg1;
 - (_Bool)_webGLEnabled;

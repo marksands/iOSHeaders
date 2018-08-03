@@ -34,5 +34,6 @@
 - (void)deviceDiscoveryFoundDevice:(SFDevice *)arg1;
 - (void)autoFillPromptForPIN:(unsigned int)arg1 throttleSeconds:(int)arg2;
 - (void)autoFillPairingSucceeded:(_Bool)arg1 completion:(void (^)(NSError *))arg2;
+- (void)autoFillDismissUserNotification;
 @end
 

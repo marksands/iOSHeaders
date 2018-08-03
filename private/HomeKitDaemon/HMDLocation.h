@@ -68,8 +68,9 @@
 - (void)_updateRegionState:(long long)arg1 forRegion:(id)arg2;
 - (id)_delegateforRegion:(id)arg1;
 - (void)_updateWithLocationAuthorizationStatus:(int)arg1;
-- (void)_notifyDelegate:(id)arg1 withLocation:(id)arg2;
+- (void)_notifyBatchLocationDelegate:(id)arg1 withLocation:(id)arg2;
 - (void)_notifyBatchLocationDelegatesWithLocation:(id)arg1;
+- (void)_notifySingleLocationDelegate:(id)arg1 withLocation:(id)arg2;
 - (void)_notifySingleLocationDelegatesWithLocation:(id)arg1;
 - (void)_notifyAllLocationDelegatesWithLocation:(id)arg1;
 - (void)timerDidFire:(id)arg1;

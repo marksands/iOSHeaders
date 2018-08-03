@@ -63,9 +63,10 @@
 @property(readonly, nonatomic) double headerHeight;
 - (double)tableView:(id)arg1 heightForHeaderInSection:(long long)arg2;
 - (id)tableView:(id)arg1 viewForHeaderInSection:(long long)arg2;
-- (void)fetchFPItemForSearchResult:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (_Bool)defaultApplicationExistsAndSupportsOpenInPlaceForResult:(id)arg1 open:(_Bool)arg2;
 - (_Bool)downloadDemotedAppIfNecessaryForBundleIdentifier:(id)arg1;
+- (_Bool)defaultApplicationExistsAndSupportsOpenInPlaceForFileURL:(id)arg1 performOpenIfSo:(_Bool)arg2;
+- (_Bool)defaultApplicationExistsAndSupportsOpenInPlaceForResult:(id)arg1;
+- (void)fetchURLForFileResult:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 - (unsigned long long)handleSelectionOfResult:(id)arg1;
 - (unsigned long long)handleSelectionAtIndexPath:(id)arg1 wasPop:(_Bool)arg2;
 - (void)didEngageResult:(id)arg1;

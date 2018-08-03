@@ -11,14 +11,14 @@
 @interface PXCMMEngineDrivenLayout : PXEngineDrivenAssetsTilingLayout
 {
     PXBasicTileUserData *_placeholderTileUserData;
-    _Bool _sendBackBannerViewIsVisible;
+    _Bool _hasFloatingBanner;
     _Bool _hasFloatingSectionHeaders;
+    _Bool _headerViewIsVisible;
     long long _layoutType;
     double _headerHeight;
     double _bannerHeight;
     double _statusFooterHeight;
     double _sendBackFooterHeight;
-    double _progressTileHeight;
     long long _placeholderMode;
     double _headerTopInset;
     double _footerBottomInset;
@@ -28,15 +28,15 @@
 }
 
 + (id)_additionalTileKinds;
+@property(nonatomic) _Bool headerViewIsVisible; // @synthesize headerViewIsVisible=_headerViewIsVisible;
 @property(readonly, nonatomic) PXCMMAssetStatusBadgeTileUserData *_copiedUserData; // @synthesize _copiedUserData=__copiedUserData;
 @property(nonatomic) struct UIEdgeInsets reviewSafeAreaInsets; // @synthesize reviewSafeAreaInsets=_reviewSafeAreaInsets;
 @property(nonatomic) double headerFooterSideInset; // @synthesize headerFooterSideInset=_headerFooterSideInset;
 @property(nonatomic) double footerBottomInset; // @synthesize footerBottomInset=_footerBottomInset;
 @property(nonatomic) double headerTopInset; // @synthesize headerTopInset=_headerTopInset;
 @property(nonatomic) _Bool hasFloatingSectionHeaders; // @synthesize hasFloatingSectionHeaders=_hasFloatingSectionHeaders;
-@property(nonatomic) _Bool sendBackBannerViewIsVisible; // @synthesize sendBackBannerViewIsVisible=_sendBackBannerViewIsVisible;
+@property(nonatomic) _Bool hasFloatingBanner; // @synthesize hasFloatingBanner=_hasFloatingBanner;
 @property(nonatomic) long long placeholderMode; // @synthesize placeholderMode=_placeholderMode;
-@property(readonly, nonatomic) double progressTileHeight; // @synthesize progressTileHeight=_progressTileHeight;
 @property(readonly, nonatomic) double sendBackFooterHeight; // @synthesize sendBackFooterHeight=_sendBackFooterHeight;
 @property(readonly, nonatomic) double statusFooterHeight; // @synthesize statusFooterHeight=_statusFooterHeight;
 @property(readonly, nonatomic) double bannerHeight; // @synthesize bannerHeight=_bannerHeight;
@@ -57,8 +57,6 @@
 - (unsigned long long)_generatorGeometryKindForTileKind:(unsigned long long)arg1;
 - (void)enumerateTilesInRect:(struct CGRect)arg1 withOptions:(id)arg2 usingBlock:(CDUnknownBlockType)arg3;
 - (_Bool)getGeometry:(out struct PXTileGeometry *)arg1 group:(out unsigned long long *)arg2 userData:(out id *)arg3 forTileWithIdentifier:(struct PXTileIdentifier)arg4;
-- (struct PXTileIdentifier)_progressTileIdentifier;
-- (struct CGRect)_progressTileFrame;
 - (struct CGRect)_placeholderFrame;
 - (struct CGSize)_placeholderSize;
 - (struct CGRect)_sectionHeaderTileFrame;
@@ -72,7 +70,6 @@
 - (struct PXTileIdentifier)_headerTileIdentifier;
 - (struct CGRect)_headerFrame;
 - (struct PXTileIdentifier)_identifierForUniqueTileWithKind:(unsigned long long)arg1;
-- (void)_invalidateProgressTile;
 - (void)_invalidateAssetStatusBadgeTiles;
 - (void)_invalidateSendBackFooter;
 - (void)_invalidateStatusFooter;
@@ -80,6 +77,7 @@
 - (void)_invalidateHeader;
 - (void)_invalidateSectionHeaders;
 - (void)updateAssetStatusBadgeTiles;
+- (_Bool)sendBackBannerViewIsVisible:(struct UIEdgeInsets)arg1;
 - (void)setVisibleOrigin:(struct CGPoint)arg1;
 - (struct CGRect)contentBounds;
 - (id)initWithLayoutEngineSnapshot:(id)arg1 configuration:(id)arg2;

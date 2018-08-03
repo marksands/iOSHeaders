@@ -6,15 +6,17 @@
 
 #import <HealthUI/HKDataMetadataSection.h>
 
-@class UITableViewCell;
+@class NSString, UITableViewCell;
 
 @interface HKDataMetadataDeletionSection : HKDataMetadataSection
 {
     _Bool _enabled;
     id <HKDataMetadataDeletionSectionDelegate> _delegate;
     UITableViewCell *_cell;
+    NSString *_title;
 }
 
+@property(retain, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) UITableViewCell *cell; // @synthesize cell=_cell;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) __weak id <HKDataMetadataDeletionSectionDelegate> delegate; // @synthesize delegate=_delegate;
@@ -23,6 +25,7 @@
 - (id)cellForIndex:(unsigned long long)arg1 tableView:(id)arg2;
 - (unsigned long long)numberOfRowsInSection;
 - (void)_updateCellForEnabledState;
+- (id)initWithTitle:(id)arg1;
 - (id)init;
 
 @end

@@ -21,6 +21,7 @@
 - (id)likesForItemAtIndex:(long long)arg1;
 - (id)commentsForItemAtIndex:(long long)arg1;
 - (id)commentForItemAtIndex:(long long)arg1;
+- (long long)indexOfFirstItemFromLastBatch;
 - (id)batchIDForItemAtIndex:(long long)arg1;
 - (id)captionForItemAtIndex:(long long)arg1;
 - (id)assetForItemAtIndex:(long long)arg1;

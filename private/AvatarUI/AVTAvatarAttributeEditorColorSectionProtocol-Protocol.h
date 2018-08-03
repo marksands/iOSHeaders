@@ -9,6 +9,7 @@
 @class AVTAvatarColorVariationStore, NSArray;
 
 @protocol AVTAvatarAttributeEditorColorSectionProtocol <AVTAvatarAttributeEditorSection>
+@property(readonly, nonatomic) id <AVTAvatarAttributeEditorColorSectionProtocol> subSection;
 @property(readonly, nonatomic) _Bool alwaysShowExtended;
 @property(readonly, copy, nonatomic) NSArray *extendedItems;
 @property(readonly, copy, nonatomic) NSArray *primaryItems;

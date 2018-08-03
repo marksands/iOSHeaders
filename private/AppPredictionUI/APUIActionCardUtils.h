@@ -12,6 +12,7 @@
 
 + (void)_configureCardInfo:(id)arg1 forVoiceShortcutWithPhrase:(id)arg2 name:(id)arg3 description:(id)arg4 keyImage:(id)arg5 applicationBundleIdentifier:(id)arg6 config:(id)arg7;
 + (void)_configureCardInfo:(id)arg1 forATXAction:(id)arg2 withConfig:(id)arg3;
++ (void)_configureCardInfo:(id)arg1 forNSString:(id)arg2 withConfig:(id)arg3;
 + (void)_configureCardInfo:(id)arg1 forNSUserActivity:(id)arg2 withConfig:(id)arg3;
 + (void)_configureCardInfo:(id)arg1 forINIntent:(id)arg2 withConfig:(id)arg3;
 + (void)_configureCardInfo:(id)arg1 forINInteraction:(id)arg2 withConfig:(id)arg3;
@@ -32,6 +33,7 @@
 + (id)cardSectionForVoiceShortcutWithPhrase:(id)arg1 name:(id)arg2 description:(id)arg3 applicationBundleIdentifier:(id)arg4 config:(id)arg5;
 + (id)cardSectionForINIntent:(id)arg1 withConfig:(id)arg2;
 + (id)cardSectionForINInteraction:(id)arg1 withConfig:(id)arg2;
++ (id)cardSectionForNSString:(id)arg1 withConfig:(id)arg2;
 + (id)cardSectionForNSUserActivity:(id)arg1 withConfig:(id)arg2;
 + (id)cardSectionForATXAction:(id)arg1 withConfig:(id)arg2;
 + (void)initialize;

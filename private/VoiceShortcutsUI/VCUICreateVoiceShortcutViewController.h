@@ -12,6 +12,7 @@
 
 @interface VCUICreateVoiceShortcutViewController : UIViewController <VCUIManageVoiceShortcutViewControllerDelegate>
 {
+    _Bool _hasAppeared;
     id <VCUICreateVoiceShortcutViewControllerDelegate> _delegate;
     id <VCActionDonation> _actionDonation;
     VCVoiceShortcutClient *_voiceShortcutClient;
@@ -19,6 +20,7 @@
 }
 
 + (void)initialize;
+@property(nonatomic) _Bool hasAppeared; // @synthesize hasAppeared=_hasAppeared;
 @property(retain, nonatomic) VCUIManageVoiceShortcutViewController *manageVoiceShortcutViewController; // @synthesize manageVoiceShortcutViewController=_manageVoiceShortcutViewController;
 @property(readonly, nonatomic) VCVoiceShortcutClient *voiceShortcutClient; // @synthesize voiceShortcutClient=_voiceShortcutClient;
 @property(readonly, nonatomic) id <VCActionDonation> actionDonation; // @synthesize actionDonation=_actionDonation;
@@ -27,6 +29,7 @@
 - (void)manageVoiceShortcutViewControllerDidEnterStateSiriUnavailable:(id)arg1;
 - (void)manageVoiceShortcutViewController:(id)arg1 didCreateVoiceShortcut:(id)arg2;
 - (void)manageVoiceShortcutViewControllerDidCancel:(id)arg1;
+- (void)viewDidAppear:(_Bool)arg1;
 - (void)loadView;
 - (id)initWithActionDonation:(id)arg1 voiceShortcutClient:(id)arg2;
 

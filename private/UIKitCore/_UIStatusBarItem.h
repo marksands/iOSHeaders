@@ -30,12 +30,11 @@
 @property(readonly, nonatomic) _UIStatusBarIdentifier *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
 - (id)viewForIdentifier:(id)arg1;
-- (void)setupDisplayItem:(id)arg1;
 - (id)displayItemForIdentifier:(id)arg1;
+- (id)createDisplayItemForIdentifier:(id)arg1;
 - (void)prepareAnimation:(id)arg1 forDisplayItem:(id)arg2;
 - (id)removalAnimationForDisplayItemWithIdentifier:(id)arg1;
 - (id)additionAnimationForDisplayItemWithIdentifier:(id)arg1;
-- (void)displayItem:(id)arg1 didMoveToContainerView:(id)arg2;
 - (void)applyStyleAttributes:(id)arg1 toDisplayItem:(id)arg2;
 - (id)applyUpdate:(id)arg1 toDisplayItem:(id)arg2;
 - (id)_applyUpdate:(id)arg1 toDisplayItem:(id)arg2;

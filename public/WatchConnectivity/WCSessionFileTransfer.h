@@ -8,13 +8,14 @@
 
 #import "NSSecureCoding.h"
 
-@class NSError, NSProgress, NSString, WCSessionFile;
+@class NSDate, NSError, NSProgress, NSString, WCSessionFile;
 
 @interface WCSessionFileTransfer : NSObject <NSSecureCoding>
 {
     _Bool _transferring;
     WCSessionFile *_file;
     NSProgress *_progress;
+    NSDate *_transferDate;
     NSString *_transferIdentifier;
     NSError *_transferError;
     NSProgress *_internalProgress;
@@ -26,6 +27,7 @@
 @property(retain) NSProgress *internalProgress; // @synthesize internalProgress=_internalProgress;
 @property(retain) NSError *transferError; // @synthesize transferError=_transferError;
 @property(copy) NSString *transferIdentifier; // @synthesize transferIdentifier=_transferIdentifier;
+@property(retain, nonatomic) NSDate *transferDate; // @synthesize transferDate=_transferDate;
 @property(nonatomic, getter=isTransferring) _Bool transferring; // @synthesize transferring=_transferring;
 @property(readonly, nonatomic) NSProgress *progress; // @synthesize progress=_progress;
 @property(readonly, nonatomic) WCSessionFile *file; // @synthesize file=_file;

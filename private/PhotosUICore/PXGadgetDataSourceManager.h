@@ -14,7 +14,6 @@
 @interface PXGadgetDataSourceManager : PXSectionedDataSourceManager <PXGadgetProviderDelegate, PXGadgetDelegate>
 {
     _Bool _hasLoadedPriorities;
-    _Bool _shouldSortProviders;
     _Bool _loadingInitialGadgets;
     _Bool _needsToLoadAllProviders;
     id <PXGadgetDelegate> _nextGadgetResponder;
@@ -25,7 +24,6 @@
 
 @property(nonatomic) _Bool needsToLoadAllProviders; // @synthesize needsToLoadAllProviders=_needsToLoadAllProviders;
 @property(nonatomic) _Bool loadingInitialGadgets; // @synthesize loadingInitialGadgets=_loadingInitialGadgets;
-@property(nonatomic) _Bool shouldSortProviders; // @synthesize shouldSortProviders=_shouldSortProviders;
 @property(nonatomic) _Bool hasLoadedPriorities; // @synthesize hasLoadedPriorities=_hasLoadedPriorities;
 @property(retain, nonatomic) NSMutableArray *lookupQueue_loadedProviders; // @synthesize lookupQueue_loadedProviders=_lookupQueue_loadedProviders;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *lookupQueue; // @synthesize lookupQueue=_lookupQueue;
@@ -49,12 +47,13 @@
 - (void)_loadDataFromProviders:(id)arg1 withGadgetMinimum:(unsigned long long)arg2;
 - (void)_loadPriorityForProviders:(id)arg1;
 - (id)allGadgets;
-- (id)_sortProvidersByLoadingPriority:(id)arg1;
 - (void)loadRemainingGadgetsIfNeededWithGenerateGadgetFinishedBlock:(CDUnknownBlockType)arg1;
 - (void)loadRemainingGadgetsIfNeeded;
 - (void)beginLoadingInitialGadgets:(unsigned long long)arg1;
 - (id)noContentGadget;
 - (id)filteredUndisplayedGadgets:(id)arg1;
+- (void)didLoadDataForPriorities;
+@property(readonly, nonatomic) CDUnknownBlockType gadgetProviderSortComparator;
 @property(readonly, nonatomic) CDUnknownBlockType gadgetSortComparator;
 @property(readonly, nonatomic) NSArray *gadgetProviders;
 - (void)removeCachedProviders;

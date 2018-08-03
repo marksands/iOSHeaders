@@ -24,12 +24,12 @@
 - (void)performDelegateSelector:(SEL)arg1;
 - (void)fetchNetworkListWithCompletion:(CDUnknownBlockType)arg1;
 - (void)fetchNetworkList;
-- (void)copyNetworkSelectionInfoWithCompletion:(CDUnknownBlockType)arg1;
-- (void)copyNetworkSelectionInfo;
+- (id)copyNetworkSelectionInfo;
 - (void)selectNetwork:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)selectNetwork:(id)arg1;
 - (void)automaticallySelectNetworkWithCompletion:(CDUnknownBlockType)arg1;
 - (void)automaticallySelectNetwork;
+- (void)networksWithCompletionHandler:(CDUnknownBlockType)arg1;
 @property(retain, nonatomic) CTNetworkSelectionInfo *networkSelectionInfo; // @synthesize networkSelectionInfo=_networkSelectionInfo;
 @property(copy, nonatomic) NSArray *networks; // @synthesize networks=_networks;
 - (id)initWithSubscriptionContext:(id)arg1;

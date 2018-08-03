@@ -87,7 +87,6 @@
 @property(readonly, nonatomic) struct CGSize contentSize;
 - (id)passFaceTemplate;
 - (void)updateShadow:(double)arg1 animated:(_Bool)arg2 withDelay:(double)arg3;
-- (long long)_validityStateForPass:(id)arg1;
 - (void)_presentDiffRecursivelyDiff:(id)arg1 forBucketAtIndex:(unsigned long long)arg2 withBuckets:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)presentDiff:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)layoutSubviews;

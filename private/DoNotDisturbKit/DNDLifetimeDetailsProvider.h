@@ -32,6 +32,7 @@
 @property(readonly, copy, nonatomic) NSArray *availableLifetimeDetails; // @synthesize availableLifetimeDetails=_availableLifetimeDetails;
 - (void).cxx_destruct;
 - (void)_requestRelevantEvent;
+- (void)_queue_requestLifetimeDetails;
 - (void)_queue_gotPlacemark:(id)arg1 forLocation:(id)arg2;
 - (void)_queue_gotLocationOfInterest:(id)arg1 forLocation:(id)arg2;
 - (void)_queue_requestRelevantLocationMetadataForLocation:(id)arg1;

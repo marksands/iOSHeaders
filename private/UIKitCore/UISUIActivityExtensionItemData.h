@@ -22,7 +22,7 @@
     NSMutableDictionary *_dataTypesByItemUUID;
 }
 
-+ (id)_onBackgroundQueue_extensionItemsByPreparingToSendExtensionItems:(id)arg1 toDestinationExtension:(id)arg2;
++ (id)_extensionItemsByPreparingToSendExtensionItems:(id)arg1 toDestinationExtension:(id)arg2;
 + (_Bool)supportsSecureCoding;
 @property(readonly, nonatomic) NSMutableDictionary *dataTypesByItemUUID; // @synthesize dataTypesByItemUUID=_dataTypesByItemUUID;
 @property(readonly, nonatomic) NSMutableDictionary *previewImageDataByItemUUID; // @synthesize previewImageDataByItemUUID=_previewImageDataByItemUUID;
@@ -41,7 +41,7 @@
 - (void)_appendTemporaryUUIDMappingAttachmentToExtensionItem:(id)arg1;
 - (void)_loadItemProviderOrExtensionItemWithMetadataToUUIDFromTemporaryUUIDMappingAttachedToExtensionItems:(id)arg1;
 - (void)prepareForSendingAsCompletionToHostWithAuditToken:(CDStruct_4c969caf)arg1;
-- (void)prepareForSendingToExtension:(id)arg1 readyBlock:(CDUnknownBlockType)arg2;
+- (void)prepareForSendingToExtension:(id)arg1;
 - (id)allDataTypes;
 - (id)dataTypeForItem:(id)arg1;
 - (void)addDataType:(id)arg1 forItem:(id)arg2;

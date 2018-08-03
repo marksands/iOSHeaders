@@ -20,14 +20,14 @@
     SCNNode *_eyesAndMouth;
     SCNMaterial *_eyeMaterial;
     NSDictionary *_eyesAndMouthSpecializationSettings;
-    AVTComponent *_components[12];
+    AVTComponent *_components[13];
     AVTRig *_rigs[15];
     NSString *_faceMorphVariants[7];
-    AVTPreset *_presets[16];
-    AVTPreset *_resolvedPresets[16];
-    _Bool _overrideFlags[16];
-    AVTColorPreset *_colorPresets[16];
-    AVTColorPreset *_secondaryColorPresets[16];
+    AVTPreset *_presets[17];
+    AVTPreset *_resolvedPresets[17];
+    _Bool _overrideFlags[17];
+    AVTColorPreset *_colorPresets[17];
+    AVTColorPreset *_secondaryColorPresets[17];
     double _browsThickness;
     double _upperLipThickness;
     double _lowerLipThickness;
@@ -46,7 +46,7 @@
     struct CGImage *_lipsMaskImage;
     struct CGImage *_mouthInsideImage;
     AVTMemojiSkeleton *_skeleton;
-    AVTComponentInstance *_componentInstances[12];
+    AVTComponentInstance *_componentInstances[13];
     NSDictionary *_specializationSettings;
 }
 
@@ -78,6 +78,7 @@
 - (void)update;
 - (void)_updateAO;
 - (void)udpateHighlights;
+- (void)updateHighlightsForCategory:(long long)arg1;
 - (void)updateEyeLashes;
 - (void)updateSkinMaterial:(id)arg1;
 - (struct CGImage *)createSkinAO;

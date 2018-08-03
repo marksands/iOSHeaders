@@ -17,6 +17,7 @@
 - (void)destination:(id <NCNotificationDestination>)arg1 requestPermissionToExecuteAction:(NCNotificationAction *)arg2 forNotificationRequest:(NCNotificationRequest *)arg3 withParameters:(NSDictionary *)arg4 completion:(void (^)(_Bool))arg5;
 
 @optional
+- (void)destination:(id <NCNotificationDestination>)arg1 setAllowsCriticalAlerts:(_Bool)arg2 forSectionIdentifier:(NSString *)arg3;
 - (void)destination:(id <NCNotificationDestination>)arg1 setDeliverQuietly:(_Bool)arg2 forSectionIdentifier:(NSString *)arg3 subSectionIdentifier:(NSString *)arg4;
 - (void)destination:(id <NCNotificationDestination>)arg1 setAllowsNotifications:(_Bool)arg2 forSectionIdentifier:(NSString *)arg3;
 @end

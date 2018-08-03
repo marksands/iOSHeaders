@@ -15,8 +15,10 @@
     RERelevanceEngine *_relevanceEngine;
     REConcurrentDictionary *_attributes;
     RERemoteTrainingContext *_remoteContext;
+    RETrainingContext *_cachedAttributeContext;
 }
 
+@property(retain) RETrainingContext *cachedAttributeContext; // @synthesize cachedAttributeContext=_cachedAttributeContext;
 - (void).cxx_destruct;
 - (_Bool)performSimulationCommand:(id)arg1 withOptions:(id)arg2;
 - (id)attributeForKey:(id)arg1;
@@ -34,6 +36,7 @@
 - (void)_willBecomeCurrent;
 @property(readonly, nonatomic) _Bool _wantsAutomaticRemoteContextForwarding;
 - (void)_configureForRelevanceEngine:(id)arg1;
+@property(readonly, nonatomic) RETrainingContext *attributeContext;
 @property(retain, nonatomic) RERemoteTrainingContext *remoteContext;
 
 @end

@@ -8,18 +8,19 @@
 
 #import "DNDSBackingStore.h"
 
-@class NSArray, NSObject<OS_dispatch_queue>, NSString;
+@class NSArray, NSDate, NSObject<OS_dispatch_queue>, NSString;
 
 @interface DNDSMemoryCachedBackingStore : NSObject <DNDSBackingStore>
 {
     NSObject<OS_dispatch_queue> *_queue;
     id <DNDSBackingStore> _underlyingBackingStore;
     NSArray *_cache;
+    NSDate *_lastUpdateDate;
 }
 
 - (void).cxx_destruct;
 - (_Bool)writeAllRecords:(id)arg1 withError:(id *)arg2;
-- (id)readAllRecordsWithError:(id *)arg1;
+- (id)readAllRecordsWithError:(id *)arg1 lastUpdateDate:(out id *)arg2;
 - (id)initWithUnderlyingBackingStore:(id)arg1;
 
 // Remaining properties

@@ -90,6 +90,7 @@
 + (_Bool)currentUserActivityUUIDWithOptions:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)currentUserActivityUUID;
 + (_Bool)supportsUserActivityAppLinks;
++ (id)_decodeFromEntireString:(id)arg1;
 + (id)_decodeFromString:(id)arg1;
 + (id)_decodeFromScanner:(id)arg1;
 + (id)_encodeKeyAndValueIntoString:(id)arg1 value:(id)arg2;
@@ -97,6 +98,7 @@
 + (_Bool)registerAsProxyForApplication:(int)arg1 options:(id)arg2 completionBlock:(CDUnknownBlockType)arg3;
 + (void)deleteAllSavedUserActivitiesWithCompletionHandler:(CDUnknownBlockType)arg1;
 + (void)deleteSavedUserActivitiesWithPersistentIdentifiers:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
++ (id)mainBundleIdentifier;
 @property(readonly, retain) NSObject<OS_dispatch_queue> *willCallSaveSerializationQueue; // @synthesize willCallSaveSerializationQueue=_willCallSaveSerializationQueue;
 @property(retain) NSMutableSet *dirtyPayloadIdentifiers; // @synthesize dirtyPayloadIdentifiers=_dirtyPayloadIdentifiers;
 @property(retain) NSMutableDictionary *payloadDataCache; // @synthesize payloadDataCache=_payloadDataCache;
@@ -155,6 +157,7 @@
 @property _Bool dirty; // @dynamic dirty;
 @property(copy) NSURL *referrerURL; // @dynamic referrerURL;
 @property(copy) NSURL *webpageURL; // @dynamic webpageURL;
+- (void)_setWebpageURL:(id)arg1 throwOnFailure:(_Bool)arg2;
 - (_Bool)finishUserInfoUpdate;
 - (unsigned long long)beginUserInfoUpdate:(id)arg1;
 @property(readonly) unsigned long long userInfoChangeCount;

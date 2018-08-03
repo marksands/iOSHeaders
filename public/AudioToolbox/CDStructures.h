@@ -91,8 +91,6 @@ struct AURenderEventAllocator;
 
 struct AURenderEventStruct;
 
-struct AUSyncCaller;
-
 struct AUv3InstanceBase {
     CDUnknownFunctionPointerType *_field1;
     CDUnknownFunctionPointerType _field2;
@@ -218,7 +216,7 @@ struct IOThread;
 
 struct IPCAURenderingClient {
     CDUnknownFunctionPointerType *_vptr$IPCAURenderingClient;
-    id mRemote;
+    NSXPCConnection *mXPCConnection;
     _Bool mInitialized;
     _Bool mRenderPrioritySet;
     _Bool mIsOffline;
@@ -411,6 +409,12 @@ struct recursive_mutex {
     struct _opaque_pthread_mutex_t __m_;
 };
 
+struct reply_watchdog_factory {
+    _Bool mDebugging;
+    int mDefaultTimeoutMS;
+    struct function<void ()> mTimeoutHandler;
+};
+
 struct set<AUObserverController::AddressOriginator, std::__1::less<AUObserverController::AddressOriginator>, std::__1::allocator<AUObserverController::AddressOriginator>> {
     struct __tree<AUObserverController::AddressOriginator, std::__1::less<AUObserverController::AddressOriginator>, std::__1::allocator<AUObserverController::AddressOriginator>> {
         struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
@@ -446,12 +450,6 @@ struct unique_ptr<AUAudioUnitV2Bridge_Renderer, std::__1::default_delete<AUAudio
 struct unique_ptr<AUProcAndUserData, std::__1::default_delete<AUProcAndUserData>> {
     struct __compressed_pair<AUProcAndUserData *, std::__1::default_delete<AUProcAndUserData>> {
         struct AUProcAndUserData *__value_;
-    } __ptr_;
-};
-
-struct unique_ptr<AUSyncCaller, std::__1::default_delete<AUSyncCaller>> {
-    struct __compressed_pair<AUSyncCaller *, std::__1::default_delete<AUSyncCaller>> {
-        struct AUSyncCaller *__value_;
     } __ptr_;
 };
 

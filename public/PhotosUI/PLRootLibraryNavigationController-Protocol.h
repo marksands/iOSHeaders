@@ -36,7 +36,7 @@
 - (void)navigateToCloudFeedWithCompletion:(void (^)(UIViewController *))arg1;
 - (void)navigateToOneUpForAsset:(PHAsset *)arg1 inAssetContainer:(PHAssetCollection *)arg2 animated:(_Bool)arg3;
 - (void)navigateToOneYearAgoSearch;
-- (void)navigateToPhotosContentBottomAnimated:(_Bool)arg1 showMostRecentPhotoInOneUp:(_Bool)arg2;
+- (void)navigateToPhotosContentBottomAnimated:(_Bool)arg1;
 - (void)navigateToAsset:(PLManagedAsset *)arg1 openOneUp:(_Bool)arg2 animated:(_Bool)arg3;
 - (void)navigateToContentMode:(int)arg1 animated:(_Bool)arg2 completion:(void (^)(_Bool))arg3;
 @end

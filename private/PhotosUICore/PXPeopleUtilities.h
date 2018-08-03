@@ -37,6 +37,7 @@
 + (_Bool)changePeople:(id)arg1 toPersonType:(long long)arg2 error:(id *)arg3;
 + (id)changePerson:(id)arg1 toPersonType:(long long)arg2;
 + (id)personWithLocalIdentifier:(id)arg1;
++ (id)peopleWithPersonUris:(id)arg1;
 + (id)personWithPersonUri:(id)arg1;
 + (id)sharedContactStore;
 

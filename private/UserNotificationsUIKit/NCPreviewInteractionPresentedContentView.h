@@ -7,22 +7,30 @@
 #import "UIView.h"
 
 #import "MTVibrantStylingRequiring.h"
+#import "PLContentSizeCategoryAdjusting.h"
 
 @class MTVibrantStylingProvider, NSString, UILabel;
 
-@interface NCPreviewInteractionPresentedContentView : UIView <MTVibrantStylingRequiring>
+@interface NCPreviewInteractionPresentedContentView : UIView <MTVibrantStylingRequiring, PLContentSizeCategoryAdjusting>
 {
     UILabel *_titleLabel;
     struct CGSize _cachedSizeThatFits;
+    _Bool _adjustsFontForContentSizeCategory;
     MTVibrantStylingProvider *_vibrantStylingProvider;
+    NSString *_preferredContentSizeCategory;
 }
 
+@property(copy, nonatomic) NSString *preferredContentSizeCategory; // @synthesize preferredContentSizeCategory=_preferredContentSizeCategory;
+@property(nonatomic) _Bool adjustsFontForContentSizeCategory; // @synthesize adjustsFontForContentSizeCategory=_adjustsFontForContentSizeCategory;
 @property(retain, nonatomic) MTVibrantStylingProvider *vibrantStylingProvider; // @synthesize vibrantStylingProvider=_vibrantStylingProvider;
 - (void).cxx_destruct;
 - (void)_reduceTransparencyStatusDidChange:(id)arg1;
 - (void)_darkerSystemColorsStatusDidChange:(id)arg1;
 - (void)_configureTitleLabelIfNecessaryWithTitle:(id)arg1;
+- (void)_updateTitleLabelAnchorPointAndPosition;
+- (void)_updateTitleLabelTextAttributes;
 - (void)_updateTitleLabelVibrantStyling;
+- (_Bool)adjustForContentSizeCategoryChange;
 - (void)layoutSubviews;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 - (void)didMoveToSuperview;

@@ -16,7 +16,6 @@
     PXHorizontalCollectionGadget *_horizontalGadget;
     _Bool _hasLoaded;
     Class _horizontalCollectionGadgetClass;
-    unsigned long long _loadingPriority;
     NSArray *_contentGadgetProviders;
     NSString *_title;
     unsigned long long _gadgetType;
@@ -29,14 +28,15 @@
 @property(nonatomic) unsigned long long gadgetType; // @synthesize gadgetType=_gadgetType;
 @property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(readonly, nonatomic) NSArray *contentGadgetProviders; // @synthesize contentGadgetProviders=_contentGadgetProviders;
-@property(nonatomic) unsigned long long loadingPriority; // @synthesize loadingPriority=_loadingPriority;
 - (void).cxx_destruct;
 - (void)_updateHorizontalGadget;
 - (void)invalidateGadgets;
 - (void)horizontalCollectionGadgetDatasourceDidUpdate:(id)arg1;
+- (void)resetPriorityDate;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
 - (void)loadDataForGadgets;
+- (void)loadDataForPriority;
 - (id)initWithContentGadgetProviders:(id)arg1 title:(id)arg2 horizontalCollectionGadgetClass:(Class)arg3;
 - (id)initWithContentGadgetProviders:(id)arg1 title:(id)arg2;
 - (id)init;

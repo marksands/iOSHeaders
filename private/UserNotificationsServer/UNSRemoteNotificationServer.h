@@ -8,7 +8,7 @@
 
 #import "APSConnectionDelegate.h"
 
-@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, UNSAttachmentsService, UNSNotificationRepository, UNSNotificationSettingsService, UNSPushRegistrationRepository;
+@class NSMutableDictionary, NSMutableSet, NSObject<OS_dispatch_queue>, NSSet, NSString, UNSAttachmentsService, UNSNotificationRepository, UNSNotificationServiceExtensionManager, UNSNotificationSettingsService, UNSPushRegistrationRepository;
 
 @interface UNSRemoteNotificationServer : NSObject <APSConnectionDelegate>
 {
@@ -17,6 +17,7 @@
     UNSAttachmentsService *_attachmentsService;
     UNSPushRegistrationRepository *_pushRegistrationRepository;
     id <_DASActivityScheduler> _duetActivityScheduler;
+    UNSNotificationServiceExtensionManager *_serviceExtensionManager;
     NSObject<OS_dispatch_queue> *_queue;
     NSObject<OS_dispatch_queue> *_extensionQueue;
     NSObject<OS_dispatch_queue> *_apsQueue;
@@ -71,7 +72,7 @@
 - (void)_queue_addNotificationSourceDescriptions:(id)arg1;
 - (void)_scheduleContentAvailablePushActivityForMessage:(id)arg1 bundleIdentifier:(id)arg2;
 - (void)_queue_deliverNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3;
-- (void)_queue_modifyNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3 extension:(id)arg4;
+- (void)_extensionQueue_modifyNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3 extension:(id)arg4;
 - (void)_queue_tryToModifyNotificationRequest:(id)arg1 bundleIdentifier:(id)arg2 message:(id)arg3;
 - (_Bool)_queue_canDeliverMessageToBundle:(id)arg1;
 - (void)_queue_didReceiveIncomingMessage:(id)arg1;
@@ -86,7 +87,7 @@
 - (void)applicationsDidDenyNotificationSettings:(id)arg1;
 - (void)applicationsDidAuthorizeNotificationSettings:(id)arg1;
 - (void)dealloc;
-- (id)_initWithSettingsService:(id)arg1 notificationRepository:(id)arg2 attachmentsService:(id)arg3 pushRegistrationRepository:(id)arg4 queue:(id)arg5 extensionQueue:(id)arg6 apsQueue:(id)arg7 duetActivityScheduler:(id)arg8;
+- (id)_initWithSettingsService:(id)arg1 notificationRepository:(id)arg2 attachmentsService:(id)arg3 pushRegistrationRepository:(id)arg4 queue:(id)arg5 extensionQueue:(id)arg6 apsQueue:(id)arg7 duetActivityScheduler:(id)arg8 serviceExtensionManager:(id)arg9;
 - (id)initWithSettingsService:(id)arg1 notificationRepository:(id)arg2 attachmentsService:(id)arg3 pushRegistrationRepository:(id)arg4;
 
 // Remaining properties

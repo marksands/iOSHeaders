@@ -55,7 +55,7 @@
 - (void)disableUpdates;
 - (void)enableUpdates;
 - (void)updatesEnabled;
-- (void)updatesDispabled;
+- (void)updatesDisabled;
 - (void)invalidateCurrentQuery;
 - (void)deactivate;
 - (void)activate;

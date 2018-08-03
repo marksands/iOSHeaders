@@ -39,6 +39,7 @@
 @property(readonly, nonatomic) NSMutableDictionary *estimatesForTripIdentifiers; // @synthesize estimatesForTripIdentifiers=_estimatesForTripIdentifiers;
 - (void).cxx_destruct;
 - (_Bool)shouldUpdateFocusInContext:(id)arg1;
+- (id)_linearFocusItems;
 - (id)preferredFocusEnvironments;
 - (void)pagingControlView:(id)arg1 didSelectPageIndex:(unsigned long long)arg2;
 - (void)alternateRoutesView:(id)arg1 didSelectRouteChoice:(id)arg2;
@@ -47,7 +48,7 @@
 - (void)_toggleMoreRoutesButtonPressed:(id)arg1;
 - (void)_setOverviewCollapsed:(_Bool)arg1;
 - (void)setSelectedTrip:(id)arg1;
-- (id)initWithTrips:(id)arg1 textConfiguration:(id)arg2;
+- (id)initWithTripDelegate:(id)arg1 trips:(id)arg2 textConfiguration:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

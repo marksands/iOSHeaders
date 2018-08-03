@@ -6,15 +6,18 @@
 
 #import "NSObject.h"
 
+#import "NSCopying.h"
+
 @class NSMapTable, NSObject<OS_dispatch_queue>;
 
-@interface REConcurrentDictionary : NSObject
+@interface REConcurrentDictionary : NSObject <NSCopying>
 {
     NSMapTable *_table;
     NSObject<OS_dispatch_queue> *_queue;
 }
 
 - (void).cxx_destruct;
+- (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)removeAllObjects;
 - (void)setObject:(id)arg1 forKey:(id)arg2;
 - (void)removeObjectForKey:(id)arg1;

@@ -78,7 +78,7 @@
     NSDictionary *_fusionParameters;
     _Bool _depthEffectEnabled;
     NSDictionary *_depthEffectSettings;
-    float _depthEffectAperture;
+    double _depthEffectAperture;
     _Bool _portraitEffectEnabled;
     _Bool _hasPortraitEffectAdjustment;
     NSDictionary *_portraitEffectSettings;
@@ -140,7 +140,7 @@
 @property(readonly, nonatomic, getter=isPortraitEffectEnabled) _Bool portraitEffectEnabled; // @synthesize portraitEffectEnabled=_portraitEffectEnabled;
 @property(readonly, nonatomic) _Bool canRenderPortraitEffect; // @synthesize canRenderPortraitEffect=_canRenderPortraitEffect;
 @property(readonly, nonatomic) _Bool hasPortraitEffectAdjustment; // @synthesize hasPortraitEffectAdjustment=_hasPortraitEffectAdjustment;
-@property(readonly, nonatomic) float depthEffectAperture; // @synthesize depthEffectAperture=_depthEffectAperture;
+@property(readonly, nonatomic) double depthEffectAperture; // @synthesize depthEffectAperture=_depthEffectAperture;
 @property(readonly, nonatomic) NSDictionary *depthEffectSettings; // @synthesize depthEffectSettings=_depthEffectSettings;
 @property(readonly, nonatomic, getter=isDepthEffectEnabled) _Bool depthEffectEnabled; // @synthesize depthEffectEnabled=_depthEffectEnabled;
 @property(readonly, nonatomic) NSDictionary *fusionParameters; // @synthesize fusionParameters=_fusionParameters;

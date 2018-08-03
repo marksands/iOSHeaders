@@ -107,8 +107,10 @@
 - (void)refreshAppConfigurationIfNeededWithCompletionQueue:(id)arg1 refreshCompletion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletionQueue:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)fetchAppConfigurationIfNeededWithCompletion:(CDUnknownBlockType)arg1;
+@property(readonly, copy, nonatomic) NSString *feldsparID;
 @property(readonly, nonatomic) NSArray *segmentSetIDs;
 @property(readonly, nonatomic) NSArray *treatmentIDs;
+@property(readonly, nonatomic) id <FCNewsAppConfiguration> possiblyUnfetchedAppConfiguration;
 @property(readonly, nonatomic) id <FCNewsAppConfiguration> appConfiguration;
 @property(readonly, copy, nonatomic) NSURL *remoteURL;
 - (id)initWithContentDatabase:(id)arg1 contentDirectoryFileURL:(id)arg2 disableSimulatedCrash:(_Bool)arg3;
@@ -118,7 +120,6 @@
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
-@property(readonly, copy, nonatomic) NSString *feldsparID;
 @property(readonly) unsigned long long hash;
 @property(readonly) Class superclass;
 

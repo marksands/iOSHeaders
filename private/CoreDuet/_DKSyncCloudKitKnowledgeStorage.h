@@ -18,6 +18,7 @@
     CKContainer *_container;
     double _updateSyncedDeviceIdentifiersBackoffTimeInterval;
     NSMutableDictionary *_zoneIDsBySourceDeviceID;
+    NSMutableDictionary *_recordZonesByZoneID;
     NSMutableSet *_zoneIDsWithAdditionChanges;
     NSMutableSet *_zoneIDsWithDeletionChanges;
     CKServerChangeToken *_fetchDatabaseChangesServerChangeToken;
@@ -59,7 +60,7 @@
 - (void)setHasAdditionsFlag:(_Bool)arg1 forPeer:(id)arg2;
 - (_Bool)hasAdditionsFlagForPeer:(id)arg1;
 - (void)removeSourceDeviceIdentifierWithRecordZoneID:(id)arg1;
-- (void)fastForwardPastDeletionsInZoneWithZoneID:(id)arg1;
+- (void)fastForwardPastDeletionsInNewZone:(id)arg1 sourceDeviceID:(id)arg2;
 - (void)configurePeerWithSourceDeviceID:(id)arg1 zoneID:(id)arg2;
 - (void)addSourceDeviceIdentifierWithRecordZoneID:(id)arg1;
 - (void)fetchChangedZonesWithCompletion:(CDUnknownBlockType)arg1;

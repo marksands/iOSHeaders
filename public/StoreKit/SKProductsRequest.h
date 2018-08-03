@@ -19,7 +19,7 @@
 - (id)init;
 
 // Remaining properties
-@property(nonatomic) id <SKProductsRequestDelegate> delegate; // @dynamic delegate;
+@property(nonatomic) __weak id <SKProductsRequestDelegate> delegate; // @dynamic delegate;
 
 @end
 

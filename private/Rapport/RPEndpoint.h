@@ -16,6 +16,7 @@
     CUBonjourDevice *_bonjourDevice;
     NSString *_identifier;
     NSString *_idsDeviceIdentifier;
+    NSString *_mediaRemoteIdentifier;
     NSString *_model;
     NSString *_name;
     unsigned long long _statusFlags;
@@ -32,6 +33,7 @@
 @property(readonly, nonatomic) int proximity; // @synthesize proximity=_proximity;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 @property(copy, nonatomic) NSString *model; // @synthesize model=_model;
+@property(copy, nonatomic) NSString *mediaRemoteIdentifier; // @synthesize mediaRemoteIdentifier=_mediaRemoteIdentifier;
 @property(copy, nonatomic) NSString *idsDeviceIdentifier; // @synthesize idsDeviceIdentifier=_idsDeviceIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;

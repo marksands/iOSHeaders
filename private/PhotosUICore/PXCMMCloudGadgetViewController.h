@@ -15,7 +15,7 @@
 {
     _Bool _isCPLOn;
     _Bool _hasContentToDisplay;
-    unsigned long long _priority;
+    long long _priority;
     id <PXCMMCloudGadgetViewControllerDelegate> _delegate;
     PXGadgetSpec *_gadgetSpec;
     NSString *_gadgetTitle;
@@ -29,7 +29,7 @@
 @property(copy, nonatomic) NSString *gadgetTitle; // @synthesize gadgetTitle=_gadgetTitle;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 @property(nonatomic) __weak id <PXCMMCloudGadgetViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 - (void)_updateViewInsets;
 - (struct NSObject *)contentViewController;
@@ -46,6 +46,7 @@
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, copy) NSString *debugDescription;

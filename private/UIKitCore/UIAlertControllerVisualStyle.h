@@ -61,7 +61,7 @@ __attribute__((visibility("hidden")))
 - (long long)permittedActionLayoutDirection;
 - (id)defaultActionFont;
 - (id)textFieldContainingViewWithTextField:(id)arg1;
-- (struct UIEdgeInsets)contentInsets;
+- (struct UIEdgeInsets)contentInsetsForContainerView:(id)arg1;
 - (double)maximumHeightForDisplayOnScreen:(id)arg1;
 - (double)maximumWidthForTitleAndMessageContentView;
 - (double)actionWidthForMinimumActionWidth:(double)arg1;

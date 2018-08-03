@@ -42,7 +42,9 @@
 + (void)setOkToDownloadPolicyUpdates:(_Bool)arg1;
 + (_Bool)cloudSyncDisabled;
 + (_Bool)rapportSyncDisabled;
++ (id)_policyForSyncTransportType:(long long)arg1;
 + (id)policyForSyncTransportType:(long long)arg1;
++ (id)policyCache;
 + (id)userDefaults;
 @property(retain, nonatomic) NSArray *streamNamesToAlwaysSync; // @synthesize streamNamesToAlwaysSync=_streamNamesToAlwaysSync;
 @property(nonatomic) unsigned long long policyDownloadIntervalInDays; // @synthesize policyDownloadIntervalInDays=_policyDownloadIntervalInDays;

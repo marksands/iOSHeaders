@@ -39,6 +39,8 @@
 - (void)buttonTapped:(id)arg1;
 - (void)liveListenAudioLevelDidChange:(double)arg1;
 - (void)updateConstraints;
+- (unsigned long long)lineCountForWidth:(double)arg1;
+- (struct CGSize)preferredSizeForSize:(struct CGSize)arg1;
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties

@@ -28,7 +28,6 @@
 - (void)cancelAll;
 - (void)didSendComposition;
 - (void)removeTemporaryURLForURL:(id)arg1;
-- (_Bool)eagerUploadEnabled;
 - (id)init;
 
 @end

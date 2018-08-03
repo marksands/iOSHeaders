@@ -16,7 +16,7 @@ __attribute__((visibility("hidden")))
 - (double)transitionDurationForPresentation:(_Bool)arg1 ofAlertController:(id)arg2;
 - (long long)permittedActionLayoutDirection;
 - (id)textFieldContainingViewWithTextField:(id)arg1;
-- (struct UIEdgeInsets)contentInsets;
+- (struct UIEdgeInsets)contentInsetsForContainerView:(id)arg1;
 - (double)maximumWidth;
 - (double)marginBelowLastLabelLastBaseline;
 - (double)marginBelowMessageLabelLastBaseline;

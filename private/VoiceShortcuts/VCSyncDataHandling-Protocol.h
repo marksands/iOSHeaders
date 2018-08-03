@@ -7,7 +7,7 @@
 @class NSData, NSOrderedSet, NSString;
 
 @protocol VCSyncDataHandling
-- (_Bool)resetLocalData:(id *)arg1;
+- (_Bool)deleteSyncedData:(id *)arg1;
 - (void)removeSyncStateForSyncServiceWithIdentifier:(NSString *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)deregisterSyncServiceWithIdentifier:(NSString *)arg1;
 - (void)registerSyncService:(id <VCVoiceShortcutSyncService>)arg1 asMaster:(_Bool)arg2;

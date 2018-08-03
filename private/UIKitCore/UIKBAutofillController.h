@@ -45,6 +45,7 @@ __attribute__((visibility("hidden")))
 - (void)clearAutofillGroup;
 - (long long)_needAutofillCandidate:(id)arg1 delegateAsResponder:(id)arg2;
 - (_Bool)signupHintForUsername:(id)arg1 password:(id)arg2 responder:(id)arg3;
+- (long long)signUpSignalFromNavBarItem:(id)arg1;
 - (long long)signUpSignalFromViewControllerHierarchy:(id)arg1;
 - (long long)signUpSignalFromButton:(id)arg1;
 - (long long)containsIndicationInText:(id)arg1 withAccessibilityHints:(_Bool)arg2;

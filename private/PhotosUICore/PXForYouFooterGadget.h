@@ -28,6 +28,7 @@
 - (id)initWithViewModel:(id)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 @property(readonly, copy) NSString *debugDescription;
@@ -35,7 +36,7 @@
 @property(readonly) unsigned long long hash;
 @property(readonly, nonatomic) unsigned long long headerStyle;
 @property(readonly, nonatomic) NSString *localizedTitle;
-@property(nonatomic) unsigned long long priority;
+@property(nonatomic) long long priority;
 @property(readonly) Class superclass;
 @property(readonly, nonatomic) _Bool supportsAssetsDrop;
 @property(readonly, nonatomic) _Bool supportsHighlighting;

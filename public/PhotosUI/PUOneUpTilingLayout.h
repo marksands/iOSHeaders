@@ -32,6 +32,7 @@
         _Bool respondsToShouldShowVideoPlaceholderForItemAtIndexPath;
         _Bool respondsToDisableInitialZoomToFillForItemAtIndexPath;
         _Bool respondsToShouldShowReviewScreenScrubberBar;
+        _Bool respondsToAlphaForReviewScreenBarsInLayout;
     } _delegateFlags;
     NSMutableDictionary *_layoutInfosByIndexPathByTileKind;
     _Bool _useBackgroundTile;

@@ -40,8 +40,10 @@
 - (struct CGRect)trackRectForBounds:(struct CGRect)arg1;
 - (id)createThumbView;
 - (void)removeTrackLayer:(id)arg1 animated:(_Bool)arg2;
+- (void)setTrackLayer:(id)arg1 animated:(_Bool)arg2;
 @property(readonly, nonatomic) CALayer *thumbLayer;
 - (void)layoutSubviews;
+- (void)relayoutSublayers;
 - (id)initWithUserInterfaceLayoutDirection:(long long)arg1;
 
 @end

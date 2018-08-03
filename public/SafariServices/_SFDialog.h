@@ -11,6 +11,7 @@
 @interface _SFDialog : NSObject
 {
     _Bool _completed;
+    _Bool _shouldIgnoreGlobalModalUIDisplayPolicy;
 }
 
 + (id)requestStorageAccessDialogForDomain:(id)arg1 underCurrentDomain:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
@@ -34,6 +35,7 @@
 + (id)javaScriptConfirmDialogWithMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)javaScriptAlertDialogWithMessage:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (id)authenticationDialogWithAuthenticationChallenge:(id)arg1 committedURL:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
+@property(readonly, nonatomic) _Bool shouldIgnoreGlobalModalUIDisplayPolicy; // @synthesize shouldIgnoreGlobalModalUIDisplayPolicy=_shouldIgnoreGlobalModalUIDisplayPolicy;
 - (void)didCompleteWithResponse:(id)arg1;
 - (id)newViewControllerRepresentationWithCompletionHandler:(CDUnknownBlockType)arg1;
 - (id)newDialogViewRepresentation;

@@ -29,7 +29,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) __weak id <_UIClickInteractionProgressProvidingDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_displayLinkDidFire:(id)arg1;
-- (void)_updateInteraction:(_Bool)arg1;
+- (void)_updateInteractionFromGestureRecognizer;
 - (void)_handleGestureRecognizer:(id)arg1;
 - (void)cancelInteraction;
 - (_Bool)shouldInvokeActionWhenTransitioningFromState:(long long)arg1 toState:(long long)arg2;

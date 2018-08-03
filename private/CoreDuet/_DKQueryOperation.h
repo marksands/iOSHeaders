@@ -10,6 +10,7 @@
 {
 }
 
+- (void)removeAllDependencies;
 - (void)main;
 
 @end

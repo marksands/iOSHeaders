@@ -9,7 +9,6 @@
 @interface CNFavoritesEntry (ContactsUI)
 - (void)performActionWithExtensionContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performActionWithCompletion:(CDUnknownBlockType)arg1;
-- (id)currentContactProperty;
 - (void)performActionWithContext:(id)arg1 completion:(CDUnknownBlockType)arg2;
 @end
 

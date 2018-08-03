@@ -14,6 +14,7 @@
 @interface HMDAppleMediaAccessory : HMDMediaAccessory <HMDAccessoryUserManagement, HMFLogging>
 {
     _Bool _deviceReachable;
+    _Bool _fixedPairingIdentityInCloud;
     HMDDevice *_device;
     HMFPairingIdentity *_pairingIdentity;
     HMDAccessorySettingGroup *_rootSettings;
@@ -23,12 +24,15 @@
     HMDSoftwareUpdate *_softwareUpdate;
     HMFWiFiNetworkInfo *_wifiNetworkInfo;
     HMDTargetControlManager *_targetControlManager;
+    HMFPairingIdentity *_lastCreatedPairingIdentity;
 }
 
 + (_Bool)supportsSecureCoding;
 + (_Bool)hasMessageReceiverChildren;
 + (id)__deviceMediaRouteIdentifier;
 + (_Bool)shouldAcceptMessage:(id)arg1 home:(id)arg2 privilege:(unsigned long long)arg3;
+@property(retain, nonatomic) HMFPairingIdentity *lastCreatedPairingIdentity; // @synthesize lastCreatedPairingIdentity=_lastCreatedPairingIdentity;
+@property(nonatomic) _Bool fixedPairingIdentityInCloud; // @synthesize fixedPairingIdentityInCloud=_fixedPairingIdentityInCloud;
 @property(retain, nonatomic) HMDTargetControlManager *targetControlManager; // @synthesize targetControlManager=_targetControlManager;
 @property(readonly) HMDAccessorySymptomHandler *symptomsHandler; // @synthesize symptomsHandler=_symptomsHandler;
 @property(readonly) HMDRemoteLoginHandler *remoteLoginHandler; // @synthesize remoteLoginHandler=_remoteLoginHandler;
@@ -97,6 +101,7 @@
 - (_Bool)isCurrentAccessory;
 - (void)reconfigureOnMediaSystemDisolve;
 - (void)autoConfigureTargetControllers;
+- (void)_fixCloudKeyIfNeeded;
 - (void)configure:(id)arg1 msgDispatcher:(id)arg2 accessoryConfigureGroup:(id)arg3;
 - (void)_registerForMessages;
 @property(readonly, copy) NSString *description;

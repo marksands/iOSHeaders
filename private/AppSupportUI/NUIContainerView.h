@@ -10,6 +10,7 @@
 
 @interface NUIContainerView : UIView
 {
+    _Bool _isRTL;
     id <NUIContainerViewDelegate> _delegate;
     NSMutableArray *_arrangedSubviews;
     NSArray *_visibleArrangedSubviews;

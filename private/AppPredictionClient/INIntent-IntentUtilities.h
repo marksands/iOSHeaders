@@ -7,8 +7,7 @@
 #import "INIntent.h"
 
 @interface INIntent (IntentUtilities)
-- (id)actionTypeFromINIntent;
-- (id)hashIntentApproximately;
-- (id)parametersByNameForIntent;
+- (id)atx_hashApproximately;
+- (id)atx_nonNilParametersByName;
 @end
 

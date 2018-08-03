@@ -18,6 +18,7 @@
 }
 
 - (void).cxx_destruct;
+- (void)_queue_updateBlocks;
 - (void)_updateBlocks;
 - (void)_rescheduleTimer;
 - (void)unscheduleEventWithIdentifier:(id)arg1;

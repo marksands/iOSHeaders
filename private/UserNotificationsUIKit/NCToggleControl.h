@@ -24,14 +24,12 @@
     UILabel *_titleLabel;
     NCToggleControlPair *_managingPair;
     NCPreviewInteractionPresenter *_previewInteractionPlatterPresenter;
+    struct CGSize _cachedEffectiveMaxExpandedSize;
+    struct CGSize _cachedEffectiveMaxUnexpandedSize;
 }
 
 + (id)_labelFont:(_Bool)arg1;
-+ (void)_invalidateEffectiveMaxUnexpandedSize;
-+ (struct CGSize)_effectiveMaxUnexpandedSize:(_Bool)arg1;
-+ (void)_invalidateEffectiveMaxExpandedSize;
-+ (struct CGSize)_effectiveMaxExpandedSize:(_Bool)arg1;
-+ (double)_effectiveHeight:(_Bool)arg1;
++ (double)effectiveHeight:(_Bool)arg1;
 + (void)performWithDefaultExpansionAnimation:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 + (id)showLessControlWithMaterialRecipe:(long long)arg1 backgroundMaterialOptions:(unsigned long long)arg2 overlayMaterialOptions:(unsigned long long)arg3;
 + (id)dismissControlWithMaterialRecipe:(long long)arg1 backgroundMaterialOptions:(unsigned long long)arg2 overlayMaterialOptions:(unsigned long long)arg3;
@@ -49,9 +47,12 @@
 - (void).cxx_destruct;
 - (struct CGRect)_unexpandedFrame;
 - (struct CGSize)_sizeThatFits:(struct CGSize)arg1 whenExpanded:(_Bool)arg2;
+- (struct CGSize)_effectiveGlyphSize;
 - (double)_cornerRadius;
 - (struct CGSize)_effectiveUnexpandedSize;
+@property(readonly, nonatomic, getter=_cachedEffectiveMaxUnexpandedSize) struct CGSize cachedEffectiveMaxUnexpandedSize; // @synthesize cachedEffectiveMaxUnexpandedSize=_cachedEffectiveMaxUnexpandedSize;
 - (struct CGSize)_effectiveExpandedSize;
+@property(readonly, nonatomic, getter=_cachedEffectiveMaxExpandedSize) struct CGSize cachedEffectiveMaxExpandedSize; // @synthesize cachedEffectiveMaxExpandedSize=_cachedEffectiveMaxExpandedSize;
 - (double)_effectiveInternalPadding;
 - (double)_effectiveLeadingTrailingPadding;
 - (double)_effectiveHeight;
@@ -64,6 +65,7 @@
 - (_Bool)adjustForContentSizeCategoryChange;
 - (void)previewInteractionPresenterDidDismiss:(id)arg1;
 - (void)previewInteractionPresenterDidPresent:(id)arg1;
+- (void)previewInteractionPresenterDidCommitToPresentation:(id)arg1;
 - (_Bool)previewInteractionPresenterShouldBegin:(id)arg1;
 - (id)containerViewForPreviewInteractionPresenter:(id)arg1;
 - (void)_reduceTransparencyStatusDidChange:(id)arg1;

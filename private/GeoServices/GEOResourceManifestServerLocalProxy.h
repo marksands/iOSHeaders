@@ -11,7 +11,7 @@
 #import "GEOResourceManifestServerProxy.h"
 #import "NSURLSessionDataDelegate.h"
 
-@class GEOActiveTileGroup, GEOResourceFiltersManager, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSArray, NSError, NSLock, NSMutableArray, NSMutableData, NSObject<OS_dispatch_queue>, NSOperationQueue, NSProgress, NSString, NSTimer, NSURLSession, NSURLSessionTask, NSURLSessionTaskMetrics, _GEOResourceManifestServerLocalProxyMigrationState;
+@class GEOActiveTileGroup, GEOResourceFiltersManager, GEOResourceManifestConfiguration, GEOResourceManifestDownload, NSArray, NSError, NSLock, NSMutableArray, NSMutableData, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSOperationQueue, NSProgress, NSString, NSURLSession, NSURLSessionTask, NSURLSessionTaskMetrics, _GEOResourceManifestServerLocalProxyMigrationState;
 
 @interface GEOResourceManifestServerLocalProxy : NSObject <NSURLSessionDataDelegate, GEOResourceFiltersManagerDelegate, GEODataStateCapturing, GEOResourceManifestServerProxy>
 {
@@ -25,9 +25,9 @@
     NSOperationQueue *_workOperationQueue;
     GEOResourceManifestConfiguration *_configuration;
     _Bool _wantsManifestUpdateOnReachabilityChange;
-    NSTimer *_manifestUpdateTimer;
+    NSObject<OS_dispatch_source> *_manifestUpdateTimer;
     _Bool _wantsTileGroupUpdateOnReachabilityChange;
-    NSTimer *_tileGroupUpdateTimer;
+    NSObject<OS_dispatch_source> *_tileGroupUpdateTimer;
     GEOResourceManifestDownload *_resourceManifest;
     GEOActiveTileGroup *_activeTileGroup;
     id <NSObject> _newActiveTileGroupTransaction;
@@ -61,7 +61,7 @@
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveData:(id)arg3;
 - (void)URLSession:(id)arg1 dataTask:(id)arg2 didReceiveResponse:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
 - (void)setManifestToken:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_updateTimerFired:(id)arg1;
+- (void)_updateTimerFired;
 - (void)_scheduleUpdateTimerWithTimeInterval:(double)arg1;
 - (unsigned long long)maximumZoomLevelForStyle:(int)arg1 scale:(int)arg2;
 - (void)deactivateResourceScenario:(int)arg1;
@@ -92,7 +92,7 @@
 - (void)_startOpportunisticMigrationToTileGroup:(id)arg1 inResourceManifest:(id)arg2 activeScales:(id)arg3 activeScenarios:(id)arg4 dataSet:(id)arg5;
 - (void)_forceChangeActiveTileGroup:(id)arg1 flushTileCache:(_Bool)arg2 ignoreIdentifier:(_Bool)arg3;
 - (void)performOpportunisticResourceLoading;
-- (void)_tileGroupTimerFired:(id)arg1;
+- (void)_tileGroupTimerFired;
 - (void)_scheduleTileGroupUpdateTimerWithTimeInterval:(double)arg1;
 - (void)_considerChangingActiveTileGroup;
 - (id)_idealTileGroupToUse;

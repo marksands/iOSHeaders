@@ -27,6 +27,7 @@ __attribute__((visibility("hidden")))
     NSString *_annotationText;
 }
 
++ (id)attributedStringForIcon:(id)arg1 text:(id)arg2 font:(id)arg3 color:(id)arg4;
 + (double)labelOffset;
 + (_Bool)highlightAffectsBackground;
 + (double)widthForCandidate:(id)arg1;
@@ -70,6 +71,7 @@ __attribute__((visibility("hidden")))
 - (id)initWithFrame:(struct CGRect)arg1;
 
 // Remaining properties
+@property(readonly, nonatomic) long long cacheDeferPriority;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

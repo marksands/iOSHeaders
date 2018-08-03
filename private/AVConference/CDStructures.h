@@ -126,6 +126,7 @@ struct VCRateControlAlgorithmConfig {
     int minTierIndex;
     int lowestNonEmergencyTierIndex;
     int lowestEffectiveBWETierIndex;
+    int lowestTierIndexReactToNoServerActivity;
     int rampUpTierNumber;
     int rampDownTierNumber;
     int rampUpAdditionalTierAtInitial;
@@ -340,6 +341,7 @@ struct _VCMediaStreamConfigurationProviderVideo {
     unsigned int _field6;
     int _field7;
     unsigned int _field8;
+    _Bool _field9;
 };
 
 struct _VCMediaStreamTransportSetupInfo {
@@ -1243,7 +1245,8 @@ typedef struct {
     unsigned char _field7;
     unsigned short _field8;
     CDStruct_696d2ec8 _field9;
-} CDStruct_630f55d5;
+    double _field10;
+} CDStruct_2f700ce5;
 
 typedef struct {
     unsigned short streamIDs[12];

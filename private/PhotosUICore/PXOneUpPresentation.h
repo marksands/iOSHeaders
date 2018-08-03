@@ -37,11 +37,13 @@
     id <PXOneUpPresentationImplementationDelegate> __implementationDelegate;
     id <PXOneUpPresentationDelegate> _delegate;
     UIViewController *_presentingViewController;
+    UIViewController *_originalPresentingViewController;
     id <PXOneUpPresentationImplementationDelegate> _implementationDelegate;
 }
 
 @property(nonatomic) __weak id <PXOneUpPresentationImplementationDelegate> implementationDelegate; // @synthesize implementationDelegate=_implementationDelegate;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
+@property(nonatomic) __weak UIViewController *originalPresentingViewController; // @synthesize originalPresentingViewController=_originalPresentingViewController;
 @property(readonly, nonatomic) __weak UIViewController *presentingViewController; // @synthesize presentingViewController=_presentingViewController;
 @property(nonatomic) __weak id <PXOneUpPresentationDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic, setter=_setImplementationDelegate:) __weak id <PXOneUpPresentationImplementationDelegate> _implementationDelegate; // @synthesize _implementationDelegate=__implementationDelegate;

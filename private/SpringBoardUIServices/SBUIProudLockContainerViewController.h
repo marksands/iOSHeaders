@@ -19,6 +19,7 @@
     id <SBUIProudLockContainerViewControllerOrientationProvider> _orientationProvider;
     _Bool _authenticated;
     _Bool _screenOn;
+    _Bool _suppressScanningState;
     _Bool _canShowScanningState;
     _Bool _shouldShowScanningState;
     _UILegibilitySettings *_legibilitySettings;
@@ -30,9 +31,10 @@
 
 @property(copy, nonatomic) CDUnknownBlockType unlockCompletion; // @synthesize unlockCompletion=_unlockCompletion;
 @property(nonatomic) _Bool shouldShowScanningState; // @synthesize shouldShowScanningState=_shouldShowScanningState;
+@property(nonatomic) _Bool canShowScanningState; // @synthesize canShowScanningState=_canShowScanningState;
 @property(nonatomic) __weak id <SBUIProudLockContainerViewControllerLockStatusProvider> authenticationInformationProvider; // @synthesize authenticationInformationProvider=_authenticationInformationProvider;
 @property(readonly, nonatomic) UIView *cameraCoveredView; // @synthesize cameraCoveredView=_cameraCoveredView;
-@property(nonatomic) _Bool canShowScanningState; // @synthesize canShowScanningState=_canShowScanningState;
+@property(nonatomic) _Bool suppressScanningState; // @synthesize suppressScanningState=_suppressScanningState;
 @property(nonatomic, getter=isScreenOn) _Bool screenOn; // @synthesize screenOn=_screenOn;
 @property(nonatomic, getter=isAuthenticated) _Bool authenticated; // @synthesize authenticated=_authenticated;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;

@@ -6,18 +6,20 @@
 
 #import "NSObject.h"
 
-@class CSSearchableIndex, CSTopHitSearchQuery, NSDate, NSObject<OS_dispatch_queue>;
+@class CSSearchableIndex, CSTopHitSearchQuery, NSDate, NSMutableArray, NSObject<OS_dispatch_queue>;
 
 @interface PSCoreSpotlightIndexer : NSObject
 {
     CSSearchableIndex *_prefsSearchableIndex;
     NSObject<OS_dispatch_queue> *_spotlightIndexQueue;
     CSTopHitSearchQuery *_searchQuery;
+    NSMutableArray *_indexFromControllerLog;
 }
 
 + (id)sharedInstance;
 + (char *)spotlightIndexQueueIdentifier;
 + (id)searchIndexIdentifier;
+@property(retain, nonatomic) NSMutableArray *indexFromControllerLog; // @synthesize indexFromControllerLog=_indexFromControllerLog;
 @property(retain, nonatomic) CSTopHitSearchQuery *searchQuery; // @synthesize searchQuery=_searchQuery;
 @property(retain, nonatomic) NSObject<OS_dispatch_queue> *spotlightIndexQueue; // @synthesize spotlightIndexQueue=_spotlightIndexQueue;
 @property(retain, nonatomic) CSSearchableIndex *prefsSearchableIndex; // @synthesize prefsSearchableIndex=_prefsSearchableIndex;

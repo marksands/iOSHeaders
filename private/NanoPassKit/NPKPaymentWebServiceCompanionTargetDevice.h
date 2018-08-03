@@ -46,6 +46,7 @@
 - (void)handleShowPaymentSetupRequest:(id)arg1;
 - (void)handleWebServiceContextNeededRequest:(id)arg1;
 - (void)handleWebServiceContextDidChangeRequest:(id)arg1;
+- (void)handleCompanioniCloudSignout;
 - (void)handleCompanionPeerPaymentRegistration;
 - (void)handleCompanionMigrationWithCompletion:(CDUnknownBlockType)arg1;
 - (void)handleCompanionMigrationResponse:(id)arg1;

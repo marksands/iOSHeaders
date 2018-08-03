@@ -11,6 +11,7 @@
 @protocol PXCMMMutableViewModel <NSObject>
 @property(nonatomic) unsigned long long numberOfReceivedAssets;
 @property(copy, nonatomic) PXRecipient *originatorRecipient;
+@property(nonatomic) _Bool containsUnverifiedPersons;
 @property(nonatomic) _Bool shouldShowPlaceholder;
 @property(nonatomic) _Bool loadingPeopleSuggestions;
 @property(retain, nonatomic) NSSet *disabledActionTypes;
@@ -24,6 +25,7 @@
 @property(nonatomic) long long photosCount;
 @property(copy, nonatomic) NSDate *endDate;
 @property(copy, nonatomic) NSDate *startDate;
+@property(copy, nonatomic) NSString *shareUUID;
 @property(copy, nonatomic) NSURL *shareURL;
 @property(copy, nonatomic) NSArray *recipients;
 @property(retain, nonatomic) PXSectionedSelectionManager *selectionManager;

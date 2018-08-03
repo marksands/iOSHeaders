@@ -30,6 +30,7 @@
 - (void)_updateVerticalConstraints;
 - (void)updateEstimates:(id)arg1 forManeuver:(id)arg2;
 - (void)showManeuvers:(id)arg1 usingDisplayStyles:(id)arg2;
+- (struct CGSize)intrinsicContentSize;
 - (void)_clearManeuvers;
 - (void)backgroundColorDidChange;
 - (id)init;

@@ -32,8 +32,7 @@
 - (void)_queue_updateCompanionToggleSyncForLocalAssertions:(id)arg1 gizmoUpdateDate:(id)arg2;
 - (void)_queue_updateGizmoToggleSyncForLocalAssertions:(id)arg1 companionUpdateDate:(id)arg2;
 - (id)_queue_gizmoUpdateDate;
-- (id)_queue_companionUpdateDateForAssertions:(id)arg1;
-- (void)_queue_updateToggleSyncForLocalAssertions:(id)arg1;
+- (void)_queue_updateToggleSyncForLocalAssertions:(id)arg1 lastUpdateDate:(id)arg2;
 - (void)_sendUpdateToAllObserversForAssertionInvalidations:(id)arg1;
 - (void)_sendUpdateToAllObserversForTakenAssertions:(id)arg1;
 - (id)_queue_allModeAssertionsWithError:(id *)arg1;

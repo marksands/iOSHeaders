@@ -42,6 +42,7 @@
     NSDictionary *_photosGraphProperties;
 }
 
++ (unsigned long long)_contextualScoreForMemory:(id)arg1;
 + (id)fetchBestRecentMemoryWithOptions:(id)arg1;
 + (id)stringForSubcategory:(unsigned long long)arg1;
 + (id)stringForCategory:(unsigned long long)arg1;

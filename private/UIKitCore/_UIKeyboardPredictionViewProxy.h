@@ -12,6 +12,9 @@ __attribute__((visibility("hidden")))
 }
 
 - (id)description;
+- (double)heightForInterfaceOrientation:(long long)arg1;
+- (_Bool)enabled;
+- (_Bool)show;
 - (struct CGSize)size;
 - (void)removeFromSuperview;
 - (id)superview;

@@ -68,6 +68,7 @@ __attribute__((visibility("hidden")))
 - (long long)globalIndexForItemAtIndexPath:(id)arg1;
 - (id)validatedIndexPathForItemAtGlobalIndex:(long long)arg1;
 - (long long)validatedGlobalIndexForItemAtIndexPath:(id)arg1;
+- (_Bool)isIndexPathValid:(id)arg1 validateItemCounts:(_Bool)arg2;
 - (_Bool)isIndexPathValid:(id)arg1;
 - (_Bool)isGlobalIndexValid:(long long)arg1;
 - (long long)numberOfItemsBeforeSection:(long long)arg1;

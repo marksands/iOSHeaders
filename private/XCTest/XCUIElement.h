@@ -6,21 +6,23 @@
 
 #import "NSObject.h"
 
-#import "XCElementAttributesPrivate.h"
 #import "XCTNSPredicateExpectationObject.h"
 #import "XCUIElementAttributes.h"
+#import "XCUIElementAttributesPrivate.h"
+#import "XCUIElementSnapshotProviding.h"
 #import "XCUIElementTypeQueryProvider.h"
 #import "XCUIScreenshotProviding.h"
 
 @class NSString, XCElementSnapshot, XCTLocalizableStringInfo, XCUIApplication, XCUICoordinate, XCUIElementQuery;
 
-@interface XCUIElement : NSObject <XCUIScreenshotProviding, XCTNSPredicateExpectationObject, XCElementAttributesPrivate, XCUIElementAttributes, XCUIElementTypeQueryProvider>
+@interface XCUIElement : NSObject <XCUIScreenshotProviding, XCUIElementSnapshotProviding, XCTNSPredicateExpectationObject, XCUIElementAttributesPrivate, XCUIElementAttributes, XCUIElementTypeQueryProvider>
 {
     _Bool _safeQueryResolutionEnabled;
     XCUIElementQuery *_query;
     XCElementSnapshot *_lastSnapshot;
 }
 
++ (id)standardAttributeNames;
 + (_Bool)_isInvalidEventDuration:(double)arg1;
 @property _Bool safeQueryResolutionEnabled; // @synthesize safeQueryResolutionEnabled=_safeQueryResolutionEnabled;
 @property(retain) XCElementSnapshot *lastSnapshot; // @synthesize lastSnapshot=_lastSnapshot;
@@ -127,6 +129,7 @@
 @property(readonly, copy) NSString *title;
 @property(readonly) struct CGRect frame;
 @property(readonly) id value;
+- (_Bool)resolveHandleUIInterruption:(_Bool)arg1 error:(id *)arg2;
 - (void)resolveHandleUIInterruption:(_Bool)arg1;
 - (void)resolve;
 - (_Bool)waitForExistenceWithTimeout:(double)arg1;
@@ -144,6 +147,7 @@
 - (id)initWithElementQuery:(id)arg1;
 - (id)screenshot;
 - (id)_screen;
+- (id)snapshotWithError:(id *)arg1;
 - (_Bool)_shouldDispatchEvent:(id *)arg1;
 - (void)_dispatchEvent:(id)arg1 block:(CDUnknownBlockType)arg2;
 - (_Bool)_dispatchEvent:(CDUnknownBlockType)arg1 error:(id *)arg2;

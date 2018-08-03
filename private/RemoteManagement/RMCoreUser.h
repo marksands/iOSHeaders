@@ -12,14 +12,22 @@
 {
 }
 
++ (id)_fetchRequestForUsersWithAppleID:(id)arg1;
 + (id)fetchRequestForUsersWithDSID:(id)arg1;
 + (id)fetchRequestMatchingLocalUser;
++ (id)fetchUserWithAppleID:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
 + (id)fetchUserWithDSID:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
 + (id)fetchLocalUserInContext:(id)arg1 error:(id *)arg2;
+- (void)didChangeValueForKey:(id)arg1;
 - (void)updateWithDescription:(id)arg1;
+- (id)unmodeled_managingOrganizationSettings;
 - (id)unmodeled_managingOrganization;
-- (id)umodeled_managingOrganizationSettings;
+- (void)unmodeled_setPasscode:(id)arg1;
 - (id)unmodeled_effectivePasscode;
+- (_Bool)unmodeled_isManaging;
+- (_Bool)unmodeled_isManaged;
+- (void)unmodeled_setScreenTimeSyncingEnabled:(_Bool)arg1;
+- (_Bool)unmodeled_screenTimeSyncingEnabled;
 - (void)unmodeled_setScreenTimeEnabled:(_Bool)arg1;
 - (_Bool)unmodeled_screenTimeEnabled;
 
@@ -38,6 +46,7 @@
 @property(retain, nonatomic) RMUserDeviceState *localUserDeviceState; // @dynamic localUserDeviceState;
 @property(readonly, copy, nonatomic) NSString *phoneticFamilyName; // @dynamic phoneticFamilyName;
 @property(readonly, copy, nonatomic) NSString *phoneticGivenName; // @dynamic phoneticGivenName;
+@property(retain, nonatomic) NSSet *usages; // @dynamic usages;
 @property(retain, nonatomic) NSSet *userDeviceAddresses; // @dynamic userDeviceAddresses;
 @property(retain, nonatomic) NSSet *userDeviceStates; // @dynamic userDeviceStates;
 

@@ -8,7 +8,7 @@
 
 #import "NSCopying.h"
 
-@class NSMutableArray, NSString, NTPBBinningConfig, NTPBIAdConfig, NTPBPaidSubscriptionConfig, NTPBPersonalizationConfig, NTPBPersonalizationTreatment, NTPBPrefetchConfig, NTPBVideoGroupsConfig, NTPBWidgetConfig;
+@class NSMutableArray, NSString, NTPBBinningConfig, NTPBIAdConfig, NTPBPaidSubscriptionConfig, NTPBPersonalizationConfig, NTPBPersonalizationTreatment, NTPBPrefetchConfig, NTPBUserSegmentationApiConfiguration, NTPBVideoGroupsConfig, NTPBWidgetConfig;
 
 @interface NTPBConfig : PBCodable <NSCopying>
 {
@@ -103,6 +103,7 @@
     NTPBPrefetchConfig *_prefetchConfig;
     unsigned int _privateDataMigrationCleanupLevel;
     int _trendingStyle;
+    NTPBUserSegmentationApiConfiguration *_userSegmentationApiConfiguration;
     NTPBWidgetConfig *_widgetConfig;
     NTPBWidgetConfig *_widgetConfig2;
     _Bool _alternativeButlerWidgetConfigEnabled;
@@ -200,6 +201,7 @@
 + (Class)externalAnalyticsConfigType;
 + (Class)endpointConfigsType;
 + (Class)languageConfigsType;
+@property(retain, nonatomic) NTPBUserSegmentationApiConfiguration *userSegmentationApiConfiguration; // @synthesize userSegmentationApiConfiguration=_userSegmentationApiConfiguration;
 @property(retain, nonatomic) NSString *articleRecirculationComponentPlacementConfig; // @synthesize articleRecirculationComponentPlacementConfig=_articleRecirculationComponentPlacementConfig;
 @property(nonatomic) unsigned int privateDataMigrationCleanupLevel; // @synthesize privateDataMigrationCleanupLevel=_privateDataMigrationCleanupLevel;
 @property(nonatomic) long long userSegmentationApiModMax; // @synthesize userSegmentationApiModMax=_userSegmentationApiModMax;
@@ -285,6 +287,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasUserSegmentationApiConfiguration;
 @property(nonatomic) _Bool hasDisableThumbnailsForArticleRecirculation;
 @property(nonatomic) _Bool disableThumbnailsForArticleRecirculation; // @synthesize disableThumbnailsForArticleRecirculation=_disableThumbnailsForArticleRecirculation;
 @property(nonatomic) _Bool hasArticleRecirculationPopularFeedQueryTimeRange;

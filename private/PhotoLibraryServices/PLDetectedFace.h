@@ -19,7 +19,6 @@
 + (id)predicatesToExcludeNonVisibleFaces;
 + (void)batchFetchKeyFacesByPersonUUIDWithPersonUUIDs:(id)arg1 completion:(CDUnknownBlockType)arg2;
 + (void)batchFetchDetectedFacesByAssetUUIDWithAssetUUIDs:(id)arg1 predicate:(id)arg2 completion:(CDUnknownBlockType)arg3;
-+ (id)_batchFetchDetectedFacesByAssetUUIDWithAssetUUIDs:(id)arg1 predicate:(id)arg2 inManagedObjectContext:(id)arg3 error:(id *)arg4;
 + (_Bool)facesSyncFeatureEnabled;
 + (unsigned long long)countOfHiddenFacesOnAssetsWithObjectIDs:(id)arg1 inManagedObjectContext:(id)arg2;
 + (id)detectedFaceWithUUID:(id)arg1 inManagedObjectContext:(id)arg2;

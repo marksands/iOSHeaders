@@ -47,6 +47,7 @@
 - (_Bool)isHEIFSupported;
 - (_Bool)isHEVCPreferred;
 - (_Bool)isHEVCSupported;
+- (_Bool)isHEVCRelaxedAverageBitRateTargetSupported;
 - (int)hevcTurboModeVersion;
 - (_Bool)usesQuantizationScalingMatrix_H264_Steep_16_48;
 - (int)minMacroblocksForHighProfileAbove30fps;
@@ -87,6 +88,8 @@
 - (_Bool)isWideColorSupported;
 - (void)setActiveColorSpace:(long long)arg1;
 - (long long)activeColorSpace;
+- (void)setVideoHDRSuspended:(_Bool)arg1;
+- (_Bool)isVideoHDRSuspended;
 - (void)setVideoHDREnabled:(_Bool)arg1;
 - (_Bool)isVideoHDREnabled;
 - (void)setAutomaticallyAdjustsVideoHDREnabled:(_Bool)arg1;

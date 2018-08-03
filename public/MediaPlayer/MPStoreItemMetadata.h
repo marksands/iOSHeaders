@@ -47,6 +47,7 @@
 - (id)artworkRequestTokenForUberArtworkKind:(id)arg1;
 - (id)artworkRequestTokenForScreenshotArtwork;
 - (id)artworkRequestTokenForEditorialArtworkKind:(id)arg1;
+@property(readonly, nonatomic) _Bool isChart;
 @property(readonly, nonatomic) long long radioStationTypeID;
 @property(readonly, nonatomic, getter=isVerifiedPerson) _Bool verifiedPerson;
 @property(readonly, nonatomic, getter=isPrivatePerson) _Bool privatePerson;

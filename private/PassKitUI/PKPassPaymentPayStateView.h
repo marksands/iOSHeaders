@@ -19,6 +19,7 @@
     _Bool _touchRecognizingHint;
     _Bool _persistentEmulationHint;
     _Bool _accessPass;
+    _Bool _useSmallStyleGlyph;
     long long _state;
     PKGlyphView *_glyph;
     UILabel *_label;
@@ -28,6 +29,7 @@
 }
 
 @property(nonatomic) __weak id <PKPassPaymentPayStateViewDelegate> delegate; // @synthesize delegate=_delegate;
+@property(nonatomic) _Bool useSmallStyleGlyph; // @synthesize useSmallStyleGlyph=_useSmallStyleGlyph;
 @property(nonatomic) _Bool accessPass; // @synthesize accessPass=_accessPass;
 @property(nonatomic) _Bool persistentEmulationHint; // @synthesize persistentEmulationHint=_persistentEmulationHint;
 @property(nonatomic) _Bool touchRecognizingHint; // @synthesize touchRecognizingHint=_touchRecognizingHint;

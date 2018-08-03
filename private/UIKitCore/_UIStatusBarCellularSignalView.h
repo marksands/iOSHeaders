@@ -16,6 +16,7 @@
 
 + (struct CGSize)_intrinsicContentSizeForNumberOfBars:(long long)arg1 iconSize:(long long)arg2;
 + (double)_interspaceForIconSize:(long long)arg1;
++ (double)_barCornerRadiusForIconSize:(long long)arg1;
 + (double)_heightForNormalBarAtIndex:(long long)arg1 iconSize:(long long)arg2;
 + (double)_barWidthForIconSize:(long long)arg1;
 @property(retain, nonatomic) _UIStatusBarCycleAnimation *cycleAnimation; // @synthesize cycleAnimation=_cycleAnimation;
@@ -23,8 +24,6 @@
 - (void).cxx_destruct;
 - (id)accessibilityHUDRepresentation;
 - (struct CGSize)intrinsicContentSize;
-- (void)_updateCycleAnimationVisibility;
-- (void)_visibilityDidChange;
 - (void)didMoveToWindow;
 - (void)_updateFromMode:(long long)arg1;
 - (void)_updateActiveBars;
@@ -35,7 +34,6 @@
 - (void)_updateCycleAnimationIfNeeded;
 - (void)_setNeedsUpdateCycleAnimation;
 - (void)_updateBars;
-- (double)_barCornerRadius;
 - (double)_heightForBarAtIndex:(long long)arg1 mode:(long long)arg2;
 - (double)_heightForBarAtIndex:(long long)arg1;
 

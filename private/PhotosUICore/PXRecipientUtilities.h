@@ -10,6 +10,7 @@
 {
 }
 
++ (id)px_bestMessagingTransportForContact:(id)arg1;
 + (void)_getAddressForContact:(id)arg1 address:(id *)arg2 addressKind:(unsigned long long *)arg3;
 + (_Bool)bootstrapPersonSuggestion:(id)arg1 withContact:(id)arg2 error:(id *)arg3;
 + (id)composeRecipientForRecipient:(id)arg1;
@@ -19,6 +20,7 @@
 + (unsigned long long)px_mf_addressKindFromString:(id)arg1;
 + (long long)px_addressKindFromString:(id)arg1;
 + (id)px_validPhoneNumberFromString:(id)arg1;
++ (_Bool)px_IsEmailAddress:(id)arg1 equalToEmailAddress:(id)arg2;
 + (_Bool)px_IsValidEmailAddress:(id)arg1;
 
 @end

@@ -52,8 +52,10 @@
 @property(readonly, copy, nonatomic) NSString *genreTitle;
 @property(readonly, copy, nonatomic) NSString *sortTitle;
 @property(readonly, copy, nonatomic) NSString *title;
+@property(readonly, copy, nonatomic) NSNumber *HLSAudioCapability;
 @property(readonly, copy, nonatomic) NSNumber *HLSColorCapability;
 @property(readonly, copy, nonatomic) NSNumber *HLSResolution;
+@property(readonly, copy, nonatomic) NSNumber *audioCapability;
 @property(readonly, copy, nonatomic) NSNumber *colorCapability;
 @property(readonly, copy, nonatomic) NSNumber *resolution;
 @property(readonly, copy, nonatomic) NSNumber *isLocal;

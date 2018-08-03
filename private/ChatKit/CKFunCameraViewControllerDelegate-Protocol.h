@@ -9,6 +9,7 @@
 @class CKBrowserItemPayload, CKConversation, CKFunCameraViewController, NSData;
 
 @protocol CKFunCameraViewControllerDelegate <NSObject>
+- (void)presentPhotosApp;
 - (void)stageAssetArchive:(NSData *)arg1 skipShelf:(_Bool)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)willDismissFunCamera:(CKFunCameraViewController *)arg1;
 - (void)startCommitPayload:(CKBrowserItemPayload *)arg1 forConversation:(CKConversation *)arg2;

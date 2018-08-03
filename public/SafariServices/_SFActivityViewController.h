@@ -21,7 +21,7 @@
 
 + (id)activeWebPageExtensionItemForURL:(id)arg1 withPreviewImageHandler:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSString *currentExtensionIdentifier; // @synthesize currentExtensionIdentifier=_currentExtensionIdentifier;
-@property(readonly, nonatomic) NSURL *sharingURL; // @synthesize sharingURL=_sharingURL;
+@property(retain, nonatomic) NSURL *sharingURL; // @synthesize sharingURL=_sharingURL;
 @property(nonatomic) __weak id <_SFActivityViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(nonatomic) __weak _SFSafariSharingExtensionController *sharingExtensionController; // @synthesize sharingExtensionController=_sharingExtensionController;
 @property(readonly, nonatomic) _Bool viewCanEarlyDismiss; // @synthesize viewCanEarlyDismiss=_viewCanEarlyDismiss;
@@ -36,7 +36,6 @@
 - (void)_executeActivity;
 - (void)activityDidComplete:(id)arg1 withReturnedItems:(id)arg2 success:(_Bool)arg3;
 - (void)_updatePrintControllerWithActivityItems:(id)arg1;
-- (void)updateActivityItems:(id)arg1 withSharingURL:(id)arg2;
 - (id)initWithActivityItems:(id)arg1 applicationActivities:(id)arg2 sharingURL:(id)arg3 sourceURL:(id)arg4;
 
 @end

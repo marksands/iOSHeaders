@@ -30,7 +30,7 @@
 - (id)getAllStoredIntentDefinitions;
 - (id)getAllChanges;
 - (void)removeSyncStateForSyncServiceWithIdentifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
-- (_Bool)resetLocalData:(id *)arg1;
+- (_Bool)deleteSyncedData:(id *)arg1;
 - (void)deregisterSyncServiceWithIdentifier:(id)arg1;
 - (void)registerSyncService:(id)arg1 asMaster:(_Bool)arg2;
 - (id)createMessageFromData:(id)arg1;

@@ -9,7 +9,7 @@
 @class NSError, VCVoiceShortcut;
 
 @protocol INUIVoiceShortcutRemoteViewControllerAddDelegate <NSObject>
-- (void)remoteViewControllerAddDidCacnel;
+- (void)remoteViewControllerAddDidCancel;
 - (void)remoteViewControllerDidAddVoiceShortcut:(VCVoiceShortcut *)arg1 error:(NSError *)arg2;
 @end
 

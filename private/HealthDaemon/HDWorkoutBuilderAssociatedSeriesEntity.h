@@ -12,7 +12,8 @@
 
 + (long long)protectionClass;
 + (id)uniquedColumns;
-+ (id)columnsDefinition;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (id)allBuilderAssociatedSeriesWithProfile:(id)arg1 error:(id *)arg2;
 + (_Bool)enumerateSeriesForBuilder:(id)arg1 transaction:(id)arg2 error:(id *)arg3 block:(CDUnknownBlockType)arg4;

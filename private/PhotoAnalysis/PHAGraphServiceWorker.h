@@ -168,7 +168,6 @@
 - (void)shutdownAndWaitForGraphManager;
 - (void)setupGraphManager;
 - (_Bool)_graphShouldBeConnected;
-- (void)didFinishLastPendingRequest;
 - (void)photoAnalysisGraphManager:(id)arg1 willShutdownGraph:(id)arg2;
 - (_Bool)canRunWhenGraphIsLoaded;
 - (void)shutdown;

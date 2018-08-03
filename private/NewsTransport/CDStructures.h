@@ -122,6 +122,11 @@ typedef struct {
 } CDStruct_762d0caf;
 
 typedef struct {
+    unsigned int publisherArticleVersion:1;
+    unsigned int articleType:1;
+} CDStruct_3186b938;
+
+typedef struct {
     unsigned int coverArticleWidgetArticleCount:1;
 } CDStruct_bb0d9f0d;
 

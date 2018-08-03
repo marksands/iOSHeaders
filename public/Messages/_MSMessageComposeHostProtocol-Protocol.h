@@ -12,6 +12,7 @@
 - (void)_openURL:(NSURL *)arg1 completionHandler:(void (^)(_Bool))arg2;
 - (void)_remoteViewDidBecomeReadyForDisplay;
 - (void)_updateSnapshotForNextLaunch:(UIImage *)arg1;
+- (void)_dismissAndPresentPhotosApp;
 - (void)_dismiss;
 - (void)_requestPresentationStyle:(unsigned long long)arg1;
 - (void)_startDragMediaItem:(_MSMessageMediaPayload *)arg1 frameInRemoteView:(struct CGRect)arg2 fence:(BKSAnimationFenceHandle *)arg3 completionHandler:(void (^)(_Bool, NSError *))arg4;

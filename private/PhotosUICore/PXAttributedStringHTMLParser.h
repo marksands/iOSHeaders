@@ -12,6 +12,7 @@
 {
     unsigned int __currentTraits;
     NSDictionary *_emphasizedAttributes;
+    NSDictionary *_italicizedAttributes;
     CDUnknownBlockType _parsedAttributedStringBlock;
     CDUnknownBlockType _parsedErrorBlock;
     NSString *__htmlString;
@@ -28,6 +29,7 @@
 @property(readonly, copy, nonatomic) NSString *_htmlString; // @synthesize _htmlString=__htmlString;
 @property(copy, nonatomic) CDUnknownBlockType parsedErrorBlock; // @synthesize parsedErrorBlock=_parsedErrorBlock;
 @property(copy, nonatomic) CDUnknownBlockType parsedAttributedStringBlock; // @synthesize parsedAttributedStringBlock=_parsedAttributedStringBlock;
+@property(copy, nonatomic) NSDictionary *italicizedAttributes; // @synthesize italicizedAttributes=_italicizedAttributes;
 @property(copy, nonatomic) NSDictionary *emphasizedAttributes; // @synthesize emphasizedAttributes=_emphasizedAttributes;
 - (void).cxx_destruct;
 - (void)_updateCurrentTraits;

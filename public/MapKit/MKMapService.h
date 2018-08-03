@@ -80,6 +80,7 @@
 - (void)capturePlaceCardUserAction:(int)arg1 onTarget:(int)arg2 eventValue:(id)arg3 mapItem:(id)arg4 timestamp:(double)arg5 resultIndex:(int)arg6 targetID:(unsigned long long)arg7 providerID:(id)arg8 animationID:(unsigned long long)arg9 actionURL:(id)arg10 photoID:(id)arg11 placeCardType:(int)arg12 localizedMapItemCategory:(id)arg13 availableActions:(id)arg14 unactionableUIElements:(id)arg15;
 - (void)captureUserActionAsString:(id)arg1 onTarget:(int)arg2 eventValue:(id)arg3 placeActionDetails:(id)arg4;
 - (void)captureUserAction:(int)arg1 onTarget:(int)arg2 eventValue:(id)arg3 placeActionDetails:(id)arg4;
+- (void)captureUserAction:(int)arg1 onTarget:(int)arg2 placeActionDetails:(id)arg3 mapItem:(id)arg4 resultIndex:(int)arg5;
 - (void)captureUserActionAsString:(id)arg1 flyoverAnimationID:(unsigned long long)arg2;
 - (void)captureUserActionAsString:(id)arg1 onTarget:(int)arg2 eventValue:(id)arg3 mapItem:(id)arg4 timestamp:(double)arg5 resultIndex:(int)arg6 mapRegion:(id)arg7 zoomLevel:(double)arg8 mapType:(int)arg9;
 - (void)captureUserActionAsString:(id)arg1 onTarget:(int)arg2 eventValue:(id)arg3 mapItem:(id)arg4 timestamp:(double)arg5 resultIndex:(int)arg6;
@@ -87,6 +88,7 @@
 - (void)captureUserAction:(int)arg1 onTarget:(int)arg2 eventValue:(id)arg3 mapRegion:(id)arg4 zoomLevel:(double)arg5 mapType:(int)arg6;
 - (void)captureMapLaunchEventWithLaunchUrl:(id)arg1 sourceAppId:(id)arg2 isLaunchedFromTTL:(_Bool)arg3 ttlEventTime:(id)arg4;
 - (void)captureUserAction:(int)arg1 onTarget:(int)arg2 eventValue:(id)arg3;
+- (void)siriAnalyticsDonation:(int)arg1 target:(int)arg2 resultIndex:(int)arg3 mapItem:(id)arg4;
 - (void)captureExtensionStateWithIsTableBookingAppsInstalled:(_Bool)arg1 isTableBookingAppsEnabled:(_Bool)arg2;
 - (void)captureExtensionStateWithIsRideBookingAppsInstalled:(_Bool)arg1 isRideBookingAppsEnabled:(_Bool)arg2;
 - (void)capturePairedDeviceStateWithDeviceType:(int)arg1 isConnected:(_Bool)arg2 deviceOSVersion:(id)arg3 deviceHwIdentifier:(id)arg4;

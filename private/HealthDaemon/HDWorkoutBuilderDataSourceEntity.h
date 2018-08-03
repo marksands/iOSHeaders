@@ -11,7 +11,8 @@
 }
 
 + (long long)protectionClass;
-+ (id)columnsDefinition;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (_Bool)enumerateDataSourcesForWorkoutBuilder:(id)arg1 transaction:(id)arg2 error:(id *)arg3 block:(CDUnknownBlockType)arg4;
 + (_Bool)removeDataSourceWithIdentifier:(id)arg1 fromWorkoutBuilder:(id)arg2 transaction:(id)arg3 error:(id *)arg4;

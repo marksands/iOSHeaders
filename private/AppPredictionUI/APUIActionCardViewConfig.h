@@ -15,6 +15,7 @@
     _Bool _showActionButton;
     _Bool _showAppFootnote;
     _Bool _useTinyIconVariant;
+    _Bool _fallbackToCustomResponseString;
     unsigned long long _style;
     NSString *_bundleId;
     long long _maxLinesForTitle;
@@ -22,6 +23,7 @@
     long long _maxLinesForFootnote;
 }
 
+@property(nonatomic) _Bool fallbackToCustomResponseString; // @synthesize fallbackToCustomResponseString=_fallbackToCustomResponseString;
 @property(nonatomic) long long maxLinesForFootnote; // @synthesize maxLinesForFootnote=_maxLinesForFootnote;
 @property(nonatomic) long long maxLinesForSubtitle; // @synthesize maxLinesForSubtitle=_maxLinesForSubtitle;
 @property(nonatomic) long long maxLinesForTitle; // @synthesize maxLinesForTitle=_maxLinesForTitle;

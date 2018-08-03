@@ -48,6 +48,7 @@
 - (id)_initWithURLRepresentation:(id)arg1;
 - (id)_URLRepresentation;
 - (id)_preferredImageLoader;
+@property(copy, nonatomic, setter=_setBundleIdentifier:) NSString *_bundleIdentifier;
 @property(copy, nonatomic, setter=_setBundlePath:) NSString *_bundlePath;
 @property(copy, nonatomic, setter=_setName:) NSString *_name;
 @property(copy, nonatomic, setter=_setUri:) NSURL *_uri;

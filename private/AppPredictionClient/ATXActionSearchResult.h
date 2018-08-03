@@ -15,9 +15,12 @@
 }
 
 + (_Bool)supportsSecureCoding;
++ (_Bool)shouldDisplayUpcomingMediaForTesting;
 + (_Bool)shouldDisplayRecentDonationsForTesting;
 + (_Bool)_demoModeEnabled;
-+ (id)actionResponseFromDuetHelper;
++ (id)recentUpcomingMedia;
++ (id)recentDonationsStarting:(id)arg1 end:(id)arg2 number:(unsigned long long)arg3;
++ (id)actionResponseForDeveloperMode;
 + (id)_demoModeActionResponse;
 + (id)searchResultForAction:(id)arg1 actionResponse:(id)arg2;
 + (id)predictedActionSearchResultsWithLimit:(long long)arg1 forBundleIdentifiers:(id)arg2;

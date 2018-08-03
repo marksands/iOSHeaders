@@ -20,22 +20,28 @@
     unsigned long long _suggestionID;
     _UILegibilitySettings *_legibilitySettings;
     SPSearchEntity *_searchEntity;
+    long long _activeInterfaceOrientation;
     double _blurProgress;
     SPUITextField *_searchField;
     UIButton *_cancelButton;
     NSLayoutConstraint *_searchFieldTrailingConstraint;
     NSLayoutConstraint *_cancelButtonTrailingConstraint;
     NSLayoutConstraint *_widthConstraint;
+    NSLayoutConstraint *_topConstraint;
+    NSLayoutConstraint *_bottomConstraint;
 }
 
 @property _Bool searchTextScheduledForProcessing; // @synthesize searchTextScheduledForProcessing=_searchTextScheduledForProcessing;
 @property _Bool willClear; // @synthesize willClear=_willClear;
+@property(retain) NSLayoutConstraint *bottomConstraint; // @synthesize bottomConstraint=_bottomConstraint;
+@property(retain) NSLayoutConstraint *topConstraint; // @synthesize topConstraint=_topConstraint;
 @property(retain) NSLayoutConstraint *widthConstraint; // @synthesize widthConstraint=_widthConstraint;
 @property(retain) NSLayoutConstraint *cancelButtonTrailingConstraint; // @synthesize cancelButtonTrailingConstraint=_cancelButtonTrailingConstraint;
 @property(retain) NSLayoutConstraint *searchFieldTrailingConstraint; // @synthesize searchFieldTrailingConstraint=_searchFieldTrailingConstraint;
 @property(retain) UIButton *cancelButton; // @synthesize cancelButton=_cancelButton;
 @property(retain) SPUITextField *searchField; // @synthesize searchField=_searchField;
 @property(nonatomic) double blurProgress; // @synthesize blurProgress=_blurProgress;
+@property(nonatomic) long long activeInterfaceOrientation; // @synthesize activeInterfaceOrientation=_activeInterfaceOrientation;
 @property _Bool offersCompletions; // @synthesize offersCompletions=_offersCompletions;
 @property(retain, nonatomic) SPSearchEntity *searchEntity; // @synthesize searchEntity=_searchEntity;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
@@ -43,6 +49,7 @@
 @property __weak id <SPUISearchHeaderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 @property(nonatomic) _Bool useInPlaceFilteredBlur;
+- (double)bottomPadding;
 - (double)topPadding;
 - (void)performTestSearchWithQuery:(id)arg1 event:(unsigned long long)arg2 sourcePreference:(long long)arg3;
 - (void)searchForQuery:(id)arg1 forSuggestions:(_Bool)arg2;
@@ -82,7 +89,6 @@
 - (void)_updateClearButtonVisibility;
 @property(retain) NSArray *representedObjects;
 - (void)dictationButtonPressed;
-- (void)changeOrientation:(id)arg1;
 - (void)didMoveToSuperview;
 - (id)init;
 

@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (double)labelOffset;
 + (_Bool)highlightAffectsBackground;
 + (struct UIEdgeInsets)cacheInsets;
 + (id)font;
@@ -18,7 +19,6 @@ __attribute__((visibility("hidden")))
 - (void)_setShowsLinesOnEdges:(unsigned long long)arg1 color:(id)arg2;
 - (void)_attachLine:(id)arg1 toEdge:(unsigned long long)arg2;
 - (void)updateLabels;
-- (double)labelOffset;
 - (void)drawRect:(struct CGRect)arg1;
 - (int)style;
 

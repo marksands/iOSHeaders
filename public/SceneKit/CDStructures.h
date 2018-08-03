@@ -351,6 +351,10 @@ struct SCNVector4 {
     float w;
 };
 
+struct SkelNodesMap {
+    struct map<MDLSkeleton *, (anonymous namespace)::SkelNodes, std::__1::less<MDLSkeleton *>, std::__1::allocator<std::__1::pair<MDLSkeleton *const, (anonymous namespace)::SkelNodes>>> _field1;
+};
+
 struct _NSRange {
     unsigned long long location;
     unsigned long long length;
@@ -995,6 +999,18 @@ struct c3dAether {
 struct c3dContactCallback;
 
 struct c3dPhysicsField;
+
+struct map<MDLSkeleton *, (anonymous namespace)::SkelNodes, std::__1::less<MDLSkeleton *>, std::__1::allocator<std::__1::pair<MDLSkeleton *const, (anonymous namespace)::SkelNodes>>> {
+    struct __tree<std::__1::__value_type<MDLSkeleton *, (anonymous namespace)::SkelNodes>, std::__1::__map_value_compare<MDLSkeleton *, std::__1::__value_type<MDLSkeleton *, (anonymous namespace)::SkelNodes>, std::__1::less<MDLSkeleton *>, true>, std::__1::allocator<std::__1::__value_type<MDLSkeleton *, (anonymous namespace)::SkelNodes>>> {
+        struct __tree_end_node<std::__1::__tree_node_base<void *>*> *_field1;
+        struct __compressed_pair<std::__1::__tree_end_node<std::__1::__tree_node_base<void *>*>, std::__1::allocator<std::__1::__tree_node<std::__1::__value_type<MDLSkeleton *, (anonymous namespace)::SkelNodes>, void *>>> {
+            struct __tree_end_node<std::__1::__tree_node_base<void *>*> _field1;
+        } _field2;
+        struct __compressed_pair<unsigned long, std::__1::__map_value_compare<MDLSkeleton *, std::__1::__value_type<MDLSkeleton *, (anonymous namespace)::SkelNodes>, std::__1::less<MDLSkeleton *>, true>> {
+            unsigned long long _field1;
+        } _field3;
+    } _field1;
+};
 
 struct os_unfair_lock_s {
     unsigned int _os_unfair_lock_opaque;

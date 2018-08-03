@@ -39,6 +39,7 @@
     _Bool _isCollapsedNotification;
     unsigned long long _collapsedNotificationsCount;
     NSDictionary *_sourceInfo;
+    _Bool _criticalAlert;
 }
 
 + (id)notificationRequestWithNotificationId:(id)arg1 requestDestinations:(id)arg2 lockScreenPersistence:(unsigned long long)arg3;
@@ -70,6 +71,7 @@
 + (id)notificationRequestWithSectionId:(id)arg1 notificationId:(id)arg2 threadId:(id)arg3 subSectionIds:(id)arg4 title:(id)arg5 message:(id)arg6 timestamp:(id)arg7 destinations:(id)arg8 options:(id)arg9;
 + (id)notificationRequestWithSectionId:(id)arg1 notificationId:(id)arg2 threadId:(id)arg3 title:(id)arg4 message:(id)arg5 timestamp:(id)arg6 destinations:(id)arg7;
 + (id)notificationRequestWithSectionId:(id)arg1 notificationId:(id)arg2 threadId:(id)arg3 title:(id)arg4 message:(id)arg5 timestamp:(id)arg6 destination:(id)arg7;
+@property(readonly, nonatomic, getter=isCriticalAlert) _Bool criticalAlert; // @synthesize criticalAlert=_criticalAlert;
 @property(readonly, copy, nonatomic) NSDictionary *sourceInfo; // @synthesize sourceInfo=_sourceInfo;
 @property(readonly, nonatomic) unsigned long long collapsedNotificationsCount; // @synthesize collapsedNotificationsCount=_collapsedNotificationsCount;
 @property(readonly, nonatomic) _Bool isCollapsedNotification; // @synthesize isCollapsedNotification=_isCollapsedNotification;

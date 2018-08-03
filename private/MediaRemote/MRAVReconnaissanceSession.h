@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class MRAVEndpoint, MRAVRoutingDiscoverySession, NSArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString;
+@class MRAVEndpoint, MRAVRoutingDiscoverySession, NSArray, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>, NSSet, NSString;
 
 @interface MRAVReconnaissanceSession : NSObject
 {
@@ -27,6 +27,7 @@
     NSObject<OS_dispatch_source> *_timeoutTimer;
     NSObject<OS_dispatch_queue> *_callbackSyncQueue;
     NSMutableSet *_matchingDevicesFound;
+    NSMutableArray *_matchingEndpointsFound;
     MRAVEndpoint *_unanimousEndpoint;
     NSArray *_availableOutputDevices;
     NSArray *_availableEndpoints;
@@ -41,6 +42,7 @@
 @property(retain, nonatomic) NSArray *availableEndpoints; // @synthesize availableEndpoints=_availableEndpoints;
 @property(retain, nonatomic) NSArray *availableOutputDevices; // @synthesize availableOutputDevices=_availableOutputDevices;
 @property(retain, nonatomic) MRAVEndpoint *unanimousEndpoint; // @synthesize unanimousEndpoint=_unanimousEndpoint;
+@property(retain, nonatomic) NSMutableArray *matchingEndpointsFound; // @synthesize matchingEndpointsFound=_matchingEndpointsFound;
 @property(retain, nonatomic) NSMutableSet *matchingDevicesFound; // @synthesize matchingDevicesFound=_matchingDevicesFound;
 @property(nonatomic) _Bool shouldWaitForUnanimousEndpoints; // @synthesize shouldWaitForUnanimousEndpoints=_shouldWaitForUnanimousEndpoints;
 @property(nonatomic) _Bool searchInProgress; // @synthesize searchInProgress=_searchInProgress;
@@ -65,6 +67,7 @@
 - (void)_discoverySessionOutputDevicesChangedCallback:(id)arg1;
 - (void)_onQueue_updateCachedOutputDevices:(id)arg1 endpoints:(id)arg2;
 - (void)cancelSearch;
+- (void)beginSearchWithTimeout:(double)arg1 endpointsCompletion:(CDUnknownBlockType)arg2;
 - (void)beginSearchWithTimeout:(double)arg1 completion:(CDUnknownBlockType)arg2;
 @property(readonly, nonatomic) NSArray *matchingOutputDeviceUIDs;
 - (void)dealloc;

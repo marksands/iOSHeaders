@@ -49,7 +49,9 @@ __attribute__((visibility("hidden")))
 - (void)_saveChanges;
 - (_Bool)needsToSaveChanges;
 - (void)setAppearance:(id)arg1 animated:(_Bool)arg2;
+- (void)previewDidDisappear:(_Bool)arg1;
 - (void)previewWillDisappear:(_Bool)arg1;
+- (void)previewDidAppear:(_Bool)arg1;
 - (void)performFirstTimeAppearanceActions:(unsigned long long)arg1;
 - (_Bool)canPerformFirstTimeAppearanceActions:(unsigned long long)arg1;
 - (void)loadPreviewControllerWithContents:(id)arg1 context:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;

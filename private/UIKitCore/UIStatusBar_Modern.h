@@ -20,7 +20,7 @@
 @property(retain, nonatomic) _UIStatusBar *statusBar; // @synthesize statusBar=_statusBar;
 - (void).cxx_destruct;
 - (struct CGSize)intrinsicContentSize;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_c6256135 *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_1f606803 *)arg2 withActions:(int)arg3;
 - (void)forceUpdateData:(_Bool)arg1;
 - (void)forceUpdate:(_Bool)arg1;
 - (void)layoutSubviews;
@@ -53,8 +53,8 @@
 - (int)_implicitStyleOverrideForStyle:(long long)arg1;
 - (id)_effectiveDataFromData:(id)arg1 activeOverride:(int)arg2;
 - (long long)_effectiveStyleFromStyle:(long long)arg1;
-- (id)_dataFromLegacyData:(const CDStruct_c6256135 *)arg1;
-- (void)_updateSemanticContentAttributeFromLegacyData:(const CDStruct_c6256135 *)arg1;
+- (id)_dataFromLegacyData:(const CDStruct_1f606803 *)arg1;
+- (void)_updateSemanticContentAttributeFromLegacyData:(const CDStruct_1f606803 *)arg1;
 - (id)_initWithFrame:(struct CGRect)arg1 showForegroundView:(_Bool)arg2 inProcessStateProvider:(id)arg3;
 
 @end

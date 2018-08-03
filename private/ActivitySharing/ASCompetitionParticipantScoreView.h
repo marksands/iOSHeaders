@@ -15,6 +15,7 @@
     UILabel *_primaryScoreLabel;
     UILabel *_secondaryScoreLabel;
     NSNumber *_previousLayoutWidth;
+    _Bool _secondaryScoreEnabled;
     NSString *_name;
     double _nameFontSizeReduction;
     unsigned long long _primaryScore;
@@ -27,6 +28,7 @@
 
 @property(nonatomic) double scoreRightMargin; // @synthesize scoreRightMargin=_scoreRightMargin;
 @property(nonatomic) double scoreLeftMargin; // @synthesize scoreLeftMargin=_scoreLeftMargin;
+@property(nonatomic) _Bool secondaryScoreEnabled; // @synthesize secondaryScoreEnabled=_secondaryScoreEnabled;
 @property(retain, nonatomic) UIColor *scoreColor; // @synthesize scoreColor=_scoreColor;
 @property(nonatomic) unsigned long long secondaryScore; // @synthesize secondaryScore=_secondaryScore;
 @property(nonatomic) double primaryScoreFontSizeReduction; // @synthesize primaryScoreFontSizeReduction=_primaryScoreFontSizeReduction;
@@ -34,6 +36,7 @@
 @property(nonatomic) double nameFontSizeReduction; // @synthesize nameFontSizeReduction=_nameFontSizeReduction;
 @property(retain, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;
+- (void)_updateSecondaryScoreLabel;
 - (void)_updatePrimaryScoreLabelWithFontSizeReduction:(double)arg1;
 - (void)_updateNameLabelWithFontSizeReduction:(double)arg1;
 - (double)_availableScoreWidthForWidth:(double)arg1;

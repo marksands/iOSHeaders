@@ -325,6 +325,7 @@
 - (_Bool)_isAdjustedResourceAvailableForResourceType:(unsigned long long)arg1 outResource:(id *)arg2;
 - (_Bool)_isMasterResourceAvailableForResourceType:(unsigned long long)arg1;
 - (_Bool)_isMasterResourceAvailableForResourceType:(unsigned long long)arg1 outResource:(id *)arg2;
+- (_Bool)isOriginalRAW;
 - (_Bool)isRAWPlusJPEG;
 - (_Bool)isRAWOnly;
 - (unsigned long long)CPLResourceTypeFromVideoFormat:(int)arg1;
@@ -634,7 +635,6 @@
 - (unsigned long long)bestResourceTypeForAdjustedFingerPrint;
 - (id)descriptionForResources;
 - (_Bool)supportsCloudUpload;
-- (_Bool)shouldPerformServerCopy;
 - (id)adjustedPathForCPLResourceType:(unsigned long long)arg1;
 - (id)nonAdjustedPathForCPLResourceType:(unsigned long long)arg1;
 - (id)pathForCPLResourceType:(unsigned long long)arg1 adjusted:(_Bool)arg2;
@@ -652,11 +652,11 @@
 - (void)applyPropertiesFromAssetChange:(id)arg1 inLibrary:(id)arg2 withKeywordManager:(id)arg3;
 - (_Bool)_location:(id)arg1 isEqualToLocationForUpdating:(id)arg2;
 - (void)_applyPropertiesFromCloudMaster:(id)arg1;
-- (id)_localResourcePathForMasterResource:(id)arg1;
+- (id)localResourcePathForMasterResource:(id)arg1;
 - (_Bool)createNewResourcesIn:(id)arg1 inManagedObjectContext:(id)arg2;
-- (void)_addSidecarFromResource:(id)arg1 inManagedObjectContext:(id)arg2;
+- (id)sidecarFileMatchingResource:(id)arg1;
+- (void)addSidecarFromResource:(id)arg1 inManagedObjectContext:(id)arg2;
 - (void)createMasterResourcesIn:(id)arg1 inManagedObjectContext:(id)arg2;
-- (_Bool)setupPlaceholderAssetWithRequiredPropertiesFromSourceAsset:(id)arg1 assetUUID:(id)arg2 placeholderAssetMomentShareUUID:(id)arg3 bakeInAdjustmentsFromSourceAsset:(_Bool)arg4 flattenLivePhoto:(_Bool)arg5 library:(id)arg6;
 - (struct CGSize)_targetSizeForInputSize:(struct CGSize)arg1 maxPixelSize:(unsigned long long)arg2;
 - (struct CGSize)targetSizeForInputSize:(struct CGSize)arg1 maxPixelSize:(unsigned long long)arg2;
 - (id)_cplRelationsForAssetInLibrary:(id)arg1;
@@ -699,7 +699,6 @@
 - (id)_cplMasterResourcesFromCloudMaster:(id)arg1 includeFile:(_Bool)arg2;
 - (id)cplMasterChangeInLibrary:(id)arg1 shouldGenerateDerivatives:(_Bool)arg2;
 - (id)createResourcesForMaster:(id)arg1 shouldGenerateDerivatives:(_Bool)arg2 inPhotoLibrary:(id)arg3;
-- (id)_sortPlaceholderCloudResourcesByOrderOfCloudReReference:(id)arg1;
 - (void)_copyResourceFileFrom:(id)arg1 to:(id)arg2;
 - (void)_copySRGBFileFrom:(id)arg1 to:(id)arg2;
 - (id)_insertResource:(id)arg1 forOtherDuplicatedAssetInMaster:(id)arg2 inPhotoLibrary:(id)arg3;
@@ -745,6 +744,11 @@
 @property(readonly, nonatomic) NSString *cloudOwnerLastName;
 @property(readonly, nonatomic) NSString *cloudOwnerFirstName;
 @property(readonly, nonatomic) NSString *cloudOwnerEmail;
+- (_Bool)setupPlaceholderAssetWithRequiredPropertiesFromSourceAsset:(id)arg1 assetUUID:(id)arg2 placeholderAssetMomentShareUUID:(id)arg3 bakeInAdjustmentsFromSourceAsset:(_Bool)arg4 flattenLivePhoto:(_Bool)arg5 library:(id)arg6;
+- (id)sortPlaceholderCloudResourcesByOrderOfCloudReReference:(id)arg1;
+- (_Bool)shouldPerformServerCopy;
+- (_Bool)placeholder_shouldFlattenLivePhoto;
+- (_Bool)placeholder_shouldBakeInAdjustments;
 - (void)nrm_applyResourcesFromAssetChange:(id)arg1 inLibrary:(id)arg2;
 - (void)nrm_createAssetResourcesForCPLResources:(id)arg1 inLibrary:(id)arg2;
 - (id)_nrm_cplMasterResourcesFromCloudMaster:(id)arg1 includeFile:(_Bool)arg2;

@@ -18,7 +18,7 @@
     CDStruct_d97c9657 _updateFlags;
     _Bool _hasAppeared;
     PXGadgetSpec *_gadgetSpec;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     PXMemoriesFeedWidgetDataSourceManager *_dataSourceManager;
     NSMutableDictionary *_viewControllerEntries;
@@ -37,7 +37,7 @@
 @property(retain, nonatomic) NSMutableDictionary *viewControllerEntries; // @synthesize viewControllerEntries=_viewControllerEntries;
 @property(readonly, nonatomic) PXMemoriesFeedWidgetDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (long long)_columnSpanForRowType:(unsigned long long)arg1;
@@ -62,6 +62,8 @@
 - (struct NSObject *)contentViewController;
 @property(readonly, nonatomic) NSString *localizedTitle;
 @property(readonly, nonatomic) unsigned long long gadgetType;
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
+@property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, nonatomic) unsigned long long accessoryButtonType;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
 @property(readonly, nonatomic) _Bool hasContentToDisplay;
@@ -75,7 +77,6 @@
 - (id)initWithDataSourceManager:(id)arg1;
 
 // Remaining properties
-@property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

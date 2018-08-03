@@ -21,6 +21,8 @@
     CDUnknownBlockType _consoleUserChangedHandler;
     CDUnknownBlockType _familyUpdatedHandler;
     CDUnknownBlockType _meDeviceChangedHandler;
+    CDUnknownBlockType _netFlagsChangedHandler;
+    CDUnknownBlockType _primaryIPChangedHandler;
     CDUnknownBlockType _powerUnlimitedChangedHandler;
     CDUnknownBlockType _primaryAppleIDChangedHandler;
     CDUnknownBlockType _rotatingIdentifierChangedHandler;
@@ -39,6 +41,8 @@
 @property(copy) CDUnknownBlockType rotatingIdentifierChangedHandler; // @synthesize rotatingIdentifierChangedHandler=_rotatingIdentifierChangedHandler;
 @property(copy) CDUnknownBlockType primaryAppleIDChangedHandler; // @synthesize primaryAppleIDChangedHandler=_primaryAppleIDChangedHandler;
 @property(copy) CDUnknownBlockType powerUnlimitedChangedHandler; // @synthesize powerUnlimitedChangedHandler=_powerUnlimitedChangedHandler;
+@property(copy) CDUnknownBlockType primaryIPChangedHandler; // @synthesize primaryIPChangedHandler=_primaryIPChangedHandler;
+@property(copy) CDUnknownBlockType netFlagsChangedHandler; // @synthesize netFlagsChangedHandler=_netFlagsChangedHandler;
 @property(copy) CDUnknownBlockType meDeviceChangedHandler; // @synthesize meDeviceChangedHandler=_meDeviceChangedHandler;
 @property(copy) CDUnknownBlockType familyUpdatedHandler; // @synthesize familyUpdatedHandler=_familyUpdatedHandler;
 @property(copy, nonatomic) CDUnknownBlockType consoleUserChangedHandler; // @synthesize consoleUserChangedHandler=_consoleUserChangedHandler;
@@ -55,8 +59,11 @@
 @property(readonly) _Bool screenLocked;
 @property(readonly, copy) NSData *rotatingIdentifierData;
 @property(readonly) CDStruct_83abfce7 rotatingIdentifier48;
+@property(readonly, nonatomic) CDUnion_fab80606 primaryIPv6Addr;
+@property(readonly, nonatomic) CDUnion_fab80606 primaryIPv4Addr;
 @property(readonly) _Bool primaryAppleIDIsHSA2;
 @property(readonly) _Bool powerUnlimited;
+@property(readonly) unsigned int netFlags;
 @property(readonly) _Bool meDeviceValid;
 @property(readonly, copy) NSString *meDeviceName;
 @property(readonly, copy) NSString *meDeviceIDSDeviceID;

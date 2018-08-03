@@ -15,7 +15,7 @@
 {
     _Bool _isPerformingChanges;
     PXGadgetSpec *_gadgetSpec;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     NSString *_title;
     unsigned long long _accessoryButtonType;
@@ -31,7 +31,7 @@
 @property(readonly, nonatomic) unsigned long long accessoryButtonType; // @synthesize accessoryButtonType=_accessoryButtonType;
 @property(readonly, copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (void)_updateIfNeeded;
@@ -47,6 +47,7 @@
 - (id)initWithTitle:(id)arg1 accessoryButtonType:(unsigned long long)arg2 gadgetType:(unsigned long long)arg3 headerStyle:(unsigned long long)arg4;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

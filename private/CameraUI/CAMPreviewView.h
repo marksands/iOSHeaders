@@ -11,6 +11,7 @@
 @interface CAMPreviewView : UIView
 {
     int __exposureBiasSide;
+    long long _orientation;
     CAMVideoPreviewView *_videoPreviewView;
     UIView *_indicatorContainerView;
     CAMFocusIndicatorView *_continuousIndicator;
@@ -43,6 +44,7 @@
 @property(retain, nonatomic) CAMFocusIndicatorView *continuousIndicator; // @synthesize continuousIndicator=_continuousIndicator;
 @property(readonly, nonatomic) UIView *indicatorContainerView; // @synthesize indicatorContainerView=_indicatorContainerView;
 @property(readonly, nonatomic) CAMVideoPreviewView *videoPreviewView; // @synthesize videoPreviewView=_videoPreviewView;
+@property(nonatomic) long long orientation; // @synthesize orientation=_orientation;
 - (void).cxx_destruct;
 - (struct CGRect)_aspectFaceRectFromSquareFaceRect:(struct CGRect)arg1 angle:(double)arg2;
 - (int)_faceOrientationForRollAngle:(double)arg1;
@@ -63,6 +65,7 @@
 - (void)indicatePointOfInterest:(struct CGPoint)arg1;
 - (void)layoutSubviews;
 @property(retain, nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
+- (void)setOrientation:(long long)arg1 animated:(_Bool)arg2;
 - (void)dealloc;
 - (id)initWithFrame:(struct CGRect)arg1;
 

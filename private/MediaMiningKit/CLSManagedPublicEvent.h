@@ -31,7 +31,6 @@
 @property(retain, nonatomic) NSSet *performers; // @dynamic performers;
 @property(retain, nonatomic) NSSet *queryLocations; // @dynamic queryLocations;
 @property(nonatomic) long long timeZoneOffset; // @dynamic timeZoneOffset;
-@property(nonatomic) double updateTimestamp; // @dynamic updateTimestamp;
 
 @end
 

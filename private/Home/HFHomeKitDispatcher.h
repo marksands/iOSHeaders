@@ -128,6 +128,9 @@
 - (void)residentDevice:(id)arg1 didUpdateStatus:(unsigned long long)arg2;
 - (void)residentDevice:(id)arg1 didUpdateEnabled:(_Bool)arg2;
 - (void)residentDevice:(id)arg1 didUpdateName:(id)arg2;
+- (void)accessory:(id)arg1 didRemoveControlTarget:(id)arg2;
+- (void)accessory:(id)arg1 didAddControlTarget:(id)arg2;
+- (void)accessoryDidUpdateTargetControlSupport:(id)arg1;
 - (void)accessoryDidRemoveSymptomsHandler:(id)arg1;
 - (void)accessory:(id)arg1 didAddSymptomsHandler:(id)arg2;
 - (void)accessory:(id)arg1 didUpdateConfigurationStateForService:(id)arg2;

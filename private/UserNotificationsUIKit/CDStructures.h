@@ -89,9 +89,10 @@ typedef struct {
     unsigned int isExpandedCoalescedBundleForNotificationRequest:1;
     unsigned int leadingNotificationRequestForCoalescingIdentifier:1;
     unsigned int coalescingIdentifierForNotificationRequest:1;
+    unsigned int requestsCoalescingNotificationRequest:1;
     unsigned int sectionSettingsForSectionIdentifier:1;
     unsigned int requestsPresentingManagementView:1;
-} CDStruct_021c1d70;
+} CDStruct_ef5db9df;
 
 typedef struct {
     unsigned int significantUserInteraction:1;

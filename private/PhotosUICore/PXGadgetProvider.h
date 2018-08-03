@@ -46,7 +46,7 @@
 - (unsigned long long)estimatedNumberOfGadgets;
 - (void)loadDataForGadgets;
 - (void)loadDataForPriority;
-@property(readonly, nonatomic) unsigned long long loadingPriority;
+@property(readonly, nonatomic) _Bool supportsDynamicRanking;
 - (id)init;
 
 // Remaining properties

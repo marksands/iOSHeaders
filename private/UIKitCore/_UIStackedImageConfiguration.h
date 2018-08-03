@@ -115,9 +115,12 @@
 @property(nonatomic) double maximumParallaxDepth; // @synthesize maximumParallaxDepth=_maximumParallaxDepth;
 @property(nonatomic) unsigned long long maximumParallaxImages; // @synthesize maximumParallaxImages=_maximumParallaxImages;
 - (void).cxx_destruct;
+- (void)_highContrastFocusIndicatorChanged:(id)arg1;
 @property(readonly, copy, nonatomic) _UIFocusAnimationConfiguration *focusAnimationConfiguration;
 - (_Bool)isEqual:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

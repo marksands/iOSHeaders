@@ -7,6 +7,7 @@
 #import "UIViewController.h"
 
 #import "APUIShortLookViewControllerDelegate.h"
+#import "SBUIActiveOrientationObserver.h"
 #import "SFFeedbackListener.h"
 #import "SPUIResultViewDelegate.h"
 #import "SPUISearchHeaderDelegate.h"
@@ -16,7 +17,7 @@
 
 @class NSMutableSet, NSString, NSTimer, SPUILockScreenFooterView, SPUIResultViewController, SPUISearchFirstTimeViewController, SPUISearchHeader, SPUITestingHelper, UIView, _UILegibilitySettings;
 
-@interface SPUISearchViewController : UIViewController <SPUISearchHeaderDelegate, SearchUIFirstTimeExperienceDelegate, SPUIResultViewDelegate, UIGestureRecognizerDelegate, SFFeedbackListener, SearchUIResultViewDelegate, APUIShortLookViewControllerDelegate>
+@interface SPUISearchViewController : UIViewController <SPUISearchHeaderDelegate, SearchUIFirstTimeExperienceDelegate, SPUIResultViewDelegate, UIGestureRecognizerDelegate, SFFeedbackListener, SearchUIResultViewDelegate, APUIShortLookViewControllerDelegate, SBUIActiveOrientationObserver>
 {
     _Bool _internetOverrideForPPT;
     _Bool _lastQueryWasAuthenticated;
@@ -69,6 +70,7 @@
 - (void)activateFirstTimeExperienceViewIfNecessary;
 - (void)activateViewController:(id)arg1 animate:(_Bool)arg2;
 - (void)viewDidLayoutSubviews;
+- (void)viewDidLoad;
 - (id)activeViewController;
 - (void)didUpdateContentScrolledOffScreenStatus:(_Bool)arg1 animated:(_Bool)arg2;
 @property(readonly) NSString *currentQuery;
@@ -78,6 +80,8 @@
 - (id)viewControllerForPresenting;
 - (void)didScrollPastBottomOfContent;
 - (void)didTapInEmptyRegion;
+- (void)activeInterfaceOrientationDidChangeToOrientation:(long long)arg1 willAnimateWithDuration:(double)arg2 fromOrientation:(long long)arg3;
+- (void)activeInterfaceOrientationWillChangeToOrientation:(long long)arg1;
 - (void)searchViewDidDismissWithReason:(unsigned long long)arg1;
 - (void)clearSearchResults;
 - (void)clearTimerExpired;

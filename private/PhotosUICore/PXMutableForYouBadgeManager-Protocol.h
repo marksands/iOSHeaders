@@ -6,11 +6,7 @@
 
 #import "NSObject.h"
 
-@class NSDate;
-
 @protocol PXMutableForYouBadgeManager <NSObject>
-@property(retain, nonatomic) NSDate *latestCMMActivityDate;
-@property(retain, nonatomic) NSDate *latestSharedAlbumActivityDate;
 @property(nonatomic) unsigned long long unreadBadgeCount;
 @end
 

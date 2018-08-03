@@ -8,7 +8,7 @@
 
 #import "ICDeviceManagerProtocol.h"
 
-@class DeviceManagerThread, NSDictionary, NSMutableDictionary, NSString;
+@class DeviceManagerThread, NSDictionary, NSMutableDictionary, NSOperationQueue, NSString;
 
 __attribute__((visibility("hidden")))
 @interface DeviceManager : NSObject <ICDeviceManagerProtocol>
@@ -16,8 +16,13 @@ __attribute__((visibility("hidden")))
     DeviceManagerThread *_thread;
     NSDictionary *_deviceMatchingInfo;
     NSMutableDictionary *_devices;
+    NSOperationQueue *_deviceOperations;
 }
 
+@property(retain) NSOperationQueue *deviceOperations; // @synthesize deviceOperations=_deviceOperations;
+@property(retain) DeviceManagerThread *thread; // @synthesize thread=_thread;
+- (void)addPVHOperation:(id)arg1;
+- (void)addPLOperation:(id)arg1;
 - (void)postNotification:(id)arg1;
 - (void)postCommandCompletionNotification:(id)arg1;
 - (long long)getDataOfFile:(id)arg1 fromDevice:(id)arg2 withOptions:(id)arg3 completion:(CDUnknownBlockType)arg4;

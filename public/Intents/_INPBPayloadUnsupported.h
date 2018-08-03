@@ -23,6 +23,7 @@
         unsigned int reason:1;
         unsigned int sendMessageIntentRecipientUnsupportedReason:1;
         unsigned int setTimerAttributeIntentTargetTimerUnsupportedReason:1;
+        unsigned int runWorkflowIntentWorkflowUnsupportedReason:1;
     } _has;
     int _requestPaymentIntentCurrencyAmountUnsupportedReason;
     int _sendPaymentIntentCurrencyAmountUnsupportedReason;
@@ -32,10 +33,12 @@
     int _reason;
     int _sendMessageIntentRecipientUnsupportedReason;
     int _setTimerAttributeIntentTargetTimerUnsupportedReason;
+    int _runWorkflowIntentWorkflowUnsupportedReason;
     NSArray *_conflictingParameters;
 }
 
 + (Class)conflictingParametersType;
+@property(nonatomic) int runWorkflowIntentWorkflowUnsupportedReason; // @synthesize runWorkflowIntentWorkflowUnsupportedReason=_runWorkflowIntentWorkflowUnsupportedReason;
 @property(nonatomic) int setTimerAttributeIntentTargetTimerUnsupportedReason; // @synthesize setTimerAttributeIntentTargetTimerUnsupportedReason=_setTimerAttributeIntentTargetTimerUnsupportedReason;
 @property(nonatomic) int sendMessageIntentRecipientUnsupportedReason; // @synthesize sendMessageIntentRecipientUnsupportedReason=_sendMessageIntentRecipientUnsupportedReason;
 @property(nonatomic) int reason; // @synthesize reason=_reason;
@@ -52,6 +55,9 @@
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)writeTo:(id)arg1;
 - (_Bool)readFrom:(id)arg1;
+- (int)StringAsRunWorkflowIntentWorkflowUnsupportedReason:(id)arg1;
+- (id)runWorkflowIntentWorkflowUnsupportedReasonAsString:(int)arg1;
+@property(nonatomic) _Bool hasRunWorkflowIntentWorkflowUnsupportedReason;
 - (int)StringAsSetTimerAttributeIntentTargetTimerUnsupportedReason:(id)arg1;
 - (id)setTimerAttributeIntentTargetTimerUnsupportedReasonAsString:(int)arg1;
 @property(nonatomic) _Bool hasSetTimerAttributeIntentTargetTimerUnsupportedReason;

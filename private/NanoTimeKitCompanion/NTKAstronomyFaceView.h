@@ -39,7 +39,7 @@
     struct NSNumber *_clockTimerToken;
     NSDateFormatter *_scrubDateFormatter[3];
     struct CGRect _phaseLabelDefaultFrame;
-    double _supplementalFontLineHeightPlusDescender;
+    float _supplementalFontLineHeightPlusDescender;
     NTKDelayedBlock *_wheelDelayedBlock;
     NTKDelayedBlock *_physicalButtonDelayedBlock;
     long long _previousDataMode;
@@ -48,7 +48,6 @@
     NSArray *_editingAnimations[3];
     unsigned int _isAnimatingViewMode:1;
     unsigned int _isContentLoaded:1;
-    unsigned int _isFlying:1;
     unsigned int _isLocationCurrent:1;
     unsigned int _isHandlingCrownEvents:1;
 }

@@ -6,7 +6,7 @@
 
 #import "CRBundleManager.h"
 
-@class NSMutableSet, NSSet;
+@class NSMutableSet;
 
 @interface _CRKProviderBundleManager : CRBundleManager
 {
@@ -17,10 +17,7 @@
 + (id)bundleDirectoryName;
 + (id)sharedInstance;
 - (void).cxx_destruct;
-- (void)registerBundle:(id)arg1;
-@property(readonly, nonatomic) NSSet *providerBundles;
-- (id)bundles;
-- (id)init;
+- (void)getProviderBundlesWithCompletion:(CDUnknownBlockType)arg1;
 
 @end
 

@@ -13,10 +13,14 @@
 
 @interface REInteractionDescriptor : NSObject <REIndentedDescription, NSCopying>
 {
+    _Bool _enableExploreExploit;
     float _weight;
+    float _exploreBias;
     NSString *_name;
 }
 
+@property(nonatomic) float exploreBias; // @synthesize exploreBias=_exploreBias;
+@property(nonatomic) _Bool enableExploreExploit; // @synthesize enableExploreExploit=_enableExploreExploit;
 @property(nonatomic) float weight; // @synthesize weight=_weight;
 @property(copy, nonatomic) NSString *name; // @synthesize name=_name;
 - (void).cxx_destruct;

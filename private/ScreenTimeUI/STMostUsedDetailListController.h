@@ -4,46 +4,25 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ScreenTimeUI/STListViewController.h>
+#import <ScreenTimeUI/STPINListViewController.h>
 
-#import "STRestrictionsPINControllerDelegate.h"
+@class STAllowanceProgressGroupSpecifierProvider, STAppDetailsGroupSpecifierProvider, STCategoryDetailsGroupSpecifierProvider, STMostUsedScreenTimeGroupSpecifierProvider;
 
-@class NSObject<STRootViewModelCoordinator>, NSString, PSSpecifier, STAllowanceProgressGroupSpecifierProvider, STAppDetailsGroupSpecifierProvider, STCategoryDetailsGroupSpecifierProvider, STMostUsedScreenTimeGroupSpecifierProvider;
-
-@interface STMostUsedDetailListController : STListViewController <STRestrictionsPINControllerDelegate>
+@interface STMostUsedDetailListController : STPINListViewController
 {
-    NSObject<STRootViewModelCoordinator> *_coordinator;
     STMostUsedScreenTimeGroupSpecifierProvider *_screenTimeGroupSpecifierProvider;
     STAppDetailsGroupSpecifierProvider *_appDetailsGroupSpecifierProvider;
     STCategoryDetailsGroupSpecifierProvider *_categoryDetailsGroupSpecifierProvider;
     STAllowanceProgressGroupSpecifierProvider *_allowanceProgressGroupSpecifierProvider;
-    id _showingPinTarget;
-    PSSpecifier *_showingPinSpecifier;
 }
 
-@property(retain, nonatomic) PSSpecifier *showingPinSpecifier; // @synthesize showingPinSpecifier=_showingPinSpecifier;
-@property(retain, nonatomic) id showingPinTarget; // @synthesize showingPinTarget=_showingPinTarget;
 @property(readonly, nonatomic) STAllowanceProgressGroupSpecifierProvider *allowanceProgressGroupSpecifierProvider; // @synthesize allowanceProgressGroupSpecifierProvider=_allowanceProgressGroupSpecifierProvider;
 @property(readonly, nonatomic) STCategoryDetailsGroupSpecifierProvider *categoryDetailsGroupSpecifierProvider; // @synthesize categoryDetailsGroupSpecifierProvider=_categoryDetailsGroupSpecifierProvider;
 @property(readonly, nonatomic) STAppDetailsGroupSpecifierProvider *appDetailsGroupSpecifierProvider; // @synthesize appDetailsGroupSpecifierProvider=_appDetailsGroupSpecifierProvider;
 @property(readonly, nonatomic) STMostUsedScreenTimeGroupSpecifierProvider *screenTimeGroupSpecifierProvider; // @synthesize screenTimeGroupSpecifierProvider=_screenTimeGroupSpecifierProvider;
-@property(readonly, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 - (void).cxx_destruct;
-- (void)devicePINControllerDidDismissPINPane:(id)arg1;
-- (void)restoreSpecifierTarget;
-- (void)didCancelEnteringPIN;
-- (void)didAcceptEnteredPIN:(id)arg1;
-- (_Bool)validatePIN:(id)arg1;
-- (void)showPINSheet:(id)arg1;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (void)viewDidLoad;
 - (id)initWithUsageItem:(id)arg1 coordinator:(id)arg2;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

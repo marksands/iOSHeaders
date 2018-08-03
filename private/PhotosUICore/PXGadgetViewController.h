@@ -7,6 +7,7 @@
 #import "UICollectionViewController.h"
 
 #import "PXChangeObserver.h"
+#import "PXContentUnavailablePlaceholderManagerDelegate.h"
 #import "PXGadgetCollectionViewLayoutDelegate.h"
 #import "PXGadgetDelegate.h"
 #import "PXNavigableGadgetViewController.h"
@@ -15,19 +16,21 @@
 #import "UICollectionViewDropDelegate.h"
 #import "UIViewControllerPreviewingDelegate.h"
 
-@class NSMutableArray, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_os_log>, NSString, NSTimer, PXGadgetCollectionViewLayout, PXGadgetDataSource, PXGadgetDataSourceManager, PXGadgetLayoutSpec, PXGadgetNavigationItem, PXGadgetOrbContext, PXGadgetSpec, UIColor;
+@class NSMutableArray, NSMutableSet, NSObject<OS_dispatch_group>, NSObject<OS_os_log>, NSString, NSTimer, PXContentUnavailablePlaceholderManager, PXContentUnavailableView, PXGadgetCollectionViewLayout, PXGadgetDataSource, PXGadgetDataSourceManager, PXGadgetLayoutSpec, PXGadgetNavigationItem, PXGadgetOrbContext, PXGadgetSpec, PXUpdater, UIColor;
 
-@interface PXGadgetViewController : UICollectionViewController <PXGadgetCollectionViewLayoutDelegate, PXSectionedDataSourceManagerObserver, UIViewControllerPreviewingDelegate, PXChangeObserver, UICollectionViewDropDelegate, UICollectionViewDelegateFlowLayout, PXGadgetDelegate, PXNavigableGadgetViewController>
+@interface PXGadgetViewController : UICollectionViewController <PXGadgetCollectionViewLayoutDelegate, PXSectionedDataSourceManagerObserver, UIViewControllerPreviewingDelegate, PXContentUnavailablePlaceholderManagerDelegate, PXChangeObserver, UICollectionViewDropDelegate, UICollectionViewDelegateFlowLayout, PXGadgetDelegate, PXNavigableGadgetViewController>
 {
     _Bool _currentlyVisible;
     _Bool _loadingGadgets;
     _Bool _gadgetAnimating;
     _Bool _batchUpdating;
     _Bool _isContentVisible;
+    _Bool _shouldPreventPlaceholder;
     struct PXGadgetUpdateFlags _updateFlags;
     PXGadgetDataSourceManager *_dataSourceManager;
     unsigned long long _numberOfInitialGadgetsToLoad;
     UIColor *_backgroundColor;
+    PXUpdater *_updater;
     PXGadgetDataSource *_dataSource;
     NSMutableArray *_loadedGadgets;
     PXGadgetSpec *_currentGadgetSpec;
@@ -43,16 +46,21 @@
     PXGadgetOrbContext *_previewOrbContext;
     id <UIViewControllerPreviewing> _previewingContext;
     NSMutableSet *_visibleGadgetsWantingVisibleRect;
+    PXContentUnavailableView *_placeholderView;
+    PXContentUnavailablePlaceholderManager *_placeholderManager;
 }
 
 + (Class)gadgetSpecClass;
 + (Class)layoutSpecClass;
+@property(readonly, nonatomic) _Bool shouldPreventPlaceholder; // @synthesize shouldPreventPlaceholder=_shouldPreventPlaceholder;
+@property(retain, nonatomic) PXContentUnavailablePlaceholderManager *placeholderManager; // @synthesize placeholderManager=_placeholderManager;
+@property(retain, nonatomic) PXContentUnavailableView *placeholderView; // @synthesize placeholderView=_placeholderView;
 @property(retain, nonatomic) NSMutableSet *visibleGadgetsWantingVisibleRect; // @synthesize visibleGadgetsWantingVisibleRect=_visibleGadgetsWantingVisibleRect;
 @property(retain, nonatomic) id <UIViewControllerPreviewing> previewingContext; // @synthesize previewingContext=_previewingContext;
 @property(retain, nonatomic) PXGadgetOrbContext *previewOrbContext; // @synthesize previewOrbContext=_previewOrbContext;
 @property(nonatomic, setter=setContentVisible:) _Bool isContentVisible; // @synthesize isContentVisible=_isContentVisible;
 @property(nonatomic) __weak id <PXGadget> anchorGadget; // @synthesize anchorGadget=_anchorGadget;
-@property(retain, nonatomic) NSTimer *navigationInvalidationTimer; // @synthesize navigationInvalidationTimer=_navigationInvalidationTimer;
+@property(nonatomic) __weak NSTimer *navigationInvalidationTimer; // @synthesize navigationInvalidationTimer=_navigationInvalidationTimer;
 @property(retain, nonatomic) PXGadgetNavigationItem *pendingNavigationItem; // @synthesize pendingNavigationItem=_pendingNavigationItem;
 @property(copy, nonatomic) CDUnknownBlockType gadgetsLoadedCompletionHandler; // @synthesize gadgetsLoadedCompletionHandler=_gadgetsLoadedCompletionHandler;
 @property(retain, nonatomic) NSObject<OS_dispatch_group> *gadgetsLoadingGroup; // @synthesize gadgetsLoadingGroup=_gadgetsLoadingGroup;
@@ -68,6 +76,7 @@
 @property(nonatomic, getter=isLoadingGadgets) _Bool loadingGadgets; // @synthesize loadingGadgets=_loadingGadgets;
 @property(nonatomic, getter=isCurrentlyVisible) _Bool currentlyVisible; // @synthesize currentlyVisible=_currentlyVisible;
 @property(retain, nonatomic) PXGadgetDataSource *dataSource; // @synthesize dataSource=_dataSource;
+@property(readonly, nonatomic) PXUpdater *updater; // @synthesize updater=_updater;
 @property(copy, nonatomic) UIColor *backgroundColor; // @synthesize backgroundColor=_backgroundColor;
 @property(nonatomic) unsigned long long numberOfInitialGadgetsToLoad; // @synthesize numberOfInitialGadgetsToLoad=_numberOfInitialGadgetsToLoad;
 @property(readonly, nonatomic) PXGadgetDataSourceManager *dataSourceManager; // @synthesize dataSourceManager=_dataSourceManager;
@@ -75,18 +84,27 @@
 @property(readonly, nonatomic) NSObject<OS_os_log> *gadgetViewControllerLog;
 - (id)px_diagnosticsItemProvidersForPoint:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)ppt_performBlockAfterAllGadgetsLoadingCompletes:(CDUnknownBlockType)arg1;
+- (void)contentUnavailablePlaceholderManagerDidChange:(id)arg1;
+- (void)_updatePlaceholder;
+- (void)_invalidatePlaceholder;
 - (_Bool)pu_handleSecondTabTap;
 - (id)px_endPointForTransition:(id)arg1;
 - (_Bool)px_canPerformZoomTransitionWithDetailViewController:(id)arg1;
-- (void)gadgetControllerFinishedUpdatingDataSource;
+- (void)gadgetControllerFinishedUpdatingDataSourceWithChange:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)_dataSourceManagerDidChange;
-- (void)_invalidatePendingNavigation;
+- (void)_invalidatePendingNavigationItem;
+- (void)_deferNavigationToItem:(id)arg1;
+- (void)_pendingNavigationInvalidationTimerFired:(id)arg1;
+- (void)_startNavigationTimer;
+- (void)_stopNavigationTimer;
 - (void)_navigateIfNeeded;
 - (_Bool)_navigateToGadget:(id)arg1 animated:(_Bool)arg2 navigationBlock:(CDUnknownBlockType)arg3;
+- (_Bool)navigateToGadgetDeferIfNeeded:(id)arg1 animated:(_Bool)arg2 nestedNavigationBlock:(CDUnknownBlockType)arg3;
 - (_Bool)navigateToGadgetWithIdDeferIfNeeded:(id)arg1 animated:(_Bool)arg2 nestingNavigationBlock:(CDUnknownBlockType)arg3;
 - (_Bool)navigateToFirstGadgetWithTypeDeferIfNeeded:(unsigned long long)arg1 animated:(_Bool)arg2 nestedNavigationBlock:(CDUnknownBlockType)arg3;
 - (_Bool)navigateToGadget:(id)arg1 animated:(_Bool)arg2;
+- (void)_scrollToGadget:(id)arg1 atIndexPath:(id)arg2 atScrollPosition:(unsigned long long)arg3 animated:(_Bool)arg4;
 - (_Bool)navigateToFirstGadgetWithType:(unsigned long long)arg1 animated:(_Bool)arg2;
 - (_Bool)scrollGadgetToVisible:(id)arg1 animated:(_Bool)arg2;
 @property(nonatomic) __weak id <PXGadgetDelegate> nextGadgetResponder;
@@ -143,19 +161,21 @@
 - (id)indexPathForGadget:(id)arg1;
 - (id)_gadgetAtIndexPath:(id)arg1;
 - (void)updateIfNeeded;
+- (void)_updaterNeedsUpdate;
 - (void)_unregisterForPreview;
 - (void)_registerForPreview;
 - (void)navigateToAnchor;
 - (void)saveAnchor;
 - (void)performBlockAfterGadgetsLoadingCompletes:(CDUnknownBlockType)arg1;
 - (void)loadAllGadgets;
+- (void)setLayout:(id)arg1;
+@property(readonly, nonatomic) PXGadgetCollectionViewLayout *layout;
+- (long long)anchorPosition;
 - (id)gadgetAtLocation:(struct CGPoint)arg1 inCoordinateSpace:(id)arg2;
 - (void)didDismissPreviewViewController:(id)arg1 committing:(_Bool)arg2;
 - (void)previewingContext:(id)arg1 commitViewController:(id)arg2;
 - (id)previewingContext:(id)arg1 viewControllerForLocation:(struct CGPoint)arg2;
 - (void)reloadContent;
-@property(readonly, nonatomic) PXGadgetCollectionViewLayout *layout;
-- (long long)anchorPosition;
 - (void)_applicationDidEnterBackground:(id)arg1;
 - (void)_applicationWillEnterForeground:(id)arg1;
 - (_Bool)isRootGadgetViewController;
@@ -165,7 +185,8 @@
 - (void)viewWillTransitionToSize:(struct CGSize)arg1 withTransitionCoordinator:(id)arg2;
 - (void)viewDidLayoutSubviews;
 - (void)viewDidDisappear:(_Bool)arg1;
-- (void)rootGadgetControllerDidAppear;
+- (void)rootGadgetControllerDidDisappear;
+- (void)rootGadgetControllerWillAppear;
 - (void)viewDidAppear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)_initializeDataSource;

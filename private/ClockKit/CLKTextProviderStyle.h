@@ -21,7 +21,7 @@
 }
 
 + (id)otherAttributesWithParagraphStyle:(id)arg1;
-+ (id)otherAttributesWithParagraphStyle:(id)arg1 tracking:(double)arg2;
++ (id)otherAttributesWithParagraphStyle:(id)arg1 kerning:(double)arg2;
 + (id)styleWithFont:(id)arg1 smallCapsBaseFont:(id)arg2 uppercase:(_Bool)arg3 otherAttributes:(id)arg4;
 + (id)styleWithFont:(id)arg1 smallCapsBaseFont:(id)arg2 uppercase:(_Bool)arg3 otherAttributes:(id)arg4 minimumScaleFactor:(double)arg5;
 + (id)styleWithFont:(id)arg1 smallCapsBaseFont:(id)arg2 uppercase:(_Bool)arg3 otherAttributes:(id)arg4 minimumScaleFactor:(double)arg5 shouldEmbedTintColor:(_Bool)arg6;

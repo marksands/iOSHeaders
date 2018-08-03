@@ -11,7 +11,7 @@
 #import "AFUISpeechSynthesisElementDelegate.h"
 #import "VSSpeechSynthesizerDelegate.h"
 
-@class AFQueue, AFVoiceInfo, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_queue>, NSString, VSSpeechSynthesizer;
+@class AFQueue, AFVoiceInfo, NSMutableArray, NSMutableDictionary, NSObject<OS_dispatch_group>, NSObject<OS_dispatch_queue>, NSString, VSSpeechSynthesizer;
 
 @interface AFUISpeechSynthesis : NSObject <AFQueueDelegate, AFUISpeechSynthesisElementDelegate, VSSpeechSynthesizerDelegate, AFUISpeechSynthesis>
 {
@@ -21,6 +21,8 @@
     AFVoiceInfo *_outputVoice;
     NSMutableDictionary *_availableVoicesForLanguage;
     NSObject<OS_dispatch_queue> *_processingElementsQueue;
+    NSObject<OS_dispatch_queue> *_pendingElementsQueue;
+    NSObject<OS_dispatch_group> *_pendingElementsGroup;
     id <AFUISpeechSynthesisDelegate> _delegate;
     id <AFUISpeechSynthesisLocalDelegate> _localDelegate;
     AFQueue *_elementQueue;
@@ -42,8 +44,8 @@
 - (id)_activeElementWithSpeechRequest:(id)arg1;
 - (id)_activeElementWithPresynthesizedAudioRequest:(id)arg1;
 - (void)_processElementQueue;
-- (void)_handleText:(id)arg1;
-- (void)_handleAudioData:(id)arg1;
+- (void)_handleText:(id)arg1 completion:(CDUnknownBlockType)arg2;
+- (void)_handleAudioData:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)processDelayedItem:(id)arg1;
 - (void)enqueueText:(id)arg1 identifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)_enqueueText:(id)arg1 audioData:(id)arg2 identifier:(id)arg3 language:(id)arg4 gender:(id)arg5 isPhonetic:(_Bool)arg6 provisionally:(_Bool)arg7 eligibleAfterDuration:(double)arg8 delayed:(_Bool)arg9 preparationIdentifier:(id)arg10 completion:(CDUnknownBlockType)arg11 animationIdentifier:(id)arg12 analyticsContext:(id)arg13 speakableContextInfo:(id)arg14;

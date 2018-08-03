@@ -17,6 +17,7 @@
 
 + (id)resourceNameForImageName:(id)arg1 suffixIdentifier:(id)arg2;
 + (id)thirtyPercentAlphaWhiteIdentifier;
++ (id)systemDarkGrayIdentifier;
 + (id)systemMidGrayIdentifier;
 + (id)whiteIdentifier;
 + (id)systemBlueIdentifer;
@@ -25,6 +26,7 @@
 - (id)imageWithSuffixIdentifier:(id)arg1;
 - (id)templateImage;
 - (id)thirtyPercentAlphaWhiteImage;
+- (id)systemDarkGrayImage;
 - (id)systemMidGrayImage;
 - (id)whiteImage;
 - (id)systemBlueImage;

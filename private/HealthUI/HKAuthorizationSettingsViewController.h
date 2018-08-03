@@ -50,6 +50,7 @@
 - (void).cxx_destruct;
 - (void)_configurationFailedWithError:(id)arg1;
 - (void)_addHeaderView;
+- (_Bool)shouldPresent;
 - (_Bool)_isTypeEnabledAtIndexPath:(id)arg1;
 - (id)_typeForIndexPath:(id)arg1 section:(long long *)arg2;
 - (long long)authorizationSectionForSection:(long long)arg1;

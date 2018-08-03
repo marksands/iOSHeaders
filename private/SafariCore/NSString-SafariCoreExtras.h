@@ -37,6 +37,7 @@
 - (id)safari_simplifiedUserVisibleURLStringWithSimplifications:(unsigned long long)arg1 forDisplayOnly:(_Bool)arg2 simplifiedStringOffset:(unsigned long long *)arg3;
 - (id)safari_base64DecodedData;
 - (id)safari_highLevelDomainFromHost;
+- (id)safari_filenameByFixingIllegalCharacters;
 - (_Bool)safari_containsInteriorWhitespace;
 - (id)safari_stringByTrimmingWhitespace;
 - (id)safari_topLevelDomainUsingCFFromComponents:(id)arg1;

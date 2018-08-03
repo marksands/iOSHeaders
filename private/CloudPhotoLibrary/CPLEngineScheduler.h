@@ -104,6 +104,7 @@
 - (void)noteScopeListNeedsUpdate;
 - (void)noteTransportNeedsUpdate;
 - (void)noteStoreNeedsCleanup;
+- (void)noteStoreNeedsToUpdateDisabledFeatures;
 - (void)noteStoreNeedsSetup;
 - (void)kickOffSyncSession;
 - (void)startRequiredSyncSessionNow;

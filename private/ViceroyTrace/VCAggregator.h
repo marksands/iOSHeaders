@@ -25,10 +25,20 @@ __attribute__((visibility("hidden")))
 
 - (_Bool)didUpdateStringFrom:(id *)arg1 toString:(id)arg2;
 - (_Bool)changeDuplication:(_Bool)arg1;
-- (int)shortTermMLAverageForSegment:(id)arg1;
-- (int)longTermMLAverageForSegment:(id)arg1;
+- (int)previousISBRForSegment:(id)arg1;
+- (int)shortTermAverageBWEForSegment:(id)arg1;
+- (int)longTermAverageBWEForSegment:(id)arg1;
+- (int)shortTermAverageSARBRForSegment:(id)arg1;
+- (int)longTermAverageSARBRForSegment:(id)arg1;
+- (int)shortTermAverageSATXBRForSegment:(id)arg1;
+- (int)longTermAverageSATXBRForSegment:(id)arg1;
+- (int)shortTermAverageISBRForSegment:(id)arg1;
+- (int)longTermAverageISBRForSegment:(id)arg1;
+- (int)initialSettledBitrate;
+- (int)shortTermAverageTBRForSegment:(id)arg1;
+- (int)longTermAverageTBRForSegment:(id)arg1;
 - (int)learntBitrateForSegment:(id)arg1 defaultValue:(int)arg2;
-- (void)updateTargetBitrateForSegment:(id)arg1 newValue:(int)arg2;
+- (void)updateSegment:(id)arg1 TBR:(int)arg2 ISBTR:(int)arg3 SATXBR:(int)arg4 SARBR:(int)arg5 BWE:(int)arg6;
 - (int)adaptiveLearningState;
 - (id)aggregatedSessionReport;
 - (id)aggregatedCallReports;

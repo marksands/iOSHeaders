@@ -12,7 +12,8 @@
 
 + (id)privateSubEntities;
 + (long long)protectionClass;
-+ (id)columnsDefinition;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (id)sessionIdentifierForRecoveryInProfile:(id)arg1 error:(id *)arg2;
 + (id)sessionsExcludingIdentifiers:(id)arg1 profile:(id)arg2 error:(id *)arg3;

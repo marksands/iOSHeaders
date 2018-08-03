@@ -17,7 +17,7 @@
 
 + (void)createActionWithIntent:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
 + (void)createActionWithUserActivity:(id)arg1 appBundleIdentifier:(id)arg2 launchOrigin:(id)arg3 completionHandler:(CDUnknownBlockType)arg4;
-@property(readonly, copy, nonatomic) NSString *launchOrigin; // @synthesize launchOrigin=_launchOrigin;
+@property(copy, nonatomic) NSString *launchOrigin; // @synthesize launchOrigin=_launchOrigin;
 @property(readonly, nonatomic) NSUserActivity *userActivity; // @synthesize userActivity=_userActivity;
 - (id)appBundleIdentifier;
 - (void).cxx_destruct;

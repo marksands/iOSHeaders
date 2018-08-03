@@ -30,6 +30,8 @@
     SFFormAutoFillFrameHandle *_frameHandleForAutomaticPasswords;
     _SFFormAutoFillInputSession *_inputSessionForAutomaticPasswords;
     _SFAutoFillInputView *_autoFillInputView;
+    NSArray *_preservedLeadingBarButtonGroups;
+    NSArray *_preservedTrailingBarButtonGroups;
     NSDictionary *_externalCredentialIdentitiesForStreamlinedAutoFill;
     _Bool _metadataCorrectionsEnabled;
 }
@@ -50,7 +52,9 @@
 - (id)automaticPasswordForPasswordField:(id)arg1 inForm:(id)arg2 isFrame:(id)arg3;
 - (void)prepareForShowingAutomaticStrongPasswordWithInputSession:(id)arg1;
 - (void)automaticPasswordSheetDismissed;
+- (void)_removeAutomaticPasswordButtonInitiatedByUser:(_Bool)arg1 removeVisualTreatmentOnly:(_Bool)arg2;
 - (void)removeAutomaticPasswordButtonInitiatedByUser:(_Bool)arg1;
+- (void)removeAutomaticPasswordVisualTreatment;
 - (void)didRemoveAutomaticStrongPasswordInForm:(id)arg1 inputSessionUserObject:(id)arg2 inFrame:(id)arg3;
 - (void)autoFillDidFinishWithUpdatedFormMetadata:(id)arg1 inFrame:(id)arg2;
 - (void)_removeUniqueIDsOfAutoFilledForm:(id)arg1;
@@ -74,6 +78,8 @@
 - (void)_fieldFocusedWithInputSession:(id)arg1;
 - (void)fieldFocusedWithInputSession:(id)arg1;
 - (void)fieldDidFocusWithInputSession:(id)arg1;
+- (void)_restoreInputAssistantItemsIfNecessary;
+- (void)_hideInputAssistantItemsIfNecessary;
 - (void)fieldWillFocusWithInputSession:(id)arg1;
 @property(readonly, nonatomic) UIView<WBUFormAutoFillWebView> *webView;
 - (void)_autoFillLoginFormSynchronouslyAndClearMetadata:(id)arg1 inFrame:(id)arg2;

@@ -269,6 +269,7 @@
 @property(readonly, nonatomic) _Bool canGoToLastPage;
 - (void)goToFirstPage:(id)arg1;
 @property(readonly, nonatomic) _Bool canGoToFirstPage;
+- (void)_releaseDocumentViewController;
 - (void)_releaseDocument;
 - (void)setDocument:(id)arg1 waitDuration:(double)arg2;
 - (void)setDocument:(id)arg1 withInitialPageIndex:(unsigned long long)arg2;

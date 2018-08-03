@@ -42,7 +42,6 @@
 - (void)_startSpinnerTimerFired:(id)arg1 indexPath:(id)arg2;
 - (void)_scheduleLoadingSpinnerForIndexPath:(id)arg1;
 - (void)_addSpinnerToIndexPath:(id)arg1;
-- (void)updateListItemsAndUpdate:(id)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;
 - (void)loadView;

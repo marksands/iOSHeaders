@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-#import "CRKCardSectionViewProviding.h"
+#import "CRKIdentifiedCardSectionViewProviding.h"
 #import "INUICKPViewControllerAllocatingDelegate.h"
 
 @class NSArray, NSString;
 
-@interface INUICKPCardSectionViewProvider : NSObject <INUICKPViewControllerAllocatingDelegate, CRKCardSectionViewProviding>
+@interface INUICKPCardSectionViewProvider : NSObject <INUICKPViewControllerAllocatingDelegate, CRKIdentifiedCardSectionViewProviding>
 {
     id <CRCard> _card;
     NSArray *_viewConfigurations;
@@ -30,6 +30,7 @@
 - (double)boundingWidthForViewControllerAllocator:(id)arg1;
 - (_Bool)vetoDisplayOfCardSection:(id)arg1;
 - (unsigned long long)displayPriorityForCardSection:(id)arg1;
+@property(readonly, copy, nonatomic) NSString *providerIdentifier;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

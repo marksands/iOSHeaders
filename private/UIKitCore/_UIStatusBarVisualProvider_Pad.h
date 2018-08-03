@@ -6,7 +6,7 @@
 
 #import <UIKitCore/_UIStatusBarVisualProvider_iOS.h>
 
-@class NSDictionary, NSLayoutConstraint;
+@class NSDictionary, NSLayoutConstraint, _UIStatusBarDisplayItemPlacement;
 
 __attribute__((visibility("hidden")))
 @interface _UIStatusBarVisualProvider_Pad : _UIStatusBarVisualProvider_iOS
@@ -14,6 +14,8 @@ __attribute__((visibility("hidden")))
     NSDictionary *_orderedDisplayItemPlacements;
     NSLayoutConstraint *_trailingRegionLeadingAnchorConstraint;
     NSLayoutConstraint *_leadingRegionTrailingAnchorConstraint;
+    _UIStatusBarDisplayItemPlacement *_datePlacement;
+    _UIStatusBarDisplayItemPlacement *_timePlacement;
 }
 
 + (id)expandedFont;
@@ -24,6 +26,8 @@ __attribute__((visibility("hidden")))
 + (double)regionSpacing;
 + (double)height;
 + (Class)visualProviderSubclassForScreen:(id)arg1;
+@property(retain, nonatomic) _UIStatusBarDisplayItemPlacement *timePlacement; // @synthesize timePlacement=_timePlacement;
+@property(retain, nonatomic) _UIStatusBarDisplayItemPlacement *datePlacement; // @synthesize datePlacement=_datePlacement;
 @property(retain, nonatomic) NSLayoutConstraint *leadingRegionTrailingAnchorConstraint; // @synthesize leadingRegionTrailingAnchorConstraint=_leadingRegionTrailingAnchorConstraint;
 @property(retain, nonatomic) NSLayoutConstraint *trailingRegionLeadingAnchorConstraint; // @synthesize trailingRegionLeadingAnchorConstraint=_trailingRegionLeadingAnchorConstraint;
 @property(retain, nonatomic) NSDictionary *orderedDisplayItemPlacements; // @synthesize orderedDisplayItemPlacements=_orderedDisplayItemPlacements;
@@ -31,6 +35,9 @@ __attribute__((visibility("hidden")))
 - (double)airplaneShouldFadeForAnimationType:(long long)arg1;
 - (double)airplaneSpeedForAnimationType:(long long)arg1;
 - (double)airplaneTravelOffsetInProposedPartWithIdentifier:(id *)arg1 animationType:(long long)arg2;
+- (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
+- (void)_dateTimePreferencesUpdated;
+- (_Bool)_updateDateAndTimePlacements;
 - (void)sizeUpdatedFromSize:(struct CGSize)arg1;
 - (void)avoidanceFrameUpdatedFromFrame:(struct CGRect)arg1;
 - (void)_updateConstraintsForAvoidanceFrame:(struct CGRect)arg1;
@@ -40,6 +47,8 @@ __attribute__((visibility("hidden")))
 - (id)regionIdentifiersForPartWithIdentifier:(id)arg1;
 - (id)orderedDisplayItemPlacementsInRegionWithIdentifier:(id)arg1;
 - (id)setupInContainerView:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+#import "NSSecureCoding.h"
+
 @class NSArray, NSString;
 
-@interface REPredictionElement : NSObject
+@interface REPredictionElement : NSObject <NSSecureCoding>
 {
     NSString *_identifier;
     unsigned long long _privacyBehavior;
@@ -18,7 +20,9 @@
     NSString *_section;
 }
 
-+ (id)predictionElementFormElement:(id)arg1;
++ (_Bool)supportsSecureCoding;
++ (id)predictionElementFromElement:(id)arg1;
++ (id)predictionElementWithIdentifier:(id)arg1 relevanceProviders:(id)arg2 bundleIdentifier:(id)arg3;
 @property(retain, nonatomic) NSString *section; // @synthesize section=_section;
 @property(readonly, nonatomic) NSString *interaction; // @synthesize interaction=_interaction;
 @property(readonly, nonatomic) NSString *bundleIdentifier; // @synthesize bundleIdentifier=_bundleIdentifier;
@@ -26,6 +30,8 @@
 @property(readonly, nonatomic) unsigned long long privacyBehavior; // @synthesize privacyBehavior=_privacyBehavior;
 @property(readonly, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
 - (void).cxx_destruct;
+- (void)encodeWithCoder:(id)arg1;
+- (id)initWithCoder:(id)arg1;
 
 @end
 

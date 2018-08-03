@@ -12,6 +12,7 @@
 {
     NSMutableDictionary *_completionBlocks;
     NSTimer *_suspensionTimer;
+    _Bool _enabled;
     _Bool _suspended;
     long long _prewarmCount;
     long long _state;
@@ -28,6 +29,7 @@
 @property(nonatomic, getter=_isSuspended, setter=_setSuspended:) _Bool suspended; // @synthesize suspended=_suspended;
 @property(readonly, nonatomic) unsigned long long numberOfClients; // @synthesize numberOfClients=_numberOfClients;
 @property(nonatomic, getter=_state, setter=_setState:) long long state; // @synthesize state=_state;
+@property(nonatomic, getter=isEnabled, setter=_setEnabled:) _Bool enabled; // @synthesize enabled=_enabled;
 @property(nonatomic) long long prewarmCount; // @synthesize prewarmCount=_prewarmCount;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) NSString *_stats_key;

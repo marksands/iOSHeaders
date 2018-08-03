@@ -32,6 +32,7 @@
 @property(retain, nonatomic) NSURL *URL; // @synthesize URL=_URL;
 @property(retain, nonatomic) NSString *text; // @synthesize text=_text;
 - (void).cxx_destruct;
+- (void)_accessibilitySetInterfaceStyleIntent:(unsigned long long)arg1;
 - (_Bool)textView:(id)arg1 shouldInteractWithURL:(id)arg2 inRange:(struct _NSRange)arg3;
 - (double)preferredHeightForWidth:(double)arg1 inTableView:(id)arg2;
 - (_Bool)isValidLinkRange;

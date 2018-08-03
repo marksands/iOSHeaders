@@ -16,11 +16,11 @@
 + (id)deviceAirDropIdentifier;
 + (_Bool)shouldShowReachabilityErrors;
 + (_Bool)isPressDemoModeEnabled;
++ (_Bool)supportsBeingCurrentLocationDevice;
 + (_Bool)supportsAddAccessory;
 + (_Bool)isAMac;
 + (_Bool)useWLANInsteadOfWiFi;
 + (_Bool)isHorseman;
-+ (_Bool)openSensitiveURL:(id)arg1 withOptions:(id)arg2;
 + (_Bool)isInternalInstall;
 + (CDUnknownBlockType)comparatorWithSortedObjects:(id)arg1;
 + (CDUnknownBlockType)comparatorWithSortedClasses:(id)arg1 secondaryComparator:(CDUnknownBlockType)arg2;

@@ -13,6 +13,7 @@
 
 @interface VCVoiceShortcutManager : NSObject <HMHomeManagerDelegate, VCSyncDataHandling>
 {
+    unsigned long long _persistenceType;
     VCCoreDataStore *_dataStore;
     NSMapTable *_syncServices;
     id <VCVoiceShortcutSyncService> _masterSyncService;
@@ -26,7 +27,6 @@
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *syncServicesIsolationQueue; // @synthesize syncServicesIsolationQueue=_syncServicesIsolationQueue;
 @property(nonatomic) __weak id <VCVoiceShortcutSyncService> masterSyncService; // @synthesize masterSyncService=_masterSyncService;
 @property(readonly, nonatomic) NSMapTable *syncServices; // @synthesize syncServices=_syncServices;
-@property(readonly, nonatomic) VCCoreDataStore *dataStore; // @synthesize dataStore=_dataStore;
 - (void).cxx_destruct;
 - (void)describeSyncStateIncludingDeleted:(_Bool)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)requestSyncForServiceClassName:(id)arg1 forceReset:(_Bool)arg2 accessSpecifier:(id)arg3 completion:(CDUnknownBlockType)arg4;
@@ -45,7 +45,7 @@
 - (void)applyChangeSet:(struct NSOrderedSet *)arg1 fromSyncServiceWithIdentifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)rehydrateFromMasterSyncServiceIfNeeded;
 @property(nonatomic) _Bool needsToBeRehydratedFromMasterSyncService;
-- (_Bool)resetLocalData:(id *)arg1;
+- (_Bool)deleteSyncedData:(id *)arg1;
 - (void)deleteShortcutSuggestionsFromDeletedApps;
 - (void)getShortcutSuggestionsForAllAppsWithLimit:(unsigned long long)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getShortcutSuggestionsForAppWithBundleIdentifier:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
@@ -62,6 +62,8 @@
 - (void)getVoiceShortcutWithPhrase:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getVoiceShortcutWithIdentifier:(id)arg1 accessSpecifier:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)getNumberOfVoiceShortcutsWithAccessSpecifier:(id)arg1 completion:(CDUnknownBlockType)arg2;
+@property(readonly, nonatomic) VCCoreDataStore *dataStore; // @synthesize dataStore=_dataStore;
+- (id)dataStoreWithError:(id *)arg1;
 - (id)initWithPersistenceType:(unsigned long long)arg1 error:(id *)arg2;
 - (int)handledMessageType;
 

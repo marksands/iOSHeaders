@@ -10,15 +10,17 @@
 
 @interface AREnvironmentProbeAnchor : ARAnchor
 {
+    float _opaquePixelPercentage;
     id <MTLTexture> _environmentTexture;
-    NSData *_lastTextureState;
+    NSData *_colorHistogram;
     NSUUID *_trackedPlaneIdentifier;
     // Error parsing type: , name: _extent
 }
 
 + (_Bool)supportsSecureCoding;
 @property(retain, nonatomic) NSUUID *trackedPlaneIdentifier; // @synthesize trackedPlaneIdentifier=_trackedPlaneIdentifier;
-@property(retain, nonatomic) NSData *lastTextureState; // @synthesize lastTextureState=_lastTextureState;
+@property(nonatomic) float opaquePixelPercentage; // @synthesize opaquePixelPercentage=_opaquePixelPercentage;
+@property(retain, nonatomic) NSData *colorHistogram; // @synthesize colorHistogram=_colorHistogram;
 // Error parsing type for property extent:
 // Property attributes: T,R,N,V_extent
 

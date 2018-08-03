@@ -17,9 +17,10 @@ __attribute__((visibility("hidden")))
 @interface _UIPreviewInteractionController : NSObject <UIGestureRecognizerDelegate, UIPreviewInteractionDelegate, UIViewControllerTransitioningDelegate, _UIPreviewActionsControllerDelegate>
 {
     _Bool _performingPreviewTransition;
+    _Bool _hasTransitionedToPreview;
+    _Bool _dismissingPreview;
     _Bool _commitTransitionScheduled;
     _Bool _performingCommitTransition;
-    _Bool _hasTransitionedToPreview;
     id <_UIPreviewInteractionControllerDelegate> _delegate;
     UIView *_sourceView;
     UIViewController *_presentingViewController;
@@ -48,9 +49,10 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) _UIPreviewActionsController *previewActionsController; // @synthesize previewActionsController=_previewActionsController;
 @property(retain, nonatomic) _UITouchesObservingGestureRecognizer *gestureRecognizerForPreviewActions; // @synthesize gestureRecognizerForPreviewActions=_gestureRecognizerForPreviewActions;
 @property(retain, nonatomic) _UIInteractionEffect_deprecated *currentInteractionEffect; // @synthesize currentInteractionEffect=_currentInteractionEffect;
-@property(nonatomic) _Bool hasTransitionedToPreview; // @synthesize hasTransitionedToPreview=_hasTransitionedToPreview;
 @property(nonatomic) _Bool performingCommitTransition; // @synthesize performingCommitTransition=_performingCommitTransition;
 @property(nonatomic) _Bool commitTransitionScheduled; // @synthesize commitTransitionScheduled=_commitTransitionScheduled;
+@property(nonatomic) _Bool dismissingPreview; // @synthesize dismissingPreview=_dismissingPreview;
+@property(nonatomic) _Bool hasTransitionedToPreview; // @synthesize hasTransitionedToPreview=_hasTransitionedToPreview;
 @property(nonatomic) _Bool performingPreviewTransition; // @synthesize performingPreviewTransition=_performingPreviewTransition;
 @property(retain, nonatomic) _UIPreviewInteractionCommitTransition *currentCommitTransition; // @synthesize currentCommitTransition=_currentCommitTransition;
 @property(retain, nonatomic) _UIPreviewInteractionDismissTransition *currentDismissTransition; // @synthesize currentDismissTransition=_currentDismissTransition;

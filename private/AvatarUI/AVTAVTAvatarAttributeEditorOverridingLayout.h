@@ -14,9 +14,12 @@
 {
     id <AVTAvatarAttributeEditorLayout> _backingLayout;
     struct CGRect _avatarContainerFrame;
+    struct CGRect _attributesContentViewFrame;
 }
 
 @property(readonly, nonatomic) id <AVTAvatarAttributeEditorLayout> backingLayout; // @synthesize backingLayout=_backingLayout;
+@property(nonatomic) struct CGRect attributesContentViewFrame; // @synthesize attributesContentViewFrame=_attributesContentViewFrame;
+@property(nonatomic) struct CGRect avatarContainerFrame; // @synthesize avatarContainerFrame=_avatarContainerFrame;
 - (void).cxx_destruct;
 @property(readonly, nonatomic) UIColor *backgroundColor;
 @property(readonly, nonatomic) struct UIEdgeInsets attributesContentViewScrollIndicatorInsets;
@@ -26,14 +29,12 @@
 @property(readonly, nonatomic) struct CGRect headerMaskingViewFrame;
 @property(readonly, nonatomic) double headerMaskingViewAlpha;
 @property(readonly, nonatomic) struct CGRect userInfoFrame;
-@property(readonly, nonatomic) struct CGRect attributesContentViewFrame;
 @property(readonly, nonatomic) struct CGRect groupDialContainerFrame;
 @property(readonly, nonatomic) double screenScale;
 @property(readonly, nonatomic) struct UIEdgeInsets edgeInsets;
 @property(readonly, nonatomic) struct CGSize containerSize;
 @property(readonly, copy, nonatomic) NSString *contentSizeCategory;
-@property(readonly, nonatomic) struct CGRect avatarContainerFrame; // @synthesize avatarContainerFrame=_avatarContainerFrame;
-- (id)initWithLayout:(id)arg1 avatarContainerFrame:(struct CGRect)arg2;
+- (id)initWithLayout:(id)arg1;
 
 @end
 

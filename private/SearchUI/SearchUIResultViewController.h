@@ -35,6 +35,7 @@
 - (void).cxx_destruct;
 - (void)tapAtIndexPath:(id)arg1;
 - (id)currentTableModel;
+- (void)performScrollTestWithHandlerForFirstScrollCompletion:(CDUnknownBlockType)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)performScrollTestWithCompletion:(CDUnknownBlockType)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;

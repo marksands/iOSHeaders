@@ -91,6 +91,7 @@
 - (void)createShortcut;
 - (void)createOrUpdateCurrentVoiceShortcut;
 - (void)updateForPhraseRecognizerAvailability;
+- (_Bool)phraseRecognizerInErrorState;
 - (void)startRecording;
 - (void)didTapTypeToSiri;
 - (void)didTapRecord;

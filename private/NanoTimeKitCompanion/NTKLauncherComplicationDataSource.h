@@ -11,6 +11,7 @@
 }
 
 + (_Bool)acceptsComplicationType:(unsigned long long)arg1 withFamily:(long long)arg2 forDevice:(id)arg3;
+- (id)_tinCanAppTintColor;
 - (id)_complicationLaunchURL;
 - (id)_complicationApplicationIdentifier;
 - (id)_appTintColor;

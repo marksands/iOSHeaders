@@ -8,11 +8,9 @@
 
 @interface NCNotificationListCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
 {
-    _Bool _hasStackingShadow;
     double _overlayAlpha;
 }
 
-@property(nonatomic) _Bool hasStackingShadow; // @synthesize hasStackingShadow=_hasStackingShadow;
 @property(nonatomic) double overlayAlpha; // @synthesize overlayAlpha=_overlayAlpha;
 - (id)init;
 

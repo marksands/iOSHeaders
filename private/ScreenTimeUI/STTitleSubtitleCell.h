@@ -8,10 +8,13 @@
 
 @interface STTitleSubtitleCell : PSTableCell
 {
+    _Bool _hasSubtitle;
 }
 
 + (long long)cellStyle;
+@property(nonatomic) _Bool hasSubtitle; // @synthesize hasSubtitle=_hasSubtitle;
 - (void)refreshCellContentsWithSpecifier:(id)arg1;
+- (void)layoutSubviews;
 
 @end
 

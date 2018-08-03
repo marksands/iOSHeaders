@@ -22,10 +22,10 @@
 + (_Bool)performHighPriorityReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
 + (_Bool)performReadTransactionWithHealthDatabase:(id)arg1 error:(id *)arg2 block:(CDUnknownBlockType)arg3;
 + (_Bool)_isNilDatabase:(id)arg1 error:(id *)arg2;
++ (id)defaultForeignKey;
 + (id)uniquedColumns;
 + (id)createTableSQL;
 + (id)databaseName;
-+ (id)columnsDefinition;
 + (id)protectedDatabaseName;
 + (long long)protectionClass;
 + (id)predicateForSyncWithPredicate:(id)arg1 syncEntityClass:(Class)arg2 session:(id)arg3 syncAnchorRange:(struct HDSyncAnchorRange)arg4;

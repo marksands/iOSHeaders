@@ -44,6 +44,7 @@
 + (id)getSiriLanguageWithFallback:(id)arg1;
 + (id)convertToShortLPCMBufFromFloatLPCMBuf:(id)arg1;
 + (id)convertToFloatLPCMBufFromShortLPCMBuf:(id)arg1;
++ (_Bool)isSpidAssetsAvailable;
 + (void)streamAudioFromFileUrl:(id)arg1 audioStreamBasicDescriptor:(struct AudioStreamBasicDescription)arg2 samplesPerStreamChunk:(unsigned long long)arg3 audioDataAvailableHandler:(CDUnknownBlockType)arg4;
 + (id)spidAudioTrainUtterancesDir;
 + (id)spIdSiriDebugVoiceProfileRootDirectoryForProfile:(id)arg1 locale:(id)arg2;
@@ -92,6 +93,7 @@
 + (double)hostTimeToTimeInterval:(unsigned long long)arg1;
 + (float)hostTimeToSeconds:(unsigned long long)arg1;
 + (unsigned long long)secondsToHostTime:(float)arg1;
++ (_Bool)isRecordContextRaiseToSpeak:(id)arg1;
 + (_Bool)isRecordingContextBTDT:(id)arg1;
 + (_Bool)isRecordingContextHDVC:(id)arg1;
 + (_Bool)isRecordContextSpeakerIdTrainingTrigger:(id)arg1;

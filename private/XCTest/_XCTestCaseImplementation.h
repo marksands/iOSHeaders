@@ -69,6 +69,8 @@
 @property(retain) NSThread *primaryThread; // @synthesize primaryThread=_primaryThread;
 @property(retain) NSInvocation *invocation; // @synthesize invocation=_invocation;
 - (void).cxx_destruct;
+@property(readonly) _Bool hasImplicitExpectationsWhichHaveBeenWaitedOn;
+- (void)resetExpectationsInArray:(id)arg1;
 - (void)resetExpectations;
 - (void)addExpectation:(id)arg1;
 - (id)init;

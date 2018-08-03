@@ -37,6 +37,7 @@
 @property(readonly, nonatomic) NSDate *machinePreferredUntilDate; // @synthesize machinePreferredUntilDate=_machinePreferredUntilDate;
 @property(readonly, nonatomic) HDFitnessMachineDataProducer *fitnessMachineDataProducer; // @synthesize fitnessMachineDataProducer=_fitnessMachineDataProducer;
 - (void).cxx_destruct;
+- (void)unitTest_receiveFakeCharacteristicUpdate:(id)arg1;
 - (id)unitTest_currentFitnessMachineSession;
 - (void)unitTest_fakeSession:(id)arg1;
 - (void)unitTest_fakeMachineDiscoveryForType:(unsigned long long)arg1;

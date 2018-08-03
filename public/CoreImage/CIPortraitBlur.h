@@ -16,6 +16,7 @@ __attribute__((visibility("hidden")))
     CIImage *inputMatteImage;
     NSNumber *inputLumaNoiseScale;
     NSNumber *inputScale;
+    NSNumber *inputAperture;
     NSDictionary *inputTuningParameters;
     NSString *inputShape;
 }
@@ -23,6 +24,7 @@ __attribute__((visibility("hidden")))
 + (id)customAttributes;
 @property(retain, nonatomic) NSString *inputShape; // @synthesize inputShape;
 @property(retain, nonatomic) NSDictionary *inputTuningParameters; // @synthesize inputTuningParameters;
+@property(copy, nonatomic) NSNumber *inputAperture; // @synthesize inputAperture;
 @property(copy, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
 @property(copy, nonatomic) NSNumber *inputLumaNoiseScale; // @synthesize inputLumaNoiseScale;
 @property(retain) CIImage *inputMatteImage; // @synthesize inputMatteImage;

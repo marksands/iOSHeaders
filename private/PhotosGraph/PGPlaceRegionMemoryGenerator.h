@@ -16,6 +16,7 @@
 
 @property(nonatomic) long long year; // @synthesize year=_year;
 @property(nonatomic) NSString *region; // @synthesize region=_region;
+- (_Bool)canFallbackToDejunkAndDedupeForShowMore;
 - (id)_potentialMemoriesForDryTesting;
 - (void)_generateExtendedCuratedSetForMemory:(id)arg1 withPotentialMemory:(id)arg2;
 - (void)_postProcessMemory:(id)arg1 withPotentialMemory:(id)arg2;

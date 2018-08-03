@@ -28,8 +28,11 @@
 - (void)_dumpCloudApps:(id)arg1;
 - (void)_dumpCloudPersonalActivations:(id)arg1;
 - (void)resolveConflictsBetweenLocalDeltas:(id)arg1 cloudDeltas:(id)arg2;
+- (void)newResolveConflictsBetweenLocalDeltas:(id)arg1 cloudDeltas:(id)arg2;
 - (_Bool)migrateWithError:(id *)arg1;
+- (_Bool)newMigrateWithError:(id *)arg1;
 - (_Bool)areLocalChangesInterestingWithError:(id *)arg1;
+- (_Bool)newAreLocalChangesInterestingWithError:(id *)arg1;
 - (id)initWithPersistentStoreCoordinator:(id)arg1;
 
 @end

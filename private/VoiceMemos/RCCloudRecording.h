@@ -45,8 +45,7 @@
 @property(nonatomic) _Bool evicted;
 @property(nonatomic) _Bool pendingRestore;
 @property(nonatomic) _Bool synced;
-- (void)synchronizeAudioFutureWithModel:(id)arg1 completionHandler:(CDUnknownBlockType)arg2;
-- (void)_synchronizeWithExistingAudioFuture:(CDUnknownBlockType)arg1;
+- (_Bool)synchronizeWithExistingAudioFuture:(id *)arg1;
 - (void)setLocation:(id)arg1;
 @property(readonly, copy, nonatomic) CLLocation *location;
 @property(copy, nonatomic) NSDate *evictionDate; // @dynamic evictionDate;

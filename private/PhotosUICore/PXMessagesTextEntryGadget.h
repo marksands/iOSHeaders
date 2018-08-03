@@ -14,14 +14,14 @@
 {
     UIView *_containerView;
     UITextField *_textEntryField;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
     PXGadgetSpec *_gadgetSpec;
 }
 
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 - (void).cxx_destruct;
 - (void)viewWillLayoutSubviews;
 - (void)viewDidLoad;
@@ -39,6 +39,7 @@
 @property(readonly, nonatomic) NSString *localizedTitle;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;
 @property(readonly) unsigned long long hash;

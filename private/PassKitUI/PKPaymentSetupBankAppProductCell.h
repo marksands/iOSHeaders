@@ -11,7 +11,6 @@
 }
 
 - (void)layoutSubviews;
-- (void)_updateDisplay;
 - (id)init;
 
 @end

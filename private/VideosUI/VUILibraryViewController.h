@@ -15,7 +15,7 @@
 #import "VUIMediaItemEntityTypesFetchControllerDelegate.h"
 #import "VUIMediaLibraryFetchControllerQueueDelegate.h"
 
-@class NSArray, NSDictionary, NSString, UIBarButtonItem, VUILibraryBannerCollectionViewCell, VUILibraryDownloadViewController, VUILibraryListPopoverViewCell, VUILibraryMediaEntityShelvesViewModel, VUILibraryMenuItemViewCell, VUILibraryPopoverViewController, VUIMediaLibrary, _VUILibrarySeeAllController;
+@class NSArray, NSDictionary, NSString, UIBarButtonItem, VUILibraryBannerCollectionViewCell, VUILibraryDownloadViewController, VUILibraryListPopoverViewCell, VUILibraryMediaEntityShelvesViewModel, VUILibraryMenuItemViewCell, VUILibraryPopoverViewController, VUIMediaLibrary, VUIMetricsController, _VUILibrarySeeAllController;
 
 __attribute__((visibility("hidden")))
 @interface VUILibraryViewController : VUILibraryStackViewController <UICollectionViewDataSource, VUILibraryShelfCollectionViewControllerDelegate, VUIMediaItemEntityTypesFetchControllerDelegate, VUIMediaEntitiesFetchControllerDelegate, VUIMediaLibraryFetchControllerQueueDelegate, VUILibraryPopoverDataSource, VUILibraryPopoverDelegate, UIGestureRecognizerDelegate>
@@ -45,10 +45,12 @@ __attribute__((visibility("hidden")))
     VUILibraryMediaEntityShelvesViewModel *_shelvesViewModel;
     NSDictionary *_shelfTypeByFetchRequestIdentifier;
     _VUILibrarySeeAllController *_currentSeeAllController;
+    VUIMetricsController *_metricsController;
 }
 
 + (id)_localizedTitleForShelfType:(long long)arg1;
 + (CDUnknownBlockType)shelfTypesSortComparator;
+@property(retain, nonatomic) VUIMetricsController *metricsController; // @synthesize metricsController=_metricsController;
 @property(nonatomic) _Bool isIpad; // @synthesize isIpad=_isIpad;
 @property(nonatomic) _Bool doesDeviceSupportHDR; // @synthesize doesDeviceSupportHDR=_doesDeviceSupportHDR;
 @property(retain, nonatomic) _VUILibrarySeeAllController *currentSeeAllController; // @synthesize currentSeeAllController=_currentSeeAllController;
@@ -129,8 +131,10 @@ __attribute__((visibility("hidden")))
 - (_Bool)gestureRecognizerShouldBegin:(id)arg1;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(_Bool)arg1;
+- (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)loadView;
+- (void)_handleApplicationBecomingActive:(id)arg1;
 - (void)dealloc;
 - (id)initWithMediaLibrary:(id)arg1;
 

@@ -24,6 +24,7 @@
 @property unsigned long long duration; // @synthesize duration=_duration;
 - (void).cxx_destruct;
 - (id)createMemoryWithPotentialMemory:(id)arg1;
+@property(readonly) _Bool canFallbackToDejunkAndDedupeForShowMore;
 - (void)_mergeCurationSetsIfNeededForMemory:(id)arg1;
 - (id)_additionalInfoKeywordsForPotentialMemory:(id)arg1;
 - (id)_createMemoryDebugWithPotentialMemory:(id)arg1;

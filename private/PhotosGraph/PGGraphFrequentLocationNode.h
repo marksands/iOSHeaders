@@ -18,6 +18,7 @@
 - (void).cxx_destruct;
 @property(readonly, copy) NSString *description;
 - (void)enumerateMomentNodesUsingBlock:(CDUnknownBlockType)arg1;
+@property(readonly) unsigned long long numberOfMomentNodes;
 @property(readonly) NSSet *momentNodes;
 @property(readonly) PGGraphAddressNode *addressNode;
 @property(readonly) NSDateInterval *localDateInterval;

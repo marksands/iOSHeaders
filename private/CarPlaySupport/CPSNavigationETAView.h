@@ -28,6 +28,7 @@
 - (void)didMoveToSuperview;
 - (void)_updateStyle;
 - (void)removeFromSuperview;
+- (void)setHidden:(_Bool)arg1;
 - (id)initWithTrip:(id)arg1 style:(unsigned long long)arg2;
 
 // Remaining properties

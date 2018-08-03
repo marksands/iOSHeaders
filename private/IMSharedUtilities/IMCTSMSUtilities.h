@@ -13,6 +13,8 @@
 + (_Bool)IMMessagesFilteringSettingForPreferedSubscription;
 + (_Bool)MMSRestrictedModeEnabledForPhoneNumber:(id)arg1 simID:(id)arg2 reset:(_Bool)arg3;
 + (_Bool)IMMMSRestrictedModeEnabledForPhoneNumber:(id)arg1 simID:(id)arg2;
++ (_Bool)IMMMSEagerUploadDisabledInCarrierBundleForPhoneNumber:(id)arg1 simID:(id)arg2;
++ (_Bool)IMIsEagerUploadEnabledForPhoneNumber:(id)arg1 simID:(id)arg2;
 + (_Bool)IMShouldShowMMSEmailAddress:(id)arg1 simID:(id)arg2;
 + (id)IMMMSEmailAddressToMatchForPhoneNumber:(id)arg1 simID:(id)arg2;
 + (unsigned long long)IMiMessageMaxTransferVideoFileSizeForWifiForPhoneNumber:(unsigned long long *)arg1 cellSize:(unsigned long long *)arg2 serverConfigurationBag:(id)arg3 phoneNumber:(id)arg4 simID:(id)arg5;

@@ -124,7 +124,9 @@
 - (void)copyCarrierBundleValue:(id)arg1 key:(id)arg2 bundleType:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)checkRadioBootHealth:(CDUnknownBlockType)arg1;
 - (void)setVoLTEAudioCodec:(id)arg1 codecInfo:(id)arg2 completion:(CDUnknownBlockType)arg3;
+- (id)setAllowedToLaunchSimUnlockDuringBuddy:(_Bool)arg1;
 - (void)SIMUnlockProcedureDidComplete;
+- (void)promptForSIMUnlock:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)generateUICCAuthenticationInfo:(id)arg1 authParams:(id)arg2 completion:(CDUnknownBlockType)arg3;
 - (void)setActiveUserDataSelection:(id)arg1 error:(id *)arg2;
 - (void)setActiveUserDataSelection:(id)arg1 completion:(CDUnknownBlockType)arg2;
@@ -142,7 +144,6 @@
 - (void)getRemainingPINAttemptCount:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)changePIN:(id)arg1 oldPin:(id)arg2 newPin:(id)arg3 error:(id *)arg4;
 - (void)changePIN:(id)arg1 oldPin:(id)arg2 newPin:(id)arg3 completion:(CDUnknownBlockType)arg4;
-- (void)promptForSIMUnlock:(id)arg1 completion:(CDUnknownBlockType)arg2;
 - (void)unlockPUK:(id)arg1 puk:(id)arg2 newPin:(id)arg3 error:(id *)arg4;
 - (void)unlockPUK:(id)arg1 puk:(id)arg2 newPin:(id)arg3 completion:(CDUnknownBlockType)arg4;
 - (void)unlockPIN:(id)arg1 pin:(id)arg2 error:(id *)arg3;

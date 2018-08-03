@@ -55,6 +55,7 @@
 - (void)setAuthoringCamera:(long long)arg1 forView:(id)arg2;
 - (_Bool)didTapAtPoint:(struct CGPoint)arg1;
 @property long long displayMask;
+- (void)_updateRootsVisibility;
 @property(readonly, nonatomic) SCNNode *authoringOverlayLayer;
 @property(readonly, nonatomic) SCNNode *authoringLayer;
 - (void)updateWithRenderer:(id)arg1;

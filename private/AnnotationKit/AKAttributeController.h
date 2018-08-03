@@ -53,6 +53,9 @@
 - (void)_syncAttributesFromSenderToSelfAndSelectedAnnotations:(id)arg1 segment:(long long)arg2;
 - (void)_restorePersistedAttributes;
 - (void)_persistCurrentAttributes;
+- (void)_disableInkPicker:(_Bool)arg1;
+- (void)didEndOrCancelStroke;
+- (void)beganDrawingStroke;
 - (void)resetToLastDrawingInk;
 - (void)setDefaultInk;
 - (void)restoreStrokeColorToSystemDefault;

@@ -12,7 +12,7 @@
 
 + (long long)protectionClass;
 + (id)uniquedColumns;
-+ (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (id)_predicateForSyncEntityIdentifier:(id)arg1 syncStore:(id)arg2;
 + (id)_predicateForSyncStore:(id)arg1;

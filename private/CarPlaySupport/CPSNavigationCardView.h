@@ -8,24 +8,25 @@
 
 #import "CPSNavigationDisplaying.h"
 
-@class CPSCardPlatterView, CPSUpcomingManeuversCardView, NSString, UIColor;
+@class CPSCardPlatterView, CPSPausedCardView, CPSUpcomingManeuversCardView, NSString, UIColor;
 
 @interface CPSNavigationCardView : UIView <CPSNavigationDisplaying>
 {
+    CPSPausedCardView *_pausedView;
     UIColor *_guidanceBackgroundColor;
     CPSCardPlatterView *_platterView;
-    UIView *_pausedView;
     CPSUpcomingManeuversCardView *_maneuversView;
 }
 
 @property(retain, nonatomic) CPSUpcomingManeuversCardView *maneuversView; // @synthesize maneuversView=_maneuversView;
-@property(retain, nonatomic) UIView *pausedView; // @synthesize pausedView=_pausedView;
 @property(readonly, nonatomic) CPSCardPlatterView *platterView; // @synthesize platterView=_platterView;
 @property(retain, nonatomic) UIColor *guidanceBackgroundColor; // @synthesize guidanceBackgroundColor=_guidanceBackgroundColor;
+@property(readonly, nonatomic) CPSPausedCardView *pausedView; // @synthesize pausedView=_pausedView;
 - (void).cxx_destruct;
 - (void)navigator:(id)arg1 pausedTripForReason:(unsigned long long)arg2 description:(id)arg3;
 - (void)updateEstimates:(id)arg1 forManeuver:(id)arg2;
 - (void)showManeuvers:(id)arg1 usingDisplayStyles:(id)arg2;
+- (struct CGSize)intrinsicContentSize;
 @property(nonatomic, getter=isMinimalMode) _Bool minimalMode;
 - (void)_showPausedViewForReason:(unsigned long long)arg1 description:(id)arg2;
 - (void)_showManeuversView;

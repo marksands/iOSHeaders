@@ -13,6 +13,7 @@
 __attribute__((visibility("hidden")))
 @interface _UIContextBinder : NSObject <_UIAnimationFenceCoordinating>
 {
+    id <_UIContextBinderDelegate> _delegate;
     NSPointerArray *_enrolledBindables;
     NSPointerArray *_attachedBindables;
     NSMutableOrderedSet *_contexts;
@@ -29,6 +30,7 @@ __attribute__((visibility("hidden")))
 @property(nonatomic) long long contextManagementPolicy; // @synthesize contextManagementPolicy=_contextManagementPolicy;
 @property(readonly, nonatomic) __weak id <_UICanvasLifecycleStateMonitoring> lifecycleMonitor; // @synthesize lifecycleMonitor=_lifecycleMonitor;
 @property(readonly, nonatomic) id <_UIContextBinding> substrate; // @synthesize substrate=_substrate;
+@property(nonatomic) __weak id <_UIContextBinderDelegate> delegate; // @synthesize delegate=_delegate;
 - (void).cxx_destruct;
 - (void)_synchronizeDrawingWithFence:(id)arg1 preCommitHandler:(CDUnknownBlockType)arg2;
 - (void)_synchronizeDrawingAcrossProcessesOverPort:(unsigned int)arg1 withPreCommitHandler:(CDUnknownBlockType)arg2;
@@ -46,7 +48,7 @@ __attribute__((visibility("hidden")))
 - (void)createContextsWithTest:(CDUnknownBlockType)arg1 creationAction:(CDUnknownBlockType)arg2;
 - (void)purgeContextsWithPurgeAction:(CDUnknownBlockType)arg1;
 - (_Bool)bindableIsTopmostAttached:(id)arg1;
-- (_Bool)bindbleEnrolled:(id)arg1;
+- (_Bool)bindableEnrolled:(id)arg1;
 - (id)_enrolledBindablePointersAsCopy:(_Bool)arg1;
 - (id)_attachedBindablePointersAsCopy:(_Bool)arg1;
 @property(readonly, nonatomic) NSArray *attachedBindables;

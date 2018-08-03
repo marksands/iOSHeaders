@@ -84,6 +84,7 @@
 - (void)_executeAfterMinimumAnimationDurationForStateTransition:(CDUnknownBlockType)arg1;
 - (void)_updateLastAnimationTimeWithAnimationOfDuration:(double)arg1;
 - (void)updateRasterizationScale:(double)arg1;
+- (void)tintColorDidChange;
 - (void)_layoutContentLayer:(id)arg1;
 - (void)layoutSubviews;
 - (void)didMoveToWindow;

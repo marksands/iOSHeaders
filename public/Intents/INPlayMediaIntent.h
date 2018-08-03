@@ -45,6 +45,7 @@
 - (id)_metadata;
 - (id)_typedBackingStore;
 - (long long)_compareSubProducerOne:(id)arg1 subProducerTwo:(id)arg2;
+- (id)_titleForLanguage:(id)arg1 fromBundleURL:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

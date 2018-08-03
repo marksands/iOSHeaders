@@ -18,6 +18,7 @@
 
 + (long long)buttonIndexForIdentifier:(id)arg1 weight:(double)arg2 isRTLLanguage:(_Bool)arg3;
 + (double)weightForInkIdentifier:(id)arg1 buttonIndex:(long long)arg2 isRTLLanguage:(_Bool)arg3;
++ (struct CGSize)_buttonSize;
 @property(retain, nonatomic) NSArray *thicknessButtons; // @synthesize thicknessButtons=_thicknessButtons;
 @property(retain, nonatomic) NSArray *inks; // @synthesize inks=_inks;
 @property(nonatomic) double weight; // @synthesize weight=_weight;

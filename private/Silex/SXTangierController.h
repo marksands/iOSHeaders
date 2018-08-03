@@ -31,6 +31,7 @@
     id <SXComponentActionHandler> _componentActionHandler;
     id <SXTangierDragItemProvider> _dragItemProvider;
     SXComponentController *_componentController;
+    id <SXComponentInteractionManager> _componentInteractionManager;
     STTangierTextRenderCollector *_textRenderCollector;
     STTangierRepDirectLayerHostProvider *_directLayerHostProvider;
     UIView *_underRepsHost;
@@ -52,6 +53,7 @@
 @property(readonly, nonatomic) UIView *underRepsHost; // @synthesize underRepsHost=_underRepsHost;
 @property(readonly, nonatomic) STTangierRepDirectLayerHostProvider *directLayerHostProvider; // @synthesize directLayerHostProvider=_directLayerHostProvider;
 @property(readonly, nonatomic) STTangierTextRenderCollector *textRenderCollector; // @synthesize textRenderCollector=_textRenderCollector;
+@property(readonly, nonatomic) id <SXComponentInteractionManager> componentInteractionManager; // @synthesize componentInteractionManager=_componentInteractionManager;
 @property(readonly, nonatomic) SXComponentController *componentController; // @synthesize componentController=_componentController;
 @property(readonly, nonatomic) id <SXTangierDragItemProvider> dragItemProvider; // @synthesize dragItemProvider=_dragItemProvider;
 @property(readonly, nonatomic) id <SXComponentActionHandler> componentActionHandler; // @synthesize componentActionHandler=_componentActionHandler;
@@ -107,7 +109,7 @@
 - (void)teardown;
 - (void)updatePresentationState;
 - (void)viewport:(id)arg1 appearStateChangedFromState:(unsigned long long)arg2;
-- (id)initWithViewport:(id)arg1 scrollView:(id)arg2 componentActionHandler:(id)arg3 dragItemProvider:(id)arg4 componentController:(id)arg5;
+- (id)initWithViewport:(id)arg1 scrollView:(id)arg2 componentActionHandler:(id)arg3 dragItemProvider:(id)arg4 componentController:(id)arg5 componentInteractionManager:(id)arg6;
 
 // Remaining properties
 @property(readonly, nonatomic) _Bool allowEditMenuToAppear;

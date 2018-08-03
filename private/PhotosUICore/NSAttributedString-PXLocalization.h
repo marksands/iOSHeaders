@@ -14,7 +14,6 @@
 + (id)px_localizedAttributedStringForInboxCoalescedCommentsFromUser:(_Bool)arg1 otherPeopleFullNames:(id)arg2 defaultTextAttributes:(id)arg3 emphasizedTextAttributes:(id)arg4;
 + (id)px_localizedAttributedStringForPostAttributionOfAssetWithDisplayType:(long long)arg1 postedByUserOrSubjectWithFullName:(id)arg2 atDate:(id)arg3 nameAttributes:(id)arg4 dateAttributes:(id)arg5;
 + (id)px_localizedAttributedStringForUserPostWithCountsSet:(id)arg1 subjectName:(id)arg2 defaultTextAttributes:(id)arg3 posterTextAttributes:(id)arg4;
-+ (void)_replaceAttributesOfString:(id)arg1 inAttributedString:(id)arg2 withAttributes:(id)arg3;
 + (id)px_localizedAttributedStringForUserPostWithCountsSet:(id)arg1 defaultTextAttributes:(id)arg2 subjectName:(id)arg3;
 + (id)px_localizedAttributedStringForUserCreatingSharedAlbumWithName:(id)arg1 defaultTextAttributes:(id)arg2 posterTextAttributes:(id)arg3 albumTextAttributes:(id)arg4;
 + (id)px_localizedAttributedStringForUserCreatingStreamWithName:(id)arg1 defaultTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
@@ -23,7 +22,7 @@
 + (id)px_localizedAttributedStringForUserJoiningSharedAlbumWithName:(id)arg1 defaultTextAttributes:(id)arg2 posterTextAttributes:(id)arg3 albumTextAttributes:(id)arg4;
 + (id)px_localizedAttributedStringForUserJoiningStreamWithName:(id)arg1 defaultTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;
 + (id)px_localizedAttributedStringForLikesWithLikerCount:(long long)arg1 isVideo:(_Bool)arg2 defaultTextAttributes:(id)arg3 emphasizedTextAttributes:(id)arg4;
-+ (id)px_localizedAttributedStringForLikesFromUser:(_Bool)arg1 orPersonFullName:(id)arg2 photoCount:(long long)arg3 videoCount:(long long)arg4 streamName:(id)arg5 defaultTextAttributes:(id)arg6 emphasizedTextAttributes:(id)arg7;
++ (id)px_localizedAttributedStringForLikesFromUser:(_Bool)arg1 orPersonFullName:(id)arg2 photoCount:(long long)arg3 videoCount:(long long)arg4 streamName:(id)arg5 defaultTextAttributes:(id)arg6 emphasizedTextAttributes:(id)arg7 italicizedTextAttributes:(id)arg8;
 + (id)px_localizedAttributedStringForLikesFromUser:(_Bool)arg1 otherPeopleFullNames:(id)arg2 isVideo:(_Bool)arg3 defaultTextAttributes:(id)arg4 emphasizedTextAttributes:(id)arg5;
 + (id)px_localizedAttributedStringForCommentWithCommenterFullName:(id)arg1 text:(id)arg2 defaultTextAttributes:(id)arg3 emphasizedTextAttributes:(id)arg4;
 + (id)px_localizedAttributedStringForUserCommentWithText:(id)arg1 defaultTextAttributes:(id)arg2 emphasizedTextAttributes:(id)arg3;

@@ -14,6 +14,7 @@ __attribute__((visibility("hidden")))
     CIImage *inputImage;
     CIImage *inputBlurMap;
     CIImage *inputMatteImage;
+    NSNumber *inputAperture;
     NSNumber *inputLumaNoiseScale;
     NSNumber *inputScale;
     id inputAuxDataMetadata;
@@ -25,6 +26,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) id inputAuxDataMetadata; // @synthesize inputAuxDataMetadata;
 @property(retain, nonatomic) NSNumber *inputScale; // @synthesize inputScale;
 @property(copy, nonatomic) NSNumber *inputLumaNoiseScale; // @synthesize inputLumaNoiseScale;
+@property(copy, nonatomic) NSNumber *inputAperture; // @synthesize inputAperture;
 @property(retain) CIImage *inputMatteImage; // @synthesize inputMatteImage;
 @property(retain) CIImage *inputBlurMap; // @synthesize inputBlurMap;
 @property(retain) CIImage *inputImage; // @synthesize inputImage;

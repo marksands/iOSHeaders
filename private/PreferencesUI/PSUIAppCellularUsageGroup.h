@@ -8,44 +8,35 @@
 
 #import "PSSpecifierGroup.h"
 
-@class NSArray, NSString, PSAppWirelessDataUsageManager, PSExpandableAppListGroup, PSSpecifier, PSWirelessDataUsageWorkspace;
+@class NSArray, NSString, PSExpandableAppListGroup, PSSpecifier;
 
 @interface PSUIAppCellularUsageGroup : NSObject <PSSpecifierGroup>
 {
     NSArray *_specifiers;
-    _Bool _cancelled;
     _Bool _enabled;
     _Bool _loading;
     NSArray *_headerSpecifiers;
     PSSpecifier *_groupSpecifier;
     PSExpandableAppListGroup *_appGroupController;
-    PSAppWirelessDataUsageManager *_wirelessManager;
-    PSWirelessDataUsageWorkspace *_workspace;
-    CDUnknownBlockType _appSortComparator;
 }
 
-+ (id)nameForSpecialCategory:(id)arg1;
-@property(copy, nonatomic) CDUnknownBlockType appSortComparator; // @synthesize appSortComparator=_appSortComparator;
-@property(retain) PSWirelessDataUsageWorkspace *workspace; // @synthesize workspace=_workspace;
-@property(retain, nonatomic) PSAppWirelessDataUsageManager *wirelessManager; // @synthesize wirelessManager=_wirelessManager;
 @property(retain, nonatomic) PSExpandableAppListGroup *appGroupController; // @synthesize appGroupController=_appGroupController;
 @property(nonatomic) __weak PSSpecifier *groupSpecifier; // @synthesize groupSpecifier=_groupSpecifier;
 @property _Bool loading; // @synthesize loading=_loading;
 @property(nonatomic, getter=isEnabled) _Bool enabled; // @synthesize enabled=_enabled;
-@property(getter=isCancelled) _Bool cancelled; // @synthesize cancelled=_cancelled;
 @property(retain, nonatomic) NSArray *headerSpecifiers; // @synthesize headerSpecifiers=_headerSpecifiers;
 - (void).cxx_destruct;
 - (void)setSwitchesEnabled:(_Bool)arg1;
 - (void)updateTotalUsage:(id)arg1;
-- (id)getAppSpecifiersForVisibleApps:(id)arg1 hiddenApps:(id)arg2 unknownApps:(id)arg3 internalProcesses:(id)arg4 wifiAssist:(id)arg5;
+- (id)groupedStatisticsToSpecifiers:(id)arg1;
+- (CDUnknownBlockType)usageComparator;
+- (CDUnknownBlockType)alphabeticalComparator;
 - (void)calculateUsage;
 - (id)appCellularUsagePolicyForSpecifier:(id)arg1;
 - (void)setAppCellularUsagePolicy:(id)arg1 forSpecifier:(id)arg2;
 - (void)prefetchResourcesFor:(id)arg1;
 - (void)reloadSpecifiers;
 - (id)specifiers;
-- (void)cancel;
-- (void)dealloc;
 - (id)initWithListController:(id)arg1 groupSpecifier:(id)arg2;
 
 // Remaining properties

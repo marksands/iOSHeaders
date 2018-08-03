@@ -19,6 +19,8 @@
     _Bool _blursDegradedContent;
     id <PXDisplaySuggestion> _suggestion;
     id <PXDisplayAsset> _keyAsset;
+    NSString *_title;
+    NSString *_subtitle;
     PXUIMediaProvider *_mediaProvider;
     PXGadgetSpec *_gadgetSpec;
     long long _mode;
@@ -27,8 +29,6 @@
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
     PXRoundedCornerOverlayView *_roundedOverlayView;
-    NSString *_title;
-    NSString *_subtitle;
     NSString *_caption;
     unsigned long long _badgeTypes;
 }
@@ -41,11 +41,9 @@
 + (double)scaledTitleBaselineDistance;
 + (double)scaledSuggestionBaselineDistance;
 + (void)preloadResources;
-+ (struct CGSize)sizeThatFits:(struct CGSize)arg1 withSuggestion:(id)arg2 keyAsset:(id)arg3;
++ (struct CGSize)sizeThatFits:(struct CGSize)arg1 withSuggestion:(id)arg2 title:(id)arg3 subtitle:(id)arg4;
 @property(nonatomic) unsigned long long badgeTypes; // @synthesize badgeTypes=_badgeTypes;
 @property(copy, nonatomic) NSString *caption; // @synthesize caption=_caption;
-@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
-@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) PXRoundedCornerOverlayView *roundedOverlayView; // @synthesize roundedOverlayView=_roundedOverlayView;
 @property(readonly, nonatomic) UILabel *subtitleLabel; // @synthesize subtitleLabel=_subtitleLabel;
 @property(readonly, nonatomic) UILabel *titleLabel; // @synthesize titleLabel=_titleLabel;
@@ -56,15 +54,16 @@
 @property(nonatomic) _Bool assetContentHidden; // @synthesize assetContentHidden=_assetContentHidden;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 @property(retain, nonatomic) PXUIMediaProvider *mediaProvider; // @synthesize mediaProvider=_mediaProvider;
+@property(copy, nonatomic) NSString *subtitle; // @synthesize subtitle=_subtitle;
+@property(copy, nonatomic) NSString *title; // @synthesize title=_title;
 @property(retain, nonatomic) id <PXDisplayAsset> keyAsset; // @synthesize keyAsset=_keyAsset;
 @property(retain, nonatomic) id <PXDisplaySuggestion> suggestion; // @synthesize suggestion=_suggestion;
 - (void).cxx_destruct;
 - (void)photoLibraryDidChangeOnMainQueue:(id)arg1;
 - (void)_handleChangedAsset:(id)arg1;
-- (void)_updateLabelsContents;
 - (void)_updateBadgeContents;
 - (void)_contentSizeCategoryDidChange:(id)arg1;
-- (void)_updateFonts;
+- (void)_updateTitleFont;
 - (void)_updateAssetViewPlaceholderFilters;
 - (void)_updateAssetView;
 - (void)_updateBadgeViews;

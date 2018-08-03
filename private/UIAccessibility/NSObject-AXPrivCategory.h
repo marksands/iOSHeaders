@@ -109,6 +109,7 @@
 - (_Bool)_accessibilityHandwritingActivateKeyboardReturnKey;
 - (void)_accessibilityInsertText:(id)arg1 atPosition:(long long)arg2;
 - (void)_accessibilityReplaceCharactersAtCursor:(unsigned long long)arg1 withString:(id)arg2;
+- (_Bool)_accessibilityReplaceTextInRange:(struct _NSRange)arg1 withString:(id)arg2;
 - (id)_accessibilityHandwritingAttributeLanguage;
 - (_Bool)_accessibilityHandwritingAttributeAcceptsContractedBraille;
 - (_Bool)_accessibilityHandwritingAttributeAcceptsRawInput;
@@ -645,6 +646,7 @@
 - (_Bool)_accessibilityBaseScrollToVisible;
 - (_Bool)_accessibilityScrollToVisible;
 - (_Bool)_accessibilityScrollToVisibleForNextElementRetrieval:(long long)arg1;
+- (_Bool)_accessibilityShowContextMenu;
 - (struct CGPoint)_accessibilityContentOffset;
 - (_Bool)_accessibilityCanScrollInAtLeastOneDirection;
 - (id)_accessibilityTabBarAncestor;
@@ -716,7 +718,6 @@
 - (id)_accessibilityFuzzyHitTestElements;
 - (_Bool)_accessibilityHitTestReverseOrder;
 - (id)accessibilityHitTest:(struct CGPoint)arg1;
-- (_Bool)accessibilityActivate;
 - (_Bool)accessibilityStartStopToggle;
 - (_Bool)_accessibilitySecondaryActivate;
 - (void)accessibilityDecrement;

@@ -14,6 +14,16 @@
 {
 }
 
++ (id)standHourCompletionFeature;
++ (id)exerciseTimeCompletionFeature;
++ (id)activeEnergyCompletionFeature;
++ (id)performedWorkoutCountFeature;
++ (id)dailyAverageWorkoutCountFeature;
++ (id)workoutStateFeature;
++ (id)activeWorkoutFeature;
++ (id)siriActionRoleFeature;
++ (id)currentlyPlayingFromAppFeature;
++ (id)currentlyPlayingMediaDonationFeature;
 + (id)nowPlayingStateFeature;
 + (id)siriActionPerformedCountFeature;
 + (id)siriActionDailyAveragePerformedCountFeature;

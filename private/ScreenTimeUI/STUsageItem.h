@@ -9,52 +9,41 @@
 #import "NSCopying.h"
 #import "NSSecureCoding.h"
 
-@class NSArray, NSDate, NSDictionary, NSNumber, NSString, UIColor, UIImage;
+@class NSDate, NSNumber, NSString, UIColor, UIImage;
 
 @interface STUsageItem : NSObject <NSCopying, NSSecureCoding>
 {
-    UIColor *_color;
     NSString *_identifier;
     NSString *_budgetItemIdentifier;
+    NSString *_categoryIdentifier;
     unsigned long long _itemType;
     NSString *_displayName;
+    UIColor *_color;
     unsigned long long _timePeriod;
     NSDate *_startDate;
-    unsigned long long _timePeriodUnit;
-    unsigned long long _higherResolutionUnit;
-    unsigned long long _numberOfHigherResolutionUnitsInPeriod;
     NSNumber *_totalUsage;
     NSNumber *_maxUsage;
     NSNumber *_minUsage;
-    NSArray *_childItems;
-    NSDictionary *_higherResolutionItemsByStartDate;
 }
 
 + (_Bool)supportsSecureCoding;
-@property(copy, nonatomic) NSDictionary *higherResolutionItemsByStartDate; // @synthesize higherResolutionItemsByStartDate=_higherResolutionItemsByStartDate;
-@property(copy, nonatomic) NSArray *childItems; // @synthesize childItems=_childItems;
 @property(copy, nonatomic) NSNumber *minUsage; // @synthesize minUsage=_minUsage;
 @property(copy, nonatomic) NSNumber *maxUsage; // @synthesize maxUsage=_maxUsage;
 @property(copy, nonatomic) NSNumber *totalUsage; // @synthesize totalUsage=_totalUsage;
-@property(nonatomic) unsigned long long numberOfHigherResolutionUnitsInPeriod; // @synthesize numberOfHigherResolutionUnitsInPeriod=_numberOfHigherResolutionUnitsInPeriod;
-@property(nonatomic) unsigned long long higherResolutionUnit; // @synthesize higherResolutionUnit=_higherResolutionUnit;
-@property(nonatomic) unsigned long long timePeriodUnit; // @synthesize timePeriodUnit=_timePeriodUnit;
 @property(copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
 @property(nonatomic) unsigned long long timePeriod; // @synthesize timePeriod=_timePeriod;
+@property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 @property(copy, nonatomic) NSString *displayName; // @synthesize displayName=_displayName;
 @property(nonatomic) unsigned long long itemType; // @synthesize itemType=_itemType;
+@property(copy, nonatomic) NSString *categoryIdentifier; // @synthesize categoryIdentifier=_categoryIdentifier;
 @property(copy, nonatomic) NSString *budgetItemIdentifier; // @synthesize budgetItemIdentifier=_budgetItemIdentifier;
 @property(copy, nonatomic) NSString *identifier; // @synthesize identifier=_identifier;
-@property(retain, nonatomic) UIColor *color; // @synthesize color=_color;
 - (void).cxx_destruct;
-@property(readonly, copy, nonatomic) NSArray *higherResolutionUsageItems;
 @property(readonly, nonatomic) UIImage *image;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (id)description;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;
-- (id)initWithTimePeriod:(unsigned long long)arg1 startDate:(id)arg2 timePeriodUnit:(unsigned long long)arg3 higherResolutionUnit:(unsigned long long)arg4 numberOfHigherResolutionUnitsInPeriod:(unsigned long long)arg5 higherResolutionItemsByStartDate:(id)arg6;
-- (id)initWithUsageItem:(id)arg1;
 
 @end
 

@@ -6,7 +6,7 @@
 
 #import "NSObject.h"
 
-@class CTCellularPlanCarrierItem, CTCellularPlanItem, CTUserLabel, CTXPCServiceSubscriptionContext, NSData, NSDictionary, NSNumber, NSString;
+@class CTCellularPlanCarrierItem, CTCellularPlanItem, CTDanglingPlanItem, CTUserLabel, CTXPCServiceSubscriptionContext, NSData, NSDictionary, NSNumber, NSString;
 
 @protocol CTCellularPlanClient <NSObject>
 - (void)getRemoteInfo:(void (^)(NSDictionary *, NSError *))arg1;
@@ -78,7 +78,10 @@
 - (void)didSelectPlanForData:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)didSelectPlanItem:(CTCellularPlanItem *)arg1 enable:(_Bool)arg2 completion:(void (^)(_Bool, NSError *))arg3;
 - (void)userDidProvideConsentResponse:(_Bool)arg1 plan:(CTCellularPlanItem *)arg2 completion:(void (^)(_Bool, NSError *))arg3;
+- (void)remapSimLabel:(CTDanglingPlanItem *)arg1 to:(CTCellularPlanItem *)arg2 completion:(void (^)(NSError *))arg3;
+- (void)resolveSimLabel:(CTDanglingPlanItem *)arg1 completion:(void (^)(NSError *))arg2;
 - (void)carrierItemsShouldUpdate:(_Bool)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
+- (void)danglingPlanItemsShouldUpdate:(_Bool)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)planItemsShouldUpdate:(_Bool)arg1 completion:(void (^)(NSArray *, NSError *))arg2;
 - (void)manageAccountForPlan:(CTCellularPlanItem *)arg1 completion:(void (^)(_Bool, NSError *))arg2;
 - (void)addNewPlanWithFlowType:(unsigned long long)arg1 completion:(void (^)(NSError *))arg2;

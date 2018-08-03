@@ -20,7 +20,7 @@
 #import "PXTileSource.h"
 #import "UIViewControllerPreviewingDelegate.h"
 
-@class NSMutableSet, NSSet, NSString, PXAssetReference, PXBasicTileAnimator, PXCMMAssetsProgressListener, PXCMMBannerTileController, PXCMMFooterViewModel, PXCMMSendBackBannerView, PXCMMSendBackSuggestionSource, PXCMMSpec, PXCMMSpecManager, PXContextualNotification, PXLayoutGenerator, PXOneUpPresentation, PXPhotosGlobalFooterView, PXSectionedLayoutEngine, PXSwipeSelectionManager, PXTilingController, PXUIAssetsScene, PXUIScrollViewController, PXUITapGestureRecognizer, PXUpdater, UILongPressGestureRecognizer;
+@class NSMutableSet, NSSet, NSString, PXAssetReference, PXBasicTileAnimator, PXCMMAssetsProgressListener, PXCMMBannerTileController, PXCMMFooterViewModel, PXCMMProgressBannerView, PXCMMSendBackBannerView, PXCMMSendBackSuggestionSource, PXCMMSpec, PXCMMSpecManager, PXContextualNotification, PXLayoutGenerator, PXOneUpPresentation, PXPhotosGlobalFooterView, PXSectionedLayoutEngine, PXSwipeSelectionManager, PXTilingController, PXUIAssetsScene, PXUIScrollViewController, PXUITapGestureRecognizer, PXUpdater, UILongPressGestureRecognizer;
 
 @interface PXCMMAssetsViewController : PXCMMComponentViewController <PXAssetsSceneDelegate, PXTileSource, PXCMMEngineDrivenLayoutDelegate, PXSwipeSelectionManagerDelegate, PXChangeObserver, PXOneUpPresentationDelegate, PXCMMBannerTileControllerDelegate, PXScrollViewControllerObserver, PXPhotosGlobalFooterViewDelegate, PXCMMFooterViewModelActionDelegate, UIViewControllerPreviewingDelegate, PXContextualNotificationDelegate, PXActionPerformerDelegate>
 {
@@ -32,6 +32,7 @@
     PXBasicTileAnimator *_tileAnimator;
     PXTilingController *_tilingController;
     PXUIAssetsScene *_sceneController;
+    PXCMMProgressBannerView *_progressBannerView;
     PXUITapGestureRecognizer *_tapSelectionGesture;
     PXSwipeSelectionManager *_swipeSelectionManager;
     PXUITapGestureRecognizer *_layoutTransitionGesture;
@@ -53,6 +54,7 @@
     PXContextualNotification *_sendBackNotification;
     _Bool _sendBackNotificationWasDiscarded;
     _Bool _sendBackNotificationWasTapped;
+    _Bool _receivingActionButtonWasTapped;
     struct {
         _Bool shouldShowAddMoreButton;
         _Bool didTapAddMoreButton;
@@ -66,6 +68,7 @@
     struct UIEdgeInsets _contentInset;
 }
 
++ (double)_progressBannerViewHeight;
 @property(nonatomic) _Bool userSelectionEnabled; // @synthesize userSelectionEnabled=_userSelectionEnabled;
 @property(retain, nonatomic) NSSet *_hiddenAssetReferences; // @synthesize _hiddenAssetReferences=__hiddenAssetReferences;
 @property(nonatomic) long long _layoutType; // @synthesize _layoutType=__layoutType;
@@ -75,19 +78,22 @@
 - (void).cxx_destruct;
 - (_Bool)actionPerformer:(id)arg1 dismissViewController:(struct NSObject *)arg2 completionHandler:(CDUnknownBlockType)arg3;
 - (_Bool)actionPerformer:(id)arg1 presentViewController:(struct NSObject *)arg2;
-- (void)scrollViewControllerWillBeginScrolling:(id)arg1;
+- (void)scrollViewControllerDidScroll:(id)arg1;
 - (void)contextualNotificationDidDisappear:(id)arg1;
 - (void)contextualNotificationWasDiscarded:(id)arg1;
 - (void)contextualNotificationWasTapped:(id)arg1;
+- (id)preferredContainerViewForContextualNotification:(id)arg1;
 - (struct CGRect)contextualNotification:(id)arg1 containingFrameInCoordinateSpace:(id)arg2;
 - (void)didPerformDeletionActionForFooterViewModel:(id)arg1;
 - (void)photosGlobalFooterView:(id)arg1 presentViewController:(id)arg2;
 - (void)didTapActionButtonInBannerTileController:(id)arg1;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
+- (void)_updateProgressBanner;
+- (double)_currentProgressBannerViewHeight;
+- (_Bool)_shouldShowProgressBanner;
 - (long long)engineDrivenLayout:(id)arg1 assetStatusAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (_Bool)engineDrivenLayout:(id)arg1 shouldShowStatusBadgeAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (_Bool)engineDrivenLayout:(id)arg1 shouldShowDimmingOverlayAtIndexPath:(struct PXSimpleIndexPath)arg2;
-- (void)sendBackBannerViewVisibilityDidChangeForeEngineDrivenLayout:(id)arg1;
 - (struct CGRect)engineDrivenLayout:(id)arg1 contentsRectForItemAtIndexPath:(struct PXSimpleIndexPath)arg2 forAspectRatio:(double)arg3;
 - (double)engineDrivenLayout:(id)arg1 aspectRatioForItemAtIndexPath:(struct PXSimpleIndexPath)arg2;
 - (void)engineDrivenLayoutReferenceSizeDidChange:(id)arg1;
@@ -96,9 +102,10 @@
 - (void)_configureBannerTile:(id)arg1;
 - (id)assetsScene:(id)arg1 transitionAnimationCoordinatorForChange:(id)arg2;
 - (id)assetsScene:(id)arg1 layoutForDataSource:(id)arg2;
+- (void)_preferredContentSizeChanged:(id)arg1;
 - (void)_updateLayoutEngine;
-- (double)_progressTileHeightFromReferenceSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2;
-- (void)updateSendBackNotification;
+- (void)_updateSendBackNotification;
+- (void)presentSendBackNotification;
 - (_Bool)_canShowSendBackSuggestion;
 - (double)_sendBackFooterHeightFromReferenceSize:(struct CGSize)arg1;
 - (double)_statusFooterHeightFromReferenceSize:(struct CGSize)arg1 insets:(struct UIEdgeInsets)arg2;
@@ -150,7 +157,6 @@
 - (void)_updateStyle;
 - (id)_indexPathsForAssetReferences:(id)arg1 inDataSource:(id)arg2;
 - (void)_setHiddenAssetReferences:(id)arg1;
-- (id)_createProgressTile;
 - (id)_createOverlayTileView;
 - (id)_createStatusTileView;
 - (id)_createSectionHeaderController;
@@ -160,6 +166,7 @@
 - (id)_createSendBackBannerView;
 - (id)_createStatusFooter;
 - (id)_createPosterTileController;
+- (void)_contentSizeCategoryDidChangeNotification:(id)arg1;
 - (void)viewDidDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
 - (void)viewDidLoad;

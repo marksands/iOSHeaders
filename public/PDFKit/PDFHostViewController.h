@@ -21,6 +21,7 @@
 + (id)loadExtension:(id)arg1;
 + (void)createHostView:(CDUnknownBlockType)arg1 forExtensionIdentifier:(id)arg2;
 - (void).cxx_destruct;
+- (void)killExtensionProcess;
 - (void)endPDFViewRotation:(struct CGSize)arg1 horizontalScaleFactor:(double)arg2 documentViewCenter:(struct CGPoint)arg3 documentViewSize:(struct CGSize)arg4;
 - (void)endPDFViewRotation;
 - (void)beginPDFViewRotation;

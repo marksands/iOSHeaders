@@ -27,7 +27,7 @@
 - (void).cxx_destruct;
 - (void)proactiveTileDownloaderDidFinish:(id)arg1;
 - (void)_initiateDataSaverPreloadIfPossible;
-- (void)_dataSaverMapRegionChanged:(id)arg1;
+- (void)_forceDataSaverPreload:(id)arg1;
 - (void)resourceManifestManager:(id)arg1 didChangeActiveTileGroup:(id)arg2 fromOldTileGroup:(id)arg3;
 - (void)resourceManifestManagerWillChangeActiveTileGroup:(id)arg1;
 - (void)generateRequestedFromTileLoaderEndSignpost:(unsigned long long)arg1;

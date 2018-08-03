@@ -6,33 +6,31 @@
 
 #import "NSObject.h"
 
-@class NSMutableDictionary, NSObject<OS_dispatch_queue>, NSURLSession;
+@class NSCache, NSMutableSet, NSObject<OS_dispatch_queue>, NSURLSession;
 
 @interface STAppInfoCache : NSObject
 {
-    _Bool _fetchIcons;
-    id <RMPersistenceControllerProtocol> _persistenceController;
+    NSCache *_appInfoByBundleIdentifier;
     NSObject<OS_dispatch_queue> *_lookupQueue;
     NSURLSession *_urlSession;
-    NSMutableDictionary *_completionsByBundleID;
+    NSMutableSet *_bundleIdentifiersWithPendingRequests;
 }
 
-+ (id)appCache;
-@property(readonly, nonatomic) NSMutableDictionary *completionsByBundleID; // @synthesize completionsByBundleID=_completionsByBundleID;
++ (id)sharedCache;
+@property(readonly, nonatomic) NSMutableSet *bundleIdentifiersWithPendingRequests; // @synthesize bundleIdentifiersWithPendingRequests=_bundleIdentifiersWithPendingRequests;
 @property(readonly, nonatomic) NSURLSession *urlSession; // @synthesize urlSession=_urlSession;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *lookupQueue; // @synthesize lookupQueue=_lookupQueue;
-@property(readonly, nonatomic) id <RMPersistenceControllerProtocol> persistenceController; // @synthesize persistenceController=_persistenceController;
-@property(nonatomic) _Bool fetchIcons; // @synthesize fetchIcons=_fetchIcons;
+@property(readonly, nonatomic) NSCache *appInfoByBundleIdentifier; // @synthesize appInfoByBundleIdentifier=_appInfoByBundleIdentifier;
 - (void).cxx_destruct;
-- (void)_failToFetchApps:(id)arg1 error:(id)arg2;
-- (void)_finishFetchingApp:(id)arg1 info:(id)arg2;
-- (void)_lookupAppInfoForBundleIDs:(id)arg1;
-- (id)_knownIgnoredBundleIDs;
-- (id)fetchAppInfoForBundleIDAndWait:(id)arg1;
-- (id)fetchAppInfoForBundleID:(id)arg1;
-- (void)_notifyForBundleID:(id)arg1 result:(id)arg2;
-- (void)cacheAppInfoForBundleIDs:(id)arg1;
-- (id)initWithPersistenceController:(id)arg1;
+- (id)_localAppNameForBundleIdentifier:(id)arg1;
+- (id)_preloadedAppInfoWithBundleIdentifier:(id)arg1;
+- (void)_finishedFetchingAppInfoByBundleIdentifier:(id)arg1;
+- (void)_handleiTunesResponseForBundleIdentifiers:(id)arg1 response:(id)arg2 data:(id)arg3 error:(id)arg4;
+- (void)_fetchAppInfoFromAppStoreAndNotifyWithBundleIdentifier:(id)arg1;
+- (id)_fetchAppInfoFromLaunchServicesWithBundleIdentifier:(id)arg1;
+- (id)appInfoForBundleIdentifier:(id)arg1;
+- (void)dealloc;
+- (id)init;
 
 @end
 

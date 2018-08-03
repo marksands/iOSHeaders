@@ -7,25 +7,20 @@
 #import <iAd/ADActionViewController.h>
 
 #import "EKEventEditViewDelegate.h"
-#import "SBSHardwareButtonEventConsuming.h"
 
-@class EKEvent, EKEventEditViewController, NSString;
+@class ADEventEditViewController, ADHomeButtonHandler, EKEvent, NSString;
 
-@interface ADCalendarEventActionViewController : ADActionViewController <EKEventEditViewDelegate, SBSHardwareButtonEventConsuming>
+@interface ADCalendarEventActionViewController : ADActionViewController <EKEventEditViewDelegate>
 {
+    ADHomeButtonHandler *_homeButtonHandler;
     EKEvent *_calendarEvent;
-    EKEventEditViewController *_eventKitEditViewController;
-    id <BSInvalidatable> _homeButtonAssertion;
+    ADEventEditViewController *_eventKitEditViewController;
 }
 
-@property(retain, nonatomic) id <BSInvalidatable> homeButtonAssertion; // @synthesize homeButtonAssertion=_homeButtonAssertion;
-@property(retain, nonatomic) EKEventEditViewController *eventKitEditViewController; // @synthesize eventKitEditViewController=_eventKitEditViewController;
+@property(retain, nonatomic) ADEventEditViewController *eventKitEditViewController; // @synthesize eventKitEditViewController=_eventKitEditViewController;
 @property(retain, nonatomic) EKEvent *calendarEvent; // @synthesize calendarEvent=_calendarEvent;
-- (void)_stopConsumingHardwarePresses;
-- (void)_beginConsumingHardwarePresses;
-- (void)consumeSinglePressUpForButtonKind:(long long)arg1;
+@property(retain, nonatomic) ADHomeButtonHandler *homeButtonHandler; // @synthesize homeButtonHandler=_homeButtonHandler;
 - (void)eventEditViewController:(id)arg1 didCompleteWithAction:(long long)arg2;
-- (_Bool)_shouldConsumeHardwarePresses;
 - (void)clientApplicationDidEnterBackground;
 - (void)dismiss;
 - (void)viewDidDisappear:(_Bool)arg1;

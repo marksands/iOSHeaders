@@ -73,6 +73,7 @@
 - (id)_createAnchorWithClass:(Class)arg1 attribute:(long long)arg2;
 - (id)methodSignatureForSelector:(SEL)arg1;
 - (void)forwardInvocation:(id)arg1;
+- (int)nsis_orientationHintForVariable:(id)arg1;
 - (id)nsis_descriptionOfVariable:(id)arg1;
 - (void)nsis_valueOfVariable:(id)arg1 didChangeInEngine:(id)arg2;
 - (_Bool)nsis_valueOfVariableIsUserObservable:(id)arg1;

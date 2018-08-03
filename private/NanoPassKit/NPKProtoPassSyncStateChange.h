@@ -8,10 +8,11 @@
 
 #import "NSCopying.h"
 
-@class NPKProtoPassSyncStateItem, NSData, NSString;
+@class NPKProtoCatalog, NPKProtoPassSyncStateItem, NSData, NSString;
 
 @interface NPKProtoPassSyncStateChange : PBCodable <NSCopying>
 {
+    NPKProtoCatalog *_catalog;
     int _changeType;
     NSData *_changeUUID;
     NSData *_lastKnownReconciledPassSyncStateHash;
@@ -26,6 +27,7 @@
     } _has;
 }
 
+@property(retain, nonatomic) NPKProtoCatalog *catalog; // @synthesize catalog=_catalog;
 @property(nonatomic) unsigned int passSegmentTotal; // @synthesize passSegmentTotal=_passSegmentTotal;
 @property(nonatomic) unsigned int passSegmentIndex; // @synthesize passSegmentIndex=_passSegmentIndex;
 @property(retain, nonatomic) NSData *passData; // @synthesize passData=_passData;
@@ -44,6 +46,7 @@
 - (_Bool)readFrom:(id)arg1;
 - (id)dictionaryRepresentation;
 - (id)description;
+@property(readonly, nonatomic) _Bool hasCatalog;
 @property(nonatomic) _Bool hasPassSegmentTotal;
 @property(nonatomic) _Bool hasPassSegmentIndex;
 @property(readonly, nonatomic) _Bool hasPassData;

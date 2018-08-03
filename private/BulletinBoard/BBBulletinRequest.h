@@ -66,6 +66,7 @@
 @property(nonatomic) _Bool hasEventDate; // @dynamic hasEventDate;
 @property(copy, nonatomic) NSString *header; // @dynamic header;
 @property(retain, nonatomic) BBSectionIcon *icon; // @dynamic icon;
+@property(nonatomic) _Bool ignoresDowntime; // @dynamic ignoresDowntime;
 @property(nonatomic) _Bool ignoresQuietMode; // @dynamic ignoresQuietMode;
 @property(copy, nonatomic) NSArray *intentIDs; // @dynamic intentIDs;
 @property(retain, nonatomic) NSDate *lastInterruptDate; // @dynamic lastInterruptDate;

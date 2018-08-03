@@ -6,11 +6,11 @@
 
 #import "NSObject.h"
 
-@class AAUIAchievementResourceProvider, AAUIBadgeView, NSCache, NSObject<OS_dispatch_queue>;
+@class AAUIAchievementResourceProvider, AAUIBadgeView, NSMutableDictionary, NSObject<OS_dispatch_queue>;
 
 @interface AAUIBadgeImageFactory : NSObject
 {
-    NSCache *_cache;
+    NSMutableDictionary *_cache;
     AAUIAchievementResourceProvider *_resourceProvider;
     AAUIBadgeView *_earnedBadgeView;
     AAUIBadgeView *_unearnedBadgeView;
@@ -21,9 +21,11 @@
 @property(retain, nonatomic) AAUIBadgeView *unearnedBadgeView; // @synthesize unearnedBadgeView=_unearnedBadgeView;
 @property(retain, nonatomic) AAUIBadgeView *earnedBadgeView; // @synthesize earnedBadgeView=_earnedBadgeView;
 @property(retain, nonatomic) AAUIAchievementResourceProvider *resourceProvider; // @synthesize resourceProvider=_resourceProvider;
-@property(retain, nonatomic) NSCache *cache; // @synthesize cache=_cache;
+@property(retain, nonatomic) NSMutableDictionary *cache; // @synthesize cache=_cache;
 - (void).cxx_destruct;
 - (id)generateImageForConfiguration:(id)arg1 size:(struct CGSize)arg2 unearned:(_Bool)arg3;
+- (void)clearAllCachedImages;
+- (_Bool)hasCachedThumbnailImageForAchievement:(id)arg1 size:(struct CGSize)arg2;
 - (id)thumbnailImageForAchievement:(id)arg1 size:(struct CGSize)arg2;
 - (id)init;
 

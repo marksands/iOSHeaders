@@ -17,7 +17,7 @@
     _Bool _shouldSendICSCIntentHeader;
     _Bool _shouldSendLocalUserHasAppleIDLoginHeader;
     _Bool _shouldSendPhoneNumber;
-    _Bool _shouldSendAbsintheHeader;
+    _Bool _shouldSendSigningHeaders;
     NSString *_serviceToken;
     NSString *_phoneNumberCertificate;
     long long _serviceType;
@@ -39,7 +39,7 @@
 + (unsigned long long)signalFromServerResponse:(id)arg1;
 + (id)sharedController;
 + (_Bool)supportsSecureCoding;
-@property(nonatomic) _Bool shouldSendAbsintheHeader; // @synthesize shouldSendAbsintheHeader=_shouldSendAbsintheHeader;
+@property(nonatomic) _Bool shouldSendSigningHeaders; // @synthesize shouldSendSigningHeaders=_shouldSendSigningHeaders;
 @property(retain, nonatomic) AKAnisetteData *proxiedDeviceAnisetteData; // @synthesize proxiedDeviceAnisetteData=_proxiedDeviceAnisetteData;
 @property(retain, nonatomic) id <AKAnisetteServiceProtocol> anisetteDataProvider; // @synthesize anisetteDataProvider=_anisetteDataProvider;
 @property(retain, nonatomic) AKDevice *proxiedDevice; // @synthesize proxiedDevice=_proxiedDevice;
@@ -71,6 +71,7 @@
 - (void)_signRequest:(id)arg1;
 - (void)signRequest:(id)arg1 withCompletionHandler:(CDUnknownBlockType)arg2;
 - (void)signRequest:(id)arg1;
+@property(nonatomic) _Bool shouldSendAbsintheHeader;
 - (id)initWithAltDSID:(id)arg1 identityToken:(id)arg2;
 - (void)encodeWithCoder:(id)arg1;
 - (id)initWithCoder:(id)arg1;

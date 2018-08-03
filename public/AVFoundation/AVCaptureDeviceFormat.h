@@ -60,6 +60,7 @@
 - (_Bool)supportsHighResolutionStillImageOutput;
 @property(readonly, nonatomic) CDStruct_79c71658 highResolutionStillImageDimensions;
 - (_Bool)isVideoStabilizationModeSupported:(long long)arg1;
+- (_Bool)isVideoHDRSuspensionSupported;
 @property(readonly, nonatomic, getter=isVideoHDRSupported) _Bool videoHDRSupported;
 @property(readonly, nonatomic, getter=isVideoStabilizationSupported) _Bool videoStabilizationSupported;
 @property(readonly, nonatomic) double videoMaxZoomFactorForDepthDataDelivery;

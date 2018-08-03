@@ -36,6 +36,7 @@ __attribute__((visibility("hidden")))
 - (void)setWindowLevel:(double)arg1;
 - (_Bool)_isFullscreen;
 - (_Bool)_usesWindowServerHitTesting;
+- (_Bool)_canIgnoreInteractionEvents;
 - (_Bool)_alwaysGetsContexts;
 - (_Bool)_isHostedInAnotherProcess;
 - (_Bool)_isWindowServerHostingManaged;

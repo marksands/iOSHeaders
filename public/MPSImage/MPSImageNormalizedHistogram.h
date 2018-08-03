@@ -12,6 +12,8 @@
 {
     unsigned long long histogramEntries;
     _Bool histogramAlpha;
+    // Error parsing type: , name: minPixelValue
+    // Error parsing type: , name: maxPixelValue
     _Bool useMinMaxHistogramKernel;
     CDStruct_1e3be3a8 _clipRectSource;
     _Bool _zeroHistogram;

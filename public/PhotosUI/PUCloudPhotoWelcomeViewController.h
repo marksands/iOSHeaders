@@ -8,12 +8,12 @@
 
 #import "AAUIGenericTermsRemoteUIDelegate.h"
 #import "PSCloudStorageOffersManagerDelegate.h"
-#import "PUCloudPhotoWelcomeNavigationControllerDismissDelegate.h"
+#import "PXCloudPhotoWelcomeNavigationControllerDismissDelegate.h"
 #import "PXCloudPhotoWelcomeViewDelegate.h"
 
 @class AAUIGenericTermsRemoteUI, NSString, PSCloudStorageOffersManager, PXCloudPhotoWelcomeView;
 
-@interface PUCloudPhotoWelcomeViewController : PUWelcomeViewController <PXCloudPhotoWelcomeViewDelegate, PSCloudStorageOffersManagerDelegate, AAUIGenericTermsRemoteUIDelegate, PUCloudPhotoWelcomeNavigationControllerDismissDelegate>
+@interface PUCloudPhotoWelcomeViewController : PUWelcomeViewController <PXCloudPhotoWelcomeViewDelegate, PSCloudStorageOffersManagerDelegate, AAUIGenericTermsRemoteUIDelegate, PXCloudPhotoWelcomeNavigationControllerDismissDelegate>
 {
     PSCloudStorageOffersManager *_offersManager;
     AAUIGenericTermsRemoteUI *_termsManager;

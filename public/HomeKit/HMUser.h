@@ -11,7 +11,7 @@
 #import "HMObjectMerge.h"
 #import "NSSecureCoding.h"
 
-@class HMAssistantAccessControl, HMFUnfairLock, HMHome, HMHomeAccessControl, HMMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
+@class HMAssistantAccessControl, HMFPairingIdentity, HMFUnfairLock, HMHome, HMHomeAccessControl, HMMutableArray, NSObject<OS_dispatch_queue>, NSString, NSUUID, _HMContext;
 
 @interface HMUser : NSObject <HMFLogging, HMFMessageReceiver, NSSecureCoding, HMObjectMerge>
 {
@@ -24,6 +24,7 @@
     HMAssistantAccessControl *_assistantAccessControl;
     NSString *_userID;
     HMHome *_home;
+    HMFPairingIdentity *_pairingIdentity;
     _HMContext *_context;
     id <HMUserDelegatePrivate> _delegate;
     NSUUID *_uuid;
@@ -57,7 +58,7 @@
 - (void)_handleUpdatedAssistantAccessControl:(id)arg1;
 - (void)updateAssistantAccessControl:(id)arg1 forHome:(id)arg2 completionHandler:(CDUnknownBlockType)arg3;
 @property(copy) HMAssistantAccessControl *assistantAccessControl; // @synthesize assistantAccessControl=_assistantAccessControl;
-- (id)pairingIdentity;
+@property(copy) HMFPairingIdentity *pairingIdentity; // @synthesize pairingIdentity=_pairingIdentity;
 - (void)updateHomeAccessControl:(_Bool)arg1 remoteAccess:(_Bool)arg2;
 @property(retain, nonatomic) HMHomeAccessControl *homeAccessControl; // @synthesize homeAccessControl=_homeAccessControl;
 @property(readonly, copy, nonatomic) NSUUID *uniqueIdentifier; // @synthesize uniqueIdentifier=_uniqueIdentifier;

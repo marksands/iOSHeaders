@@ -20,6 +20,7 @@ __attribute__((visibility("hidden")))
     CDUnknownBlockType _gameControllerEventFilterGenerator;
     CDUnknownBlockType _watchSystemAppFilter;
     NSMutableArray *_eventFilters;
+    int _displayLinkIdleTicks;
     CADisplayLink *_displayLink;
     long long _countOfDigitizerEventsReceivedSinceLastDisplayLinkCallback;
     _Bool _didDispatchOneMoveEventSinceLastDisplayLinkCallback;
@@ -45,6 +46,7 @@ __attribute__((visibility("hidden")))
 - (void)filterEvents;
 - (void)drainEventsIntoEnvironment:(id)arg1;
 - (void)_receiveHIDEventInternal:(struct __IOHIDEvent *)arg1;
+- (void)_receiveHIDEvent:(struct __IOHIDEvent *)arg1;
 - (void)setupThreadAndRun;
 - (void)threadMain;
 - (void)displayLinkDidFire:(id)arg1;

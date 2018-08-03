@@ -6,24 +6,28 @@
 
 #import "NSObject.h"
 
-@class ACAccount, BCInternalAuthenticationRequest, NSString;
+@class ACAccount, ACAccountStore, BCInternalAuthenticationRequest, NSString;
 
 @interface BCInternalAuthenticationManager : NSObject
 {
     BCInternalAuthenticationRequest *_authenticationRequest;
     ACAccount *_account;
+    ACAccountStore *_accountStore;
 }
 
+@property(retain, nonatomic) ACAccountStore *accountStore; // @synthesize accountStore=_accountStore;
 @property(retain, nonatomic) ACAccount *account; // @synthesize account=_account;
 @property(retain, nonatomic) BCInternalAuthenticationRequest *authenticationRequest; // @synthesize authenticationRequest=_authenticationRequest;
 - (void).cxx_destruct;
 - (id)labelCategory;
+- (id)globalAuthToken;
 - (id)deviceSerialNumber;
 @property(readonly, nonatomic) long long state;
 @property(readonly, copy, nonatomic) NSString *action;
 @property(readonly, copy, nonatomic) NSString *subtitle;
 @property(readonly, copy, nonatomic) NSString *title;
 @property(readonly, nonatomic) _Bool isUserSignedIn;
+- (id)altPersonIdentifier;
 - (id)personIdentifier;
 @property(readonly, copy, nonatomic) NSString *lastName;
 @property(readonly, copy, nonatomic) NSString *middleName;

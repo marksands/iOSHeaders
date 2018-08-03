@@ -6,14 +6,12 @@
 
 #import "UIView.h"
 
-@class NSArray, NSDate, NSNumber;
+@class NSArray, STUsageReportGraphDataPoint;
 
 @interface STBarView : UIView
 {
     _Bool _selected;
-    NSArray *_usageItems;
-    NSNumber *_totalUsage;
-    NSDate *_startDate;
+    STUsageReportGraphDataPoint *_dataPoint;
     NSArray *_sectionViews;
     NSArray *_sectionHeightConstraints;
 }
@@ -21,13 +19,11 @@
 @property(copy, nonatomic) NSArray *sectionHeightConstraints; // @synthesize sectionHeightConstraints=_sectionHeightConstraints;
 @property(copy, nonatomic) NSArray *sectionViews; // @synthesize sectionViews=_sectionViews;
 @property(nonatomic) _Bool selected; // @synthesize selected=_selected;
-@property(readonly, copy, nonatomic) NSDate *startDate; // @synthesize startDate=_startDate;
-@property(copy, nonatomic) NSNumber *totalUsage; // @synthesize totalUsage=_totalUsage;
-@property(copy, nonatomic) NSArray *usageItems; // @synthesize usageItems=_usageItems;
+@property(retain, nonatomic) STUsageReportGraphDataPoint *dataPoint; // @synthesize dataPoint=_dataPoint;
 - (void).cxx_destruct;
 - (void)setUpSectionHeightConstraints;
 - (void)setUpSections;
-- (id)initWithUsageItems:(id)arg1 startDate:(id)arg2;
+- (id)initWithDataPoint:(id)arg1;
 
 @end
 

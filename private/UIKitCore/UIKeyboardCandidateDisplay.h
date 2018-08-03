@@ -11,6 +11,7 @@ __attribute__((visibility("hidden")))
 {
 }
 
++ (id)snapshot;
 + (void)setScreenTraits:(id)arg1;
 + (struct UIEdgeInsets)barEdgeInsets;
 + (struct CGRect)defaultBarFrame;

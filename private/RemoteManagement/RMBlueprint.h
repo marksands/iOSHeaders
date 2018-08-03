@@ -4,25 +4,30 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import "NSManagedObject.h"
+#import <RemoteManagement/RMUniquedManagedObject.h>
 
 #import "RMUniquelySerializableManagedObject.h"
 
 @class NSDate, NSSet, NSString, RMBlueprintSchedule, RMBlueprintUsageLimit, RMCoreOrganization;
 
-@interface RMBlueprint : NSManagedObject <RMUniquelySerializableManagedObject>
+@interface RMBlueprint : RMUniquedManagedObject <RMUniquelySerializableManagedObject>
 {
 }
 
 + (id)fetchOrCreateWithDictionaryRepresentation:(id)arg1 inContext:(id)arg2 error:(id *)arg3;
++ (id)fetchResultsRequestsForChangesToBlueprintsForUserWithDSID:(id)arg1;
++ (id)fetchResultsRequestsForChangesToBlueprints;
 + (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2 withIdentifier:(id)arg3 fromOrganization:(id)arg4;
 + (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2 withIdentifier:(id)arg3;
 + (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2 fromOrganization:(id)arg3;
 + (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1 ofType:(id)arg2;
 + (id)fetchRequestMatchingBlueprintsForUserWithDSID:(id)arg1;
 + (id)fetchRequestMatchingExpiredBlueprints;
+- (void)delete;
 - (id)dictionaryRepresentation;
 - (void)updateWithDictionaryRepresentation:(id)arg1;
+- (id)computeUniqueIdentifier;
+- (void)didChangeValueForKey:(id)arg1;
 - (id)declarationsWithError:(id *)arg1;
 
 // Remaining properties

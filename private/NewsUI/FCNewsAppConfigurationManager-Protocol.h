@@ -9,6 +9,7 @@
 @class NSArray, NSNumber, NSObject<OS_dispatch_queue>, NSString;
 
 @protocol FCNewsAppConfigurationManager <NSObject>
+@property(readonly, nonatomic) id <FCNewsAppConfiguration> possiblyUnfetchedAppConfiguration;
 @property(readonly, nonatomic) id <FCNewsAppConfiguration> appConfiguration;
 - (void)removeAppConfigObserver:(id <FCNewsAppConfigurationObserving>)arg1;
 - (void)addAppConfigObserver:(id <FCNewsAppConfigurationObserving>)arg1;

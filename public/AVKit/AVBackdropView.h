@@ -49,6 +49,7 @@
 - (void)_ensureGroupNameAndCaptureView;
 - (void)_applyShapeStyle;
 - (id)_stackViewIfLoaded;
+- (void)traitCollectionDidChange:(id)arg1;
 - (void)setCaptureGroupName:(id)arg1 captureView:(id)arg2;
 - (void)updateConstraints;
 - (void)didMoveToWindow;

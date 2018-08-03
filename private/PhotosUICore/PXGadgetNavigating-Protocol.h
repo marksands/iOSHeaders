@@ -6,9 +6,11 @@
 
 #import "NSObject.h"
 
+@class NSString;
+
 @protocol PXGadgetNavigating <NSObject>
 - (void)presentWelcomeCloudPhotosViewController;
 - (void)navigateToGadgetForCMMSuggestions;
-- (void)navigateToGadgetForCMMInvitations;
+- (void)navigateToGadgetForCMMInvitationWithIdentifier:(NSString *)arg1;
 @end
 

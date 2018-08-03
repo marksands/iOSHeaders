@@ -38,7 +38,6 @@
 + (id)_extensionContextHostProtocolWithAllowedErrorClasses:(id)arg1;
 + (id)_defaultExtensionContextProtocol;
 + (id)_extensionContextHostProtocolAllowedClassesForItems;
-+ (void)initialize;
 + (id)_extensionContextForIdentifier:(id)arg1;
 @property(setter=_setExtensionHostAuditToken:) CDStruct_4c969caf _extensionHostAuditToken; // @synthesize _extensionHostAuditToken=__extensionHostAuditToken;
 @property(retain, getter=_transaction, setter=_setTransaction:) NSObject<OS_os_transaction> *_transaction; // @synthesize _transaction=__transaction;

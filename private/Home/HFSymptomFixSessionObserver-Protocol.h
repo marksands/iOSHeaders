@@ -9,6 +9,6 @@
 @class HMSymptomFixSession;
 
 @protocol HFSymptomFixSessionObserver <HMSymptomFixSessionDelegate>
-- (void)session:(HMSymptomFixSession *)arg1 didChangeState:(long long)arg2;
+- (void)fixSession:(HMSymptomFixSession *)arg1 didChangeState:(long long)arg2;
 @end
 

@@ -45,6 +45,7 @@
 - (id)relevancesForRelevanceProvider:(id)arg1 usingContext:(id)arg2;
 - (_Bool)isRelevanceProviderHistoric:(id)arg1;
 - (void)relateRelevanceProvider:(id)arg1 toRelevanceProvider:(id)arg2;
+- (_Bool)isRelevanceProviderLoaded:(id)arg1;
 - (_Bool)containsRelevanceProvider:(id)arg1;
 - (void)removeRelevanceProvider:(id)arg1;
 - (void)addRelevanceProvider:(id)arg1;

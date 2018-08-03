@@ -23,6 +23,7 @@
 @property(nonatomic) unsigned long long numberOfPeople; // @synthesize numberOfPeople=_numberOfPeople;
 @property(nonatomic) _Bool containsMePerson; // @synthesize containsMePerson=_containsMePerson;
 - (void).cxx_destruct;
+- (id)description;
 - (id)init;
 
 @end

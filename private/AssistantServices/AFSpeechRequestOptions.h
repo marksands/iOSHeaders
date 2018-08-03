@@ -23,6 +23,7 @@
     _Bool _useBorealisBuffer;
     _Bool _fetchSmartSiriVolume;
     _Bool _suppressStopAlert;
+    _Bool _isOnPhoneCall;
     long long _activationEvent;
     NSString *_activationDeviceIdentifier;
     NSString *_serverCommandId;
@@ -48,6 +49,7 @@
 }
 
 + (_Bool)supportsSecureCoding;
+@property(nonatomic) _Bool isOnPhoneCall; // @synthesize isOnPhoneCall=_isOnPhoneCall;
 @property(copy, nonatomic) NSDictionary *stopContext; // @synthesize stopContext=_stopContext;
 @property(copy, nonatomic) NSDictionary *startContext; // @synthesize startContext=_startContext;
 @property(copy, nonatomic) NSString *locationStatus; // @synthesize locationStatus=_locationStatus;
@@ -87,6 +89,8 @@
 - (id)initWithCoder:(id)arg1;
 - (void)encodeWithCoder:(id)arg1;
 - (id)description;
+- (_Bool)isRaiseToSpeak;
+- (_Bool)isVoiceTrigger;
 - (id)initWithActivationEvent:(long long)arg1;
 
 @end

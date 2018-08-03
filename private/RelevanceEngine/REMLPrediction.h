@@ -10,6 +10,7 @@
 
 @interface REMLPrediction : NSObject <NSCopying>
 {
+    float _actionProbability;
     float _mean;
     float _variance;
     float _probability;
@@ -21,6 +22,7 @@
 @property(readonly, nonatomic) float probability; // @synthesize probability=_probability;
 @property(readonly, nonatomic) float variance; // @synthesize variance=_variance;
 @property(readonly, nonatomic) float mean; // @synthesize mean=_mean;
+@property(nonatomic) float actionProbability;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 
 @end

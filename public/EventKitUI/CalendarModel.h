@@ -109,6 +109,7 @@
 - (void)ensureCalendarVisibleWithId:(id)arg1;
 @property(readonly, nonatomic) long long readWriteCalendarCount;
 @property(readonly, nonatomic) long long visibleCalendarCount;
+@property(nonatomic) _Bool allowEventLocationPrediction;
 - (_Bool)selectedOccurrenceIsSearchMatch;
 @property(retain, nonatomic) NSString *searchString; // @synthesize searchString=_searchString;
 @property(retain, nonatomic) NSSet *selectedCalendars; // @synthesize selectedCalendars=_selectedCalendars;

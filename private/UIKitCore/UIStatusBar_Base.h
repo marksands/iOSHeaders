@@ -29,7 +29,7 @@
     long long _orientation;
     id <UIViewControllerTransitionCoordinator> __transitionCoordinator;
     UIStatusBarServer *_statusBarServer;
-    CDStruct_f18e9e0a *_localDataOverrides;
+    CDStruct_e70f95cb *_localDataOverrides;
     long long _requestedStyle;
     UIColor *_foregroundColor;
     long long _legibilityStyle;
@@ -61,7 +61,7 @@
 @property(nonatomic) _Bool homeItemsDisabled; // @synthesize homeItemsDisabled=_homeItemsDisabled;
 @property(nonatomic) _Bool suppressesHiddenSideEffects; // @synthesize suppressesHiddenSideEffects=_suppressesHiddenSideEffects;
 @property(nonatomic, getter=_requestStyle, setter=_setRequestedStyle:) long long requestedStyle; // @synthesize requestedStyle=_requestedStyle;
-@property(readonly, nonatomic) CDStruct_f18e9e0a *localDataOverrides; // @synthesize localDataOverrides=_localDataOverrides;
+@property(readonly, nonatomic) CDStruct_e70f95cb *localDataOverrides; // @synthesize localDataOverrides=_localDataOverrides;
 @property(nonatomic) _Bool registered; // @synthesize registered=_registered;
 @property(nonatomic) _Bool hidden; // @synthesize hidden=_hidden;
 @property(nonatomic) _Bool foreground; // @synthesize foreground=_foreground;
@@ -102,7 +102,7 @@
 - (void)setStyleRequest:(id)arg1 animationParameters:(id)arg2;
 - (void)setLegibilityStyle:(long long)arg1 animationParameters:(id)arg2;
 - (void)setForegroundColor:(id)arg1 animationParameters:(id)arg2;
-- (void)forceUpdateToData:(const CDStruct_c6256135 *)arg1 animated:(_Bool)arg2;
+- (void)forceUpdateToData:(const CDStruct_1f606803 *)arg1 animated:(_Bool)arg2;
 - (void)jiggleLockIcon;
 - (void)animateUnlock;
 - (void)setEnabledCenterItems:(id)arg1 duration:(double)arg2;
@@ -110,7 +110,7 @@
 - (_Bool)showsContentsOnScreen;
 - (void)forgetEitherSideHistory;
 - (void)noteStyleOverridesChangedLocally;
-- (void)setLocalDataOverrides:(CDStruct_f18e9e0a *)arg1;
+- (void)setLocalDataOverrides:(CDStruct_e70f95cb *)arg1;
 - (void)setShowsOnlyCenterItems:(_Bool)arg1;
 - (void)setBackgroundAlpha:(double)arg1;
 - (void)setSuppressesGlow:(_Bool)arg1;
@@ -151,7 +151,7 @@
 - (void)statusBarServer:(id)arg1 didReceiveDoubleHeightStatusString:(id)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveGlowAnimationState:(_Bool)arg2 forStyle:(long long)arg3;
 - (void)statusBarServer:(id)arg1 didReceiveStyleOverrides:(int)arg2;
-- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_c6256135 *)arg2 withActions:(int)arg3;
+- (void)statusBarServer:(id)arg1 didReceiveStatusBarData:(const CDStruct_1f606803 *)arg2 withActions:(int)arg3;
 - (void)_styleOverridesDidChange:(id)arg1;
 - (void)_willEnterForeground:(id)arg1;
 - (void)_didEnterBackground:(id)arg1;

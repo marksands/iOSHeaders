@@ -4,50 +4,26 @@
 //     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2013 by Steve Nygard.
 //
 
-#import <ScreenTimeUI/STListViewController.h>
+#import <ScreenTimeUI/STPINListViewController.h>
 
-#import "STRestrictionsPINControllerDelegate.h"
+@class STEnableScreenTimeGroupSpecifierProvider;
 
-@class NSObject<STRootViewModelCoordinator>, NSString, PSSpecifier, STEnableScreenTimeGroupSpecifierProvider;
-
-@interface STRootViewController : STListViewController <STRestrictionsPINControllerDelegate>
+@interface STRootViewController : STPINListViewController
 {
     _Bool _shouldRefreshUsageData;
     STEnableScreenTimeGroupSpecifierProvider *_enableScreenTimeGroupSpecifierProvider;
-    NSObject<STRootViewModelCoordinator> *_coordinator;
-    id _showingPinTarget;
-    PSSpecifier *_showingPinSpecifier;
 }
 
-@property(retain, nonatomic) PSSpecifier *showingPinSpecifier; // @synthesize showingPinSpecifier=_showingPinSpecifier;
-@property(retain, nonatomic) id showingPinTarget; // @synthesize showingPinTarget=_showingPinTarget;
 @property(nonatomic) _Bool shouldRefreshUsageData; // @synthesize shouldRefreshUsageData=_shouldRefreshUsageData;
-@property(readonly, nonatomic) NSObject<STRootViewModelCoordinator> *coordinator; // @synthesize coordinator=_coordinator;
 @property(retain, nonatomic) STEnableScreenTimeGroupSpecifierProvider *enableScreenTimeGroupSpecifierProvider; // @synthesize enableScreenTimeGroupSpecifierProvider=_enableScreenTimeGroupSpecifierProvider;
 - (void).cxx_destruct;
-- (void)devicePINControllerDidDismissPINPane:(id)arg1;
-- (void)restoreSpecifierTarget;
-- (void)devicePINController:(id)arg1 didAcceptChangedPIN:(id)arg2;
-- (void)devicePINController:(id)arg1 didAcceptSetPIN:(id)arg2;
-- (void)didAcceptRemovePIN;
-- (void)didCancelEnteringPIN;
-- (void)didAcceptEnteredPIN:(id)arg1;
-- (_Bool)validatePIN:(id)arg1;
 - (_Bool)prepareHandlingURLForSpecifierID:(id)arg1 resourceDictionary:(id)arg2 animatePush:(_Bool *)arg3;
-- (void)showPINSheet:(id)arg1;
-- (void)tableView:(id)arg1 didSelectRowAtIndexPath:(id)arg2;
 - (id)tableView:(id)arg1 cellForRowAtIndexPath:(id)arg2;
 - (void)observeValueForKeyPath:(id)arg1 ofObject:(id)arg2 change:(id)arg3 context:(void *)arg4;
 - (void)viewWillDisappear:(_Bool)arg1;
 - (void)viewWillAppear:(_Bool)arg1;
+- (void)dealloc;
 - (id)initWithRootViewModelCoordinator:(id)arg1;
-- (id)init;
-
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly, copy) NSString *description;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
 
 @end
 

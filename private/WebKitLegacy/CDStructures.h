@@ -34,6 +34,8 @@ struct ApplicationManifest {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -41,8 +43,6 @@ struct ApplicationManifest {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field4;
     int _field5;
     struct URL {
@@ -50,6 +50,8 @@ struct ApplicationManifest {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -57,8 +59,6 @@ struct ApplicationManifest {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field6;
 };
 
@@ -72,6 +72,8 @@ struct ArchiveResource {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -79,8 +81,6 @@ struct ArchiveResource {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field3;
     struct ResourceResponse _field4;
     struct Ref<WebCore::SharedBuffer, WTF::DumbPtrTraits<WebCore::SharedBuffer>> _field5;
@@ -335,6 +335,8 @@ struct DragItem {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -342,8 +344,6 @@ struct DragItem {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field8;
     struct IntRect _field9;
     struct PasteboardWriterData _field10;
@@ -568,6 +568,8 @@ struct HTMLVideoElement {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -575,8 +577,6 @@ struct HTMLVideoElement {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field54;
     struct RefPtr<WebCore::MediaError, WTF::DumbPtrTraits<WebCore::MediaError>> _field55;
     struct unique_ptr<WebCore::HTMLMediaElement::PendingSeek, std::__1::default_delete<WebCore::HTMLMediaElement::PendingSeek>> _field56;
@@ -1418,11 +1418,11 @@ struct NetworkLoadMetrics {
     struct Seconds _field6;
     struct Seconds _field7;
     struct Seconds _field8;
-    _Bool _field9;
-    struct String _field10;
+    struct String _field9;
+    struct optional<WTF::String> _field10;
     struct optional<WTF::String> _field11;
-    struct optional<WTF::String> _field12;
-    struct optional<WebCore::NetworkLoadPriority> _field13;
+    struct optional<WebCore::NetworkLoadPriority> _field12;
+    _Bool _field13;
     struct optional<WebCore::HTTPHeaderMap> _field14;
     struct optional<unsigned long long> _field15;
     struct optional<unsigned long long> _field16;
@@ -1566,26 +1566,27 @@ struct Page {
     _Bool _field98;
     _Bool _field99;
     unsigned int _field100;
-    _Bool _field101;
+    struct Timer _field101;
     _Bool _field102;
     _Bool _field103;
     _Bool _field104;
     _Bool _field105;
     _Bool _field106;
     _Bool _field107;
-    int _field108;
-    struct optional<WebCore::EventThrottlingBehavior> _field109;
-    struct unique_ptr<WebCore::PerformanceMonitor, std::__1::default_delete<WebCore::PerformanceMonitor>> _field110;
-    struct unique_ptr<WebCore::LowPowerModeNotifier, std::__1::default_delete<WebCore::LowPowerModeNotifier>> _field111;
-    struct optional<bool> _field112;
-    struct optional<WebCore::Page::Navigation> _field113;
-    struct unique_ptr<WebCore::PerformanceLogging, std::__1::default_delete<WebCore::PerformanceLogging>> _field114;
-    struct unique_ptr<WebCore::WheelEventDeltaFilter, std::__1::default_delete<WebCore::WheelEventDeltaFilter>> _field115;
-    struct unique_ptr<WebCore::PageOverlayController, std::__1::default_delete<WebCore::PageOverlayController>> _field116;
-    struct unique_ptr<WebCore::PaymentCoordinator, std::__1::default_delete<WebCore::PaymentCoordinator>> _field117;
-    struct optional<WebCore::ApplicationManifest> _field118;
-    _Bool _field119;
+    _Bool _field108;
+    int _field109;
+    struct optional<WebCore::EventThrottlingBehavior> _field110;
+    struct unique_ptr<WebCore::PerformanceMonitor, std::__1::default_delete<WebCore::PerformanceMonitor>> _field111;
+    struct unique_ptr<WebCore::LowPowerModeNotifier, std::__1::default_delete<WebCore::LowPowerModeNotifier>> _field112;
+    struct optional<bool> _field113;
+    struct optional<WebCore::Page::Navigation> _field114;
+    struct unique_ptr<WebCore::PerformanceLogging, std::__1::default_delete<WebCore::PerformanceLogging>> _field115;
+    struct unique_ptr<WebCore::WheelEventDeltaFilter, std::__1::default_delete<WebCore::WheelEventDeltaFilter>> _field116;
+    struct unique_ptr<WebCore::PageOverlayController, std::__1::default_delete<WebCore::PageOverlayController>> _field117;
+    struct unique_ptr<WebCore::PaymentCoordinator, std::__1::default_delete<WebCore::PaymentCoordinator>> _field118;
+    struct optional<WebCore::ApplicationManifest> _field119;
     _Bool _field120;
+    _Bool _field121;
 };
 
 struct PageConsoleClient;
@@ -1640,10 +1641,10 @@ struct Pagination {
 };
 
 struct ParsedContentRange {
-    _Bool _field1;
+    long long _field1;
     long long _field2;
     long long _field3;
-    long long _field4;
+    _Bool _field4;
 };
 
 struct PasteboardWriterData {
@@ -1708,6 +1709,8 @@ struct PromisedBlobInfo {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -1715,8 +1718,6 @@ struct PromisedBlobInfo {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field1;
     struct String _field2;
     struct String _field3;
@@ -2108,6 +2109,8 @@ struct Requester {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2115,8 +2118,6 @@ struct Requester {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field1;
     struct RefPtr<WebCore::SecurityOrigin, WTF::DumbPtrTraits<WebCore::SecurityOrigin>> _field2;
     struct pair<unsigned long long, unsigned long long> _field3;
@@ -2129,6 +2130,8 @@ struct ResourceError {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2136,12 +2139,10 @@ struct ResourceError {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field2;
     struct String _field3;
     int _field4;
-    int _field5;
+    unsigned char _field5;
     _Bool _field6;
     struct RetainPtr<NSError> _field7;
 };
@@ -2152,6 +2153,8 @@ struct ResourceRequest {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2159,8 +2162,6 @@ struct ResourceRequest {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field1;
     double _field2;
     struct URL {
@@ -2168,6 +2169,8 @@ struct ResourceRequest {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2175,8 +2178,6 @@ struct ResourceRequest {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field3;
     struct String _field4;
     struct String _field5;
@@ -2184,10 +2185,10 @@ struct ResourceRequest {
     struct HTTPHeaderMap _field7;
     struct Vector<WTF::String, 0, WTF::CrashOnOverflow, 16> _field8;
     struct RefPtr<WebCore::FormData, WTF::DumbPtrTraits<WebCore::FormData>> _field9;
-    int _field10;
-    int _field11;
-    int _field12;
-    int _field13;
+    unsigned char _field10;
+    unsigned char _field11;
+    unsigned char _field12;
+    unsigned char _field13;
     _Bool _field14;
     _Bool _field15;
     _Bool _field16;
@@ -2206,6 +2207,8 @@ struct ResourceResponse {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2213,8 +2216,6 @@ struct ResourceResponse {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field1;
     struct AtomicString _field2;
     long long _field3;
@@ -2231,18 +2232,18 @@ struct ResourceResponse {
     struct ParsedContentRange _field14;
     struct CacheControlDirectives _field15;
     struct optional<std::__1::array<unsigned char, 20>> _field16;
-    int _field17;
-    int _field18;
-    int _field19;
-    int _field20;
+    _Bool _field17;
+    _Bool _field18;
+    _Bool _field19;
+    _Bool _field20;
     _Bool _field21;
     _Bool _field22;
     _Bool _field23;
-    _Bool _field24;
-    _Bool _field25;
-    _Bool _field26;
+    unsigned char _field24;
+    unsigned char _field25;
+    unsigned char _field26;
     _Bool _field27;
-    _Bool _field28;
+    int _field28;
     unsigned int :3;
     _Bool _field29;
     struct RetainPtr<NSURLResponse> _field30;
@@ -2375,6 +2376,8 @@ struct ServiceWorkerData {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2382,8 +2385,6 @@ struct ServiceWorkerData {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field2;
     int _field3;
     int _field4;
@@ -2398,6 +2399,8 @@ struct ServiceWorkerRegistrationData {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2405,8 +2408,6 @@ struct ServiceWorkerRegistrationData {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field3;
     int _field4;
     struct WallTime _field5;
@@ -2422,6 +2423,8 @@ struct ServiceWorkerRegistrationKey {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2429,8 +2432,6 @@ struct ServiceWorkerRegistrationKey {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field2;
 };
 
@@ -2477,6 +2478,8 @@ struct SubstituteData {
         unsigned int :1;
         unsigned int :1;
         unsigned int :1;
+        unsigned int :3;
+        unsigned int :26;
         unsigned int _field2;
         unsigned int _field3;
         unsigned int _field4;
@@ -2484,8 +2487,6 @@ struct SubstituteData {
         unsigned int _field6;
         unsigned int _field7;
         unsigned int _field8;
-        unsigned int _field9;
-        unsigned int _field10;
     } _field2;
     struct ResourceResponse _field3;
     int _field4;
@@ -3453,6 +3454,8 @@ typedef struct {
     unsigned int :1;
     unsigned int :1;
     unsigned int :1;
+    unsigned int :3;
+    unsigned int :26;
     unsigned int _field2;
     unsigned int _field3;
     unsigned int _field4;
@@ -3460,9 +3463,7 @@ typedef struct {
     unsigned int _field6;
     unsigned int _field7;
     unsigned int _field8;
-    unsigned int _field9;
-    unsigned int _field10;
-} URL_16d660c7;
+} URL_1c73cf8c;
 
 #endif
 
@@ -3584,7 +3585,7 @@ union constexpr_storage_t<WebCore::NavigationAction::UIEventWithKeyStateData> {
 
 union constexpr_storage_t<WebCore::NetworkLoadPriority> {
     unsigned char _field1;
-    int _field2;
+    unsigned char _field2;
 };
 
 union constexpr_storage_t<bool> {
@@ -3675,6 +3676,8 @@ union storage_t<WebCore::PasteboardWriterData::URL> {
             unsigned int :1;
             unsigned int :1;
             unsigned int :1;
+            unsigned int :3;
+            unsigned int :26;
             unsigned int _field2;
             unsigned int _field3;
             unsigned int _field4;
@@ -3682,8 +3685,6 @@ union storage_t<WebCore::PasteboardWriterData::URL> {
             unsigned int _field6;
             unsigned int _field7;
             unsigned int _field8;
-            unsigned int _field9;
-            unsigned int _field10;
         } _field1;
         struct String _field2;
     } _field2;

@@ -8,36 +8,38 @@
 
 #import "PXChangeObserver.h"
 #import "PXFeedSectionInfosManagerDelegate.h"
+#import "PXForYouRankable.h"
 #import "PXSectionedDataSourceManagerObserver.h"
-#import "PXSettingsKeyObserver.h"
 
-@class NSString, PXFeedSectionInfosManager, PXForYouBadgeManager, PXInboxAggregateDataSourceManager;
+@class NSDate, NSString, PXFeedSectionInfosManager, PXInboxAggregateDataSourceManager;
 
-@interface PXSharedAlbumActivityHorizontalGadgetProvider : PXGadgetProvider <PXFeedSectionInfosManagerDelegate, PXSettingsKeyObserver, PXChangeObserver, PXSectionedDataSourceManagerObserver>
+@interface PXSharedAlbumActivityHorizontalGadgetProvider : PXGadgetProvider <PXFeedSectionInfosManagerDelegate, PXChangeObserver, PXSectionedDataSourceManagerObserver, PXForYouRankable>
 {
-    PXForYouBadgeManager *_badgeManager;
     PXFeedSectionInfosManager *_feedSectionInfosManager;
     PXInboxAggregateDataSourceManager *_inboxDataSourceManager;
+    NSDate *_cachedPriorityDate;
 }
 
+@property(retain, nonatomic) NSDate *cachedPriorityDate; // @synthesize cachedPriorityDate=_cachedPriorityDate;
 @property(retain, nonatomic) PXInboxAggregateDataSourceManager *inboxDataSourceManager; // @synthesize inboxDataSourceManager=_inboxDataSourceManager;
 @property(retain, nonatomic) PXFeedSectionInfosManager *feedSectionInfosManager; // @synthesize feedSectionInfosManager=_feedSectionInfosManager;
-@property(retain, nonatomic) PXForYouBadgeManager *badgeManager; // @synthesize badgeManager=_badgeManager;
 - (void).cxx_destruct;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
-- (void)settings:(id)arg1 changedValueForKey:(id)arg2;
 - (id)_currentGadgetOfType:(unsigned long long)arg1;
 - (void)_updateGadgets;
 - (long long)_countOfSectionInfosToDisplay:(unsigned long long)arg1;
-- (void)_inboxLastSeenDateDidChange:(id)arg1;
 - (void)_updateGadgetTitle;
 - (id)_gadgetTitle;
 - (void)_navigateToSharedAlbumActivityFeed:(id)arg1;
 - (void)feedSectionInfosManager:(id)arg1 sectionInfosDidChange:(id)arg2;
+- (void)resetPriorityDate;
+@property(readonly, nonatomic) unsigned long long gadgetType;
+@property(readonly, nonatomic) long long defaultPriority;
+@property(readonly, nonatomic) long long priorityType;
+@property(readonly, nonatomic) NSDate *priorityDate;
 - (void)generateGadgets;
 - (unsigned long long)estimatedNumberOfGadgets;
-- (void)loadDataForPriority;
-- (unsigned long long)loadingPriority;
+- (_Bool)supportsDynamicRanking;
 - (void)dealloc;
 - (id)init;
 

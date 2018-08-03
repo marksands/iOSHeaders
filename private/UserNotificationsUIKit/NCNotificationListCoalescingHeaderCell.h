@@ -26,7 +26,7 @@
     _UILegibilitySettings *_legibilitySettings;
 }
 
-+ (double)coalescingHeaderCellHeight;
++ (double)coalescingHeaderCellHeightForWidth:(double)arg1 title:(id)arg2;
 @property(retain, nonatomic) _UILegibilitySettings *legibilitySettings; // @synthesize legibilitySettings=_legibilitySettings;
 @property(retain, nonatomic) NCNotificationListHeaderTitleView *headerTitleView; // @synthesize headerTitleView=_headerTitleView;
 @property(retain, nonatomic) NCNotificationListCoalescingControlsView *coalescingControlsView; // @synthesize coalescingControlsView=_coalescingControlsView;
@@ -44,6 +44,8 @@
 - (void)traitCollectionDidChange:(id)arg1;
 - (_Bool)adjustForContentSizeCategoryChange;
 - (void)adjustForLegibilitySettingsChange:(id)arg1;
+- (void)notificationListCoalescingControlsViewDidDismissPreviewInteractionPresentedContent:(id)arg1;
+- (void)notificationListCoalescingControlsViewDidPresentPreviewInteractionPresentedContent:(id)arg1;
 - (void)notificationListCoalescingControlsView:(id)arg1 didTransitionToClearState:(_Bool)arg2;
 - (void)notificationListCoalescingControlsViewRequestsRestack:(id)arg1;
 - (void)notificationListCoalescingControlsViewRequestsClearAll:(id)arg1;
@@ -52,6 +54,7 @@
 - (void)prepareForReuse;
 - (void)layoutSubviews;
 - (_Bool)shouldReceiveTouchAtPointInWindowSpace:(struct CGPoint)arg1;
+- (_Bool)dismissModalFullScreenIfNeeded;
 - (void)resetClearButtonStateAnimated:(_Bool)arg1;
 
 // Remaining properties

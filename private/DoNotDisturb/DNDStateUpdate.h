@@ -15,9 +15,11 @@
 {
     DNDState *_previousState;
     DNDState *_state;
+    unsigned long long _reason;
 }
 
 + (_Bool)supportsSecureCoding;
+@property(readonly, nonatomic) unsigned long long reason; // @synthesize reason=_reason;
 @property(readonly, copy, nonatomic) DNDState *state; // @synthesize state=_state;
 @property(readonly, copy, nonatomic) DNDState *previousState; // @synthesize previousState=_previousState;
 - (void).cxx_destruct;
@@ -27,7 +29,7 @@
 - (id)description;
 - (_Bool)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (id)initWithPreviousState:(id)arg1 state:(id)arg2;
+- (id)initWithPreviousState:(id)arg1 state:(id)arg2 reason:(unsigned long long)arg3;
 
 @end
 

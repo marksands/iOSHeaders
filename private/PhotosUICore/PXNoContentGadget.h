@@ -13,16 +13,18 @@
 @interface PXNoContentGadget : NSObject <PXGadget>
 {
     PXGadgetSpec *_gadgetSpec;
-    unsigned long long _priority;
+    long long _priority;
     id <PXGadgetDelegate> _delegate;
+    double _contentHeightAdjustment;
     PXContentUnavailableView *_noContentView;
-    double _preferredContentHeight;
+    double _minimumContentHeight;
 }
 
-@property(readonly, nonatomic) double preferredContentHeight; // @synthesize preferredContentHeight=_preferredContentHeight;
+@property(readonly, nonatomic) double minimumContentHeight; // @synthesize minimumContentHeight=_minimumContentHeight;
 @property(retain, nonatomic) PXContentUnavailableView *noContentView; // @synthesize noContentView=_noContentView;
+@property(nonatomic) double contentHeightAdjustment; // @synthesize contentHeightAdjustment=_contentHeightAdjustment;
 @property(nonatomic) __weak id <PXGadgetDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) unsigned long long priority; // @synthesize priority=_priority;
+@property(nonatomic) long long priority; // @synthesize priority=_priority;
 @property(retain, nonatomic) PXGadgetSpec *gadgetSpec; // @synthesize gadgetSpec=_gadgetSpec;
 - (void).cxx_destruct;
 - (struct CGSize)sizeThatFits:(struct CGSize)arg1;
@@ -34,11 +36,12 @@
 - (void)configureWithButtonTitle:(id)arg1 buttonAction:(CDUnknownBlockType)arg2;
 @property(copy, nonatomic) NSString *message;
 @property(copy, nonatomic) NSString *title;
-- (id)initWithLocalizedTitle:(id)arg1 localizedMessage:(id)arg2 preferredContentHeight:(double)arg3;
+- (id)initWithLocalizedTitle:(id)arg1 localizedMessage:(id)arg2 minimumContentHeight:(double)arg3;
 - (id)initWithLocalizedTitle:(id)arg1 localizedMessage:(id)arg2;
 - (id)init;
 
 // Remaining properties
+@property(readonly, nonatomic) const struct __CFString *accessoryButtonEventTrackerKey;
 @property(readonly, nonatomic) NSString *accessoryButtonTitle;
 @property(readonly, copy) NSString *debugDescription;
 @property(readonly, copy) NSString *description;

@@ -16,14 +16,13 @@
 #import "UITableViewDataSourcePrefetching.h"
 #import "UITableViewDelegate.h"
 
-@class NSArray, NSIndexPath, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, PHCachingImageManager, PLSearchMetadataStore, PSIDatabase, PUNavigationController, PUSearchResultsFooterView, PUSearchResultsSectionedDataSource, PUSearchResultsSuggestionsAggdLogHelper, PUSearchTopResultContentView, PXAssetReference, PXAssetsDataSourceManager, PXOneUpPresentation, PXPhotoKitUIMediaProvider, UILabel, UISearchController, UITableView, UITableViewCell;
+@class NSArray, NSIndexPath, NSObject<OS_dispatch_semaphore>, NSString, NSTimer, PHCachingImageManager, PLSearchMetadataStore, PSIDatabase, PUNavigationController, PUSearchResultsFooterView, PUSearchResultsSectionedDataSource, PUSearchResultsSuggestionsAggdLogHelper, PUSearchTopResultContentView, PXAssetReference, PXAssetsDataSourceManager, PXPhotoKitUIMediaProvider, UILabel, UISearchController, UITableView, UITableViewCell;
 
 @interface PUSearchResultsViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate, PUSearchResultsSectionedDataSourceChangeObserver, PUSearchResultsFooterViewDelegate, PUTopResultDelegate, PXOneUpPresentationDelegate, UISearchResultsUpdating>
 {
     PXPhotoKitUIMediaProvider *_oneUpMediaProvider;
     PXAssetsDataSourceManager *_oneUpDataSourceManager;
     PXAssetReference *_oneUpInitialAssetReference;
-    PXOneUpPresentation *_oneUpPresentation;
     _Bool _indexing;
     _Bool _aggdSearchSucceeded;
     UISearchController *_searchController;

@@ -147,10 +147,6 @@
 - (id)copyCKRecordRepresentationWithZoneID:(id)arg1 salt:(id)arg2 isUsingStingRay:(_Bool)arg3;
 - (id)recordName;
 - (id)_copyCKRecordFromExistingCKMetadataIsUsingStringRay:(_Bool)arg1 zoneID:(id)arg2 salt:(id)arg3;
-- (id)_recordNameForRecordChangeTag:(id)arg1 ckRecordID:(id)arg2 salt:(id)arg3;
-- (id)_recordNameUsingSalt:(id)arg1;
-- (id)_recordIDUsingName:(id)arg1 zoneID:(id)arg2;
-- (id)_recordIDUsingSalt:(id)arg1 zoneID:(id)arg2;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

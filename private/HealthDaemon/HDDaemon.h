@@ -11,7 +11,7 @@
 #import "HDTaskServerClassProvider.h"
 #import "HDXPCListenerDelegate.h"
 
-@class HDAnalyticsSubmissionCoordinator, HDBackgroundTaskScheduler, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDDemoDataGenerator, HDFeatureAvailabilityAssetManager, HDFitnessAppBadgeManager, HDMaintenanceWorkCoordinator, HDPluginManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDTaskServerRegistry, HDWorkoutPluginDaemonExtension, HDXPCListener, NSDictionary, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
+@class HDAnalyticsSubmissionCoordinator, HDBackgroundTaskScheduler, HDCloudSyncCoordinator, HDCoachingDiagnosticManager, HDCompanionWorkoutCreditManager, HDContentProtectionManager, HDDemoDataGenerator, HDDevicePowerMonitor, HDFeatureAvailabilityAssetManager, HDFitnessAppBadgeManager, HDMaintenanceWorkCoordinator, HDPluginManager, HDPrimaryProfile, HDProcessStateManager, HDProfileManager, HDQueryManager, HDTaskServerRegistry, HDWorkoutPluginDaemonExtension, HDXPCListener, NSDictionary, NSMutableArray, NSMutableSet, NSObject<OS_dispatch_queue>, NSString, NSURL, _HKBehavior;
 
 @interface HDDaemon : NSObject <HDTaskServerClassProvider, HDDiagnosticObject, HDXPCListenerDelegate, HDHealthDaemon>
 {
@@ -44,10 +44,12 @@
     HDQueryManager *_queryManager;
     HDXPCListener *_serviceListener;
     HDTaskServerRegistry *_taskServerRegistry;
+    HDDevicePowerMonitor *_devicePowerMonitor;
     id <HDDaemonTester> _daemonTester;
 }
 
 @property(nonatomic) __weak id <HDDaemonTester> daemonTester; // @synthesize daemonTester=_daemonTester;
+@property(readonly, nonatomic) HDDevicePowerMonitor *devicePowerMonitor; // @synthesize devicePowerMonitor=_devicePowerMonitor;
 @property(readonly, nonatomic) HDTaskServerRegistry *taskServerRegistry; // @synthesize taskServerRegistry=_taskServerRegistry;
 @property(readonly, nonatomic) HDXPCListener *serviceListener; // @synthesize serviceListener=_serviceListener;
 @property(readonly, nonatomic) HDQueryManager *queryManager; // @synthesize queryManager=_queryManager;

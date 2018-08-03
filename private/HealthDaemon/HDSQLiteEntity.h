@@ -27,7 +27,12 @@
 + (id)privateSubEntities;
 + (_Bool)isTemporary;
 + (id)indices;
++ (void)enumerateColumnsWithBlock:(CDUnknownBlockType)arg1;
++ (void)_enumerateColumnNamesWithBlock:(CDUnknownBlockType)arg1;
++ (void)_enumerateColumnDefinitionsWithBlock:(CDUnknownBlockType)arg1;
++ (id)foreignKeys;
 + (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)disambiguatedDatabaseTable;
 + (id)tableAliases;
 + (id)databaseTable;

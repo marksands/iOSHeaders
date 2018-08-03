@@ -37,6 +37,7 @@
 - (void)markAsActiveIfNeeded;
 - (id)diagnosticsItem;
 - (void)decline;
+@property(readonly, nonatomic) _Bool containsUnverifiedPersons;
 - (id)contextForActivityType:(unsigned long long)arg1 sourceType:(unsigned long long)arg2;
 - (id)init;
 

@@ -36,9 +36,6 @@
 @property _Bool basicMediaModel; // @synthesize basicMediaModel=_basicMediaModel;
 - (void)waitForCommandCompletion;
 - (void)signalCommandCompletion;
-- (void)requestDataForFiles:(id)arg1 withProperties:(id)arg2;
-- (void)requestMetadataForFiles:(id)arg1;
-- (void)requestThumbnailsForFiles:(id)arg1 options:(id)arg2;
 - (_Bool)applePTPCapable;
 - (void)removeFolder:(id)arg1;
 - (void)addFolder:(id)arg1;
@@ -88,6 +85,7 @@
 - (void)pendNotifyingDelegateOfAddedItem:(id)arg1;
 - (void)notifyDelegateOfAddedItems:(id)arg1;
 - (void)notifyDelegateOfAddedItem:(id)arg1;
+- (void)resetFailureCount;
 - (unsigned int)increaseDeviceFailureCount;
 @property long long enumerationOrder;
 - (void)setApplePTPObjectLimit:(id)arg1;

@@ -9,6 +9,7 @@
 @class RCWaveformRenderer;
 
 @protocol RCWaveformRendererDelegate <NSObject>
+@property(nonatomic) double currentTime;
 - (double)duration;
 - (void)waveformRendererDidSynchronizeToDisplayLink:(RCWaveformRenderer *)arg1;
 - (void)waveformRendererContentDidFinishLoading:(RCWaveformRenderer *)arg1;

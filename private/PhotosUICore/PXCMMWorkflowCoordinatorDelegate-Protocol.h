@@ -6,12 +6,12 @@
 
 #import "NSObject.h"
 
-@class NSURL, PXCMMWorkflowCoordinator, UIViewController;
+@class NSURL, PXCMMSession, PXCMMWorkflowCoordinator, UIViewController;
 
 @protocol PXCMMWorkflowCoordinatorDelegate <NSObject>
 
 @optional
 - (void)workflowCoordinator:(PXCMMWorkflowCoordinator *)arg1 didPublishToURL:(NSURL *)arg2;
-- (void)workflowCoordinator:(PXCMMWorkflowCoordinator *)arg1 workflowViewController:(UIViewController *)arg2 didFinishWithActivityState:(unsigned long long)arg3;
+- (void)workflowCoordinator:(PXCMMWorkflowCoordinator *)arg1 workflowViewController:(UIViewController *)arg2 didFinishSession:(PXCMMSession *)arg3 withActivityState:(unsigned long long)arg4;
 @end
 

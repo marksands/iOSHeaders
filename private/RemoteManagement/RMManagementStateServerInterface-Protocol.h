@@ -6,9 +6,16 @@
 
 #import "NSObject.h"
 
+@class NSDateInterval, NSString, NSURL;
+
 @protocol RMManagementStateServerInterface <NSObject>
+- (void)deleteAllWebApplicationHistory:(NSString *)arg1 completionHandler:(void (^)(NSError *))arg2;
+- (void)deleteWebHistoryDuringInterval:(NSDateInterval *)arg1 webApplication:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
+- (void)deleteWebHistoryForDomain:(NSString *)arg1 webApplication:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
+- (void)deleteWebHistoryForURL:(NSURL *)arg1 webApplication:(NSString *)arg2 completionHandler:(void (^)(NSError *))arg3;
 - (void)isRestrictionsPasscodeSetWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
 - (void)shouldRequestMoreTimeWithCompletionHandler:(void (^)(_Bool, NSError *))arg1;
+- (void)setScreenTimeSyncingEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)screenTimeSyncStateWithCompletionHandler:(void (^)(long long, NSError *))arg1;
 - (void)setScreenTimeEnabled:(_Bool)arg1 completionHandler:(void (^)(NSError *))arg2;
 - (void)screenTimeStateWithCompletionHandler:(void (^)(long long, NSError *))arg1;

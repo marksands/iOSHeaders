@@ -22,7 +22,7 @@
 @property(nonatomic) __weak id <INUIAddVoiceShortcutViewControllerDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) INShortcut *_shortcut; // @synthesize _shortcut;
 - (void).cxx_destruct;
-- (void)remoteViewControllerAddDidCacnel;
+- (void)remoteViewControllerAddDidCancel;
 - (void)remoteViewControllerDidAddVoiceShortcut:(id)arg1 error:(id)arg2;
 - (void)loadView;
 - (id)initWithShortcut:(id)arg1;

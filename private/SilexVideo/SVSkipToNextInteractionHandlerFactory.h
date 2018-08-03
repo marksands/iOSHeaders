@@ -13,14 +13,12 @@
 @interface SVSkipToNextInteractionHandlerFactory : NSObject <SVVideoInteractionHandlerFactory>
 {
     id <SVVideoPlaybackSkipping> _playbackSkipper;
-    id <SVVideoProviderProviding> _videoProviderProviding;
 }
 
-@property(readonly, nonatomic) id <SVVideoProviderProviding> videoProviderProviding; // @synthesize videoProviderProviding=_videoProviderProviding;
 @property(readonly, nonatomic) id <SVVideoPlaybackSkipping> playbackSkipper; // @synthesize playbackSkipper=_playbackSkipper;
 - (void).cxx_destruct;
 - (id)createInteractionHandlerForVideo:(id)arg1;
-- (id)initWithPlaybackSkipper:(id)arg1 videoProviderProviding:(id)arg2;
+- (id)initWithPlaybackSkipper:(id)arg1;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

@@ -30,7 +30,7 @@
 @property(retain, nonatomic) NSDictionary *recordSourcesByRecordType; // @synthesize recordSourcesByRecordType=_recordSourcesByRecordType;
 @property(retain, nonatomic) NSArray *recordSources; // @synthesize recordSources=_recordSources;
 @property(copy, nonatomic) CDUnknownBlockType widgetConfigDataCompletionHandler; // @synthesize widgetConfigDataCompletionHandler=_widgetConfigDataCompletionHandler;
-@property(copy) NSData *widgetConfigData; // @synthesize widgetConfigData=_widgetConfigData;
+@property(copy, nonatomic) NSData *widgetConfigData; // @synthesize widgetConfigData=_widgetConfigData;
 @property(retain, nonatomic) id <FCContentContext> context; // @synthesize context=_context;
 - (void).cxx_destruct;
 - (id)_recordSourceForRecordType:(id)arg1;

@@ -25,7 +25,7 @@ __attribute__((visibility("hidden")))
 @property(retain, nonatomic) UIImageView *iconView; // @synthesize iconView=_iconView;
 - (void).cxx_destruct;
 - (void)traitCollectionDidChange:(id)arg1;
-- (void)updateFonts;
+- (void)updateFont;
 - (void)updateConstraints;
 - (id)viewForLastBaselineLayout;
 - (id)viewForFirstBaselineLayout;

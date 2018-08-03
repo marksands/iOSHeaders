@@ -6,11 +6,11 @@
 
 #import <PhotosUICore/PXGadgetProvider.h>
 
-#import "PXChangeObserver.h"
+#import "PXNavigationListDataSourceManagerObserver.h"
 
 @class NSString, PXExtendedTraitCollection, PXNavigationListDataSourceManager;
 
-@interface PXNavigationListGadgetProvider : PXGadgetProvider <PXChangeObserver>
+@interface PXNavigationListGadgetProvider : PXGadgetProvider <PXNavigationListDataSourceManagerObserver>
 {
     _Bool _shouldShowNavigationListOnIpad;
     _Bool _isPresentedInPicker;
@@ -25,7 +25,9 @@
 @property(readonly, nonatomic) unsigned long long type; // @synthesize type=_type;
 @property(nonatomic) _Bool shouldShowNavigationListOnIpad; // @synthesize shouldShowNavigationListOnIpad=_shouldShowNavigationListOnIpad;
 - (void).cxx_destruct;
-- (_Bool)_shouldShowNavigationList;
+- (void)_initializeDataSourceManagerIfNeeded;
+@property(readonly, nonatomic) _Bool shouldShowNavigationListForDeviceAndLayoutClass;
+- (void)_updateGadgets;
 - (void)observable:(id)arg1 didChange:(unsigned long long)arg2 context:(void *)arg3;
 - (void)generateGadgets;
 - (void)loadDataForGadgets;

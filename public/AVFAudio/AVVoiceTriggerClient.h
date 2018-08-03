@@ -10,16 +10,19 @@
 {
     CDUnknownBlockType _voiceTriggerBlock;
     CDUnknownBlockType _speakerStateChangedBlock;
+    CDUnknownBlockType _speakerMuteStateChangedBlock;
     CDUnknownBlockType _serverCrashedBlock;
     CDUnknownBlockType _serverResetBlock;
 }
 
 @property(copy, nonatomic) CDUnknownBlockType serverResetBlock; // @synthesize serverResetBlock=_serverResetBlock;
 @property(copy, nonatomic) CDUnknownBlockType serverCrashedBlock; // @synthesize serverCrashedBlock=_serverCrashedBlock;
+@property(copy, nonatomic) CDUnknownBlockType speakerMuteStateChangedBlock; // @synthesize speakerMuteStateChangedBlock=_speakerMuteStateChangedBlock;
 @property(copy, nonatomic) CDUnknownBlockType speakerStateChangedBlock; // @synthesize speakerStateChangedBlock=_speakerStateChangedBlock;
 @property(copy, nonatomic) CDUnknownBlockType voiceTriggerBlock; // @synthesize voiceTriggerBlock=_voiceTriggerBlock;
 - (void)updateVoiceTriggerConfiguration:(id)arg1 completionBlock:(CDUnknownBlockType)arg2;
 - (void)updateVoiceTriggerConfiguration:(id)arg1;
+- (_Bool)speakerStateMuted;
 - (_Bool)speakerStateActive;
 - (void)enableSpeakerStateListening:(_Bool)arg1;
 - (void)enableVoiceTriggerListening:(_Bool)arg1 completionBlock:(CDUnknownBlockType)arg2;
@@ -30,6 +33,7 @@
 - (void)handleMediaServerDeath:(id)arg1;
 - (void)dealloc;
 - (id)init;
+- (void)speakerStateMuteStateChangedNotification:(_Bool)arg1;
 - (void)speakerStateChangedNotification:(id)arg1;
 - (void)voiceTriggerNotification:(id)arg1;
 

@@ -206,7 +206,7 @@
 - (void)_showUIForResetFocusAndExposure;
 - (_Bool)_shouldShowContinuousIndicator;
 - (long long)_interfaceOrientation;
-- (void)_updateForOrientation;
+- (void)_updateForOrientationAnimated:(_Bool)arg1;
 - (void)_createAspectRatioToggleDoubleTapGestureRecognizerIfNecessary;
 - (void)_createExposureBiasPanGestureRecognizerIfNecessary;
 - (void)_createLongPressToLockGestureRecognizersIfNecessary;

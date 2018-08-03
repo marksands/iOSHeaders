@@ -7,10 +7,11 @@
 #import "NSObject.h"
 
 #import "NSCopying.h"
+#import "NSSecureCoding.h"
 
 @class NSDateComponents;
 
-@interface STDeviceBedtime : NSObject <NSCopying>
+@interface STDeviceBedtime : NSObject <NSCopying, NSSecureCoding>
 {
     _Bool _deviceBedtimeEnabled;
     _Bool _askForMoreTime;
@@ -20,11 +21,14 @@
 
 + (id)defaultBedtimeEnd;
 + (id)defaultBedtimeStart;
++ (_Bool)supportsSecureCoding;
 @property(copy, nonatomic) NSDateComponents *end; // @synthesize end=_end;
 @property(copy, nonatomic) NSDateComponents *start; // @synthesize start=_start;
 @property(nonatomic) _Bool askForMoreTime; // @synthesize askForMoreTime=_askForMoreTime;
 @property(nonatomic) _Bool deviceBedtimeEnabled; // @synthesize deviceBedtimeEnabled=_deviceBedtimeEnabled;
 - (void).cxx_destruct;
+- (id)initWithCoder:(id)arg1;
+- (void)encodeWithCoder:(id)arg1;
 - (id)copyWithZone:(struct _NSZone *)arg1;
 - (void)_stDeviceBedtimeInitByParsingFamilyBedtimeAllPredicate:(id)arg1;
 - (void)_stDeviceBedtimeInitByParsingPersonalBedtimePredicate:(id)arg1;

@@ -110,6 +110,7 @@
 - (_Bool)marqueeEnabled;
 - (_Bool)marqueeRunning;
 - (void)_stopMarqueeWithRedisplay:(_Bool)arg1;
+- (void)_runMarqueeIfEnabledAndAncestorIsFocused;
 - (void)_startMarqueeIfNecessary;
 - (void)_startMarquee;
 - (void)_drawFullMarqueeTextInRect:(struct CGRect)arg1;

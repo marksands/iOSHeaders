@@ -104,6 +104,7 @@
 - (void)_updateShadowOpacityForPrimaryState:(unsigned long long)arg1;
 - (double)_effectiveShadowOpacity;
 - (double)_effectiveShadowRadius;
+- (void)_updateHighContrastFocusIndicatorView;
 @property(nonatomic) _Bool clipsContentToBounds;
 - (void)_setControlState:(unsigned long long)arg1 withAnimationCoordinator:(id)arg2;
 - (void)setControlState:(unsigned long long)arg1 withAnimationCoordinator:(id)arg2;

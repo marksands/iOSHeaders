@@ -10,7 +10,7 @@
 #import "PGGraphPhotoEvent.h"
 #import "PLMomentProtocol.h"
 
-@class CLLocation, NSDate, NSSet, NSString, PGGraph;
+@class CLLocation, CLSHolidayCalendarEventRuleTraits, NSDate, NSSet, NSString, PGGraph;
 
 @interface PGGraphMomentNode : PGGraphNode <PLMomentProtocol, PGGraphPhotoEvent, PGEventEnrichment>
 {
@@ -23,6 +23,10 @@
 + (id)firstAndLastMomentNodesInMomentNodes:(id)arg1;
 + (id)contentScoreSortDescriptors;
 + (id)scoreSortDescriptors;
+- (_Bool)_isMePresent;
+- (unsigned long long)_eventRuleLocationTrait;
+- (unsigned long long)_eventRulePeopleTrait;
+@property(readonly, nonatomic) CLSHolidayCalendarEventRuleTraits *holidayCalendarEventRuleTraits;
 - (id)associatedNodesForRemoval;
 - (id)sortedMomentNodes;
 - (id)assetCollection;

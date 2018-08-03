@@ -30,8 +30,8 @@
 - (id)coreModelColorsForColorDefinitions:(id)arg1 paletteSettingKind:(CDStruct_597dd055)arg2;
 - (id)coreModelColorsForPaletteSettingKind:(CDStruct_597dd055)arg1;
 - (id)coreModelPresetsForCategory:(long long)arg1;
-- (_Bool)validateForCategoryWithEnumValue:(id)arg1 presetPickers:(id)arg2 colorPicker:(id)arg3 colorPaletteCategory:(id)arg4;
-- (id)coreModelColorPaletteForColorPickerDictionary:(id)arg1 settingDestination:(long long)arg2;
+- (_Bool)validateForCategoryWithEnumValue:(id)arg1 presetPickers:(id)arg2 colorPicker:(id)arg3 colorPaletteCategory:(id)arg4 subColorPicker:(id)arg5 subColorPaletteCategory:(id)arg6;
+- (id)coreModelColorPaletteForColorPickerDictionary:(id)arg1 settingDestination:(long long)arg2 subPalette:(id)arg3;
 - (id)coreModelCategoryFromCategoryDictionary:(id)arg1;
 - (id)coreModelGroupFromGroupDictionary:(id)arg1;
 - (id)parseCoreModelFromDefinitions:(id)arg1;

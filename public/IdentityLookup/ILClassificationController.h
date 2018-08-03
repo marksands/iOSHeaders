@@ -15,11 +15,13 @@
     NSObject<OS_dispatch_queue> *_queue;
     id _matchingExtensionToken;
     NSHashTable *_delegates;
+    CDUnknownBlockType _firstMatchCompletionBlock;
 }
 
 + (_Bool)shouldActivate;
 + (id)electedExtensionFromExtensions:(id)arg1;
 + (id)sharedInstance;
+@property(copy, nonatomic) CDUnknownBlockType firstMatchCompletionBlock; // @synthesize firstMatchCompletionBlock=_firstMatchCompletionBlock;
 @property(readonly, nonatomic) NSHashTable *delegates; // @synthesize delegates=_delegates;
 @property(readonly, nonatomic) id matchingExtensionToken; // @synthesize matchingExtensionToken=_matchingExtensionToken;
 @property(readonly, nonatomic) NSObject<OS_dispatch_queue> *queue; // @synthesize queue=_queue;

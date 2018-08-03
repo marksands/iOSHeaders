@@ -20,6 +20,7 @@
 @property(nonatomic) __weak _DKKnowledgeStorage *storage; // @synthesize storage=_storage;
 - (void).cxx_destruct;
 - (void)debugLogPeers;
+- (void)postCloudDeviceCountChangedNotification;
 - (void)_loadPeers;
 - (id)uuidWithUUIDString:(id)arg1;
 - (id)description;
@@ -33,7 +34,7 @@
 - (void)_modifyActiveTransportInPeer:(id)arg1 withNewTransportsBlock:(CDUnknownBlockType)arg2;
 - (long long)activeTransportsForPeer:(id)arg1;
 - (id)_peerInfoForPeer:(id)arg1;
-- (unsigned long long)foreignPeersWithAnyActiveTransportsCount;
+- (unsigned long long)foreignPeersCount;
 - (id)peersWithActiveTransports:(long long)arg1;
 - (id)peersWithAnyActiveTransports;
 - (id)allPeers;

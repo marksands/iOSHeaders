@@ -19,10 +19,11 @@
 @property(readonly, nonatomic) UIButton *goButton; // @synthesize goButton=_goButton;
 @property(readonly, nonatomic) CPSAlternateRoutesView *alternatesView; // @synthesize alternatesView=_alternatesView;
 - (void).cxx_destruct;
+- (id)_linearFocusItems;
 - (id)preferredFocusEnvironments;
 - (void)alternateRoutesView:(id)arg1 didSelectRouteChoice:(id)arg2;
 - (void)setSelectedTrip:(id)arg1;
-- (id)initWithTrips:(id)arg1 textConfiguration:(id)arg2;
+- (id)initWithTripDelegate:(id)arg1 trips:(id)arg2 textConfiguration:(id)arg3;
 
 // Remaining properties
 @property(readonly, copy) NSString *debugDescription;

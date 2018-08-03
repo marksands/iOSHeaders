@@ -14,7 +14,7 @@
 @interface MPSAccelerationStructure : MPSKernel <NSSecureCoding, NSCopying>
 {
     MPSAccelerationStructureGroup *_group;
-    NSDictionary *_accelerationStructureOptions;
+    NSDictionary *_privateOptions;
     NSDictionary *_statistics;
     id <MTLBuffer> _boundingBoxBuffer;
     id <MTLComputePipelineState> _boundingBoxCopyPipeline;
@@ -52,8 +52,8 @@
 @property(readonly, nonatomic) unsigned long long status;
 - (void)setStatistics:(id)arg1;
 - (id)statistics;
-- (void)setAccelerationStructureOptions:(id)arg1;
-- (id)accelerationStructureOptions;
+- (void)setPrivateOptions:(id)arg1;
+- (id)privateOptions;
 - (void)setBoundingBox:(struct _MPSAxisAlignedBoundingBox)arg1;
 @property(readonly, nonatomic) struct _MPSAxisAlignedBoundingBox boundingBox;
 - (id)boundingBoxCopyPipeline;

@@ -34,7 +34,7 @@
 + (long long)protectionClass;
 + (id)indices;
 + (id)uniquedColumns;
-+ (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)tableAliases;
 + (id)databaseTable;
 

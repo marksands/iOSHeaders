@@ -6,12 +6,12 @@
 
 #import <PhotosUI/PUHorizontalAlbumListGadgetLayout.h>
 
-__attribute__((visibility("hidden")))
 @interface PUSingleHeightHorizontalAlbumListGadgetLayout : PUHorizontalAlbumListGadgetLayout
 {
 }
 
 - (struct CGSize)collectionViewContentSize;
+- (_Bool)pagingEnabled;
 
 @end
 

@@ -18,7 +18,8 @@
 + (_Bool)insertWorkoutEventsFromWorkout:(id)arg1 ownerID:(id)arg2 database:(id)arg3 error:(id *)arg4;
 + (id)insertPersistableWorkoutEvent:(id)arg1 ownerID:(id)arg2 database:(id)arg3 error:(id *)arg4;
 + (long long)protectionClass;
-+ (id)columnsDefinition;
++ (id)foreignKeys;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (Class)workoutEventClass;
 + (id)databaseTable;
 + (id)ownerEntityReferenceColumn;

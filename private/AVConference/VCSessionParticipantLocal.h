@@ -50,6 +50,7 @@ __attribute__((visibility("hidden")))
     _Bool _forcedAudioPriorityEnabled;
     VCVideoRule *_videoRule;
     _Bool _speechDetected;
+    struct opaqueVCVoiceDetector *_voiceDetector;
     double _fecRatio;
     NSMutableSet *_audioPayloadTypes;
     NSMutableSet *_videoPayloadTypes;
@@ -71,6 +72,7 @@ __attribute__((visibility("hidden")))
 - (void)handleActiveConnectionChange:(id)arg1;
 - (void)controller:(id)arg1 didChangeActiveVideoStreams:(id)arg2;
 - (void)pushAudioSamples:(struct opaqueVCAudioBufferList *)arg1;
+- (void)sourceFrameRateDidChange:(unsigned int)arg1;
 - (void)frameRateIsBeingThrottled:(int)arg1 thermalLevelDidChange:(_Bool)arg2 powerLevelDidChange:(_Bool)arg3;
 - (void)thermalLevelDidChange:(int)arg1;
 - (id)clientCaptureRule;
@@ -88,11 +90,14 @@ __attribute__((visibility("hidden")))
 - (void)flushVideoRedundancyEventQueue;
 - (void)processVideoEventQueue;
 - (void)enableRedundancy:(_Bool)arg1;
+- (void)updateUplinkStreamsForPeerSubscribedStreams:(id)arg1;
 - (void)generateKeyFrameWithStreamID:(unsigned short)arg1;
 - (void)setupEncodingModeWithVideoStreamConfig:(id)arg1;
 - (_Bool)setupVideoStreamWithConfiguration:(id)arg1 idsDestination:(id)arg2;
 - (void)setupVideoStreamConfig:(id)arg1 initialConfiguration:(id)arg2;
 - (void)updateAudioPriorityWithSampleBuffer:(struct opaqueVCAudioBufferList *)arg1;
+- (void)stopVoiceActivityDetection;
+- (void)startVoiceActivityDetection;
 - (_Bool)isHighPriorityAudioWithPower:(float)arg1 voiceActive:(_Bool)arg2;
 - (void)flushAudioRedundancyEventQueue;
 - (void)flushAudioEventQueue;
@@ -124,6 +129,7 @@ __attribute__((visibility("hidden")))
 - (unsigned int)calculateUplinkTotalBitrateForMediaStreams:(id)arg1;
 - (void)collectAudioChannelMetrics:(CDStruct_1c8e0384 *)arg1;
 - (void)collectVideoChannelMetrics:(CDStruct_1c8e0384 *)arg1;
+- (void)stopAudioIOCompletion;
 - (_Bool)setState:(unsigned int)arg1;
 - (void)deregisterForVideoCapture;
 - (void)registerForVideoCapture;

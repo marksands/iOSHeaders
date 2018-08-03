@@ -13,6 +13,8 @@
 + (id)appPredictionCacheDirectoryFile:(id)arg1;
 + (id)appPredictionCacheDirectory;
 + (id)appPredictionDirectoryFile:(id)arg1;
++ (void)createDataVault:(id)arg1;
++ (id)makeDirectory;
 + (id)appPredictionDirectory;
 
 @end

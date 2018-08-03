@@ -13,7 +13,7 @@
 + (id)entityEncoderForProfile:(id)arg1 database:(id)arg2 purpose:(long long)arg3 encodingOptions:(id)arg4 authorizationFilter:(CDUnknownBlockType)arg5;
 + (id)propertyForSyncProvenance;
 + (id)uniquedColumns;
-+ (id)columnsDefinition;
++ (const CDStruct_4c492439 *)columnDefinitionsWithCount:(unsigned long long *)arg1;
 + (id)databaseTable;
 + (id)_modDateForKey:(id)arg1 domain:(id)arg2 category:(long long)arg3 profile:(id)arg4 entity:(id *)arg5 error:(id *)arg6;
 + (id)_safeDomainWithDomain:(id)arg1;

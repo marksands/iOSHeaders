@@ -218,8 +218,6 @@
 + (void)applicationDidReceiveMemoryWarning:(id)arg1;
 + (void)applicationWillEnterForeground:(id)arg1;
 + (void)applicationDidEnterBackground:(id)arg1;
-+ (void)applicationDidRemoveDeactivationReason:(id)arg1;
-+ (void)applicationWillAddDeactivationReason:(id)arg1;
 + (void)viewServiceHostDidBecomeActive:(id)arg1;
 + (void)viewServiceHostWillResignActive:(id)arg1;
 + (void)applicationDidBecomeActive:(id)arg1;
@@ -313,6 +311,7 @@
 - (_Bool)isValidKeyInput:(id)arg1;
 - (void)cancelAllKeyEvents;
 - (void)dismissKeyboard;
+- (void)proceedShouldReturnIfNeededForASP;
 @property(nonatomic, getter=isInHardwareKeyboardMode) _Bool inHardwareKeyboardMode;
 - (void)showKeyboard;
 - (void)hideKeyboard;
@@ -646,8 +645,8 @@
 - (void)updateLayout;
 - (void)finishLayoutChangeWithArguments:(id)arg1;
 @property(readonly, nonatomic) _Bool shouldShowCandidateBar;
-- (_Bool)shouldShowCandidateBarIfReceivedCandidatesInCurrentInputMode:(_Bool)arg1;
-- (_Bool)currentKeyboardTraitsAllowCandidateBar;
+- (_Bool)shouldShowCandidateBarIfReceivedCandidatesInCurrentInputMode:(_Bool)arg1 ignoreHidePredictionTrait:(_Bool)arg2;
+- (_Bool)currentKeyboardTraitsAllowCandidateBarWhileIgnoringHidePredictionTrait:(_Bool)arg1;
 - (struct CGRect)subtractKeyboardFrameFromRect:(struct CGRect)arg1 inView:(id)arg2;
 - (void)geometryChangeDone:(_Bool)arg1;
 - (void)prepareForGeometryChange;
@@ -870,6 +869,7 @@
 - (void)_showAutofillExtras;
 - (_Bool)shouldLoadAutofillSignUpInputViewController;
 - (id)_passwordRules;
+- (id)_remoteAssociatedDomains;
 - (id)_remoteUnlocalizedAppName;
 - (id)_remoteLocalizedAppName;
 - (id)_remoteAppId;

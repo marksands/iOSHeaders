@@ -52,7 +52,6 @@
 - (id)_addAccountDetailLabel;
 - (id)_addAccountButton;
 - (void)_createSubviews;
-- (void)_updateMaxBalanceTransferButtonIfNecessary;
 - (_Bool)_shouldEnableMaxBalanceTransferButton;
 - (id)_tranferMessageLabel;
 - (id)_tranferTitleLabel;

@@ -35,6 +35,7 @@
 - (void)inputSystemService:(id)arg1 inputSessionDocumentDidChange:(id)arg2;
 - (void)inputSystemService:(id)arg1 inputSessionDidUnpause:(id)arg2 withReason:(id)arg3;
 - (void)inputSystemService:(id)arg1 inputSessionDidPause:(id)arg2 withReason:(id)arg3;
+- (void)inputSystemService:(id)arg1 inputSessionDidDie:(id)arg2;
 - (void)inputSystemService:(id)arg1 inputSessionDidEnd:(id)arg2;
 - (void)inputSystemService:(id)arg1 inputSessionDidBegin:(id)arg2;
 - (void)inputSystemService:(id)arg1 didCreateInputSession:(id)arg2;

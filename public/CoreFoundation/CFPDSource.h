@@ -37,7 +37,6 @@ __attribute__((visibility("hidden")))
     _Bool _waitingForDeviceUnlock;
     _Bool _watchingParentDirectory;
     _Bool _disableBackup;
-    _Bool _hasPreviouslyBeenUnableToDetermineSandboxAccess;
 }
 
 - (void)dealloc;
@@ -65,7 +64,7 @@ __attribute__((visibility("hidden")))
 - (_Bool)enqueueNewKey:(id)arg1 value:(id)arg2 size:(unsigned long long)arg3 encoding:(int)arg4;
 - (_Bool)hasObservers;
 - (void)drainPendingChanges;
-- (void)observingConnectionWasInvalidated:(unsigned long long)arg1;
+- (void)observingConnectionWasInvalidated:(id)arg1;
 - (void)asyncNotifyObserversOfWriteFromConnection:(id)arg1 message:(id)arg2;
 - (id)copyPropertyListValidatingPlist:(_Bool)arg1;
 - (id)copyPropertyListWithoutDrainingPendingChangesValidatingPlist:(_Bool)arg1;
